@@ -1,5 +1,21 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/button/mdc-button";
 
 body {
   margin: 0;
+}
+
+.hero {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 360px;
+  min-height: 360px;
+  background-color: rgba(0, 0, 0, .05);
+}
+
+.hero button {
+  margin-left: 32px;
+  margin-right: 32px;
 }
