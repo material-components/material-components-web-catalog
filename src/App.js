@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Button from './Button.js';
+import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 
 class App extends Component {
   render() {
     if (window.location.pathname === '/button.html') {
-      return <Button />
+      return <ButtonPage />
     }
 
     return (

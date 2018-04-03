@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderBar from './HeaderBar.js';
 
-class Button extends Component {
+class ButtonPage extends Component {
   render() {
     return (
       <HeaderBar title='Button'/>
@@ -9,4 +9,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default ButtonPage;
