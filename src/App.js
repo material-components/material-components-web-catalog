@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import './App.scss';
+import Button from './Button.js';
+import HeaderBar from './HeaderBar.js';
 
 class App extends Component {
   render() {
+    if (window.location.pathname === '/button.html') {
+      return <Button />
+    }
+
     return (
-      <header className='mdc-top-app-bar'>
-        <div className='mdc-top-app-bar__row'>
-          <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-            <span className='mdc-top-app-bar__title'>Material Components Web | Catalog</span>
-          </section>
-        </div>
-      </header>
+      <div>
+        <HeaderBar title='Material Components Web | Catalog'/>
+        <a href='/button.html'>Button</a>
+      </div>
     );
   }
 }

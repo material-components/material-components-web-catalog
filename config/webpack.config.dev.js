@@ -22,6 +22,9 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
+// List of all component names for generating the corresponding html pages.
+const components = ['button'];
+
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -234,6 +237,14 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
+  ].concat(components.map(componentName => {
+    // Generates an html page for each component with the <script> injected.
+    return new HtmlWebpackPlugin({
+      filename: `${componentName}.html`,
+      inject: true,
+      template: paths.appHtml
+    })
+  })).concat([
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:
@@ -256,7 +267,7 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  ],
+  ]),
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
   node: {
