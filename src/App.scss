@@ -1,8 +1,15 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/button/mdc-button";
+@import "@material/layout-grid/mdc-layout-grid";
+@import "@material/typography/mdc-typography";
+@import "@material/list/mdc-list";
 
 body {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 .hero {
@@ -18,4 +25,8 @@ body {
 .hero button {
   margin-left: 32px;
   margin-right: 32px;
+}
+
+.sidebar-active {
+  font-weight: 500;
 }
