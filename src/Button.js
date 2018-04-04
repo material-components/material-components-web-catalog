@@ -5,6 +5,11 @@ import Hero from './Hero.js';
 import {MDCRipple} from '@material/ripple';
 
 class ButtonHero extends Component {
+  componentDidMount() {
+    const buttons = document.querySelectorAll('.mdc-button');
+    buttons.forEach(button => new MDCRipple(button));
+  }
+
   render() {
     return (
       <div>
