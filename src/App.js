@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import './App.scss';
+import ButtonPage from './ButtonPage.js';
+import HeaderBar from './HeaderBar.js';
+
+const urlToComponentPageMap = {
+  '/button.html': <ButtonPage />,
+};
 
 class App extends Component {
   render() {
+    const componentPage = urlToComponentPageMap[window.location.pathname];
+    if (componentPage) {
+      return componentPage;
+    }
+
     return (
-      <header className='mdc-top-app-bar'>
-        <div className='mdc-top-app-bar__row'>
-          <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-            <span className='mdc-top-app-bar__title'>Material Components Web | Catalog</span>
-          </section>
-        </div>
-      </header>
+      <div>
+        <HeaderBar title='Material Components Web | Catalog'/>
+        <a href='/button.html'>Button</a>
+      </div>
     );
   }
 }
