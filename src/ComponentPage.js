@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.scss';
+
+import './ComponentPage.scss'
 
 class ComponentPage extends Component {
   constructor(props) {

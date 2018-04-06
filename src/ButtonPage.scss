@@ -1,0 +1,7 @@
+@import "@material/button/dist/mdc.button";
+@import "./App.scss";
+
+.hero button {
+  margin-left: 32px;
+  margin-right: 32px;
+}

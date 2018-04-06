@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import HeaderBar from './HeaderBar.js';
 import ComponentPage from './ComponentPage.js';
-
+import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple';
+
+import './ButtonPage.scss';
 
 class ButtonHero extends Component {
   componentDidMount() {
