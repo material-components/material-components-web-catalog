@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 
+import './App.scss';
+
 const urlToComponentPageMap = {
   '/button.html': <ButtonPage />,
 };
