@@ -99,7 +99,7 @@ class ButtonDemos extends Component {
   }
 }
 
-class Button extends Component {
+class ButtonPage extends Component {
   render() {
     return (
       <div>
@@ -120,4 +120,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default ButtonPage;

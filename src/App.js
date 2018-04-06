@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import Button from './Button.js';
+import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
+
+const urlToComponentPageMap = {
+  '/button.html': <ButtonPage />,
+};
 
 class App extends Component {
   render() {
-    if (window.location.pathname === '/button.html') {
-      return <Button />
+    const componentPage = urlToComponentPageMap[window.location.pathname];
+    if (componentPage) {
+      return componentPage;
     }
 
     return (
