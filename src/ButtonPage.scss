@@ -1,6 +1,9 @@
 @import "@material/button/dist/mdc.button";
 
-.hero button {
-  margin-left: 32px;
-  margin-right: 32px;
+.mdc-button {
+  margin: 8px 16px;
+}
+
+.hero .mdc-button {
+  margin: 16px 32px;
 }

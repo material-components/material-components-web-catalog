@@ -35,15 +35,15 @@ class ComponentPage extends Component {
 
               <h2 className='mdc-typography--title'>Resources</h2>
               <a href={this.props.designLink} role='listitem' className='mdc-list-item' target='_blank'>
-                <span className='mdc-list-item__graphic'><img src='material_design_black_24dp.png'/></span>
+                <span className='mdc-list-item__graphic'><img src='material_design_black_24dp.png' className='resources-icon'/></span>
                 <span className='mdc-list-item__text'>Material Design Guidelines</span>
               </a>
               <a href={this.props.docsLink} role='listitem' className='mdc-list-item' target='_blank'>
-                <span className='mdc-list-item__graphic'><img src='drive_document_black_24dp.png'/></span>
+                <span className='mdc-list-item__graphic'><img src='drive_document_black_24dp.png' className='resources-icon'/></span>
                 <span className='mdc-list-item__text'>Documentation</span>
               </a>
               <a href={this.props.sourceLink} role='listitem' className='mdc-list-item' target='_blank'>
-                <span className='mdc-list-item__graphic'><img src='code_black_24dp.png'/></span>
+                <span className='mdc-list-item__graphic'><img src='code_black_24dp.png' className='resources-icon'/></span>
                 <span className='mdc-list-item__text'>Source Code</span>
               </a>
 
