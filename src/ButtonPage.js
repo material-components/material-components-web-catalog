@@ -14,8 +14,7 @@ class ButtonPage extends Component {
           hero={<ButtonHero/>}
           sidebarComponentSelector='.sidebar-buttons'
           title='Buttons'
-          description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places
-          like dialogs, forms, cards, and toolbars.'
+          description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
           designLink='https://material.io/guidelines/components/buttons.html'
           docsLink='https://material.io/components/web/catalog/buttons/'
           sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
