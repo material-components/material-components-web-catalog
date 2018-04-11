@@ -57,9 +57,14 @@ class ButtonHero extends Component {
 }
 
 class ButtonDemos extends Component {
+  constructor(props) {
+    super(props);
+    this.initRipple = buttonEl => new MDCRipple(buttonEl);
+  }
+
   componentDidMount() {
     const buttons = document.querySelectorAll('.mdc-button');
-    buttons.forEach(button => new MDCRipple(button));
+    buttons.forEach(button => this.initRipple(button));
   }
 
   renderButtonVariant(title, variant) {
