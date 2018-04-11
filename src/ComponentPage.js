@@ -3,13 +3,8 @@ import React, { Component } from 'react';
 import './ComponentPage.scss'
 
 class ComponentPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {sidebarComponentSelector: props.sidebarComponentSelector};
-  }
-
   componentDidMount() {
-    const activeComponent = document.querySelector(this.state.sidebarComponentSelector);
+    const activeComponent = document.querySelector(this.props.sidebarComponentSelector);
     activeComponent.classList.add('sidebar-active');
   }
 
