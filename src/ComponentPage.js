@@ -3,32 +3,29 @@ import React, { Component } from 'react';
 import './ComponentPage.scss'
 
 class ComponentPage extends Component {
-  componentDidMount() {
-    const activeComponent = document.querySelector(this.props.sidebarComponentSelector);
-    activeComponent.classList.add('sidebar-active');
-  }
-
   renderSidebarLink(link, index) {
     return (
       <a
-        href={link.url} 
+        href={link.url}
         key={index}
         role='listitem'     
-        className={'mdc-list-item ' + link.className}>
+        className={'mdc-list-item ' + link.className + (link.active ? ' sidebar-active': '')}>
           {link.content}
        </a>
     );
   }
 
-  renderSidebar() {
+  renderSidebar(activeLink) {
     const links = [{
       content: 'Buttons',
       url: '/buttons.html',
       className: 'sidebar-buttons',
+      active: activeLink === 'Buttons',
     }, {
       content: 'Cards',
       url: '/card.html',
       className: 'sidebar-cards',
+      active: activeLink === 'Cards',
     }];
 
     return(
@@ -72,7 +69,7 @@ class ComponentPage extends Component {
         </section>
         <div className='mdc-layout-grid'>
           <div className='mdc-layout-grid__inner'>
-            {this.renderSidebar()}
+            {this.renderSidebar(this.props.title)}
             {this.renderDemoWrapper()}
           </div>
         </div>

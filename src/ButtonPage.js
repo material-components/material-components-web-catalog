@@ -12,7 +12,6 @@ class ButtonPage extends Component {
         <HeaderBar title='Button'/>
         <ComponentPage
           hero={<ButtonHero/>}
-          sidebarComponentSelector='.sidebar-buttons'
           title='Buttons'
           description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
           designLink='https://material.io/guidelines/components/buttons.html'
