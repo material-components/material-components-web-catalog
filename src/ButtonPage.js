@@ -28,27 +28,27 @@ class ButtonPage extends Component {
 class ButtonHero extends Component {
   constructor(props) {
     super(props);
-    this.initRipple = buttonEl => new MDCRipple(buttonEl);
+    this.ripples = [];
+    this.initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
   }
 
-  componentDidMount() {
-    const buttons = document.querySelectorAll('.mdc-button');
-    buttons.forEach(button => this.initRipple(button));
+  componentWillUnmount() {
+    this.ripples.forEach(ripple => ripple.destroy());
   }
 
   render() {
     return (
       <div>
-        <button className='mdc-button'>
+        <button className='mdc-button' ref={this.initRipple}>
           Text
         </button>
-        <button className='mdc-button mdc-button--raised'>
+        <button className='mdc-button mdc-button--raised' ref={this.initRipple}>
           Raised
         </button>
-        <button className='mdc-button mdc-button--unelevated'>
+        <button className='mdc-button mdc-button--unelevated' ref={this.initRipple}>
           Unelevated
         </button>
-        <button className='mdc-button mdc-button--stroked'>
+        <button className='mdc-button mdc-button--stroked' ref={this.initRipple}>
           Stroked
         </button>
       </div>
@@ -59,25 +59,25 @@ class ButtonHero extends Component {
 class ButtonDemos extends Component {
   constructor(props) {
     super(props);
-    this.initRipple = buttonEl => new MDCRipple(buttonEl);
+    this.ripples = [];
+    this.initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
   }
 
-  componentDidMount() {
-    const buttons = document.querySelectorAll('.mdc-button');
-    buttons.forEach(button => this.initRipple(button));
+  componentWillUnmount() {
+    this.ripples.forEach(ripple => ripple.destroy());
   }
 
   renderButtonVariant(title, variant) {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
-        <button className={'mdc-button ' + variant}>
+        <button className={'mdc-button ' + variant} ref={this.initRipple}>
           Default
         </button>
-        <button className={'mdc-button mdc-button--dense ' + variant}>
+        <button className={'mdc-button mdc-button--dense ' + variant} ref={this.initRipple}>
           Dense
         </button>
-        <button className={'mdc-button ' + variant}>
+        <button className={'mdc-button ' + variant} ref={this.initRipple}>
           <i className='material-icons mdc-button__icon'>favorite</i>
           Icon
         </button>
