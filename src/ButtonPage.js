@@ -62,64 +62,31 @@ class ButtonDemos extends Component {
     buttons.forEach(button => new MDCRipple(button));
   }
 
+  renderButtonVariant(title, variant) {
+    return (
+      <div>
+        <h3 className='mdc-typography--subheading2'>{title}</h3>
+        <button className={'mdc-button ' + variant}>
+          Default
+        </button>
+        <button className={'mdc-button mdc-button--dense ' + variant}>
+          Dense
+        </button>
+        <button className={'mdc-button ' + variant}>
+          <i className='material-icons mdc-button__icon'>favorite</i>
+          Icon
+        </button>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>Text Button</h3>
-        <div className='button-wrapper'>
-          <button className='mdc-button'>
-            Default
-          </button>
-          <button className='mdc-button mdc-button--dense'>
-            Dense
-          </button>
-          <button className='mdc-button'>
-            <i className='material-icons mdc-button__icon'>favorite</i>
-            Icon
-          </button>
-        </div>
-
-        <h3 className='mdc-typography--subheading2'>Raised Button</h3>
-        <div className='button-wrapper'>
-          <button className='mdc-button mdc-button--raised'>
-            Default
-          </button>
-          <button className='mdc-button mdc-button--raised mdc-button--dense'>
-            Dense
-          </button>
-          <button className='mdc-button mdc-button--raised'>
-            <i className='material-icons mdc-button__icon'>favorite</i>
-            Icon
-          </button>
-        </div>
-
-        <h3 className='mdc-typography--subheading2'>Unelevated Button</h3>
-        <div className='button-wrapper'>
-          <button className='mdc-button mdc-button--unelevated'>
-            Default
-          </button>
-          <button className='mdc-button mdc-button--unelevated mdc-button--dense'>
-            Dense
-          </button>
-          <button className='mdc-button mdc-button--unelevated'>
-            <i className='material-icons mdc-button__icon'>favorite</i>
-            Icon
-          </button>
-        </div>
-
-        <h3 className='mdc-typography--subheading2'>Stroked Button</h3>
-        <div className='button-wrapper'>
-          <button className='mdc-button mdc-button--stroked'>
-            Default
-          </button>
-          <button className='mdc-button mdc-button--stroked mdc-button--dense'>
-            Dense
-          </button>
-          <button className='mdc-button mdc-button--stroked'>
-            <i className='material-icons mdc-button__icon'>favorite</i>
-            Icon
-          </button>
-        </div>
+        {this.renderButtonVariant('Text Button')}
+        {this.renderButtonVariant('Raised Button', 'mdc-button--raised')}
+        {this.renderButtonVariant('Unelevated Button', 'mdc-button--unelevated')}
+        {this.renderButtonVariant('Stroked Button', 'mdc-button--stroked')}
       </div>
     );
   }
