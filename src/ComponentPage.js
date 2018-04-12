@@ -9,7 +9,7 @@ class ComponentPage extends Component {
         href={link.url}
         key={index}
         role='listitem'     
-        className={'mdc-list-item ' + link.className + (link.active ? ' sidebar-active': '')}>
+        className={`mdc-list-item ${link.className} ${link.active ? 'sidebar-active' : ''}`}>
           {link.content}
        </a>
     );
