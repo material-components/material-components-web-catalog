@@ -66,17 +66,17 @@ class ButtonDemos extends Component {
     this.ripples.forEach(ripple => ripple.destroy());
   }
 
-  renderButtonVariant(title, variant) {
+  renderButtonVariant(title, variantClass) {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
-        <button className={'mdc-button ' + variant} ref={this.initRipple}>
+        <button className={'mdc-button ' + variantClass} ref={this.initRipple}>
           Default
         </button>
-        <button className={'mdc-button mdc-button--dense ' + variant} ref={this.initRipple}>
+        <button className={'mdc-button mdc-button--dense ' + variantClass} ref={this.initRipple}>
           Dense
         </button>
-        <button className={'mdc-button ' + variant} ref={this.initRipple}>
+        <button className={'mdc-button ' + variantClass} ref={this.initRipple}>
           <i className='material-icons mdc-button__icon'>favorite</i>
           Icon
         </button>
