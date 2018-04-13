@@ -52,12 +52,12 @@ class ComponentPage extends Component {
         <h1 className='mdc-typography--headline'>{this.props.title}</h1>
         <p className='mdc-typography--body1'>{this.props.description}</p>
 
-        <h2 className='mdc-typography--title'>Resources</h2>
+        <h2 className='demo-title mdc-typography--title'>Resources</h2>
         {this.renderResource('Material Design Guidelines', 'material_design_black_24dp.png', this.props.designLink)}
         {this.renderResource('Documentation', 'drive_document_black_24dp.png', this.props.docsLink)}
         {this.renderResource('Source Code', 'code_black_24dp.png', this.props.sourceLink)}
 
-        <h2 className='mdc-typography--title'>Demos</h2>
+        <h2 className='demo-title mdc-typography--title'>Demos</h2>
         {this.props.demos}
       </section>
     );
