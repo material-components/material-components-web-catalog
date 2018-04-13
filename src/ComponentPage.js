@@ -38,7 +38,9 @@ class ComponentPage extends Component {
   renderResource(title, imageSource, url) {
     return (
       <a href={url} role='listitem' className='mdc-list-item' target='_blank'>
-        <span className='mdc-list-item__graphic'><img src={imageSource} className='resources-icon'/></span>
+        <span className='mdc-list-item__graphic'>
+          <img src={imageSource} className='resources-icon' alt={`${title} icon`}/>
+        </span>
         <span className='mdc-list-item__text'>{title}</span>
       </a>
     );
