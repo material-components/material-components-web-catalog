@@ -3,6 +3,11 @@
 @import "@material/image-list/mixins";
 @import "@material/ripple/dist/mdc.ripple";
 
+$breakpoints: (
+  mobile:  320px,
+  tablet:  599px,
+);
+
 body {
   margin: 0;
   padding-bottom: 100px;
@@ -17,9 +22,15 @@ body {
   padding-bottom: 1px;
 }
 
-@media (max-width: 599px) {
+@media (max-width: map-get($breakpoints, tablet)) {
   #catalog-image-list {
-    @include mdc-image-list-standard-columns(3);
+    @include mdc-image-list-standard-columns(3, 1px);
+  }
+}
+
+@media (max-width: map-get($breakpoints, mobile)) {
+  #catalog-image-list {
+    @include mdc-image-list-standard-columns(2, 1px);
   }
 }
 
