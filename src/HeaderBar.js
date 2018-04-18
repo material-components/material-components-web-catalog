@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './HeaderBar.scss'
+import './styles/HeaderBar.scss'
 
 class HeaderBar extends Component {
   render() {

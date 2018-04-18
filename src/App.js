@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 
-import './App.scss';
+import './styles/App.scss';
 
 const urlToComponentPageMap = {
-  '/button.html': <ButtonPage />,
+  '/button': <ButtonPage />,
 };
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
       <div>
         <HeaderBar title='Material Components Web | Catalog'/>
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-          {this.renderListItem('Button', '/images/ic_button_24px.svg', '/button.html')}
+          {this.renderListItem('Button', '/images/ic_button_24px.svg', '/button')}
         </ul>
       </div>
     );

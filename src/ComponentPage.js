@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './ComponentPage.scss'
+import './styles/ComponentPage.scss'
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
@@ -8,7 +8,7 @@ class ComponentPage extends Component {
       <a
         href={link.url}
         key={index}
-        role='listitem'     
+        role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
           {link.content}
        </a>
@@ -18,11 +18,11 @@ class ComponentPage extends Component {
   renderSidebar(activeLink) {
     const links = [{
       content: 'Button',
-      url: '/button.html',
+      url: '/button',
       active: activeLink === 'Button',
     }, {
       content: 'Card',
-      url: '/card.html',
+      url: '/card',
       active: activeLink === 'Card',
     }];
 
