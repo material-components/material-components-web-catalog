@@ -11,8 +11,9 @@ Developed by a core team of engineers and UX designers at Google, these componen
 
 Follow these steps to add a new component to the MDC Web demo catalog.
 
-1. Add a new file to the `src` directory for the JXS (e.g. `FooPage.js`). It should follow this template:
-```
+1. Add a new file to the `src` directory for the JSX (e.g. `FooPage.js`). It should follow this template:
+
+```js
 import React, { Component } from 'react';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
@@ -57,17 +58,19 @@ class FooDemos extends Component {
 
 export default FooPage;
 
-``` 
+```
 
 2. Add a new file to the `src` directory for the styling the demo page (e.g. `FooPage.scss`):
-```
+
+```js
 @import "@material/foo/dist/mdc.foo";
 
 // Custom styles here
 ```
 
 3. Add an entry in the `urlToComponentPageMap` in `App.js`:
-```
+
+```js
 const urlToComponentPageMap = {
   ...,
   '/foo.html': <FooPage />,
@@ -77,14 +80,16 @@ const urlToComponentPageMap = {
 4. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `public/images` directory.
 
 5. Render a new list item inside the `catalog-image-list` element in `App.js`:
-```
+
+```js
 {this.renderListItem('Foo', '/images/ic_foo_24px.svg', '/foo.html')}
 ```
 
 6. Add a new entry in the `links` in the `renderSidebar(...)` method in `ComponentPage.js`:
-```
+
+```js
 const links = [
-  ..., 
+  ...,
   {
     content: 'Foo',
     url: '/foo.html',
@@ -96,6 +101,7 @@ const links = [
 ## Development
 
 To start a local server of the catalog, run
+
 ```
 npm start
 ```
@@ -104,6 +110,7 @@ Then point your browser to http://localhost:3000/.
 ## Deployment
 
 To deploy the catalog to GitHub pages, run
+
 ```
 npm run deploy
 ```
