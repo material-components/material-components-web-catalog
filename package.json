@@ -58,8 +58,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "build": "node scripts/build.js"
   },
   "homepage": "https://material-components.github.io/material-components-web-catalog",
   "jest": {
