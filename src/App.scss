@@ -10,9 +10,11 @@ body {
 
 #catalog-image-list {
   @include mdc-image-list-aspect(1.25); // Images are 5:4
-  @include mdc-image-list-standard-columns(5);
+  @include mdc-image-list-standard-columns(5, 1px);
 
   max-width: 1000px;
+  background-color: #e8eaed;
+  padding-bottom: 1px;
 }
 
 @media (max-width: 599px) {
@@ -23,6 +25,7 @@ body {
 
 .catalog-image-list-item {
   text-decoration: none;
+  background-color: white;
 }
 
 .catalog-image-list-supporting {
