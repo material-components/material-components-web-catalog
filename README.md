@@ -20,26 +20,25 @@ import {MDCFoo} from '@material/foo';
 
 import './FooPage.scss';
 
-class FooPage extends Component {
-  render() {
-    return (
-      <div>
-        <HeaderBar title='Foo'/>
-        <ComponentPage
-          hero={<FooHero/>}
-          title='Foo'
-          description='A short description about the Foo component.'
-          designLink='https://material.io/guidelines/components/foo.html'
-          docsLink='https://material.io/components/web/catalog/foo/'
-          sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
-          demos={<FooDemos/>}
-        />
-      </div>
-    );
-  }
+const FooPage = () => {
+  return (
+    <div>
+      <HeaderBar title='Foo'/>
+      <ComponentPage
+        hero={<FooHero/>}
+        title='Foo'
+        description='A short description about the Foo component.'
+        designLink='https://material.io/guidelines/components/foo.html'
+        docsLink='https://material.io/components/web/catalog/foo/'
+        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
+        demos={<FooDemos/>}
+      />
+    </div>
+  );
 }
 
 class FooHero extends Component {
+  // Class methods for JS
   render() {
     return (
       // JSX for the Foo component's hero header
@@ -48,6 +47,7 @@ class FooHero extends Component {
 }
 
 class FooDemos extends Component {
+  // Class methods for JS
   render() {
     return (
       // JSX for the Foo component demos
