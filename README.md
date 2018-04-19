@@ -73,7 +73,7 @@ export default FooPage;
 ```js
 const urlToComponentPageMap = {
   ...,
-  '/foo.html': <FooPage />,
+  '/foo': <FooPage />,
 };
 ```
 
@@ -82,7 +82,7 @@ const urlToComponentPageMap = {
 5. Render a new list item inside the `catalog-image-list` element in `App.js`:
 
 ```js
-{this.renderListItem('Foo', '/images/ic_foo_24px.svg', '/foo.html')}
+{this.renderListItem('Foo', '/images/ic_foo_24px.svg', '/foo')}
 ```
 
 6. Add a new entry in the `links` in the `renderSidebar(...)` method in `ComponentPage.js`:
@@ -92,7 +92,7 @@ const links = [
   ...,
   {
     content: 'Foo',
-    url: '/foo.html',
+    url: '/foo',
     active: activeLink === 'Foo',
   }
 ];
