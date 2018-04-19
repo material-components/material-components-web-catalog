@@ -1,0 +1,53 @@
+@import "@material/typography/dist/mdc.typography";
+@import "@material/image-list/dist/mdc.image-list";
+@import "@material/image-list/mixins";
+@import "@material/ripple/dist/mdc.ripple";
+
+$breakpoints: (
+  mobile:  320px,
+  tablet:  599px,
+);
+
+body {
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+#catalog-image-list {
+  @include mdc-image-list-aspect(1.25); // Images are 5:4
+  @include mdc-image-list-standard-columns(5, 1px);
+
+  max-width: 1000px;
+  background-color: #e8eaed;
+  padding-bottom: 1px;
+}
+
+@media (max-width: map-get($breakpoints, tablet)) {
+  #catalog-image-list {
+    @include mdc-image-list-standard-columns(3, 1px);
+  }
+}
+
+@media (max-width: map-get($breakpoints, mobile)) {
+  #catalog-image-list {
+    @include mdc-image-list-standard-columns(2, 1px);
+  }
+}
+
+.catalog-image-list-item {
+  text-decoration: none;
+  background-color: white;
+}
+
+.catalog-image-list-supporting {
+  padding-left: 20px;
+}
+
+.catalog-image-list-label {
+  font-weight: 500;
+}
+
+.catalog-image-list-image {
+  width: 80px;
+  margin: auto;
+}

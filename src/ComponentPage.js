@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './ComponentPage.scss'
+import './styles/ComponentPage.scss'
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
@@ -8,8 +8,8 @@ class ComponentPage extends Component {
       <a
         href={link.url}
         key={index}
-        role='listitem'     
-        className={`mdc-list-item ${link.className} ${link.active ? 'sidebar-active' : ''}`}>
+        role='listitem'
+        className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
           {link.content}
        </a>
     );
@@ -17,15 +17,13 @@ class ComponentPage extends Component {
 
   renderSidebar(activeLink) {
     const links = [{
-      content: 'Buttons',
-      url: '/buttons.html',
-      className: 'sidebar-buttons',
-      active: activeLink === 'Buttons',
+      content: 'Button',
+      url: '/button',
+      active: activeLink === 'Button',
     }, {
-      content: 'Cards',
-      url: '/card.html',
-      className: 'sidebar-cards',
-      active: activeLink === 'Cards',
+      content: 'Card',
+      url: '/card',
+      active: activeLink === 'Card',
     }];
 
     return(
@@ -53,9 +51,9 @@ class ComponentPage extends Component {
         <p className='mdc-typography--body1'>{this.props.description}</p>
 
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', 'material_design_black_24dp.png', this.props.designLink)}
-        {this.renderResource('Documentation', 'drive_document_black_24dp.png', this.props.docsLink)}
-        {this.renderResource('Source Code', 'code_black_24dp.png', this.props.sourceLink)}
+        {this.renderResource('Material Design Guidelines', 'images/ic_material_design_24px.svg', this.props.designLink)}
+        {this.renderResource('Documentation', 'images/ic_drive_document_24px.svg', this.props.docsLink)}
+        {this.renderResource('Source Code', 'images/ic_code_24px.svg', this.props.sourceLink)}
 
         <h2 className='demo-title mdc-typography--title'>Demos</h2>
         {this.props.demos}
