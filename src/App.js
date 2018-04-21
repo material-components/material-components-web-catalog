@@ -5,7 +5,7 @@ import HeaderBar from './HeaderBar.js';
 import './styles/App.scss';
 
 const urlToComponentPageMap = {
-  '/button': <ButtonPage />,
+  '/material-components-web-catalog/button': <ButtonPage />,
 };
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
       <div>
         <HeaderBar title='Material Components Web | Catalog'/>
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-          {this.renderListItem('Button', '/images/ic_button_24px.svg', '/button')}
+          {this.renderListItem('Button', './images/ic_button_24px.svg', '/material-components-web-catalog/button')}
         </ul>
       </div>
     );

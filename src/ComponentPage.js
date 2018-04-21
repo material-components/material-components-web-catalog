@@ -6,7 +6,7 @@ class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={link.url}
+        href={`/material-components-web-catalog/${link.url}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
@@ -51,9 +51,9 @@ class ComponentPage extends Component {
         <p className='mdc-typography--body1'>{this.props.description}</p>
 
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', 'images/ic_material_design_24px.svg', this.props.designLink)}
-        {this.renderResource('Documentation', 'images/ic_drive_document_24px.svg', this.props.docsLink)}
-        {this.renderResource('Source Code', 'images/ic_code_24px.svg', this.props.sourceLink)}
+        {this.renderResource('Material Design Guidelines', './images/ic_material_design_24px.svg', this.props.designLink)}
+        {this.renderResource('Documentation', './images/ic_drive_document_24px.svg', this.props.docsLink)}
+        {this.renderResource('Source Code', './images/ic_code_24px.svg', this.props.sourceLink)}
 
         <h2 className='demo-title mdc-typography--title'>Demos</h2>
         {this.props.demos}
