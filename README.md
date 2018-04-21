@@ -82,7 +82,7 @@ const urlToComponentPageMap = {
 5. Render a new list item inside the `catalog-image-list` element in `App.js`:
 
 ```js
-{this.renderListItem('Foo', '/images/ic_foo_24px.svg', '/foo')}
+{this.renderListItem('Foo', './images/ic_foo_24px.svg', '/foo')}
 ```
 
 6. Add a new entry in the `links` in the `renderSidebar(...)` method in `ComponentPage.js`:
