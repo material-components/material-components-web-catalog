@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './styles/ComponentPage.scss'
+import './styles/ComponentPage.scss';
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
