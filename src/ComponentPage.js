@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-import './styles/ComponentPage.scss'
+import './styles/ComponentPage.scss';
+import materialLogo from './images/ic_material_design_24px.svg';
+import docsImg from './images/ic_drive_document_24px.svg';
+import codeImg from './images/ic_code_24px.svg';
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
@@ -49,11 +52,13 @@ class ComponentPage extends Component {
       <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
         <h1 className='mdc-typography--headline'>{this.props.title}</h1>
         <p className='mdc-typography--body1'>{this.props.description}</p>
-
+        <div className='hero'>
+          {this.props.hero}
+        </div>
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', './images/ic_material_design_24px.svg', this.props.designLink)}
-        {this.renderResource('Documentation', './images/ic_drive_document_24px.svg', this.props.docsLink)}
-        {this.renderResource('Source Code', './images/ic_code_24px.svg', this.props.sourceLink)}
+        {this.renderResource('Material Design Guidelines', materialLogo, this.props.designLink)}
+        {this.renderResource('Documentation', docsImg, this.props.docsLink)}
+        {this.renderResource('Source Code', codeImg, this.props.sourceLink)}
 
         <h2 className='demo-title mdc-typography--title'>Demos</h2>
         {this.props.demos}
@@ -63,15 +68,10 @@ class ComponentPage extends Component {
 
   render() {
     return (
-      <div>
-        <section className='hero'>
-          {this.props.hero}
-        </section>
-        <div className='mdc-layout-grid'>
-          <div className='mdc-layout-grid__inner'>
-            {this.renderSidebar(this.props.title)}
-            {this.renderDemoWrapper()}
-          </div>
+      <div className='mdc-layout-grid'>
+        <div className='mdc-layout-grid__inner'>
+          {this.renderSidebar(this.props.title)}
+          {this.renderDemoWrapper()}
         </div>
       </div>
     );
