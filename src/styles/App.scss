@@ -1,6 +1,7 @@
 @import "@material/typography/dist/mdc.typography";
 @import "@material/image-list/dist/mdc.image-list";
 @import "@material/image-list/mixins";
+@import "@material/theme/color-palette";
 @import "@material/ripple/dist/mdc.ripple";
 
 $breakpoints: (
@@ -32,13 +33,13 @@ body {
   }
 }
 .catalog-image-list-item-container {
-  background-color: #f5f5f5;
+  background-color: $material-color-grey-100;
 }
 
 .catalog-image-list-label {
   font-weight: 500;
   text-decoration: none;
-  color: #212121;
+  color: $material-color-grey-900;
 }
 
 .catalog-image-list-image {
