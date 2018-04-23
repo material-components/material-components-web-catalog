@@ -12,14 +12,16 @@ const urlToComponentPageMap = {
 class App extends Component {
   renderListItem(title, imageSource, url) {
     return (
-      <a href={url} className='catalog-image-list-item mdc-image-list__item mdc-ripple-surface'>
-        <div className='mdc-image-list__image-aspect-container'>
-          <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
+      <li className='catalog-image-list-item mdc-image-list__item'>
+        <a href={url}>
+          <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container'>
+            <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
+          </div>
+        </a>
+        <div className='mdc-image-list__supporting'>
+          <a href={url} className='catalog-image-list-label mdc-image-list__label'>{title}</a>
         </div>
-        <div className='catalog-image-list-supporting mdc-image-list__supporting'>
-          <span className='catalog-image-list-label mdc-image-list__label'>{title}</span>
-        </div>
-      </a>
+      </li>
     );
   }
 
