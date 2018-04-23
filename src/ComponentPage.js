@@ -9,7 +9,7 @@ class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`/material-components-web-catalog/${link.url}`}
+        href={`/material-components-web-catalog${link.url}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
@@ -21,7 +21,7 @@ class ComponentPage extends Component {
   renderSidebar(activeLink) {
     const links = [{
       content: 'Button',
-      url: '/material-components-web-catalog/button',
+      url: '/button',
       active: activeLink === 'Button',
     }];
 
