@@ -106,7 +106,7 @@ const links = [
   ...,
   {
     content: 'Foo',
-    url: '/material-components-web-catalog/foo',
+    url: '/foo',
     active: activeLink === 'Foo',
   }
 ];
