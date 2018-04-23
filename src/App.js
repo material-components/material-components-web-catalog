@@ -3,6 +3,7 @@ import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 
 import './styles/App.scss';
+import button_img from './images/ic_button_24px.svg';
 
 const urlToComponentPageMap = {
   '/material-components-web-catalog/button': <ButtonPage />,
@@ -31,7 +32,7 @@ class App extends Component {
       <div>
         <HeaderBar title='Material Components Web | Catalog'/>
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-          {this.renderListItem('Button', './images/ic_button_24px.svg', '/material-components-web-catalog/button')}
+          {this.renderListItem('Button', button_img, '/material-components-web-catalog/button')}
         </ul>
       </div>
     );
