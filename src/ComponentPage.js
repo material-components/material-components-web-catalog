@@ -21,12 +21,8 @@ class ComponentPage extends Component {
   renderSidebar(activeLink) {
     const links = [{
       content: 'Button',
-      url: '/button',
+      url: '/material-components-web-catalog/button',
       active: activeLink === 'Button',
-    }, {
-      content: 'Card',
-      url: '/card',
-      active: activeLink === 'Card',
     }];
 
     return(
