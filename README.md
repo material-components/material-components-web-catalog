@@ -68,12 +68,14 @@ export default FooPage;
 // Custom styles here
 ```
 
+Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
+
 3. Add an entry in the `urlToComponentPageMap` in `App.js`:
 
 ```js
 const urlToComponentPageMap = {
   ...,
-  '/foo': <FooPage />,
+  '/material-components-web-catalog/foo': <FooPage />,
 };
 ```
 
@@ -91,7 +93,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, '/foo')}
+      {this.renderListItem('Foo', fooImg, '/material-components-web-catalog/foo')}
     );
   }
 }

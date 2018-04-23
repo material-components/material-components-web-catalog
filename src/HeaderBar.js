@@ -21,7 +21,10 @@ class HeaderBar extends Component {
 
   renderLogo() {
     const isAtComponentPath = window.location.pathname.split('/material-components-web-catalog').length > 1;
-
+<a href='/material-components-web-catalog' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
+              <img src={materialComponentsLogo} alt='Material logo'/>
+            </a>
+            <span className='mdc-top-app-bar__title'>{this.props.t
     return (
       <a href='/' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
         {
