@@ -23,6 +23,10 @@ class ComponentPage extends Component {
       content: 'Button',
       url: '/button',
       active: activeLink === 'Button',
+    }, {
+      content: 'Image List',
+      url: '/image-list',
+      active: activeLink === 'Image List',
     }];
 
     return(
