@@ -8,6 +8,7 @@
     "@material/layout-grid": "^0.34.0",
     "@material/list": "^0.34.1",
     "@material/ripple": "^0.34.0",
+    "@material/theme": "^0.34.0",
     "@material/top-app-bar": "^0.33.0",
     "@material/typography": "^0.34.0",
     "ajv": "^6.4.0",

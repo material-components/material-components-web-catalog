@@ -8,7 +8,7 @@ import './styles/ButtonPage.scss';
 const ButtonPage = () => {
   return (
     <div>
-      <HeaderBar title='Button'/>
+      <HeaderBar />
       <ComponentPage
         hero={<ButtonHero/>}
         title='Button'
