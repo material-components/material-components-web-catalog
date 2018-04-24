@@ -19,8 +19,6 @@ import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
 import {MDCFoo} from '@material/foo/dist/mdc.foo';
 
-import './FooPage.scss';
-
 const FooPage = () => {
   return (
     <div>
@@ -60,15 +58,16 @@ export default FooPage;
 
 ```
 
-2. Add a new file to the `src` directory for the styling the demo page (e.g. `FooPage.scss`):
+2. Add a new file to the `src/styles` directory for the styling the demo page (e.g. `FooPage.scss`):
 
-```js
-@import "@material/foo/dist/mdc.foo";
+```css
+@import "@material/foo/mixins";
 
-// Custom styles here
+/* Custom styles here */
 ```
 
-Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
+Note that we didn't import `@material/foo/mdc-foo.scss` in FooPage.scss. It should instead be imported in the
+`src/styles/styles.js` file.
 
 3. Add an entry in the `urlToComponentPageMap` in `App.js`:
 
