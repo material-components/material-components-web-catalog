@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 
-import './styles/App.scss';
+import './styles/styles';
+
 import buttonImg from './images/ic_button_24px.svg';
 
 const urlToComponentPageMap = {
