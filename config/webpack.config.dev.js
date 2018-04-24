@@ -9,6 +9,8 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ManifestPlugin = require('webpack-manifest-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -161,8 +163,7 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.scss$/,
-            use: [
-              require.resolve('style-loader'),
+            use: ExtractTextPlugin.extract([
               {
                 loader: require.resolve('css-loader'),
                 options: {
@@ -195,7 +196,7 @@ module.exports = {
                   includePaths: ['./node_modules']
                 }
               },
-            ],
+            ]),
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -226,6 +227,11 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    new ExtractTextPlugin('[name].[contenthash:8].css'),
+    new ManifestPlugin({
+      fileName: './src/asset-manifest.json',
+      writeToFileEmit: true
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
