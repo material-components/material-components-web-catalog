@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
-import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
+import {MDCRipple} from '@material/ripple';
 
 import './styles/ButtonPage.scss';
 
