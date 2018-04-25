@@ -45,3 +45,10 @@ body {
   width: 80px;
   margin: auto;
 }
+
+// Needed until the following PR gets resolved
+// https://github.com/material-components/material-components-web/pull/2643
+.mdc-top-app-bar--fixed-adjust {
+  margin-top: 0;
+  padding-top: 64px;
+}
