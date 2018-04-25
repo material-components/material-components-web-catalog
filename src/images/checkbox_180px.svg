@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>checkbox_180px </title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <path d="M19,3 L5,3 C3.89,3 3,3.9 3,5 L3,19 C3,20.1 3.89,21 5,21 L19,21 C20.11,21 21,20.1 21,19 L21,5 C21,3.9 20.11,3 19,3 Z M10,17 L5,12 L6.41,10.59 L10,14.17 L17.59,6.58 L19,8 L10,17 Z" id="path-3"></path>
+        <path d="M19,5 L19,19 L5,19 L5,5 L19,5 Z M19,3 L5,3 C3.9,3 3,3.9 3,5 L3,19 C3,20.1 3.9,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 Z" id="path-5"></path>
+        <path d="M19,5 L19,19 L5,19 L5,5 L19,5 Z M19,3 L5,3 C3.9,3 3,3.9 3,5 L3,19 C3,20.1 3.9,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 Z" id="path-7"></path>
+        <path d="M19,5 L19,19 L5,19 L5,5 L19,5 Z M19,3 L5,3 C3.9,3 3,3.9 3,5 L3,19 C3,20.1 3.9,21 5,21 L19,21 C20.1,21 21,20.1 21,19 L21,5 C21,3.9 20.1,3 19,3 Z" id="path-9"></path>
+    </defs>
+    <g id="checkbox_180px-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dialog-/-Header-Copy-19">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g id="Selection-Control-/-Checkbox-/-On-/-Enabled" mask="url(#mask-2)">
+                <g transform="translate(78.000000, 27.000000)" id="Icon-/-Toggle-/-Checkbox-/-Fill">
+                    <g>
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="ic_check_box_24px" fill-rule="nonzero"></g>
+                        <g id="✱-/-Color-/-Icons-/-Primary-or-Secondary" mask="url(#mask-4)" fill="#212121" fill-rule="evenodd">
+                            <g id="✱-/-Color-/-Primary-/-Main">
+                                <g id="✱-/-Color-/-Primary-/-900">
+                                    <rect id="Rectangle-13" x="0" y="0" width="24" height="24"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="Selection-Control-/-Checkbox-/-Off-/-Enabled" mask="url(#mask-2)">
+                <g transform="translate(78.000000, 61.000000)" id="Icon-/-Toggle-/-Checkbox-Outline-/-Fill">
+                    <g>
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="ic_check_box_outline_blank_24px" fill-rule="nonzero"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-6)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="Selection-Control-/-Checkbox-/-Off-/-Enabled" mask="url(#mask-2)">
+                <g transform="translate(78.000000, 95.000000)" id="Icon-/-Toggle-/-Checkbox-Outline-/-Fill">
+                    <g>
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <g id="ic_check_box_outline_blank_24px" fill-rule="nonzero"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-8)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="Selection-Control-/-Checkbox-/-Off-/-Enabled" mask="url(#mask-2)">
+                <g transform="translate(78.000000, 129.000000)" id="Icon-/-Toggle-/-Checkbox-Outline-/-Fill">
+                    <g>
+                        <mask id="mask-10" fill="white">
+                            <use xlink:href="#path-9"></use>
+                        </mask>
+                        <g id="ic_check_box_outline_blank_24px" fill-rule="nonzero"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-10)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                            <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
