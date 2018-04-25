@@ -1,6 +1,6 @@
 # Material Components for the Web Catalog
 
-This is the [catalog of demos](https://material-components.github.io/material-components-web-catalog/) for Material Components for Web (MDC Web).
+This is the [catalog of demos](https://material-components.github.io/material-components-web-catalog/) for Material Components for the web (MDC Web).
 
 ## About
 
