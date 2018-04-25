@@ -50,7 +50,7 @@ class App extends Component {
       <div>
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-          {this.renderListItem('Button', buttonImg, `${process.env.PUBLIC_URL}/button`)}
+          {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button`)}
         </ul>
       </div>
     );

@@ -93,7 +93,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, `${process.env.PUBLIC_URL}/foo`)}
+      {this.renderListItem('Foo', fooImg, `${PUBLIC_URL}/foo`)}
     );
   }
 }
