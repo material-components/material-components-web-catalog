@@ -6,8 +6,8 @@ import {MDCRipple} from '@material/ripple';
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
 
-const urlToComponentPageMap = {
-  '/material-components-web-catalog/button': <ButtonPage />,
+const componentUrlToPageMap = {
+  '/button': <ButtonPage />,
 };
 
 class App extends Component {
@@ -38,16 +38,20 @@ class App extends Component {
   }
 
   render() {
-    const componentPage = urlToComponentPageMap[window.location.pathname];
+    const {PUBLIC_URL, NODE_ENV} = process.env;
+    const componentUrl = NODE_ENV === 'production' ?
+      window.location.pathname.split(PUBLIC_URL)[1] :
+      window.location.pathname;
+    const componentPage = componentUrlToPageMap[componentUrl];
     if (componentPage) {
       return componentPage;
     }
     return (
       <div>
         <HeaderBar isTopPage />
-          <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
-            {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
-          </ul>
+        <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
+          {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button`)}
+        </ul>
       </div>
     );
   }

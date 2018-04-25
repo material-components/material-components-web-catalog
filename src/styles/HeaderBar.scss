@@ -12,10 +12,3 @@
   font-family: Roboto Mono, serif;
   font-weight: 400;
 }
-
-// Needed until the following PR gets resolved
-// https://github.com/material-components/material-components-web/pull/2643
-.catalog-top-app-bar.mdc-top-app-bar--fixed-adjust {
-  margin-top: 0;
-  padding-top: 64px;
-}
