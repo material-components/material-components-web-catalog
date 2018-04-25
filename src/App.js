@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
+import {MDCRipple} from '@material/ripple';
 
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
@@ -10,11 +11,22 @@ const urlToComponentPageMap = {
 };
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.ripples = [];
+    this.initRipple = el => this.ripples.push(new MDCRipple(el));
+  }
+
+  componentWillUnmount() {
+    this.ripples.forEach(ripple => ripple.destroy());
+  }
+
   renderListItem(title, imageSource, url) {
     return (
       <li className='catalog-image-list-item mdc-image-list__item'>
         <a href={url}>
-          <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container'>
+          <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container mdc-ripple-surface'
+               ref={this.initRipple}>
             <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
           </div>
         </a>
