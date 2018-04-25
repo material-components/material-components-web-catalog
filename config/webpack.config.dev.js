@@ -144,8 +144,7 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: [paths.appSrc, /node_modules\/@material/],
-            exclude: [/node_modules\/@material\/dist/],
+            include: [paths.appSrc, paths.materialSrc],
             loader: require.resolve('babel-loader'),
             options: {
 
