@@ -1,10 +1,10 @@
 # Material Components for the Web Catalog
 
-This is the [catalog of demos](https://material-components.github.io/material-components-web-catalog/) for Material Components for Web (MDC Web).
+This is the [catalog of components](https://material-components.github.io/material-components-web-catalog/) for Material Components for the web (MDC Web).
 
 ## About
 
-[Material Components for Web (MDC Web)](https://github.com/material-components/material-components-web) help developers execute [Material Design](https://www.material.io).
+[Material Components for the web (MDC Web)](https://github.com/material-components/material-components-web) help developers execute [Material Design](https://www.material.io).
 Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.
 
 ## Adding a new component
@@ -17,7 +17,7 @@ Follow these steps to add a new component to the MDC Web demo catalog.
 import React, { Component } from 'react';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
-import {MDCFoo} from '@material/foo/dist/mdc.foo';
+import {MDCFoo} from '@material/foo';
 
 const FooPage = () => {
   return (
@@ -74,7 +74,7 @@ Note that we didn't import `@material/foo/mdc-foo.scss` in FooPage.scss. It shou
 ```js
 const urlToComponentPageMap = {
   ...,
-  '/material-components-web-catalog/foo': <FooPage />,
+  '/foo': <FooPage />,
 };
 ```
 
@@ -92,7 +92,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, '/material-components-web-catalog/foo')}
+      {this.renderListItem('Foo', fooImg, `${PUBLIC_URL}/foo`)}
     );
   }
 }

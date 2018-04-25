@@ -8,7 +8,7 @@ class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`/material-components-web-catalog${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>

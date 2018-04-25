@@ -9,8 +9,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const ManifestPlugin = require('webpack-manifest-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -114,6 +113,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx|mjs)$/,
+        include: paths.appSrc,
         enforce: 'pre',
         use: [
           {
@@ -125,7 +125,6 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appSrc,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -146,7 +145,7 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.materialSrc],
             loader: require.resolve('babel-loader'),
             options: {
 
@@ -228,10 +227,6 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new ExtractTextPlugin('[name].[contenthash:8].css'),
-    new ManifestPlugin({
-      fileName: './src/asset-manifest.json',
-      writeToFileEmit: true
-    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
