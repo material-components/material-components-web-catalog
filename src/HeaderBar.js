@@ -17,8 +17,8 @@ class HeaderBar extends Component {
                 className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <HeaderIcon isTopPage={this.props.isTopPage}/>
               <span className='mdc-top-app-bar__title catalog-top-app-bar__title'>
-            Material Components for Web
-          </span>
+              Material Components for Web
+              </span>
             </section>
           </div>
         </header>
