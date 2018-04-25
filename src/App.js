@@ -5,8 +5,8 @@ import HeaderBar from './HeaderBar.js';
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
 
-const urlToComponentPageMap = {
-  '/material-components-web-catalog/button': <ButtonPage />,
+const componentUrlToPageMap = {
+  '/button': <ButtonPage />,
 };
 
 class App extends Component {
@@ -26,7 +26,9 @@ class App extends Component {
   }
 
   render() {
-    const componentPage = urlToComponentPageMap[window.location.pathname];
+    const componentUrl =
+      process.env.PUBLIC_URL ? window.location.pathname.split(process.env.PUBLIC_URL)[1] : window.location.pathname;
+    const componentPage = componentUrlToPageMap[componentUrl];
     if (componentPage) {
       return componentPage;
     }
@@ -34,7 +36,7 @@ class App extends Component {
       <div>
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-          {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
+          {this.renderListItem('Button', buttonImg, `${process.env.PUBLIC_URL}/button`)}
         </ul>
       </div>
     );

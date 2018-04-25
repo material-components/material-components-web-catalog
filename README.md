@@ -1,6 +1,6 @@
 # Material Components for the Web Catalog
 
-This is the [catalog of demos](https://material-components.github.io/material-components-web-catalog/) for Material Components for Web (MDC Web).
+This is the [catalog of components](https://material-components.github.io/material-components-web-catalog/) for Material Components for Web (MDC Web).
 
 ## About
 
@@ -75,7 +75,7 @@ Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't ha
 ```js
 const urlToComponentPageMap = {
   ...,
-  '/material-components-web-catalog/foo': <FooPage />,
+  '/foo': <FooPage />,
 };
 ```
 
@@ -93,7 +93,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, '/material-components-web-catalog/foo')}
+      {this.renderListItem('Foo', fooImg, `${process.env.PUBLIC_URL}/foo`)}
     );
   }
 }

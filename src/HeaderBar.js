@@ -19,8 +19,9 @@ function HeaderBar(props) {
 }
 
 function HeaderIcon(props) {
+  const publicUrl = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : '/';
   return (
-    <a href='/material-components-web-catalog' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
+    <a href={publicUrl} className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
       {
         props.isTopPage ?
           <img src={materialComponentsLogo} alt='Material logo' /> :
