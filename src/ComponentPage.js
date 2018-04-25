@@ -5,6 +5,8 @@ import materialLogo from './images/ic_material_design_24px.svg';
 import docsImg from './images/ic_drive_document_24px.svg';
 import codeImg from './images/ic_code_24px.svg';
 
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
+
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
@@ -21,7 +23,7 @@ class ComponentPage extends Component {
   renderSidebar(activeLink) {
     const links = [{
       content: 'Button',
-      url: '/button',
+      url: `/button${pageExt}`,
       active: activeLink === 'Button',
     }];
 

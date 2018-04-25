@@ -75,7 +75,7 @@ Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't ha
 ```js
 const urlToComponentPageMap = {
   ...,
-  '/foo': <FooPage />,
+  [`/foo${pageExt}`]: <FooPage />,
 };
 ```
 
@@ -93,7 +93,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, `${PUBLIC_URL}/foo`)}
+      {this.renderListItem('Foo', fooImg, `${PUBLIC_URL}/foo${pageExt}`)}
     );
   }
 }
@@ -106,7 +106,7 @@ const links = [
   ...,
   {
     content: 'Foo',
-    url: '/foo',
+    url: `/foo${pageExt}`,
     active: activeLink === 'Foo',
   }
 ];
@@ -119,7 +119,18 @@ To start a local server of the catalog, run
 ```
 npm start
 ```
+
 Then point your browser to http://localhost:3000/.
+
+## Local Testing
+
+To run a build that can be locally tested using any HTTP server, run
+
+```
+npm run build:local
+```
+
+Then serve the top-level repository directory, and browse to http://localhost:<port>/material-components-web-catalog/.
 
 ## Deployment
 

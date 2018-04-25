@@ -6,8 +6,10 @@ import {MDCRipple} from '@material/ripple';
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
 
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
+
 const componentUrlToPageMap = {
-  '/button': <ButtonPage />,
+  [`/button${pageExt}`]: <ButtonPage />,
 };
 
 class App extends Component {
@@ -50,7 +52,7 @@ class App extends Component {
       <div>
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
-          {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button`)}
+          {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button${pageExt}`)}
         </ul>
       </div>
     );
