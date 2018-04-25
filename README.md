@@ -1,10 +1,10 @@
 # Material Components for the Web Catalog
 
-This is the [catalog of components](https://material-components.github.io/material-components-web-catalog/) for Material Components for Web (MDC Web).
+This is the [catalog of components](https://material-components.github.io/material-components-web-catalog/) for Material Components for the web (MDC Web).
 
 ## About
 
-[Material Components for Web (MDC Web)](https://github.com/material-components/material-components-web) help developers execute [Material Design](https://www.material.io).
+[Material Components for the web (MDC Web)](https://github.com/material-components/material-components-web) help developers execute [Material Design](https://www.material.io).
 Developed by a core team of engineers and UX designers at Google, these components enable a reliable development workflow to build beautiful and functional web projects.
 
 ## Adding a new component
@@ -60,7 +60,7 @@ export default FooPage;
 
 ```
 
-2. Add a new file to the `src` directory for the styling the demo page (e.g. `FooPage.scss`):
+2. Add a new file to the `src` directory for styling the demo page (e.g. `FooPage.scss`):
 
 ```js
 @import "@material/foo/dist/mdc.foo";

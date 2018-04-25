@@ -10,7 +10,7 @@ function HeaderBar(props) {
         <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
           <HeaderIcon isTopPage={props.isTopPage} />
           <span className='mdc-top-app-bar__title catalog-top-app-bar__title'>
-            Material Components for Web
+            Material Components for the web
           </span>
         </section>
       </div>
