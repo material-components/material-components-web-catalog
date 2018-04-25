@@ -112,6 +112,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx|mjs)$/,
+        include: paths.appSrc,
         enforce: 'pre',
         use: [
           {
@@ -123,7 +124,6 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appSrc,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -144,7 +144,8 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, /node_modules\/@material/],
+            exclude: [/node_modules\/@material\/dist/],
             loader: require.resolve('babel-loader'),
             options: {
 
