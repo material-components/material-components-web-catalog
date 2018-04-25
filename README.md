@@ -89,7 +89,7 @@ import fooImg from './images/ic_foo_24px.svg';
 
 ```js
 class App extends Component {
-  ...
+ // ...
   render() {
     return (
       ...
@@ -103,7 +103,7 @@ class App extends Component {
 
 ```js
 const links = [
-  ...,
+ // ...,
   {
     content: 'Foo',
     url: '/foo',

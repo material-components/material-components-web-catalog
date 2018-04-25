@@ -23,7 +23,12 @@ class ComponentPage extends Component {
       content: 'Button',
       url: '/button',
       active: activeLink === 'Button',
-    }];
+    }, {
+      content: 'Top App Bar',
+      url: '/top-app-bar',
+      active: activeLink === 'TopAppBar',
+    }
+    ];
 
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
@@ -64,7 +69,7 @@ class ComponentPage extends Component {
 
   render() {
     return (
-      <div className='mdc-layout-grid'>
+      <div className='mdc-layout-grid mdc-top-app-bar--fixed-adjust'>
         <div className='mdc-layout-grid__inner'>
           {this.renderSidebar(this.props.title)}
           {this.renderDemoWrapper()}
