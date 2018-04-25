@@ -10,7 +10,6 @@ const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeM
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -228,10 +227,6 @@ module.exports = {
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new ExtractTextPlugin('[name].[contenthash:8].css'),
-    new ManifestPlugin({
-      fileName: './src/asset-manifest.json',
-      writeToFileEmit: true
-    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
