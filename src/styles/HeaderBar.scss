@@ -1,5 +1,14 @@
 @import "@material/top-app-bar/dist/mdc.top-app-bar";
+@import "@material/theme/color-palette";
+@import "@material/top-app-bar/mixins";
 
-.demo-header {
+.catalog-top-app-bar {
+  @include mdc-top-app-bar-fill-color($material-color-grey-900);
   z-index: 2;
+}
+
+.catalog-top-app-bar__title {
+  text-transform: uppercase;
+  font-family: Roboto Mono, serif;
+  font-weight: 400;
 }

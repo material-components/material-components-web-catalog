@@ -34,15 +34,15 @@ class App extends Component {
       return componentPage;
     }
     return (
-        <div>
-          <HeaderBar title='Material Components Web | Catalog'/>
-          <div className='mdc-top-app-bar--fixed-adjust'>
-            <ul id='catalog-image-list' className='mdc-image-list standard-image-list '>
-              {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
-              {this.renderListItem('Top App Bar', topAppBarImg, '/material-components-web-catalog/top-app-bar')}
-            </ul>
-          </div>
+      <div>
+        <HeaderBar isTopPage />
+        <div className='mdc-top-app-bar--fixed-adjust'>
+          <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
+            {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
+            {this.renderListItem('Top App Bar', topAppBarImg, '/material-components-web-catalog/top-app-bar')}
+          </ul>
         </div>
+      </div>
     );
   }
 }

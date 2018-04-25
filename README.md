@@ -24,7 +24,7 @@ import './FooPage.scss';
 const FooPage = () => {
   return (
     <div>
-      <HeaderBar title='Foo'/>
+      <HeaderBar />
       <ComponentPage
         hero={<FooHero/>}
         title='Foo'
