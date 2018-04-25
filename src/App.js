@@ -38,8 +38,10 @@ class App extends Component {
   }
 
   render() {
-    const componentUrl =
-      process.env.PUBLIC_URL ? window.location.pathname.split(process.env.PUBLIC_URL)[1] : window.location.pathname;
+    const {PUBLIC_URL, NODE_ENV} = process.env;
+    const componentUrl = NODE_ENV === 'production' ?
+      window.location.pathname.split(PUBLIC_URL)[1] :
+      window.location.pathname;
     const componentPage = componentUrlToPageMap[componentUrl];
     if (componentPage) {
       return componentPage;

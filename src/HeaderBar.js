@@ -19,7 +19,8 @@ function HeaderBar(props) {
 }
 
 function HeaderIcon(props) {
-  const publicUrl = process.env.PUBLIC_URL ? process.env.PUBLIC_URL : '/';
+  const {PUBLIC_URL, NODE_ENV} = process.env;
+  const publicUrl = NODE_ENV === 'production' ? PUBLIC_URL : '/';
   return (
     <a href={publicUrl} className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
       {
