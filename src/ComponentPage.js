@@ -9,7 +9,7 @@ class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`/material-components-web-catalog${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
@@ -70,7 +70,7 @@ class ComponentPage extends Component {
   render() {
     return (
       <div className='mdc-top-app-bar--fixed-adjust'>
-        <div className='mdc-layout-grid '>
+        <div className='mdc-layout-grid'>
           <div className='mdc-layout-grid__inner'>
             {this.renderSidebar(this.props.title)}
             {this.renderDemoWrapper()}

@@ -2,22 +2,35 @@ import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import TopAppBarPage from './TopAppBarPage.js';
 import HeaderBar from './HeaderBar.js';
+import {MDCRipple} from '@material/ripple';
 
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
 import topAppBarImg from './images/ic_button_24px.svg';
 
-const urlToComponentPageMap = {
-  '/material-components-web-catalog/button': <ButtonPage />,
-  '/material-components-web-catalog/top-app-bar': <TopAppBarPage />,
+const componentUrlToPageMap = {
+  '/button': <ButtonPage />,
+  '/top-app-bar': <TopAppBarPage />,
+
 };
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.ripples = [];
+    this.initRipple = el => this.ripples.push(new MDCRipple(el));
+  }
+
+  componentWillUnmount() {
+    this.ripples.forEach(ripple => ripple.destroy());
+  }
+
   renderListItem(title, imageSource, url) {
     return (
       <li className='catalog-image-list-item mdc-image-list__item'>
         <a href={url}>
-          <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container'>
+          <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container mdc-ripple-surface'
+               ref={this.initRipple}>
             <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
           </div>
         </a>
@@ -29,7 +42,11 @@ class App extends Component {
   }
 
   render() {
-    const componentPage = urlToComponentPageMap[window.location.pathname];
+    const {PUBLIC_URL, NODE_ENV} = process.env;
+    const componentUrl = NODE_ENV === 'production' ?
+      window.location.pathname.split(PUBLIC_URL)[1] :
+      window.location.pathname;
+    const componentPage = componentUrlToPageMap[componentUrl];
     if (componentPage) {
       return componentPage;
     }
@@ -38,8 +55,8 @@ class App extends Component {
         <HeaderBar isTopPage />
         <div className='mdc-top-app-bar--fixed-adjust'>
           <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-            {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
-            {this.renderListItem('Top App Bar', topAppBarImg, '/material-components-web-catalog/top-app-bar')}
+            {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button`)}
+            {this.renderListItem('Top App Bar', topAppBarImg, `${PUBLIC_URL}/top-app-bar`)}
           </ul>
         </div>
       </div>

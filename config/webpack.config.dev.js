@@ -9,6 +9,7 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 
@@ -112,6 +113,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx|mjs)$/,
+        include: paths.appSrc,
         enforce: 'pre',
         use: [
           {
@@ -123,7 +125,6 @@ module.exports = {
             loader: require.resolve('eslint-loader'),
           },
         ],
-        include: paths.appSrc,
       },
       {
         // "oneOf" will traverse all following loaders until one will
@@ -144,7 +145,7 @@ module.exports = {
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
-            include: paths.appSrc,
+            include: [paths.appSrc, paths.materialSrc],
             loader: require.resolve('babel-loader'),
             options: {
 
@@ -161,8 +162,7 @@ module.exports = {
           // in development "style" loader enables hot editing of CSS.
           {
             test: /\.scss$/,
-            use: [
-              require.resolve('style-loader'),
+            use: ExtractTextPlugin.extract([
               {
                 loader: require.resolve('css-loader'),
                 options: {
@@ -195,7 +195,7 @@ module.exports = {
                   includePaths: ['./node_modules']
                 }
               },
-            ],
+            ]),
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
@@ -226,6 +226,7 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    new ExtractTextPlugin('[name].[contenthash:8].css'),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,

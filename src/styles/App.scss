@@ -1,6 +1,7 @@
 @import "@material/typography/dist/mdc.typography";
 @import "@material/image-list/dist/mdc.image-list";
 @import "@material/image-list/mixins";
+@import "@material/ripple/dist/mdc.ripple";
 @import "@material/theme/color-palette";
 
 $breakpoints: (
@@ -46,9 +47,9 @@ body {
   margin: auto;
 }
 
-//// Needed until the following PR gets resolved
-//// https://github.com/material-components/material-components-web/pull/2643
-//.mdc-top-app-bar--fixed-adjust {
-//  margin-top: 0;
-//  padding-top: 64px;
-//}
+// Needed until the following PR gets resolved
+// https://github.com/material-components/material-components-web/pull/2643
+.mdc-top-app-bar--fixed-adjust {
+  margin-top: 0;
+  padding-top: 64px;
+}
