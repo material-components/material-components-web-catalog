@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './styles/ComponentPage.scss';
 import materialLogo from './images/ic_material_design_24px.svg';
 import docsImg from './images/ic_drive_document_24px.svg';
 import codeImg from './images/ic_code_24px.svg';

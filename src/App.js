@@ -3,7 +3,8 @@ import ButtonPage from './ButtonPage.js';
 import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/App.scss';
+import './styles/styles';
+
 import buttonImg from './images/ic_button_24px.svg';
 
 const componentUrlToPageMap = {

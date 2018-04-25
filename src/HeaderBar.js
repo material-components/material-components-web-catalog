@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './styles/HeaderBar.scss';
 import materialComponentsLogo from './images/ic_component_24px_white.svg';
 
 function HeaderBar(props) {
