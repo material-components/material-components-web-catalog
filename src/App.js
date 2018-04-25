@@ -45,11 +45,9 @@ class App extends Component {
     return (
       <div>
         <HeaderBar isTopPage />
-        <div className='mdc-top-app-bar--fixed-adjust'>
-          <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
+          <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
             {this.renderListItem('Button', buttonImg, '/material-components-web-catalog/button')}
           </ul>
-        </div>
       </div>
     );
   }
