@@ -89,7 +89,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, `${PUBLIC_URL}/foo`)}
+      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, 'foo')}
     );
   }
 }
@@ -115,7 +115,18 @@ To start a local server of the catalog, run
 ```
 npm start
 ```
+
 Then point your browser to http://localhost:3000/.
+
+## Local Testing
+
+To run a build that can be locally tested using any HTTP server, run
+
+```
+npm run build:local
+```
+
+Then serve the top-level repository directory, and browse to http://localhost:<port>/material-components-web-catalog/.
 
 ## Deployment
 

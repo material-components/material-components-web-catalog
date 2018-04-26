@@ -9,7 +9,7 @@ const url = require('url');
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-const envPublicUrl = process.env.PUBLIC_URL;
+const {MDC_NO_JEKYLL, PUBLIC_URL} = process.env;
 
 function ensureSlash(path, needsSlash) {
   const hasSlash = path.endsWith('/');
@@ -23,7 +23,7 @@ function ensureSlash(path, needsSlash) {
 }
 
 const getPublicUrl = appPackageJson =>
-  envPublicUrl || require(appPackageJson).homepage;
+  PUBLIC_URL || require(appPackageJson).homepage;
 
 // We use `PUBLIC_URL` environment variable or "homepage" field to infer
 // "public path" at which the app is served.
@@ -34,14 +34,14 @@ const getPublicUrl = appPackageJson =>
 function getServedPath(appPackageJson) {
   const publicUrl = getPublicUrl(appPackageJson);
   const servedUrl =
-    envPublicUrl || (publicUrl ? url.parse(publicUrl).pathname : '/');
+    PUBLIC_URL || (publicUrl ? url.parse(publicUrl).pathname : '/');
   return ensureSlash(servedUrl, true);
 }
 
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp(MDC_NO_JEKYLL ? 'material-components-web-catalog' : 'build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
   appIndexJs: resolveApp('src/index.js'),

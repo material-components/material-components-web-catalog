@@ -1,4 +1,5 @@
 node_modules
 /build
+/material-components-web-catalog
 .DS_Store
 .idea

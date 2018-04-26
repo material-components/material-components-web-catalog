@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
 
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
+
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`${process.env.PUBLIC_URL}${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
