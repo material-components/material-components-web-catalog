@@ -12,18 +12,25 @@ class ComponentPage extends Component {
         href={`${process.env.PUBLIC_URL}${link.url}`}
         key={index}
         role='listitem'
-        className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
+        className={`mdc-list-item mdc-typography--body1 ${link.active ? 'sidebar-active' : ''}`}>
           {link.content}
        </a>
     );
   }
 
   renderSidebar(activeLink) {
-    const links = [{
-      content: 'Button',
-      url: '/button',
-      active: activeLink === 'Button',
-    }];
+    const links = [
+      {
+        content: 'Button',
+        url: '/button',
+        active: activeLink === 'Button',
+      },
+      {
+        content: 'Card',
+        url: '/card',
+        active: activeLink === 'Card',
+      },
+    ];
 
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
@@ -46,17 +53,17 @@ class ComponentPage extends Component {
   renderDemoWrapper() {
     return(
       <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
-        <h1 className='mdc-typography--headline'>{this.props.title}</h1>
+        <h1 className='mdc-typography--headline5'>{this.props.title}</h1>
         <p className='mdc-typography--body1'>{this.props.description}</p>
         <div className='hero'>
           {this.props.hero}
         </div>
-        <h2 className='demo-title mdc-typography--title'>Resources</h2>
+        <h2 className='demo-title mdc-typography--headline6'>Resources</h2>
         {this.renderResource('Material Design Guidelines', materialLogo, this.props.designLink)}
         {this.renderResource('Documentation', docsImg, this.props.docsLink)}
         {this.renderResource('Source Code', codeImg, this.props.sourceLink)}
 
-        <h2 className='demo-title mdc-typography--title'>Demos</h2>
+        <h2 className='demo-title mdc-typography--headline6'>Demos</h2>
         {this.props.demos}
       </section>
     );

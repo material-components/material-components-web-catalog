@@ -1,17 +1,18 @@
 @import "@material/layout-grid/dist/mdc.layout-grid";
 @import "@material/list/dist/mdc.list";
+@import "@material/typography/mixins";
 
 .hero {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  height: 360px;
   min-height: 360px;
+  padding: 24px;
   background-color: rgba(0, 0, 0, .05);
 }
 
-.sidebar-active {
+.sidebar-active.mdc-list-item {
   font-weight: 600;
 }
 

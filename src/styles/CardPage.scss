@@ -1,0 +1,126 @@
+// Pre-compiled CSS
+@import "@material/button/dist/mdc.button";
+@import "@material/card/dist/mdc.card";
+@import "@material/icon-toggle/dist/mdc.icon-toggle";
+@import "@material/ripple/dist/mdc.ripple";
+
+// Sass mixins
+@import "@material/ripple/mixins";
+@import "@material/rtl/mixins";
+@import "@material/theme/mixins";
+@import "@material/theme/variables";
+
+//
+// Card container
+//
+
+.demo-card {
+  width: 350px;
+  margin: 48px 0;
+}
+
+.demo-card--hero {
+  margin: 0;
+}
+
+.demo-card--photo {
+  width: 200px;
+}
+
+.demo-card__actions--full-bleed {
+  min-height: 40px;
+}
+
+//
+// Images
+//
+
+.demo-card__media-content--with-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.demo-card__media-title {
+  padding: 8px 16px;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 100%);
+  color: white;
+}
+
+//
+// Book card
+//
+
+.demo-card__primary {
+  padding: 1rem;
+}
+
+.demo-card__title {
+  margin: 0;
+}
+
+.demo-card__subtitle {
+  @include mdc-theme-prop(color, text-secondary-on-background);
+
+  margin: 0;
+}
+
+.demo-card__secondary {
+  @include mdc-theme-prop(color, text-secondary-on-background);
+
+  padding: 0 1rem 8px 1rem;
+}
+
+//
+// Headlines card
+//
+
+.demo-card-article-group-heading {
+  @include mdc-theme-prop(color, text-secondary-on-light);
+
+  padding: 8px 16px;
+}
+
+.demo-card-article {
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.demo-card-article__title {
+  margin: 0 0 4px 0;
+}
+
+.demo-card-article__snippet {
+  @include mdc-theme-prop(color, text-secondary-on-light);
+
+  margin: 0;
+}
+
+//
+// Music card
+//
+
+.demo-card__music-row {
+  display: flex;
+}
+
+.demo-card__media--music {
+  width: 110px;
+}
+
+.demo-card__music-info {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 16px;
+}
+
+.demo-card__action-buttons--text-only {
+  margin-left: 8px;
+}
+
+.demo-card__action-icon--star {
+  padding: 4px;
+  cursor: pointer;
+}
