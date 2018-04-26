@@ -43,77 +43,34 @@
         <polygon id="path-11" points="11 5 11 11 5 11 5 13 11 13 11 19 13 19 13 13 19 13 19 11 13 11 13 5"></polygon>
     </defs>
     <g id="floating_action_button_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <g id="Mask"></g>
-            <g id="FAB-/-Standard-/-Circular-/-Enabled" mask="url(#mask-2)">
-                <g transform="translate(16.000000, 62.000000)">
-                    <mask id="mask-4" fill="white">
-                        <use xlink:href="#path-3"></use>
-                    </mask>
-                    <g id="Surface" stroke="none" fill="none">
-                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-3"></use>
-                        <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-3"></use>
-                    </g>
-                    <g id="✱-/-Color-/-Secondary-/-Main" stroke="none" fill="none" mask="url(#mask-4)" fill-rule="evenodd">
-                        <g id="✱-/-Color-/-Primary-/-Main" fill="#212121">
-                            <g id="✱-/-Color-/-Primary-/-500">
-                                <rect id="Rectangle-13" x="0" y="0" width="56" height="56"></rect>
-                            </g>
-                        </g>
-                    </g>
-                    <g id="Icon-/-Add-/-Fill" stroke="none" fill="none" mask="url(#mask-4)">
-                        <g transform="translate(16.000000, 16.000000)">
-                            <mask id="mask-7" fill="white">
-                                <use xlink:href="#path-6"></use>
-                            </mask>
-                            <g id="Mask" stroke="none" fill="none"></g>
-                            <g id="✱-/-Color-/-Icons-/-White-/-Active" stroke="none" fill="none" mask="url(#mask-7)" fill-rule="evenodd">
-                                <rect id="Rectangle-13" fill="#FFFFFF" x="0" y="0" width="24" height="24"></rect>
-                            </g>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Mask"></g>
+        <g id="FAB-/-Standard-/-Circular-/-Enabled" mask="url(#mask-2)">
+            <g transform="translate(60.000000, 62.000000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Surface" stroke="none" fill="none">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-3"></use>
+                    <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <g id="✱-/-Color-/-Secondary-/-Main" stroke="none" fill="none" mask="url(#mask-4)" fill-rule="evenodd">
+                    <g id="✱-/-Color-/-Primary-/-Main" fill="#212121">
+                        <g id="✱-/-Color-/-Primary-/-500">
+                            <rect id="Rectangle-13" x="0" y="0" width="56" height="56"></rect>
                         </g>
                     </g>
                 </g>
-            </g>
-            <g id="Icon" mask="url(#mask-2)">
-                <g transform="translate(178.600000, 80.600000)" id="✱-/-Color-/-Icons-/-White-/-Active">
-                    <g>
-                        <rect id="Rectangle-13" fill="#FFFFFF" x="0" y="0" width="18.9530864" height="18.9530864"></rect>
-                    </g>
-                </g>
-            </g>
-            <g id="FAB-/-Extended-/-Enabled" mask="url(#mask-2)">
-                <g transform="translate(90.000000, 66.000000)">
-                    <mask id="mask-9" fill="white">
-                        <use xlink:href="#path-8"></use>
-                    </mask>
-                    <g id="Surface" stroke="none" fill="none">
-                        <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-8"></use>
-                        <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-8"></use>
-                    </g>
-                    <g id="✱-/-Color-/-Primary-/-Main" stroke="none" fill="none" mask="url(#mask-9)" fill-rule="evenodd">
-                        <g id="✱-/-Color-/-Primary-/-500" fill="#212121">
-                            <rect id="Rectangle-13" x="0" y="0" width="138" height="48"></rect>
-                        </g>
-                    </g>
-                    <g id="✱-/-Text-/-Button-/-White-/-High-Emphasis-/-Left" stroke="none" fill="none" mask="url(#mask-9)" font-family="Roboto-Medium, Roboto" font-size="14" font-weight="400" letter-spacing="1.25" line-spacing="16">
-                        <g transform="translate(48.000000, 16.000000)" id="Button">
-                            <text>
-                                <tspan x="0" y="13" fill="#FFFFFF">BUTTON</tspan>
-                            </text>
-                        </g>
-                    </g>
-                    <g id="Icon-/-Add-/-Fill" stroke="none" fill="none" mask="url(#mask-9)">
-                        <g transform="translate(16.000000, 12.000000)">
-                            <mask id="mask-12" fill="white">
-                                <use xlink:href="#path-11"></use>
-                            </mask>
-                            <g id="Mask" stroke="none" fill="none"></g>
-                            <g id="✱-/-Color-/-Icons-/-White-/-Active" stroke="none" fill="none" mask="url(#mask-12)" fill-rule="evenodd">
-                                <rect id="Rectangle-13" fill="#FFFFFF" x="0" y="0" width="24" height="24"></rect>
-                            </g>
+                <g id="Icon-/-Add-/-Fill" stroke="none" fill="none" mask="url(#mask-4)">
+                    <g transform="translate(16.000000, 16.000000)">
+                        <mask id="mask-7" fill="white">
+                            <use xlink:href="#path-6"></use>
+                        </mask>
+                        <g id="Mask" stroke="none" fill="none"></g>
+                        <g id="✱-/-Color-/-Icons-/-White-/-Active" stroke="none" fill="none" mask="url(#mask-7)" fill-rule="evenodd">
+                            <rect id="Rectangle-13" fill="#FFFFFF" x="0" y="0" width="24" height="24"></rect>
                         </g>
                     </g>
                 </g>

@@ -32,7 +32,7 @@ class App extends Component {
         <a href={fullUrl}>
           <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container mdc-ripple-surface'
                ref={this.initRipple}>
-            <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
+            <img className='mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
           </div>
         </a>
         <div className='mdc-image-list__supporting'>
@@ -56,7 +56,7 @@ class App extends Component {
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/ic_button_24px.svg`, 'button')}
-          {this.renderListItem('Fab', `${imagePath}/ic_button_24px.svg`, 'fab')}
+          {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
         </ul>
       </div>
     );
