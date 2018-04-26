@@ -12,7 +12,7 @@ const TopAppBarPage = () => {
         <ComponentPage
             hero={<TopAppBarHero/>}
             title='Top App Bar'
-            description='Top App Bars do stuff'
+            description='Top App Bars are a container for items such as application title, navigation icon, and action items.'
             designLink='https://material.io/guidelines/components/app-bar-top.html'
             docsLink='https://material.io/components/web/catalog/topappbars/'
             sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
