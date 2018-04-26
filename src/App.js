@@ -53,7 +53,7 @@ class App extends Component {
       <div>
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
-          {this.renderListItem('Button', `${imagePath}/ic_button_24px.svg`, 'button')}
+          {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
         </ul>
       </div>
     );

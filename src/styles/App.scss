@@ -9,6 +9,8 @@ $breakpoints: (
   tablet:  599px,
 );
 
+$component-list-gutter-size: 8px;
+
 body {
   margin: 0;
   padding-bottom: 100px;
@@ -16,20 +18,20 @@ body {
 
 #catalog-image-list {
   @include mdc-image-list-aspect(1); // Images are square
-  @include mdc-image-list-standard-columns(5, 6px);
+  @include mdc-image-list-standard-columns(5, $component-list-gutter-size);
 
   max-width: 1000px;
 }
 
 @media (max-width: map-get($breakpoints, tablet)) {
   #catalog-image-list {
-    @include mdc-image-list-standard-columns(3, 6px);
+    @include mdc-image-list-standard-columns(3, $component-list-gutter-size);
   }
 }
 
 @media (max-width: map-get($breakpoints, mobile)) {
   #catalog-image-list {
-    @include mdc-image-list-standard-columns(2, 6px);
+    @include mdc-image-list-standard-columns(2, $component-list-gutter-size);
   }
 }
 .catalog-image-list-item-container {
@@ -40,11 +42,6 @@ body {
   font-weight: 500;
   text-decoration: none;
   color: $material-color-grey-900;
-}
-
-.catalog-image-list-image {
-  width: 80px;
-  margin: auto;
 }
 
 // Needed until the following PR gets resolved
