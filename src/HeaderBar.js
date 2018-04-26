@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 import './styles/HeaderBar.scss';
-import materialComponentsLogo from './images/ic_component_24px_white.svg';
 import {MDCTopAppBar} from '@material/top-app-bar';
+import {imagePath} from './constants';
 
 class HeaderBar extends Component {
   componentDidMount() {
@@ -33,7 +33,7 @@ function HeaderIcon(props) {
     <a href={publicUrl} className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
       {
         props.isTopPage ?
-          <img src={materialComponentsLogo} alt='Material logo' /> :
+          <img src={`${imagePath}/ic_component_24px_white.svg`} alt='Material logo' /> :
           <i className='material-icons' alt='Back button'>&#xE5C4;</i>
       }
     </a>
