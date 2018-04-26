@@ -106,7 +106,7 @@ const links = [
   ...,
   {
     content: 'Foo',
-    url: `/foo${pageExt}`,
+    url: `/foo`,
     active: activeLink === 'Foo',
   }
 ];

@@ -11,7 +11,7 @@ class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`${process.env.PUBLIC_URL}${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
@@ -23,7 +23,7 @@ class ComponentPage extends Component {
   renderSidebar(activeLink) {
     const links = [{
       content: 'Button',
-      url: `/button${pageExt}`,
+      url: '/button',
       active: activeLink === 'Button',
     }];
 
