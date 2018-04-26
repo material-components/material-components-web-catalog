@@ -75,7 +75,7 @@ Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't ha
 ```js
 const urlToComponentPageMap = {
   ...,
-  [`/foo${pageExt}`]: <FooPage />,
+  '/foo': <FooPage />,
 };
 ```
 
@@ -89,7 +89,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, `${PUBLIC_URL}/foo${pageExt}`)}
+      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, 'foo')}
     );
   }
 }
@@ -102,7 +102,7 @@ const links = [
   ...,
   {
     content: 'Foo',
-    url: `/foo`,
+    url: '/foo',
     active: activeLink === 'Foo',
   }
 ];
