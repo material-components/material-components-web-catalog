@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
 import TopAppBarPage from './TopAppBarPage.js';
-import TopAppBarDensePage from './iframes/TopAppBarDensePage';
-import TopAppBarFixedPage from './iframes/TopAppBarFixedPage';
-import TopAppBarStandardPage from './iframes/TopAppBarStandardPage';
-import TopAppBarProminentPage from './iframes/TopAppBarProminentPage';
-import TopAppBarShortPage from './iframes/TopAppBarShortPage';
-import TopAppBarShortCollapsedPage from './iframes/TopAppBarShortCollapsedPage';
+import TopAppBarStandardPage from './iframes/TopAppBarFramePage';
 import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
@@ -16,12 +11,12 @@ import './styles/App.scss';
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/top-app-bar': <TopAppBarPage />,
-  '/top-app-bar/dense': <TopAppBarDensePage />,
-  '/top-app-bar/fixed': <TopAppBarFixedPage />,
-  '/top-app-bar/standard': <TopAppBarStandardPage />,
-  '/top-app-bar/prominent': <TopAppBarProminentPage />,
-  '/top-app-bar/short': <TopAppBarShortPage />,
-  '/top-app-bar/short-collapsed': <TopAppBarShortCollapsedPage />,
+  '/top-app-bar/dense': <TopAppBarStandardPage type={'dense'}/>,
+  '/top-app-bar/fixed': <TopAppBarStandardPage type={'fixed'}/>,
+  '/top-app-bar/standard': <TopAppBarStandardPage type={'standard'}/>,
+  '/top-app-bar/prominent': <TopAppBarStandardPage type={'prominent'}/>,
+  '/top-app-bar/short': <TopAppBarStandardPage type={'short'}/>,
+  '/top-app-bar/short-collapsed': <TopAppBarStandardPage type={'shortCollapsed'}/>,
 
 };
 
