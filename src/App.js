@@ -30,7 +30,7 @@ class App extends Component {
         <a href={fullUrl}>
           <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container mdc-ripple-surface'
                ref={this.initRipple}>
-            <img className='catalog-image-list-image mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
+            <img className='mdc-image-list__image' src={imageSource} alt={`${title} icon`}/>
           </div>
         </a>
         <div className='mdc-image-list__supporting'>
