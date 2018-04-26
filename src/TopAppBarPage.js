@@ -40,19 +40,19 @@ class TopAppBarHero extends Component {
   render() {
     return (
         <div className='hero-top-app-bar'>
-        <header className='mdc-top-app-bar'>
-          <div className='mdc-top-app-bar__row'>
-            <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <a tabIndex='0' className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</a>
-              <span className='mdc-top-app-bar__title'>Title</span>
-            </section>
-            <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-              <a tabIndex='0' className='material-icons mdc-top-app-bar__action-item' aria-label='Download' alt='Download' ref={this.initRipple}>file_download</a>
-              <a tabIndex='0' className='material-icons mdc-top-app-bar__action-item' aria-label='Print this page' alt='Print this page' ref={this.initRipple}>print</a>
-              <a tabIndex='0' className='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page' alt='Bookmark this page' ref={this.initRipple}>bookmark</a>
-            </section>
-          </div>
-        </header>
+          <header className='mdc-top-app-bar'>
+            <div className='mdc-top-app-bar__row'>
+              <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
+                <a className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</a>
+                <span className='mdc-top-app-bar__title'>San Francisco</span>
+              </section>
+              <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
+                <button className='material-icons mdc-top-app-bar__action-item' aria-label='Download' ref={this.initRipple}>file_download</button>
+                <button className='material-icons mdc-top-app-bar__action-item' aria-label='Print this page' ref={this.initRipple}>print</button>
+                <button className='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
+              </section>
+            </div>
+          </header>
         </div>
     );
   }
