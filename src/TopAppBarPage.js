@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
+
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
 import './styles/TopAppBarPage.scss';
 
@@ -58,69 +59,27 @@ class TopAppBarHero extends Component {
 }
 
 class TopAppBarDemos extends Component {
-  constructor(props) {
-    super(props);
-    this.ripples = [];
-    this.initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
-  }
-
-  componentWillUnmount() {
-    this.ripples.forEach(ripple => ripple.destroy());
-  }
-
-  renderTopAppBarPages(title, variantClass) {
+  render() {
     return (
-        <div className='demo'>
-          <h3 className='mdc-typography--subheading2'>{title}</h3>
-          <div>
-            <iframe className='frame' title={title} sandbox='allow-scripts' src={'data:text/html;charset=utf-8,' + encodeURIComponent(this.renderTopAppBarVariant(variantClass)) } />
-          </div>
+        <div className='demos-display'>
+          {this.getVariant('Standard', 'standard')}
+          {this.getVariant('Prominent', 'prominent')}
+          {this.getVariant('Dense', 'dense')}
+          {this.getVariant('Short', 'short')}
+          {this.getVariant('Short - Always Collapsed', 'short-collapsed')}
+          {this.getVariant('Fixed', 'fixed')}
         </div>
     );
   }
 
-  renderTopAppBarVariant(variantClass) {
-    return `
-      <html>
-      ${document.head.innerHTML}
-        <body style='height: 500px;'>
-          <header class='mdc-top-app-bar ${variantClass}'>
-            <div class='mdc-top-app-bar__row'>
-              <section class='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-                <a href='#' class='material-icons mdc-top-app-bar__navigation-icon'>menu</a>
-                <span class='mdc-top-app-bar__title'>Title</span>
-              </section>
-              <section class='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-              ${this.renderActionIcons(variantClass)}
-              </section>
-            </div>
-          </header>
-          <script type='text/javascript' src='/static/js/bundle.js'></script>
-        </body>
-      </html>
-  `
-  }
-
-  renderActionIcons(variantClass) {
-    const multipleIcons = variantClass.startsWith('mdc-top-app-bar--short');
-
-    return `
-    <a href='#' class='material-icons mdc-top-app-bar__action-item' aria-label='Download' alt='Download'>file_download</a>
-    ${multipleIcons ? '' :
-      `<a href='#' class='material-icons mdc-top-app-bar__action-item' aria-label='Print this page' alt='Print this page'>print</a>
-       <a href='#' class='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page' alt='Bookmark this page'>bookmark</a>`}
-    `;
-  }
-
-  render() {
+  getVariant(title, path) {
+    const {PUBLIC_URL} = process.env;
     return (
-        <div className='demos-display'>
-          {this.renderTopAppBarPages('Standard', '')}
-          {this.renderTopAppBarPages('Short', 'mdc-top-app-bar--short mdc-top-app-bar--short-has-action-item')}
-          {this.renderTopAppBarPages('Short Always Collapsed', 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item')}
-          {this.renderTopAppBarPages('Prominent', 'mdc-top-app-bar--prominent')}
-          {this.renderTopAppBarPages('Dense', 'mdc-top-app-bar--dense')}
-          {this.renderTopAppBarPages('Fixed', 'mdc-top-app-bar--fixed')}
+        <div className='demo'>
+          <h3 className='mdc-typography--subheading2'>{title}</h3>
+          <div>
+            <iframe className='frame' title={title} sandbox='allow-scripts' src={PUBLIC_URL + '/top-app-bar/' + path} />
+          </div>
         </div>
     );
   }
