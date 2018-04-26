@@ -84,8 +84,6 @@ const urlToComponentPageMap = {
 5. Render a new list item inside the `catalog-image-list` element in `App.js`:
 
 ```js
-import {imagePath} from './constants';
-
 class App extends Component {
   ...
   render() {
