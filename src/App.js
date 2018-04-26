@@ -3,6 +3,7 @@ import ButtonPage from './ButtonPage.js';
 import TopAppBarPage from './TopAppBarPage.js';
 import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple';
+import {imagePath} from './constants';
 
 import './styles/App.scss';
 import buttonImg from './images/ic_button_24px.svg';
@@ -53,12 +54,10 @@ class App extends Component {
     return (
       <div>
         <HeaderBar isTopPage />
-        <div className='mdc-top-app-bar--fixed-adjust'>
-          <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
-            {this.renderListItem('Button', buttonImg, `${PUBLIC_URL}/button`)}
-            {this.renderListItem('Top App Bar', topAppBarImg, `${PUBLIC_URL}/top-app-bar`)}
-          </ul>
-        </div>
+        <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
+          {this.renderListItem('Button', `${imagePath}/ic_button_24px.svg`, `${PUBLIC_URL}/button`)}
+          {this.renderListItem('Top App Bar', topAppBarImg, `${PUBLIC_URL}/top-app-bar`)}
+        </ul>
       </div>
     );
   }

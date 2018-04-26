@@ -81,11 +81,7 @@ const urlToComponentPageMap = {
 
 4. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
 
-5. Import the component icon and render a new list item inside the `catalog-image-list` element in `App.js`:
-
-```js
-import fooImg from './images/ic_foo_24px.svg';
-```
+5. Render a new list item inside the `catalog-image-list` element in `App.js`:
 
 ```js
 class App extends Component {
@@ -93,7 +89,7 @@ class App extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', fooImg, `${PUBLIC_URL}/foo`)}
+      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, `${PUBLIC_URL}/foo`)}
     );
   }
 }
