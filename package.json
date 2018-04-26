@@ -2,7 +2,7 @@
   "name": "mdc-web-catalog",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "@material/button": "^0.35.0",
     "@material/image-list": "^0.35.0",
     "@material/layout-grid": "^0.34.0",
