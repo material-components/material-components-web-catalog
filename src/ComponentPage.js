@@ -46,18 +46,18 @@ class ComponentPage extends Component {
   renderDemoWrapper() {
     return(
       <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
-        <h1 className='mdc-typography--headline'>{this.props.title}</h1>
-        <p className='mdc-typography--body1'>{this.props.description}</p>
+        <h1 className='mdc-typography--headline5'>{this.props.title}</h1>
+        <p className='mdc-typography--body2'>{this.props.description}</p>
         <div className='hero'>
           {this.props.hero}
         </div>
-        <h2 className='demo-title mdc-typography--title'>Resources</h2>
+        <h2 className='demo-title mdc-typography--headline6'>Resources</h2>
         {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`,
           this.props.designLink)}
         {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, this.props.docsLink)}
         {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, this.props.sourceLink)}
 
-        <h2 className='demo-title mdc-typography--title'>Demos</h2>
+        <h2 className='demo-title mdc-typography--headline6'>Demos</h2>
         {this.props.demos}
       </section>
     );
