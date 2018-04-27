@@ -27,6 +27,10 @@ class ComponentPage extends Component {
       content: 'Fab',
       url: '/fab',
       active: activeLink === 'Floating Action Button',
+    }, {
+      content: 'Text Field',
+      url: '/text-field',
+      active: activeLink === 'Text Field',
     }];
 
     return(
