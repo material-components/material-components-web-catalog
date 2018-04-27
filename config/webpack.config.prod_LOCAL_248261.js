@@ -47,10 +47,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   : {};
 
 // List of all component names for generating the corresponding html pages.
-const components = [
-  'button',
-  'fab',
-  'text-field',
+const components = ['button',
   'top-app-bar',
   'top-app-bar/dense',
   'top-app-bar/fixed',

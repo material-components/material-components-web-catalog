@@ -24,6 +24,14 @@ class ComponentPage extends Component {
       url: '/button',
       active: activeLink === 'Button',
     }, {
+      content: 'Fab',
+      url: '/fab',
+      active: activeLink === 'Floating Action Button',
+    }, {
+      content: 'Text Field',
+      url: '/text-field',
+      active: activeLink === 'Text Field',
+    }, {
       content: 'Top App Bar',
       url: '/top-app-bar',
       active: activeLink === 'Top App Bar',
