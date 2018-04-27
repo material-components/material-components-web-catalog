@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage.js';
+import HeaderBar from './HeaderBar.js';
 import TopAppBarPage from './TopAppBarPage.js';
 import TopAppBarFramePage from './frame/TopAppBarFramePage';
-import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
@@ -15,10 +15,10 @@ const componentUrlToPageMap = {
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type={'dense'}/>,
   '/top-app-bar/fixed': <TopAppBarFramePage type={'fixed'}/>,
-  '/top-app-bar/standard': <TopAppBarFramePage type={'standard'}/>,
   '/top-app-bar/prominent': <TopAppBarFramePage type={'prominent'}/>,
   '/top-app-bar/short': <TopAppBarFramePage type={'short'}/>,
   '/top-app-bar/short-collapsed': <TopAppBarFramePage type={'shortCollapsed'}/>,
+  '/top-app-bar/standard': <TopAppBarFramePage type={'standard'}/>,
 
 };
 

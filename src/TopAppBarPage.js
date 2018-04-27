@@ -63,11 +63,11 @@ class TopAppBarDemos extends Component {
     return (
         <div className='demos-display'>
           {this.getVariant('Standard', 'standard')}
-          {this.getVariant('Prominent', 'prominent')}
+          {this.getVariant('Fixed', 'fixed')}
           {this.getVariant('Dense', 'dense')}
+          {this.getVariant('Prominent', 'prominent')}
           {this.getVariant('Short', 'short')}
           {this.getVariant('Short - Always Collapsed', 'short-collapsed')}
-          {this.getVariant('Fixed', 'fixed')}
         </div>
     );
   }
@@ -76,7 +76,7 @@ class TopAppBarDemos extends Component {
     const {PUBLIC_URL} = process.env;
     return (
         <div className='demo'>
-          <h3 className='mdc-typography--subheading2'>{title}</h3>
+          <h3 className='mdc-typography--subtitle1'>{title}</h3>
           <div>
             <iframe className='frame' title={title} sandbox='allow-scripts' src={PUBLIC_URL + '/top-app-bar/' + path} />
           </div>
