@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 
 import './styles/ComponentPage.scss';
+import {imagePath} from './constants';
+
 import materialLogo from './images/ic_material_design_24px.svg';
 import docsImg from './images/ic_drive_document_24px.svg';
 import codeImg from './images/ic_code_24px.svg';
+
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`${process.env.PUBLIC_URL}${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
         key={index}
         role='listitem'
         className={`mdc-list-item mdc-typography--body1 ${link.active ? 'sidebar-active' : ''}`}>
