@@ -1,0 +1,18 @@
+@import "@material/textfield/dist/mdc.textfield";
+
+.text-field-row {
+  display: flex;
+  align-items: flex-start;
+
+  .text-field {
+    margin-right: 8px;
+  }
+}
+
+.text-field-row-fullwidth {
+  display: block;
+
+  .text-field-container {
+    margin-bottom: 8px;
+  }
+}

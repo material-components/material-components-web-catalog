@@ -105,5 +105,10 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "dependencies": {
+    "@material/notched-outline": "^0.35.0",
+    "@material/textfield": "^0.35.0",
+    "classnames": "^2.2.5"
   }
 }

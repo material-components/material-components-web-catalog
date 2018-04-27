@@ -23,6 +23,10 @@ class ComponentPage extends Component {
       content: 'Button',
       url: '/button',
       active: activeLink === 'Button',
+    }, {
+      content: 'Text Field',
+      url: '/text-field',
+      active: activeLink === 'Text Field',
     }];
 
     return(
