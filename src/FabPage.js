@@ -11,8 +11,8 @@ class Fab extends Component {
   }
 
   render() {
-    const {mini, exit} = this.props;
-    const classes = `mdc-fab material-icons ${mini ? 'mdc-fab--mini' : ''} ${exit ? 'mdc-fab--exited' : ''}`;
+    const {mini} = this.props;
+    const classes = `mdc-fab material-icons ${mini ? 'mdc-fab--mini' : ''}`;
 
     return (
       <button
