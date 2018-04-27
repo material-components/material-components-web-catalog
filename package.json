@@ -105,5 +105,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "dependencies": {
+    "@material/chips": "^0.35.0"
   }
 }

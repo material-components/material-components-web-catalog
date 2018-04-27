@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage';
+import ChipsPage from './ChipsPage';
 import HeaderBar from './HeaderBar';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
@@ -10,6 +11,7 @@ const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
+  '/chips': <ChipsPage />,
 };
 
 class App extends Component {
@@ -54,6 +56,7 @@ class App extends Component {
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/ic_button_24px.svg`, 'button')}
+          {this.renderListItem('Chips', `${imagePath}/ic_button_24px.svg`, 'chips')}
         </ul>
       </div>
     );
