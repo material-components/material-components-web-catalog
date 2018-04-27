@@ -3,6 +3,8 @@
 .text-field-row {
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
   .text-field {
     margin-right: 8px;
@@ -15,4 +17,12 @@
   .text-field-container {
     margin-bottom: 8px;
   }
+}
+
+.text-field-variant-container {
+  display: flex;
+}
+
+.text-field-container {
+  min-width: 200px;
 }

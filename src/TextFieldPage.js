@@ -132,12 +132,12 @@ class TextFieldDemos extends Component {
         {this.renderVariant('Standard')}
         {this.renderVariant('Box', 'box')}
         {this.renderVariant('Outlined', 'outlined')}
-        {this.renderVariant('FullWidth', 'fullwidth')}
         {this.renderVariant('Box With Leading Icon', 'leading', 'box')}
         {this.renderVariant('Box With Trailing Icon', 'trailing', 'box')}
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         {this.renderVariant('Textarea', 'textarea')}
+        {this.renderVariant('FullWidth', 'fullwidth')}
         {this.renderVariant('FullWidth Textarea', 'textarea', 'fullwidth')}
       </div>
     );
