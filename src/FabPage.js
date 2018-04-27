@@ -40,7 +40,6 @@ const FabDemos = () => (
   </div>
 );
 
-
 const FabPage = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
