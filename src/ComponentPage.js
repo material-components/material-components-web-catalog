@@ -23,6 +23,10 @@ class ComponentPage extends Component {
       content: 'Button',
       url: '/button',
       active: activeLink === 'Button',
+    }, {
+      content: 'Fab',
+      url: '/fab',
+      active: activeLink === 'Floating Action Button',
     }];
 
     return(
