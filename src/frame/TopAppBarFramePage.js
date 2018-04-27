@@ -40,7 +40,7 @@ class TopAppBarFrame extends Component {
 
   getVariant(type = propToVariant.standard) {
     return (
-      <div style={{height: '500px'}}>
+      <div className='demo-frame'>
         <header className={`mdc-top-app-bar ${type.variant}`} ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>

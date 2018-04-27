@@ -43,7 +43,7 @@ class TopAppBarHero extends Component {
         <header className='mdc-top-app-bar'>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <a className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</a>
+              <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
               <span className='mdc-top-app-bar__title'>San Francisco</span>
             </section>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
@@ -76,7 +76,11 @@ class TopAppBarDemos extends Component {
     const {PUBLIC_URL} = process.env;
     return (
       <div className='demo'>
-        <h3 className='mdc-typography--subtitle2'>{title}</h3>
+        <div>
+          <a href={`${PUBLIC_URL}/top-app-bar/${path}`} target='_blank'>
+            <h3 className='mdc-typography--subtitle2'>{title}</h3>
+          </a>
+        </div>
         <div>
           <iframe className='frame' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/top-app-bar/${path}`} />
         </div>
