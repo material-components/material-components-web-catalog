@@ -76,7 +76,7 @@ class TopAppBarDemos extends Component {
     const {PUBLIC_URL} = process.env;
     return (
         <div className='demo'>
-          <h3 className='mdc-typography--subtitle1'>{title}</h3>
+          <h3 className='mdc-typography--subtitle2'>{title}</h3>
           <div>
             <iframe className='frame' title={title} sandbox='allow-scripts' src={PUBLIC_URL + '/top-app-bar/' + path} />
           </div>
