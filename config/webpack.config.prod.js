@@ -49,7 +49,8 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 // List of all component names for generating the corresponding html pages.
 const components = [
   'button',
-  'fab'
+  'fab',
+  'text-field'
 ];
 
 // This is the production configuration.
