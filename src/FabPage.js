@@ -30,35 +30,15 @@ class Fab extends Component {
   }
 }
 
-class FabDemos extends Component {
-  state = {
-    exited: false,
-  };
+const FabDemos = () => (
+  <div>
+    <h3 className='mdc-typography--subheading2'>Standard Floating Action</h3>
+    <Fab />
 
-  render() {
-    return (
-      <div>
-        <h3 className='mdc-typography--subheading2'>Standard Floating Action</h3>
-        <Fab />
-
-        <h3 className='mdc-typography--subheading2'>Mini Floating Action</h3>
-        <Fab mini />
-
-        <h3 className='mdc-typography--subheading2'>Exiting Floating Action</h3>
-        <div className='fab-exit__container'>
-          <Fab exit={this.state.exited}/>
-
-          <button
-            className='mdc-button mdc-button--raised fab-exit__toggle'
-            onClick={() => this.setState({exited: !this.state.exited})}
-          >
-            Toggle Fab
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+    <h3 className='mdc-typography--subheading2'>Mini Floating Action</h3>
+    <Fab mini />
+  </div>
+);
 
 
 const FabPage = () => {
