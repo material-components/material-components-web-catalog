@@ -6,10 +6,8 @@ import classnames from 'classnames';
 
 import './styles/TextFieldPage.scss';
 
-const getLabel = (disabled, dense) => {
-  if (disabled) {
-    return 'Disabled';
-  } else if (dense) {
+const getLabel = (dense) => {
+  if (dense) {
     return 'Dense';
   }
   return 'Standard';
@@ -17,35 +15,44 @@ const getLabel = (disabled, dense) => {
 
 const TextField = (props) => {
   const {
-    textFieldId, box, outlined, fullwidth, textarea,
-    disabled, dense, leading, trailing, helperText,
+    textFieldId, box, outlined, textarea,
+    dense, leading, trailing, helperText,
   } = props;
   const classes = classnames('mdc-text-field', 'text-field', {
     'mdc-text-field--box': box,
     'mdc-text-field--outlined': outlined,
-    'mdc-text-field--fullwidth': fullwidth,
     'mdc-text-field--textarea': textarea,
-    'mdc-text-field--disabled': disabled,
     'mdc-text-field--dense': dense,
     'mdc-text-field--with-leading-icon': leading,
     'mdc-text-field--with-trailing-icon': trailing,
   });
 
-  const showPlaceholder = fullwidth && !textarea;
-  const placeholder = showPlaceholder ? getLabel(disabled, dense) : '';
-
-
   return (
     <div className='text-field-container'>
       <div className={classes} ref={textFieldEl => new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
-        {textarea ?
-          <TextArea placeholder={placeholder} disabled={disabled} textFieldId={textFieldId}/> :
-          <Input placeholder={placeholder} disabled={disabled} textFieldId={textFieldId}/>
-        }
-        {showPlaceholder ? null : <Label textFieldId={textFieldId} disabled={disabled} dense={dense}/>}
+        {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
+        <Label textFieldId={textFieldId} dense={dense}/>
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
         {outlined ? <Outline /> : <div className='mdc-line-ripple'></div>}
+      </div>
+      {helperText ? <HelperText /> : null}
+    </div>
+  );
+}
+
+const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
+  const classes = classnames('mdc-text-field', 'text-field', 'mdc-text-field--fullwidth', {
+    'mdc-text-field--dense': dense,
+    'mdc-text-field--textarea': textarea,
+  });
+  return (
+    <div className='text-field-container'>
+      <div className={classes} ref={textFieldEl => new MDCTextField(textFieldEl)}>
+        {textarea ?
+          <TextArea textFieldId={textFieldId}/> :
+          <Input placeholder={getLabel(dense)} textFieldId={textFieldId}/>}
+        {textarea ? <Label textFieldId={textFieldId} dense={dense}/> : null}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
@@ -61,25 +68,23 @@ const Outline = () => [
   <div className='mdc-notched-outline__idle' key='outline-idle'></div>
 ];
 
-const Label = ({disabled, dense, textFieldId}) => (
+const Label = ({dense, textFieldId}) => (
   <label className='mdc-floating-label' htmlFor={textFieldId}>
-    {getLabel(disabled, dense)}
+    {getLabel(dense)}
   </label>
 );
 
-const Input = ({placeholder, textFieldId, disabled}) => (
+const Input = ({placeholder, textFieldId}) => (
   <input type='text'
     id={textFieldId}
     placeholder={placeholder}
-    disabled={disabled}
     className='mdc-text-field__input' />
 );
 
-const TextArea = ({placeholder, textFieldId, disabled}) => (
+const TextArea = ({placeholder, textFieldId}) => (
   <textarea
     id={textFieldId}
     placeholder={placeholder}
-    disabled={disabled}
     className='mdc-text-field__input' />
 );
 
@@ -114,13 +119,26 @@ class TextFieldDemos extends Component {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
-        <div className={classnames('text-field-row', {
-          'text-field-row-fullwidth': variantId.includes('fullwidth'),
-        })}>
+        <div className='text-field-row'>
           <TextField {...variants} textFieldId={`text-field-${variantId}`} />
           <TextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
-          <TextField {...variants} disabled textFieldId={`text-field-${variantId}-disabled`} />
           <TextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
+        </div>
+      </div>
+    );
+  }
+
+  renderFullWidthVariant(title, ...args) {
+    const variants = {};
+    args.forEach(arg => variants[arg] = true);
+    const variantId = args.reduce((allArgs, arg) => `${allArgs}-${arg}`, 'fullwidth');
+    return (
+      <div>
+        <h3 className='mdc-typography--subheading2'>{title}</h3>
+        <div className='text-field-row text-field-row-fullwidth'>
+          <FullWidthTextField {...variants} textFieldId={`text-field-${variantId}`} />
+          <FullWidthTextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
+          <FullWidthTextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
         </div>
       </div>
     );
@@ -137,8 +155,8 @@ class TextFieldDemos extends Component {
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         {this.renderVariant('Textarea', 'textarea')}
-        {this.renderVariant('FullWidth', 'fullwidth')}
-        {this.renderVariant('FullWidth Textarea', 'textarea', 'fullwidth')}
+        {this.renderFullWidthVariant('Full Width')}
+        {this.renderFullWidthVariant('Full Width Textarea', 'textarea')}
       </div>
     );
   }
