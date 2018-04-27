@@ -12,7 +12,7 @@ const ChipsPage = () => {
       <ComponentPage
         hero={<ChipsHero/>}
         title='Chips'
-        description='Chipss communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
+        description='Chips communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
         designLink='https://material.io/guidelines/components/buttons.html'
         docsLink='https://material.io/components/web/catalog/buttons/'
         sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
@@ -74,10 +74,10 @@ class ChipsDemos extends Component {
     );
   }
 
-  renderFilterLeadingIcon() {
+  renderIcon(name, classes, isTrailing) {
     return (
-      <i className='material-icons mdc-chip__icon mdc-chip__icon--leading'>
-        face
+      <i className={`material-icons mdc-chip__icon ${classes}`}>
+        {name}
       </i>
     );
   }
@@ -92,7 +92,7 @@ class ChipsDemos extends Component {
 
   renderChip(text, classes, leadingIcon, trailingIcon, isFilter) {
     return (
-      <div className={`mdc-chip ${classes}`} tabindex='0'>
+      <div className={`mdc-chip ${classes}`} tabIndex='0'>
         {leadingIcon}
         {isFilter ? this.renderFilterCheckmark() : ''}
         <div className='mdc-chip__text'>{text}</div>
@@ -107,8 +107,18 @@ class ChipsDemos extends Component {
         <div className='catalog-variant'>
           <h3 className='mdc-typography--headline6'>Input Chips</h3>
           <div className='mdc-chip-set mdc-chip-set--input' ref={this.initChipSet}>
-            {this.renderChip('Jane Doe')}
-            {this.renderChip('John Smith')}
+            {this.renderChip('Shizen',
+              '',
+              this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
+              this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
+            {this.renderChip('Tartine',
+              '',
+              this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
+              this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
+              {this.renderChip('Nopalito',
+                '',
+                this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
+                this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
           </div>
         </div>
 
@@ -117,7 +127,7 @@ class ChipsDemos extends Component {
           <div className='mdc-chip-set mdc-chip-set--choice' ref={this.initChipSet}>
             {this.renderChip('Extra Small')}
             {this.renderChip('Small')}
-            {this.renderChip('Medium')}
+            {this.renderChip('Medium', 'mdc-chip--selected')}
             {this.renderChip('Large')}
             {this.renderChip('Extra Large')}
           </div>
@@ -134,20 +144,36 @@ class ChipsDemos extends Component {
           </div>
           <h3 className='mdc-typography--subtitle2'>With leading icon</h3>
           <div className='mdc-chip-set mdc-chip-set--filter' ref={this.initChipSet}>
-            {this.renderChip('Alice', 'mdc-chip--selected', this.renderFilterHiddenLeadingIcon(), undefined, true)}
-            {this.renderChip('Bob', '', this.renderFilterLeadingIcon(), undefined, true)}
-            {this.renderChip('Charlie', '', this.renderFilterLeadingIcon(), undefined, true)}
-            {this.renderChip('David', '', this.renderFilterLeadingIcon(), undefined, true)}
+            {this.renderChip('Alice',
+              'mdc-chip--selected',
+              this.renderIcon('face', 'mdc-chip__icon--leading mdc-chip__icon--leading-hidden'),
+              undefined,
+              true)}
+            {this.renderChip('Bob',
+              '',
+              this.renderIcon('face', 'mdc-chip__icon--leading'),
+              undefined,
+              true)}
+            {this.renderChip('Charlie',
+              '',
+              this.renderIcon('face', 'mdc-chip__icon--leading'),
+              undefined,
+              true)}
+            {this.renderChip('Danielle',
+              '',
+              this.renderIcon('face', 'mdc-chip__icon--leading'),
+              undefined,
+              true)}
           </div>
         </div>
 
         <div className='catalog-variant'>
           <h3 className='mdc-typography--headline6'>Action Chips</h3>
           <div className='mdc-chip-set' ref={this.initChipSet}>
-            {this.renderChip('Add to calendar')}
-            {this.renderChip('Bookmark')}
-            {this.renderChip('Set alarm')}
-            {this.renderChip('Get directions')}
+            {this.renderChip('Add to calendar', '', this.renderIcon('event', 'mdc-chip__icon--leading'))}
+            {this.renderChip('Bookmark', '', this.renderIcon('bookmark', 'mdc-chip__icon--leading'))}
+            {this.renderChip('Set alarm', '', this.renderIcon('alarm', 'mdc-chip__icon--leading'))}
+            {this.renderChip('Get directions', '', this.renderIcon('directions', 'mdc-chip__icon--leading'))}
           </div>
         </div>
       </div>
