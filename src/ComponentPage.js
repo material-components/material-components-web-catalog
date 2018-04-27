@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
@@ -27,8 +27,7 @@ class ComponentPage extends Component {
       content: 'Top App Bar',
       url: '/top-app-bar',
       active: activeLink === 'Top App Bar',
-    }
-    ];
+    }];
 
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
