@@ -5,9 +5,11 @@
   "devDependencies": {
     "@material/button": "^0.35.0",
     "@material/fab": "^0.35.0",
+    "@material/form-field": "^0.35.0",
     "@material/image-list": "^0.35.0",
     "@material/layout-grid": "^0.34.0",
     "@material/list": "^0.35.0",
+    "@material/radio": "^0.35.0",
     "@material/ripple": "^0.35.0",
     "@material/textfield": "^0.35.0",
     "@material/theme": "^0.35.0",

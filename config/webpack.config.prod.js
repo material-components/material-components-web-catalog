@@ -50,6 +50,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 const components = [
   'button',
   'fab',
+  'radio',
   'text-field'
 ];
 

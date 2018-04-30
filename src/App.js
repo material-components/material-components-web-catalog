@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage';
 import FabPage from './FabPage';
+import RadioButtonPage from './RadioButtonPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import {MDCRipple} from '@material/ripple';
@@ -13,6 +14,7 @@ const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/fab': <FabPage />,
+  '/radio': <RadioButtonPage />,
   '/text-field': <TextFieldPage />,
 };
 
@@ -59,6 +61,7 @@ class App extends Component {
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
+          {this.renderListItem('Radio', `${imagePath}/radio_180px.svg`, 'radio')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
         </ul>
       </div>
