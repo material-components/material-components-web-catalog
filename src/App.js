@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage';
 import CheckboxPage from './CheckboxPage';
-import CheckboxPage from './CheckboxPage';
 import FabPage from './FabPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
