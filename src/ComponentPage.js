@@ -24,6 +24,10 @@ class ComponentPage extends Component {
       url: '/button',
       active: activeLink === 'Button',
     }, {
+      content: 'Checkbox',
+      url: '/checkbox',
+      active: activeLink === 'Checkbox',
+    }, {
       content: 'Fab',
       url: '/fab',
       active: activeLink === 'Floating Action Button',
