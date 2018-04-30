@@ -25,29 +25,78 @@ const ChipsPage = () => {
 class ChipsHero extends Component {
   constructor(props) {
     super(props);
-    this.chipSets = [];
-    this.initChipSet = chipSetEl => this.chipSets.push(new MDCChipSet(chipSetEl));
+    this.chipSet = null;
+    this.initChipSet = chipSetEl => this.chipSet = new MDCChipSet(chipSetEl);
   }
 
   componentWillUnmount() {
-    this.chipSets.forEach(chipSet => chipSet.destroy());
+    this.chipSet.destroy();
   }
 
   render() {
     return (
       <div className='mdc-chip-set' ref={this.initChipSet}>
-        <div className='mdc-chip' tabindex='0'>
+        <div className='mdc-chip' tabIndex='0'>
           <div className='mdc-chip__text'>Chip One</div>
         </div>
-        <div className='mdc-chip' tabindex='0'>
+        <div className='mdc-chip' tabIndex='0'>
           <div className='mdc-chip__text'>Chip Two</div>
         </div>
-        <div className='mdc-chip' tabindex='0'>
+        <div className='mdc-chip' tabIndex='0'>
           <div className='mdc-chip__text'>Chip Three</div>
         </div>
-        <div className='mdc-chip' tabindex='0'>
+        <div className='mdc-chip' tabIndex='0'>
           <div className='mdc-chip__text'>Chip Four</div>
         </div>
+      </div>
+    );
+  }
+}
+
+class InputChipSet extends Component {
+  constructor(props) {
+    super(props);
+    this.inputChipSet = null;
+    this.chipInputEl = null;
+    this.state = {
+      chipNames: ['Jane Smith', 'John Doe']
+    };
+    this.initChipSet = chipSetEl => {
+      this.inputChipSet = new MDCChipSet(chipSetEl);
+    };
+    this.setInput = inputEl => this.chipInputEl = inputEl;
+    this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
+    this.inputValue = '';
+  }
+
+  handleInputKeyDown(e) {
+    if ((e.key === 'Enter' || e.keyCode === 13) && this.chipInputEl.value !== '') {
+      this.inputValue = this.chipInputEl.value;
+      this.setState((prevState) => {
+        chipNames: [...prevState.chipNames, this.inputValue]
+      });
+      this.chipInputEl.value = '';
+    }
+  }
+
+  renderChip(name, index) {
+    return (
+      <div className={'mdc-chip'} key={index} tabIndex='0'>
+        <i className={'material-icons mdc-chip__icon mdc-chip__icon--leading'}>face</i>
+        <div className='mdc-chip__text'>{name}</div>
+        <i className={'material-icons mdc-chip__icon mdc-chip__icon--trailing'}>cancel</i>
+      </div>
+    );
+  }
+
+  render() {
+    console.log(this.state.chipNames);
+    return (
+      <div className='catalog-input-chips'>
+        <div className='mdc-chip-set mdc-chip-set--input' ref={this.initChipSet}>
+          {this.state.chipNames.map(this.renderChip)}
+        </div>
+        <input className='catalog-input' onKeyDown={this.handleInputKeyDown} ref={this.setInput} />
       </div>
     );
   }
@@ -106,20 +155,7 @@ class ChipsDemos extends Component {
       <div>
         <div className='catalog-variant'>
           <h3 className='mdc-typography--headline6'>Input Chips</h3>
-          <div className='mdc-chip-set mdc-chip-set--input' ref={this.initChipSet}>
-            {this.renderChip('Shizen',
-              '',
-              this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
-              this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
-            {this.renderChip('Tartine',
-              '',
-              this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
-              this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
-              {this.renderChip('Nopalito',
-                '',
-                this.renderIcon('restaurant_menu', 'mdc-chip__icon--leading'),
-                this.renderIcon('cancel', 'mdc-chip__icon--trailing', true))}
-          </div>
+          <InputChipSet />
         </div>
 
         <div className='catalog-variant'>
