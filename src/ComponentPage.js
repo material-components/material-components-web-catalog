@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 import './styles/ComponentPage.scss';
-import materialLogo from './images/ic_material_design_24px.svg';
-import docsImg from './images/ic_drive_document_24px.svg';
-import codeImg from './images/ic_code_24px.svg';
+import {imagePath} from './constants';
+
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 class ComponentPage extends Component {
   renderSidebarLink(link, index) {
     return (
       <a
-        href={`${process.env.PUBLIC_URL}${link.url}`}
+        href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
         key={index}
         role='listitem'
         className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
@@ -56,9 +56,10 @@ class ComponentPage extends Component {
           {this.props.hero}
         </div>
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', materialLogo, this.props.designLink)}
-        {this.renderResource('Documentation', docsImg, this.props.docsLink)}
-        {this.renderResource('Source Code', codeImg, this.props.sourceLink)}
+        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`,
+          this.props.designLink)}
+        {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, this.props.docsLink)}
+        {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, this.props.sourceLink)}
 
         <h2 className='demo-title mdc-typography--title'>Demos</h2>
         {this.props.demos}

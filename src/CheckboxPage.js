@@ -38,6 +38,7 @@ class CheckboxHero extends Component {
       <div>
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
+                 defaultChecked={true}
                  className='mdc-checkbox__native-control'/>
           <div className='mdc-checkbox__background'>
             <svg className='mdc-checkbox__checkmark'
@@ -81,14 +82,13 @@ class CheckboxDemos extends Component {
     this.checkboxes.forEach(checkbox => checkbox.destroy());
   }
 
-  renderCheckboxVariant(title, {checked, indeterminate}) {
+  renderCheckboxVariant(title, indeterminate) {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'
-                 defaultChecked={checked}
                  ref={input => input.indeterminate = indeterminate}/>
           <div className='mdc-checkbox__background'>
             <svg className='mdc-checkbox__checkmark'
@@ -108,8 +108,7 @@ class CheckboxDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderCheckboxVariant('Checked', {checked: true})}
-        {this.renderCheckboxVariant('Indeterminate', {indeterminate: true})}
+        {this.renderCheckboxVariant('Indeterminate', true)}
       </div>
     );
   }
