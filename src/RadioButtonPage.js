@@ -59,15 +59,13 @@ class RadioButtonDemos extends Component {
 
   renderRadioButtonVariant(title) {
     this.setCount++;
-    let radioCount = 0;
-    const id = `radio-${radioCount}`;
     const name = `radio-set-${this.setCount}`;
     return (
       <div className='demo-example'>
         <h3 className='mdc-typography--subtitle2'>{title}</h3>
         <div className='mdc-form-field'>
           <div className='mdc-radio'>
-            <input className='mdc-radio__native-control' type='radio' id={id} name={name} defaultChecked />
+            <input className='mdc-radio__native-control' type='radio' id='radio-1' name={name} defaultChecked />
             <div className='mdc-radio__background'>
               <div className='mdc-radio__outer-circle'/>
               <div className='mdc-radio__inner-circle'/>
@@ -75,7 +73,7 @@ class RadioButtonDemos extends Component {
           </div>
           <label id='radio-1-label' htmlFor='radio-1'>Radio 1</label>
           <div className='mdc-radio'>
-            <input className='mdc-radio__native-control' type='radio' id={id} name={name} />
+            <input className='mdc-radio__native-control' type='radio' id='radio-2' name={name} />
             <div className='mdc-radio__background'>
               <div className='mdc-radio__outer-circle'/>
               <div className='mdc-radio__inner-circle'/>
