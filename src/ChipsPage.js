@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
-import {MDCChipSet} from '@material/chips';
+import {MDCChipSet, MDCChip} from '@material/chips';
 
 import './styles/ChipsPage.scss';
 
@@ -56,26 +56,30 @@ class ChipsHero extends Component {
 class InputChipSet extends Component {
   constructor(props) {
     super(props);
-    this.inputChipSet = null;
-    this.chipInputEl = null;
+    this.chipSetEl = null;
+    this.chipSet = null;
+    this.chipSetInputEl = null;
     this.state = {
       chipNames: ['Jane Smith', 'John Doe']
     };
     this.initChipSet = chipSetEl => {
-      this.inputChipSet = new MDCChipSet(chipSetEl);
+      this.chipSetEl = chipSetEl;
+      this.chipSet = new MDCChipSet(chipSetEl);
     };
-    this.setInput = inputEl => this.chipInputEl = inputEl;
+    this.setInput = inputEl => this.chipSetInputEl = inputEl;
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
     this.inputValue = '';
   }
 
   handleInputKeyDown(e) {
-    if ((e.key === 'Enter' || e.keyCode === 13) && this.chipInputEl.value !== '') {
-      this.inputValue = this.chipInputEl.value;
-      this.setState((prevState) => {
-        chipNames: [...prevState.chipNames, this.inputValue]
+    if ((e.key === 'Enter' || e.keyCode === 13) && this.chipSetInputEl.value !== '') {
+      this.inputValue = this.chipSetInputEl.value;
+      const newChipNames = [].concat(this.state.chipNames, [this.inputValue]);
+      this.setState({chipNames: newChipNames}, () => {
+        this.chipSet.destroy();
+        this.chipSet = new MDCChipSet(this.chipSetEl);
       });
-      this.chipInputEl.value = '';
+      this.chipSetInputEl.value = '';
     }
   }
 
@@ -90,7 +94,6 @@ class InputChipSet extends Component {
   }
 
   render() {
-    console.log(this.state.chipNames);
     return (
       <div className='catalog-input-chips'>
         <div className='mdc-chip-set mdc-chip-set--input' ref={this.initChipSet}>
