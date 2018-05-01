@@ -29,6 +29,7 @@ const components = [
   'button',
   'checkbox',
   'fab',
+  'image-list',
   'text-field'
 ];
 
