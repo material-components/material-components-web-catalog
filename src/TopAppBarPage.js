@@ -7,7 +7,6 @@ import './styles/TopAppBarPage.scss';
 
 const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
-
 const TopAppBarPage = () => {
   return (
     <div>
@@ -80,7 +79,7 @@ class TopAppBarDemos extends Component {
     return (
       <div className='demo'>
         <div>
-          <a href={`${PUBLIC_URL}/top-app-bar/${path}`} target='_blank'>
+          <a href={`${PUBLIC_URL}/top-app-bar/${path}${pageExt}`} target='_blank'>
             <h3 className='mdc-typography--subtitle2'>{title}</h3>
           </a>
         </div>
