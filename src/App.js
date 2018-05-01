@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
+import CheckboxPage from './CheckboxPage';
 import FabPage from './FabPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
@@ -14,6 +15,7 @@ const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
+  '/checkbox': <CheckboxPage />,
   '/fab': <FabPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
@@ -67,6 +69,7 @@ class App extends Component {
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
+          {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
