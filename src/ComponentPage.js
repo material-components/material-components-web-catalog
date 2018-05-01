@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
@@ -39,6 +39,10 @@ class ComponentPage extends Component {
       content: 'Text Field',
       url: '/text-field',
       active: activeLink === 'Text Field',
+    }, {
+      content: 'Top App Bar',
+      url: '/top-app-bar',
+      active: activeLink === 'Top App Bar',
     }];
 
     return(
