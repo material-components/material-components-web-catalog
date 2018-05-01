@@ -5,6 +5,9 @@ import HeaderBar from './HeaderBar.js';
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
 import './styles/TopAppBarPage.scss';
 
+const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
+
+
 const TopAppBarPage = () => {
   return (
     <div>
@@ -82,7 +85,7 @@ class TopAppBarDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='frame' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/top-app-bar/${path}`} />
+          <iframe className='frame' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/top-app-bar/${path}${pageExt}`} />
         </div>
       </div>
     );
