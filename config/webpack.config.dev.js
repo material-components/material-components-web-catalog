@@ -28,6 +28,7 @@ const env = getClientEnvironment(publicUrl);
 const components = [
   'button',
   'fab',
+  'list',
   'text-field'
 ];
 
