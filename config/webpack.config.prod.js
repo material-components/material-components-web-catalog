@@ -51,8 +51,14 @@ const components = [
   'button',
   'checkbox',
   'fab',
-  'text-field'
-];
+  'text-field',
+  'top-app-bar',
+  'top-app-bar/dense',
+  'top-app-bar/fixed',
+  'top-app-bar/standard',
+  'top-app-bar/prominent',
+  'top-app-bar/short',
+  'top-app-bar/short-collapsed'];
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
