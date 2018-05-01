@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ButtonPage from './ButtonPage';
+import CheckboxPage from './CheckboxPage';
+import FabPage from './FabPage';
 import SwitchPage from './SwitchPage';
+import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
@@ -11,7 +14,10 @@ const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
+  '/checkbox': <CheckboxPage />,
+  '/fab': <FabPage />,
   '/switch': <SwitchPage />,
+  '/text-field': <TextFieldPage />,
 };
 
 class App extends Component {
@@ -56,7 +62,10 @@ class App extends Component {
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
-          {this.renderListItem('Switch', `${imagePath}/ic_switch_24px.svg`, 'switch')}
+          {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
+          {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
+          {this.renderListItem('Switch', `${imagePath}/switch_180px.svg`, 'switch')}
+          {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
         </ul>
       </div>
     );

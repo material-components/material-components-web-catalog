@@ -25,7 +25,13 @@ const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
 
 // List of all component names for generating the corresponding html pages.
-const components = ['button'];
+const components = [
+  'button',
+  'checkbox',
+  'fab',
+  'switch',
+  'text-field'
+];
 
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.

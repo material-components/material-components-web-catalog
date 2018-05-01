@@ -24,9 +24,21 @@ class ComponentPage extends Component {
       url: '/button',
       active: activeLink === 'Button',
     }, {
+      content: 'Checkbox',
+      url: '/checkbox',
+      active: activeLink === 'Checkbox',
+    }, {
+      content: 'Fab',
+      url: '/fab',
+      active: activeLink === 'Floating Action Button',
+    }, {
       content: 'Switch',
       url: '/switch',
       active: activeLink === 'Switch',
+    }, {
+      content: 'Text Field',
+      url: '/text-field',
+      active: activeLink === 'Text Field',
     }];
 
     return(

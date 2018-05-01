@@ -47,7 +47,13 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   : {};
 
 // List of all component names for generating the corresponding html pages.
-const components = ['button', 'switch'];
+const components = [
+  'button',
+  'checkbox',
+  'fab',
+  'switch',
+  'text-field'
+];
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.

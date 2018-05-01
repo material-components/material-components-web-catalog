@@ -11,23 +11,35 @@ const SwitchPage = () => {
       <ComponentPage
         hero={<SwitchHero/>}
         title='Switch'
-        description='Switchs communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/buttons.html'
-        docsLink='https://material.io/components/web/catalog/buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
+        description='Switches communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
+        designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-switch'
+        docsLink='https://material.io/components/web/catalog/input-controls/switches/'
+        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-switch'
         demos={<SwitchDemos/>}
       />
     </div>
   );
-}
+};
 
 class SwitchHero extends Component {
+  state = {
+    isChecked: true,
+  };
+
+  handleChecked = (event) => {
+    this.setState({
+      isChecked: event.target.checked,
+    });
+  };
+
   render() {
     return (
         <div>
           <div className='mdc-switch'>
             <input type='checkbox' id='hero-switch' className='mdc-switch__native-control' role='switch'
-                   aria-checked='false' checked/>
+                   aria-checked='false'
+                   checked={this.state.isChecked}
+                   onChange={this.handleChecked}/>
             <div className='mdc-switch__background'>
               <div className='mdc-switch__knob'/>
             </div>
