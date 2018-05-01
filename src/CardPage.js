@@ -104,7 +104,7 @@ const CardActionStarIcon = (props) => {
   );
 }
 
-class CardPhoto extends Component {
+class PhotoCard extends Component {
   render() {
     return (
       <div className='mdc-card demo-card demo-card--photo'>
@@ -148,7 +148,7 @@ class CardPhoto extends Component {
   }
 }
 
-const CardMusic = (props) => {
+const MusicCard = (props) => {
   return (
     <div className='mdc-card demo-card demo-card--music'>
       <div
@@ -200,7 +200,7 @@ class CardHeadlineRow extends Component {
   }
 }
 
-const CardHeadlines = ({initRipple}) => {
+const NewsCard = ({initRipple}) => {
   const headlines = [{
     title: 'Copper on the rise',
     subtitle: 'Copper price soars amid global market optimism and increased demand.',
@@ -250,9 +250,9 @@ class CardDemos extends Component {
     return (
       <div>
         <section className='demo-card-collection'>
-          <CardPhoto initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
-          <CardMusic initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
-          <CardHeadlines initRipple={this.initRipple} />
+          <PhotoCard initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
+          <MusicCard initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
+          <NewsCard initRipple={this.initRipple} />
         </section>
       </div>
     );
