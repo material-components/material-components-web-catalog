@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
@@ -23,18 +23,31 @@ class ComponentPage extends Component {
   }
 
   renderSidebar(activeLink) {
-    const links = [
-      {
-        content: 'Button',
-        url: '/button',
-        active: activeLink === 'Button',
-      },
-      {
-        content: 'Card',
-        url: '/card',
-        active: activeLink === 'Card',
-      },
-    ];
+    const links = [{
+      content: 'Button',
+      url: '/button',
+      active: activeLink === 'Button',
+    }, {
+      content: 'Card',
+      url: '/card',
+      active: activeLink === 'Card',
+    }, {
+      content: 'Checkbox',
+      url: '/checkbox',
+      active: activeLink === 'Checkbox',
+    }, {
+      content: 'Fab',
+      url: '/fab',
+      active: activeLink === 'Floating Action Button',
+    }, {
+      content: 'Text Field',
+      url: '/text-field',
+      active: activeLink === 'Text Field',
+    }, {
+      content: 'Top App Bar',
+      url: '/top-app-bar',
+      active: activeLink === 'Top App Bar',
+    }];
 
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>

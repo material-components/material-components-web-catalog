@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>top_app_bar_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="0" width="288" height="102"></rect>
+        <path d="M2.4,14.4 L16.8,14.4 L16.8,12.8 L2.4,12.8 L2.4,14.4 Z M2.4,10.4 L16.8,10.4 L16.8,8.8 L2.4,8.8 L2.4,10.4 Z M2.4,4.8 L2.4,6.4 L16.8,6.4 L16.8,4.8 L2.4,4.8 Z" id="path-5"></path>
+    </defs>
+    <g id="top_app_bar_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+        <g id="Dialog-/-Header-Copy-2" mask="url(#mask-2)">
+            <g transform="translate(30.000000, 0.000000)" id="Group-3">
+                <g>
+                    <rect id="Rectangle" fill="#F5F5F5" x="0" y="0" width="150" height="188"></rect>
+                    <g id="App-Bar-/-Top-/-Extended-/-Flat">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Surface" fill="#FAFAFA" xlink:href="#path-3"></use>
+                        <g id="✱-/-Color-/-Primary-/-Main" mask="url(#mask-4)" fill="#212121">
+                            <g id="✱-/-Color-/-Primary-/-900">
+                                <g>
+                                    <rect id="Rectangle-13" x="0" y="0" width="288" height="102"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Text-/-H6-/-P---Dark-/-Left" mask="url(#mask-4)" font-family="Roboto-Medium, Roboto" font-size="16" font-weight="400" letter-spacing="0.120000005">
+                            <g transform="translate(47.000000, 66.000000)" id="Headline-6">
+                                <text>
+                                    <tspan x="0" y="15" fill="#FFFFFF">Top App Bar</tspan>
+                                </text>
+                            </g>
+                        </g>
+                        <g id="Icons-" mask="url(#mask-4)">
+                            <g transform="translate(12.800000, 12.750000)" id="Icon-1">
+                                <g>
+                                    <g id="Icon-/-Menu-/-Fill">
+                                        <mask id="mask-6" fill="white">
+                                            <use xlink:href="#path-5"></use>
+                                        </mask>
+                                        <g id="Mask" fill-rule="nonzero"></g>
+                                        <g id="✱-/-Color-/-Icons-/-White-/-100%" mask="url(#mask-6)" fill="#FFFFFF" fill-rule="evenodd">
+                                            <rect id="Rectangle-13" x="0" y="0" width="18.9530864" height="18.9530864"></rect>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
