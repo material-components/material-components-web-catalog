@@ -61,7 +61,7 @@ class RadioButtonDemos extends Component {
     this.setCount++;
     let radioCount = 0;
     const id = `radio-${radioCount}`;
-    const name = `radio-set-${this.setCount}`
+    const name = `radio-set-${this.setCount}`;
     return (
       <div className='demo-example'>
         <h3 className='mdc-typography--subtitle2'>{title}</h3>
