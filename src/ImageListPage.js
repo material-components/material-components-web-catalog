@@ -25,7 +25,7 @@ function ImageListPage() {
 function ImageListHero() {
   const items = [];
   for (let i = 0; i < 15; i++) {
-    items.push({});
+    items.push('');
   }
 
   return (
@@ -38,73 +38,25 @@ function ImageListHero() {
 function ImageListDemos() {
   const standardImageListItems = [];
   for (let i = 1; i <= 15; i++) {
-    standardImageListItems.push({
-      src: `${imagePath}/photos/3x2/${i}.jpg`,
-      label: 'Text label'
-    });
+    standardImageListItems.push(`3x2/${i}.jpg`);
   }
 
   const masonryImageListItems = [
-    {
-      src: `${imagePath}/photos/3x2/16.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/1.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/1.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/2.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/3.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/2.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/4.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/3.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/5.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/4.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/6.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/5.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/2x3/7.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/6.jpg`,
-      label: 'Text label',
-    },
-    {
-      src: `${imagePath}/photos/3x2/7.jpg`,
-      label: 'Text label',
-    },
+    '3x2/16.jpg',
+    '2x3/1.jpg',
+    '3x2/1.jpg',
+    '2x3/2.jpg',
+    '2x3/3.jpg',
+    '3x2/2.jpg',
+    '2x3/4.jpg',
+    '3x2/3.jpg',
+    '2x3/5.jpg',
+    '3x2/4.jpg',
+    '2x3/6.jpg',
+    '3x2/5.jpg',
+    '2x3/7.jpg',
+    '3x2/6.jpg',
+    '3x2/7.jpg',
   ];
 
   return (
@@ -112,15 +64,18 @@ function ImageListDemos() {
       <h3 className='mdc-typography--subheading2'>Standard Image List with Text Protection</h3>
       <ImageList className='standard-image-list mdc-image-list--with-text-protection' items={standardImageListItems}
         includeAspectContainer />
-      <h3 className='mdc-typography--subheading2'>Masonry Image List with Text Labels Underneath</h3>
+      <h3 className='mdc-typography--subheading2'>Masonry Image List</h3>
       <ImageList className='mdc-image-list--masonry masonry-image-list' items={masonryImageListItems} />
     </div>
   );
 }
 
 function ImageList(props) {
-  const items = props.items.map((item, i) =>
-    <ImageListItem src={item.src} label={item.label} key={i} includeAspectContainer={props.includeAspectContainer} />
+  const items = props.items.map((src, i) =>
+    src ?
+      <ImageListItem src={`${imagePath}/photos/${src}`} label='Text label' key={i} includeAspectContainer={props.includeAspectContainer} />
+      :
+      <ImageListItem key={i} includeAspectContainer={props.includeAspectContainer} />
   );
   return (
     <ul className={`mdc-image-list ${props.className || ''}`}>
