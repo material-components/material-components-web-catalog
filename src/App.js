@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ButtonPage from './ButtonPage';
 import CheckboxPage from './CheckboxPage';
 import FabPage from './FabPage';
+import ListPage from './ListPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import {MDCRipple} from '@material/ripple';
@@ -15,6 +16,7 @@ const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/checkbox': <CheckboxPage />,
   '/fab': <FabPage />,
+  '/list': <ListPage />,
   '/text-field': <TextFieldPage />,
 };
 
@@ -62,6 +64,7 @@ class App extends Component {
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
+          {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
         </ul>
       </div>
