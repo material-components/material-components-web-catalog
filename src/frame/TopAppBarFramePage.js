@@ -1,11 +1,7 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
 
-const TopAppBarFramePage = (props) => {
-  return (
-    <TopAppBarFrame type={props.type} />
-  );
-};
+import '../styles/TopAppBarFramePage.scss';
 
 const propToVariant = {
   short: {title: 'Short', variant: 'mdc-top-app-bar--short'},
@@ -16,13 +12,10 @@ const propToVariant = {
   standard: {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
 };
 
-class TopAppBarFrame extends Component {
-  topAppBar = null;
+class TopAppBarFramePage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.initTopAppBar = topAppBarEle => this.topAppBar = new MDCTopAppBar(topAppBarEle);
-  }
+  topAppBar = null;
+  initTopAppBar = topAppBarEle => this.topAppBar = new MDCTopAppBar(topAppBarEle);
 
   componentWillUnmount() {
     if (this.topAppBar) {
@@ -32,7 +25,7 @@ class TopAppBarFrame extends Component {
 
   render() {
     return (
-      <div style={{height: '500px'}}>
+      <div className='top-app-bar__frame'>
         {this.getVariant(propToVariant[this.props.type])}
       </div>
     );
@@ -56,18 +49,21 @@ class TopAppBarFrame extends Component {
 
   getIcons(variant) {
     const isShort = variant.startsWith('mdc-top-app-bar--short');
+    const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
+    const topAppBarIconSectionClasses = 'mdc-top-app-bar__section mdc-top-app-bar__section--align-end';
+
     if (isShort) {
       return (
-        <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-          <button className='material-icons mdc-top-app-bar__action-item' aria-label='Download'>file_download</button>
+        <section className={topAppBarIconSectionClasses}>
+          <button className={topAppBarIconsClasses} aria-label='Download'>file_download</button>
         </section>
       );
     } else {
       return (
-        <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-          <button className='material-icons mdc-top-app-bar__action-item' aria-label='Download'>file_download</button>
-          <button className='material-icons mdc-top-app-bar__action-item' aria-label='Print this page'>print</button>
-          <button className='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page'>bookmark</button>
+        <section className={topAppBarIconSectionClasses}>
+          <button className={topAppBarIconsClasses} aria-label='Download'>file_download</button>
+          <button className={topAppBarIconsClasses} aria-label='Print this page'>print</button>
+          <button className={topAppBarIconsClasses} aria-label='Bookmark this page'>bookmark</button>
         </section>
       );
     }

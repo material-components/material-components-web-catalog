@@ -23,14 +23,12 @@ const TopAppBarPage = () => {
 };
 
 class TopAppBarHero extends Component {
-  constructor(props) {
-    super(props);
-    this.ripples = [];
-    this.initRipple = icon => {
-      const current = new MDCRipple(icon);
-      current.unbounded = true;
-      this.ripples.push(current);
-    }
+
+  ripples = [];
+  initRipple = icon => {
+    const current = new MDCRipple(icon);
+    current.unbounded = true;
+    this.ripples.push(current);
   }
 
   componentWillUnmount() {
@@ -38,6 +36,8 @@ class TopAppBarHero extends Component {
   }
 
   render() {
+    const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
+
     return (
       <div className='hero-top-app-bar'>
         <header className='mdc-top-app-bar'>
@@ -47,9 +47,9 @@ class TopAppBarHero extends Component {
               <span className='mdc-top-app-bar__title'>San Francisco</span>
             </section>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-              <button className='material-icons mdc-top-app-bar__action-item' aria-label='Download' ref={this.initRipple}>file_download</button>
-              <button className='material-icons mdc-top-app-bar__action-item' aria-label='Print this page' ref={this.initRipple}>print</button>
-              <button className='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
+              <button className={topAppBarIconsClasses} aria-label='Download' ref={this.initRipple}>file_download</button>
+              <button className={topAppBarIconsClasses} aria-label='Print this page' ref={this.initRipple}>print</button>
+              <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
             </section>
           </div>
         </header>
