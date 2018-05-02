@@ -57,15 +57,11 @@ const components = [
   'drawer/persistent',
   'drawer/permanentBelowTopAppBar',
   'fab',
-<<<<<<< HEAD
-  'switch',
-  'text-field'
-];
-=======
   'icon-toggle',
   'image-list',
   'linear-progress-indicator',
   'list',
+  'switch',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
@@ -74,7 +70,6 @@ const components = [
   'top-app-bar/prominent',
   'top-app-bar/short',
   'top-app-bar/short-collapsed'];
->>>>>>> master
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
