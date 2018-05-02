@@ -40,6 +40,10 @@ class ComponentPage extends Component {
       url: '/drawer',
       active: activeLink === 'Drawer',
     }, {
+      content: 'Elevation',
+      url: '/elevation',
+      active: activeLink === 'Elevation',
+    }, {
       content: 'Fab',
       url: '/fab',
       active: activeLink === 'Floating Action Button',
@@ -59,6 +63,10 @@ class ComponentPage extends Component {
       content: 'List',
       url: '/list',
       active: activeLink === 'List',
+    }, {
+      content: 'Select',
+      url: '/select',
+      active: activeLink === 'Select',
     }, {
       content: 'Text Field',
       url: '/text-field',
