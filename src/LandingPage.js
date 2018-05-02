@@ -27,6 +27,7 @@ class LandingPage extends Component {
           {this.renderListItem('Image List', 'image_list_180px.svg', 'image-list')}
           {this.renderListItem('List', 'list_180px.svg', 'list')}
           {this.renderListItem('Linear Progress', 'linear_progress_180px.svg', 'linear-progress-indicator')}
+          {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
           {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}

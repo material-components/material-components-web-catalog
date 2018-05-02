@@ -52,6 +52,9 @@ class Sidebar extends Component {
       content: 'List',
       url: '/list',
     }, {
+      content: 'Slider',
+      url: '/slider',
+    }, {
       content: 'Select',
       url: '/select',
     }, {

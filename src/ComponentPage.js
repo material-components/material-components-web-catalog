@@ -13,6 +13,7 @@ import ImageListCatalog from './ImageListCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
 import ListCatalog from './ListCatalog';
 import SelectCatalog from './SelectCatalog';
+import SliderCatalog from './SliderCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 
@@ -37,6 +38,7 @@ class ComponentPage extends Component {
         <Route path={`${match.path}/image-list`} component={ImageListCatalog} />
         <Route path={`${match.path}/list`} component={ListCatalog} />
         <Route path={`${match.path}/linear-progress-indicator`} component={LinearProgressIndicatorCatalog} />
+        <Route path={`${match.path}/slider`} component={SliderCatalog} />
         <Route path={`${match.path}/select`} component={SelectCatalog} />
         <Route path={`${match.path}/text-field`} component={TextFieldCatalog} />
         <Route path={`${match.path}/top-app-bar`} component={TopAppBarCatalog} />
