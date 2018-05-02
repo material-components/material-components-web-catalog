@@ -6,7 +6,7 @@ import './styles/ElevationPage.scss';
 
 const MAX_ELEVATION_LEVELS = 24;
 
-const IconTogglePage = () => {
+const ElevationPage = () => {
   const description = 'Elevation is the relative depth, or distance, between two surfaces along the z-axis.';
   return (
     <div>
@@ -33,8 +33,8 @@ class ElevationHero extends Component {
           <div className='elevation-demo-surface mdc-elevation--z8'>
             Raised 8dp
           </div>
-          <div className='elevation-demo-surface elevation--custom-color-z16'>
-            Custom 16dp
+          <div className='elevation-demo-surface mdc-elevation--z16'>
+            Raised 16dp
           </div>
         </div>
     );
@@ -55,7 +55,7 @@ class ElevationDemos extends Component {
     for(let x = 0; x <= MAX_ELEVATION_LEVELS; x++) {
       demos.push(
       <div key={'elevation' + x} className={'elevation-demo-surface mdc-elevation--z' + x}>
-      {x}dp (mdc-elevation--z{x})
+      {x}dp
       </div>);
     }
 
@@ -63,4 +63,4 @@ class ElevationDemos extends Component {
   }
 }
 
-export default IconTogglePage;
+export default ElevationPage;
