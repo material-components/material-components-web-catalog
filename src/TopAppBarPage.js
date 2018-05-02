@@ -72,8 +72,7 @@ class TopAppBarDemos extends Component {
 
   getVariant(title, path) {
     const {match} = this.props;
-    const {PUBLIC_URL} = process.env;
-    const topAppBarVariantLink = `#${PUBLIC_URL}${match.url}/${path}`;
+    const topAppBarVariantLink = `#${match.url}/${path}`;
 
     return (
       <div className='demo'>

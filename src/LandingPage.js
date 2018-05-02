@@ -32,7 +32,7 @@ class LandingPage extends Component {
   }
 
   renderListItem(title, imageSource, url) {
-    const fullUrl = `${process.env.PUBLIC_URL}/component/${url}`;
+    const fullUrl = `/component/${url}`;
     return (
       <li className='catalog-image-list-item mdc-image-list__item'>
         <Link to={fullUrl}>

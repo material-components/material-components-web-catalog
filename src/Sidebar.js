@@ -7,7 +7,7 @@ class Sidebar extends Component {
     const {match} = this.props;
     return (
       <NavLink
-        to={`${process.env.PUBLIC_URL}${match.url}${link.url}`}
+        to={`${match.url}${link.url}`}
         key={index}
         role='listitem'
         activeClassName='sidebar-active'
@@ -18,7 +18,6 @@ class Sidebar extends Component {
   }
 
   render() {
-    const {activeLink} = this.props;
     const links = [{
       content: 'Button',
       url: '/button',

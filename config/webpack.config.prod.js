@@ -46,23 +46,6 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
 
-// List of all component names for generating the corresponding html pages.
-const components = [
-  'button',
-  'card',
-  'checkbox',
-  'fab',
-  'image-list',
-  'list',
-  'text-field',
-  'top-app-bar',
-  'top-app-bar/dense',
-  'top-app-bar/fixed',
-  'top-app-bar/standard',
-  'top-app-bar/prominent',
-  'top-app-bar/short',
-  'top-app-bar/short-collapsed'];
-
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
@@ -280,26 +263,7 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-  ].concat(components.map(componentName => {
-    // Generates an html page for each component with the <script> injected.
-    return new HtmlWebpackPlugin({
-      filename: `${componentName}.html`,
-      inject: true,
-      template: paths.appHtml,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    })
-  })).concat([
+  ].concat([
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.

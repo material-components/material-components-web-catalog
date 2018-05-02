@@ -40,7 +40,7 @@ class ComponentSection extends Component {
         <div className='mdc-top-app-bar--fixed-adjust'>
           <div className='mdc-layout-grid'>
             <div className='mdc-layout-grid__inner'>
-              <Sidebar {...this.props} activeLink={this.props.title} />
+              <Sidebar {...this.props} />
               {this.renderComponentRoutes()}
             </div>
           </div>

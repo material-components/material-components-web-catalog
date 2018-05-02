@@ -1,6 +1,5 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
-import {Switch, Route} from 'react-router';
 
 import '../styles/TopAppBarFramePage.scss';
 

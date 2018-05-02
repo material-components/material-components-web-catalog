@@ -28,10 +28,8 @@ class HeaderBar extends Component {
 }
 
 function HeaderIcon(props) {
-  const {PUBLIC_URL, NODE_ENV} = process.env;
-  const publicUrl = NODE_ENV === 'production' ? PUBLIC_URL : '/';
   return (
-    <Link to={publicUrl} className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
+    <Link to='/' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
       {
         props.isTopPage ?
           <img src={`${imagePath}/ic_component_24px_white.svg`} alt='Material logo' /> :
