@@ -12,10 +12,10 @@ const DialogPage = () => {
       <ComponentPage
         hero={<DialogHero />}
         title='Dialog'
-        description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/buttons.html'
-        docsLink='https://material.io/components/web/catalog/buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
+        description='Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
+        designLink='https://material.io/guidelines/components/dialogs.html'
+        docsLink='https://material.io/components/web/catalog/dialogs/'
+        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog'
         demos={<DialogDemos />}
       />
     </div>
@@ -23,31 +23,13 @@ const DialogPage = () => {
 };
 
 class DialogHero extends Component {
-  dialog = null;
-  dialogEl = null;
   initDialog = (dialogEl) => {
     this.dialogEl = dialogEl;
     this.dialog = new MDCDialog(dialogEl);
   };
 
-  handleDialogAccept_ = () => this.handleDialogAccept_();
-  handleDialogCancel_ = () => this.handleDialogCancel();
-
-  componentDidMount() {
-    this.dialogEl.addEventListener('MDCDialog:accept', this.handleDialogAccept_);
-    this.dialogEl.addEventListener('MDCDialog:cancel', this.handleDialogCancel_);
-  }
-
   componentWillUnmount() {
     this.dialog.destroy();
-  }
-
-  handleDialogAccept() {
-    this.props.handleAccept();
-  }
-
-  handleDialogCancel() {
-    this.props.handleCancel();
   }
 
   render() {
@@ -123,8 +105,6 @@ class DialogDemos extends Component {
 }
 
 class Dialog extends Component {
-  dialog = null;
-  dialogEl = null;
   handleAccept_ = () => this.handleAccept();
   handleCancel_ = () => this.handleCancel();
   initDialog = (dialogEl) => {
