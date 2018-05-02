@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>dialog_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="0" width="180" height="180"></rect>
+        <path d="M2.58585859,0 L87.9191919,0 C89.3473222,-2.62343273e-16 90.5050505,1.15772832 90.5050505,2.58585859 L90.5050505,77.5757576 C90.5050505,79.0038878 89.3473222,80.1616162 87.9191919,80.1616162 L2.58585859,80.1616162 C1.15772832,80.1616162 1.95125235e-15,79.0038878 1.77635684e-15,77.5757576 L0,2.58585859 C-1.74895515e-16,1.15772832 1.15772832,-5.06672725e-15 2.58585859,-5.32907052e-15 Z" id="path-5"></path>
+        <filter x="-8.3%" y="-6.9%" width="116.6%" height="118.7%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="dialog_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g mask="url(#mask-2)">
+                <g id="Image-Treatments-/-Tonal-/-Black" opacity="0.5">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Surface" fill="#000000" fill-rule="evenodd" opacity="0.32" xlink:href="#path-3"></use>
+                </g>
+                <g id="Dialogs-/-Simple-/-with-Header" transform="translate(45.000000, 46.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Surface">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-5"></use>
+                        <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-5"></use>
+                    </g>
+                    <g id="✱-/-Color-/-Background-/-Light" mask="url(#mask-6)" fill="#FFFFFF" fill-rule="evenodd">
+                        <rect id="Rectangle-13" x="0" y="0" width="91.9191919" height="80.8080808"></rect>
+                    </g>
+                    <g id="Text-/-Subtitle-1-/-Background-/-Left" opacity="0.54" mask="url(#mask-6)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="5.17171717" font-weight="normal" letter-spacing="0.0484848504" line-spacing="7.75757576">
+                        <g transform="translate(7.757576, 19.070707)" id="Subtitle-1" opacity="0.87">
+                            <text>
+                                <tspan x="0" y="5" fill="#000000">Lorem ipsum dolor sit amet, </tspan>
+                                <tspan x="0" y="12.7575758" fill="#000000">consectetur adipisicing elit, sed </tspan>
+                                <tspan x="0" y="20.5151515" fill="#000000">do eiusmod tempor incididunt </tspan>
+                                <tspan x="0" y="28.2727273" fill="#000000">ut labore et dolore magna wirl </tspan>
+                                <tspan x="0" y="36.030303" fill="#000000">aliqua. Up exlaborum incididunt</tspan>
+                            </text>
+                        </g>
+                    </g>
+                    <g id="Text-/-H6-/-Background-/-Left" mask="url(#mask-6)" fill-opacity="0.87" font-family="Roboto-Medium, Roboto" font-size="6.46464646" font-weight="400" letter-spacing="0.0484848504" opacity="0.87">
+                        <g transform="translate(7.757576, 6.787879)" id="Headline-6">
+                            <text>
+                                <tspan x="0" y="6" fill="#000000">Dialog Header</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
