@@ -96,56 +96,39 @@ class CardActionButton extends Component {
   }
 }
 
-class CardActionRow extends Component {
-  render() {
-    return (
-      <div className='mdc-card__actions'>
-        <div className='mdc-card__action-buttons'>
-          <CardActionButton text='Read' />
-          <CardActionButton text='Bookmark' />
-        </div>
-        <div className='mdc-card__action-icons'>
-          <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-             tabIndex='0'
-             role='button'
-             aria-pressed='false'
-             aria-label='Add to favorites'
-             title='Add to favorites'
-             data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-             data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-             ref={(surfaceEl) => this.iconToggle = new MDCIconToggle(surfaceEl)}>
-            favorite_border
-          </i>
-          <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
-          <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
-        </div>
+const CardActionRow = () => {
+  return (
+    <div className='mdc-card__actions'>
+      <div className='mdc-card__action-buttons'>
+        <CardActionButton text='Read' />
+        <CardActionButton text='Bookmark' />
       </div>
-    );
-  }
+      <div className='mdc-card__action-icons'>
+        <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
+           tabIndex='0'
+           role='button'
+           aria-pressed='false'
+           aria-label='Add to favorites'
+           title='Add to favorites'
+           data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
+           data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
+           ref={(surfaceEl) => this.iconToggle = new MDCIconToggle(surfaceEl)}>
+          favorite_border
+        </i>
+        <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
+        <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
+      </div>
+    </div>
+  );
 }
 
-class CardDemos extends Component {
-  ripples = [];
-  iconToggles = [];
-
-  initRipple = (surfaceEl) => this.ripples.push(new MDCRipple(surfaceEl));
-  initIconToggle = (surfaceEl) => this.iconToggles.push(new MDCIconToggle(surfaceEl));
-
-  componentWillUnmount() {
-    this.ripples.forEach((ripple) => ripple.destroy());
-    this.iconToggles.forEach((iconToggle) => iconToggle.destroy());
-  }
-
-  render() {
-    return (
-      <div>
-        <section className='demo-card-collection'>
-          <Card image />
-          <Card actions />
-        </section>
-      </div>
-    );
-  }
+const CardDemos = () => {
+  return (
+    <section className='demo-card-collection'>
+      <Card image />
+      <Card actions />
+    </section>
+  );
 }
 
 export default CardPage;
