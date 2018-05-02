@@ -1,0 +1,32 @@
+@import "@material/elevation/mixins";
+@import "@material/elevation/dist/mdc.elevation";
+
+.elevation-demo-surface {
+  display: inline-flex;
+  justify-content: space-around;
+  min-height: 100px;
+  min-width: 200px;
+  margin: 15px;
+  align-items: center;
+}
+
+.elevation--custom-color-z16{
+  @include mdc-elevation(16, secondary, $opacity-boost: .1);
+}
+
+.elevation-hero .elevation-demo-surface {
+  width: 120px;
+  height: 48px;
+  margin: 24px 24px;
+  background-color: #212121;
+  color: #f0f0f0;
+}
+
+.elevation-demo-container {
+  display: flex;
+  margin: auto;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
