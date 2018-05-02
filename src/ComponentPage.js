@@ -42,7 +42,6 @@ class ComponentPage extends Component {
   render() {
     return (
       <div>
-        <HeaderBar />
         <div className='mdc-top-app-bar--fixed-adjust'>
           <div className='mdc-layout-grid'>
             <div className='mdc-layout-grid__inner'>

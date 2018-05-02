@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import LandingPage from './LandingPage';
-import ComponentPage from './ComponentPage';
+import CatalogPage from './CatalogPage';
 
 import {Switch, Route} from 'react-router';
 import {HashRouter} from 'react-router-dom';
@@ -15,9 +14,8 @@ class App extends Component {
       <HashRouter>
         <Switch>
           <Route path='/component/drawer/:type' component={DrawerFramePage} />
-          <Route exact path='/' component={LandingPage} />
           <Route path='/component/top-app-bar/:type' component={TopAppBarFramePage} />
-          <Route path='/component' component={ComponentPage} />
+          <Route path='/' component={CatalogPage} />
         </Switch>
       </HashRouter>
     );

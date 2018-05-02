@@ -16,7 +16,6 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', 'buttons_180px.svg', 'button')}
           {this.renderListItem('Card', 'cards_180px.svg', 'card')}
