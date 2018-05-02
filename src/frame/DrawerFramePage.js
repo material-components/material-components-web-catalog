@@ -37,11 +37,12 @@ class DrawerFramePage extends Component {
 
   render() {
     const variant = propToVariant[this.props.type];
+    const addFlexClass = variant !== propToVariant.permanentBelowTopAppBar;
     return (
         <div className='top-app-bar__frame'>
-          <div className='demo-frame'>
+          <div className={addFlexClass ? 'drawer-container-flex' : ''}>
             {this.getDrawer(variant)}
-            <div className={this.getTopAppBarWrapperClass(variant)}>
+            <div className={addFlexClass ? 'drawer-header-flex' : ''}>
             {this.getTopAppBar(variant)}
             </div>
           </div>
@@ -110,14 +111,6 @@ class DrawerFramePage extends Component {
           </div>
         </header>
     );
-  }
-
-  getTopAppBarWrapperClass(type = propToVariant.temporary) {
-    // if (type === propToVariant.temporary || type === propToVariant.permanentBelowTopAppBar) {
-    //   return '';
-    // }
-
-    return 'demo-content';
   }
 }
 

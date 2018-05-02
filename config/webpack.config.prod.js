@@ -50,6 +50,11 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 const components = [
   'button',
   'checkbox',
+  'drawer',
+  'drawer/temporary',
+  'drawer/permanent',
+  'drawer/persistent',
+  'drawer/permanentBelowTopAppBar',
   'fab',
   'image-list',
   'text-field',

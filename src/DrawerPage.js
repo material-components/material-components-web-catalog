@@ -3,7 +3,7 @@ import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
-import './styles/TopAppBarPage.scss';
+import './styles/DrawerPage.scss';
 
 const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
@@ -38,8 +38,6 @@ class DrawerHero extends Component {
   }
 
   render() {
-    const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
-
     return (
       <div className='hero-drawer'>
         <aside className='mdc-drawer mdc-drawer--permanent' ref={this.initDrawer}>
@@ -77,6 +75,7 @@ class DrawerDemos extends Component {
     return (
       <div className='demos-display'>
         {this.getVariant('Temporary', 'temporary')}
+        {this.getVariant('Persistent', 'persistent')}
         {this.getVariant('Permanent', 'permanent')}
         {this.getVariant('Permanent Below Top App Bar', 'permanentBelowTopAppBar')}
       </div>
@@ -86,14 +85,14 @@ class DrawerDemos extends Component {
   getVariant(title, path) {
     const {PUBLIC_URL} = process.env;
     return (
-      <div className='demo'>
+      <div className='drawer-demo'>
         <div>
           <a href={`${PUBLIC_URL}/drawer/${path}${pageExt}`} target='_blank'>
             <h3 className='mdc-typography--subtitle2'>{title}</h3>
           </a>
         </div>
         <div>
-          <iframe className='frame' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/drawer/${path}${pageExt}`} />
+          <iframe className='drawer-iframe' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/drawer/${path}${pageExt}`} />
         </div>
       </div>
     );

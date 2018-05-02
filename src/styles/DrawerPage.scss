@@ -1,28 +1,29 @@
-@import '@material/drawer';
+@import '@material/drawer/dist/mdc.drawer';
 @import '@material/theme/mixins';
 
-.demos-display {
+.drawer-demos-display {
   display: flex;
   flex-wrap: wrap;
-  min-height: 200px;
+  min-height: 400px;
 }
 
-.demo {
+.drawer-demo {
   display: inline-block;
-  flex: 1 1 45%;
+  flex: 1 1 80%;
   justify-content: space-around;
-  min-height: 200px;
+  min-height: 400px;
   min-width: 400px;
   padding: 15px;
 }
 
-.frame {
+.drawer-iframe {
   width: 100%;
-  height: 200px;
+  height: 400px;
 }
 
 .hero-drawer {
   .mdc-drawer__header {
     @include mdc-theme-prop(background-color, primary);
+    @include mdc-theme-prop(color, on-primary);
   }
 }
