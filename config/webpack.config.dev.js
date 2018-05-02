@@ -30,6 +30,7 @@ const components = [
   'checkbox',
   'fab',
   'image-list',
+  'list',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',

@@ -36,6 +36,10 @@ class ComponentPage extends Component {
       url: '/image-list',
       active: activeLink === 'Image List',
     }, {
+      content: 'List',
+      url: '/list',
+      active: activeLink === 'List',
+    }, {
       content: 'Text Field',
       url: '/text-field',
       active: activeLink === 'Text Field',
