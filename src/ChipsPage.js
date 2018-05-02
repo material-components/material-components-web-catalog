@@ -53,34 +53,104 @@ class ChipsHero extends Component {
   }
 }
 
+class CatalogChip extends MDCChip {
+  constructor(...args) {
+    super(...args);
+  }
+
+  remove() {
+    this.destroy();
+  }
+}
+
 class InputChipSet extends Component {
   constructor(props) {
     super(props);
     this.chipSetEl = null;
     this.chipSet = null;
     this.chipSetInputEl = null;
+    this.removalChipIndex = 0;
+    this.inputValue = '';
     this.state = {
       chipNames: ['Jane Smith', 'John Doe']
     };
-    this.initChipSet = chipSetEl => {
+
+    this.init = chipSetEl => {
       this.chipSetEl = chipSetEl;
-      this.chipSet = new MDCChipSet(chipSetEl);
+      this.initChipSet();
     };
     this.setInput = inputEl => this.chipSetInputEl = inputEl;
     this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
-    this.inputValue = '';
+    this.handleRemoveChip = this.handleRemoveChip.bind(this);
+    this.handleTrailingIconInteraction = this.handleTrailingIconInteraction.bind(this);
+  }
+
+  componentDidMount() {
+    this.chipSetEl.addEventListener('MDCChip:removal', this.handleRemoveChip);
+    this.chipSetEl.addEventListener('MDCChip:trailingIconInteraction', this.handleTrailingIconInteraction);
+  }
+
+  componentWillUnmount() {
+    this.chipSetEl.removeEventListener('MDCChip:removal', this.handleRemoveChip);
+    this.chipSetEl.removeEventListener('MDCChip:trailingIconInteraction', this.handleTrailingIconInteraction);
+  }
+
+  initChipSet() {
+    if (this.chipSet) {
+      this.chipSet.destroy();
+    }
+    this.chipSet = new MDCChipSet(this.chipSetEl, undefined, (el) => new CatalogChip(el));
   }
 
   handleInputKeyDown(e) {
-    if ((e.key === 'Enter' || e.keyCode === 13) && this.chipSetInputEl.value !== '') {
-      this.inputValue = this.chipSetInputEl.value;
-      const newChipNames = [].concat(this.state.chipNames, [this.inputValue]);
-      this.setState({chipNames: newChipNames}, () => {
-        this.chipSet.destroy();
-        this.chipSet = new MDCChipSet(this.chipSetEl);
-      });
-      this.chipSetInputEl.value = '';
+    if ((e.key === 'Enter' || e.keyCode === 13) || (e.key === 'Tab' || e.keyCode === 9)
+      && this.chipSetInputEl.value !== '') {
+        e.preventDefault();
+        this.addInputChip();
+    } else if ((e.key === 'Backspace' || e.keyCode === 8)&& this.chipSetInputEl.value === '') {
+      this.removeLastChip();
     }
+  }
+
+  handleTrailingIconInteraction(e) {
+    const {chip} = e.detail;
+    this.removalChipIndex = this.chipSet.chips.indexOf(chip);
+  }
+
+  handleRemoveChip(e) {
+    // This assumes that the chip names in the state and the chip objects in the chip set have the same array order.
+    const newChipNames = [].concat(
+      this.state.chipNames.slice(0, this.removalChipIndex),
+      this.state.chipNames.slice(this.removalChipIndex + 1));
+    console.log(newChipNames);
+    this.setState({chipNames: newChipNames}, () => {
+      this.initChipSet();
+    });
+  }
+
+  // Due to the way React handles the DOM, we need to implement a different way of adding/removing
+  // chips. These addChip/removeChip functions replace the addChip method in MDCChipSet and the
+  // appendChip/removeChip methods in its adapter.
+  // In a production app, it is expected for the user to wrap the MDCChip and MDCChipSet foundation
+  // and adapter. See: https://material.io/components/web/docs/framework-integration/
+
+  addInputChip() {
+    this.inputValue = this.chipSetInputEl.value;
+    const newChipNames = [].concat(this.state.chipNames, [this.inputValue]);
+    this.setState({chipNames: newChipNames}, () => {
+      this.initChipSet();
+    });
+    this.chipSetInputEl.value = '';
+  }
+
+  removeLastChip() {
+    const chip = this.chipSet.chips.pop();
+    chip.destroy();
+  
+    const newChipNames = this.state.chipNames.slice(0, -1);
+    this.setState({chipNames: newChipNames}, () => {
+      this.initChipSet();
+    });
   }
 
   renderChip(name, index) {
@@ -96,10 +166,10 @@ class InputChipSet extends Component {
   render() {
     return (
       <div className='catalog-input-chips'>
-        <div className='mdc-chip-set mdc-chip-set--input' ref={this.initChipSet}>
+        <div className='mdc-chip-set mdc-chip-set--input' ref={this.init}>
           {this.state.chipNames.map(this.renderChip)}
+          <input className='catalog-input' onKeyDown={this.handleInputKeyDown} ref={this.setInput} />
         </div>
-        <input className='catalog-input' onKeyDown={this.handleInputKeyDown} ref={this.setInput} />
       </div>
     );
   }
