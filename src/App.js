@@ -84,7 +84,7 @@ class App extends Component {
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
-          {this.renderListItem('Drawer', `${imagePath}/.svg`, 'drawer')}
+          {this.renderListItem('Drawer', `${imagePath}/drawer_180px.svg`, 'drawer')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
