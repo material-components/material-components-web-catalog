@@ -53,6 +53,7 @@ const components = [
   'checkbox',
   'fab',
   'image-list',
+  'linear-progress-indicator',
   'list',
   'text-field',
   'top-app-bar',
