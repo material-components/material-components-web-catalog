@@ -62,6 +62,7 @@ const components = [
   'linear-progress-indicator',
   'list',
   'text-field',
+  'slider',
   'top-app-bar',
   'top-app-bar/dense',
   'top-app-bar/fixed',

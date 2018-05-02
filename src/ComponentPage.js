@@ -56,6 +56,10 @@ class ComponentPage extends Component {
       url: '/list',
       active: activeLink === 'List',
     }, {
+      content: 'Slider',
+      url: '/slider',
+      active: activeLink === 'Slider',
+    }, {
       content: 'Text Field',
       url: '/text-field',
       active: activeLink === 'Text Field',

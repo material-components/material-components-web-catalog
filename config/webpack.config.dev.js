@@ -39,6 +39,7 @@ const components = [
   'image-list',
   'linear-progress-indicator',
   'list',
+  'slider',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
