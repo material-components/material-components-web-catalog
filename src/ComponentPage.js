@@ -44,6 +44,10 @@ class ComponentPage extends Component {
       url: '/image-list',
       active: activeLink === 'Image List',
     }, {
+      content: 'Linear Progress Indicator',
+      url: '/linear-progress-indicator',
+      active: activeLink === 'Linear Progress Indicator',
+    }, {
       content: 'List',
       url: '/list',
       active: activeLink === 'List',
