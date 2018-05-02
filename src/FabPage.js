@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentView from './ComponentView.js';
 import {MDCRipple} from '@material/ripple';
 
 import './styles/FabPage.scss';
@@ -44,18 +43,15 @@ const FabPage = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<Fab />}
-        title='Floating Action Button'
-        description={description}
-        designLink='https://material.io/guidelines/components/buttons-floating-action-button.html'
-        docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
-        demos={<FabDemos/>}
-      />
-    </div>
+    <ComponentView
+      hero={<Fab />}
+      title='Floating Action Button'
+      description={description}
+      designLink='https://material.io/guidelines/components/buttons-floating-action-button.html'
+      docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
+      sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
+      demos={<FabDemos/>}
+    />
   );
 }
 

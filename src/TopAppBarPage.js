@@ -1,33 +1,29 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentView from './ComponentView.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
 import './styles/TopAppBarPage.scss';
 
-const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
-
-const TopAppBarPage = () => {
+const TopAppBarPage = (props) => {
   return (
-    <div>
-      <HeaderBar title='Top App Bar'/>
-      <ComponentPage
-        hero={<TopAppBarHero/>}
-        title='Top App Bar'
-        description='Top App Bars are a container for items such as application title, navigation icon, and action items.'
-        designLink='https://material.io/guidelines/components/app-bar-top.html'
-        docsLink='https://material.io/components/web/catalog/topappbars/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
-        demos={<TopAppBarDemos/>}
-      />
-    </div>
+    <ComponentView
+      hero={<TopAppBarHero/>}
+      title='Top App Bar'
+      description='Top App Bars are a container for items such as application title, navigation icon, and action items.'
+      designLink='https://material.io/guidelines/components/app-bar-top.html'
+      docsLink='https://material.io/components/web/catalog/topappbars/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
+      demos={<TopAppBarDemos {...props}/>}
+    />
   );
 };
 
 class TopAppBarHero extends Component {
 
   ripples = [];
+
   initRipple = icon => {
+    if (!icon) return;
     const current = new MDCRipple(icon);
     current.unbounded = true;
     this.ripples.push(current);
@@ -75,16 +71,19 @@ class TopAppBarDemos extends Component {
   }
 
   getVariant(title, path) {
+    const {match} = this.props;
     const {PUBLIC_URL} = process.env;
+    const topAppBarVariantLink = `#${PUBLIC_URL}${match.url}/${path}`;
+
     return (
       <div className='demo'>
         <div>
-          <a href={`${PUBLIC_URL}/top-app-bar/${path}${pageExt}`} target='_blank'>
+          <a href={topAppBarVariantLink} target='_blank'>
             <h3 className='mdc-typography--subtitle2'>{title}</h3>
           </a>
         </div>
         <div>
-          <iframe className='frame' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/top-app-bar/${path}${pageExt}`} />
+          <iframe className='frame' title={title} sandbox='allow-scripts allow-same-origin' src={`${window.location.href}/${path}`} />
         </div>
       </div>
     );

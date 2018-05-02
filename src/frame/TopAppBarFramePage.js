@@ -1,5 +1,6 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
+import {Switch, Route} from 'react-router';
 
 import '../styles/TopAppBarFramePage.scss';
 
@@ -15,7 +16,7 @@ const propToVariant = {
 class TopAppBarFramePage extends Component {
 
   topAppBar = null;
-  initTopAppBar = topAppBarEle => this.topAppBar = new MDCTopAppBar(topAppBarEle);
+  initTopAppBar = topAppBarEle => this.topAppBar = topAppBarEle && new MDCTopAppBar(topAppBarEle);
 
   componentWillUnmount() {
     if (this.topAppBar) {
@@ -24,9 +25,10 @@ class TopAppBarFramePage extends Component {
   }
 
   render() {
+    const {match} = this.props;
     return (
       <div className='top-app-bar__frame'>
-        {this.getVariant(propToVariant[this.props.type])}
+        {this.getVariant(propToVariant[match.params.type])}
       </div>
     );
   }

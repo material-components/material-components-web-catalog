@@ -1,24 +1,20 @@
 import React from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentView from './ComponentView.js';
 import {imagePath} from './constants';
 
 import './styles/ImageListPage.scss';
 
 function ImageListPage() {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<ImageListHero />}
-        title='Image List'
-        description='Image lists display a collection of images in an organized grid.'
-        designLink='https://material.io/go/design-image-list'
-        docsLink='https://material.io/components/web/catalog/image-lists/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-image-list'
-        demos={<ImageListDemos />}
-      />
-    </div>
+    <ComponentView
+      hero={<ImageListHero />}
+      title='Image List'
+      description='Image lists display a collection of images in an organized grid.'
+      designLink='https://material.io/go/design-image-list'
+      docsLink='https://material.io/components/web/catalog/image-lists/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-image-list'
+      demos={<ImageListDemos />}
+    />
   );
 }
 
