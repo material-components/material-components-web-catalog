@@ -4,7 +4,9 @@ import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
 import DrawerPage from './DrawerPage';
 import FabPage from './FabPage';
+import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
+import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
@@ -28,7 +30,9 @@ const componentUrlToPageMap = {
   '/drawer/persistent': <DrawerFramePage type='persistent' />,
   '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/fab': <FabPage />,
+  '/icon-toggle': <IconTogglePage />,
   '/image-list': <ImageListPage />,
+  '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
@@ -86,7 +90,9 @@ class App extends Component {
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
           {this.renderListItem('Drawer', `${imagePath}/drawer_180px.svg`, 'drawer')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
+          {this.renderListItem('Icon Toggle', `${imagePath}/icon_toggle_180px.svg`, 'icon-toggle')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
+          {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}

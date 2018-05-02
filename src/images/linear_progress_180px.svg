@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>linear_progress_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="0" width="200" height="8" rx="4"></rect>
+        <rect id="path-5" x="0" y="0" width="92" height="8" rx="4"></rect>
+    </defs>
+    <g id="linear_progress_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dialog-/-Header-Copy-27">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g id="Progress-Indicators-/-Linear" mask="url(#mask-2)">
+                <g transform="translate(30.000000, 86.000000)">
+                    <g id="Progress-Indicators-/-Elements-/-Linear-/-Track">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Primary-/-Main" opacity="0.24" mask="url(#mask-4)" fill="#212121" fill-rule="evenodd">
+                            <g id="✱-/-Color-/-Primary-/-500">
+                                <rect id="Rectangle-13" x="0" y="0" width="200" height="8"></rect>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Progress-Indicators-/-Elements-/-Linear-/-Indicator">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Primary-/-Main" mask="url(#mask-6)" fill="#212121" fill-rule="evenodd">
+                            <g id="✱-/-Color-/-Primary-/-500">
+                                <rect id="Rectangle-13" x="0" y="0" width="92" height="8"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
