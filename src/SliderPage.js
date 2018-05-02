@@ -77,7 +77,7 @@ class SliderDemos extends Component {
           <div className='mdc-slider__thumb-container'>
             {variantClass.includes('mdc-slider--discrete') &&
               <div className='mdc-slider__pin'>
-                <span className='mdc-slider__pin-value-marker'>20</span>
+                <span className='mdc-slider__pin-value-marker'></span>
               </div>
             }
             <svg className='mdc-slider__thumb' width='21' height='21'>
