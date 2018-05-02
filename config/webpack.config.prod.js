@@ -52,6 +52,7 @@ const components = [
   'card',
   'checkbox',
   'fab',
+  'image-list',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
