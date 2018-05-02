@@ -61,20 +61,15 @@ class RippleDemos extends Component {
     this.ripples.forEach(ripple => ripple.destroy());
   }
 
-  renderRippleVariant(title, variantClass) {
+  renderRippleVariant(title, variant, text) {
     return (
       <div>
+        <div className='ripple-demos'>
         <h3>{title}</h3>
-        <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
-          Default
-        </button>
-        <button className={`demo-button mdc-button mdc-button--dense ${variantClass}`} ref={this.initRipple}>
-          Dense
-        </button>
-        <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
-          <i className='material-icons mdc-button__icon'>favorite</i>
-          Icon
-        </button>
+        <div className={variant} ref={this.initRipple}>
+          {text}
+        </div>
+        </div>
       </div>
     );
   }
@@ -82,10 +77,10 @@ class RippleDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderRippleVariant('Bounded Ripple')}
+        {this.renderRippleVariant('Bounded Ripple', <div className='ripple-demo-bounded mdc-ripple-surface'>Interact with me!</div> )}
         {this.renderRippleVariant('Unbounded Ripple', <div className='ripple-demo-icon material-icons'>favorite</div> )}
         {this.renderRippleVariant('Theme Colors', <div><div className='ripple-demo-theme-primary'>Primary</div> <div className='ripple-demo-theme-secondary'>Secondary</div></div> )}
-        {this.renderRippleVariant('Button Example', <div className='mdc-button ripple-demo-button'>button<div>)}
+        {this.renderRippleVariant('Button Example', <div className='mdc-button ripple-demo-button'>button</div>)}
       </div>
     );
   }
