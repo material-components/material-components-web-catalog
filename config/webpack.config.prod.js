@@ -52,6 +52,7 @@ const components = [
   'card',
   'checkbox',
   'fab',
+  'icon-toggle',
   'image-list',
   'linear-progress-indicator',
   'list',

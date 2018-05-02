@@ -3,6 +3,7 @@ import ButtonPage from './ButtonPage';
 import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
 import FabPage from './FabPage';
+import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
 import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
@@ -22,6 +23,7 @@ const componentUrlToPageMap = {
   '/card': <CardPage />,
   '/checkbox': <CheckboxPage />,
   '/fab': <FabPage />,
+  '/icon-toggle': <IconTogglePage />,
   '/image-list': <ImageListPage />,
   '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
@@ -80,6 +82,7 @@ class App extends Component {
           {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
+          {this.renderListItem('Icon Toggle', `${imagePath}/icon_toggle_180px.svg`, 'icon-toggle')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}

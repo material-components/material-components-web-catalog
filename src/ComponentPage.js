@@ -36,6 +36,10 @@ class ComponentPage extends Component {
       url: '/fab',
       active: activeLink === 'Floating Action Button',
     }, {
+      content: 'Icon Toggle',
+      url: '/icon-toggle',
+      active: activeLink === 'Icon Toggle',
+    }, {
       content: 'Image List',
       url: '/image-list',
       active: activeLink === 'Image List',
