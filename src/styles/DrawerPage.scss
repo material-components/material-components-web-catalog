@@ -1,0 +1,29 @@
+@import '@material/drawer/dist/mdc.drawer';
+@import '@material/theme/mixins';
+
+.drawer-demos-display {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 400px;
+}
+
+.drawer-demo {
+  display: inline-block;
+  flex: 1 1 80%;
+  justify-content: space-around;
+  min-height: 400px;
+  min-width: 400px;
+  padding: 15px;
+}
+
+.drawer-iframe {
+  width: 100%;
+  height: 400px;
+}
+
+.hero-drawer {
+  .mdc-drawer__header {
+    @include mdc-theme-prop(background-color, primary);
+    @include mdc-theme-prop(color, on-primary);
+  }
+}

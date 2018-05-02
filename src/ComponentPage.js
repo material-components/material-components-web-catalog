@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
@@ -24,21 +24,49 @@ class ComponentPage extends Component {
       url: '/button',
       active: activeLink === 'Button',
     }, {
+      content: 'Card',
+      url: '/card',
+      active: activeLink === 'Card',
+    }, {
       content: 'Checkbox',
       url: '/checkbox',
       active: activeLink === 'Checkbox',
+    }, {
+      content: 'Drawer',
+      url: '/drawer',
+      active: activeLink === 'Drawer',
     }, {
       content: 'Fab',
       url: '/fab',
       active: activeLink === 'Floating Action Button',
     }, {
-      content: 'Switch',
-      url: '/switch',
-      active: activeLink === 'Switch',
+      content: 'Icon Toggle',
+      url: '/icon-toggle',
+      active: activeLink === 'Icon Toggle',
+    }, {
+      content: 'Image List',
+      url: '/image-list',
+      active: activeLink === 'Image List',
+    }, {
+      content: 'Linear Progress Indicator',
+      url: '/linear-progress-indicator',
+      active: activeLink === 'Linear Progress Indicator',
+    }, {
+      content: 'List',
+      url: '/list',
+      active: activeLink === 'List',
+    }, {
+        content: 'Switch',
+        url: '/switch',
+        active: activeLink === 'Switch',
     }, {
       content: 'Text Field',
       url: '/text-field',
       active: activeLink === 'Text Field',
+    }, {
+      content: 'Top App Bar',
+      url: '/top-app-bar',
+      active: activeLink === 'Top App Bar',
     }];
 
     return(
@@ -68,8 +96,7 @@ class ComponentPage extends Component {
           {this.props.hero}
         </div>
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`,
-          this.props.designLink)}
+        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, this.props.designLink)}
         {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, this.props.docsLink)}
         {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, this.props.sourceLink)}
 

@@ -1,0 +1,29 @@
+.demos-display {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 200px;
+}
+
+.demo {
+  display: inline-block;
+  flex: 1 1 45%;
+  justify-content: space-around;
+  min-height: 200px;
+  min-width: 400px;
+  padding: 15px;
+}
+
+.frame {
+  width: 100%;
+  height: 200px;
+}
+
+.hero-top-app-bar {
+  height: 64px;
+  width: 80%;
+  min-width: 300px;
+
+  .mdc-top-app-bar {
+    position: relative;
+  }
+}
