@@ -51,6 +51,7 @@ const components = [
   'button',
   'card',
   'checkbox',
+  'dialog',
   'fab',
   'image-list',
   'list',

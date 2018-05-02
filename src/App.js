@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
 import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
+import DialogPage from './DialogPage';
 import FabPage from './FabPage';
 import ImageListPage from './ImageListPage';
 import ListPage from './ListPage';
@@ -20,6 +21,7 @@ const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/card': <CardPage />,
   '/checkbox': <CheckboxPage />,
+  '/dialog': <DialogPage />,
   '/fab': <FabPage />,
   '/image-list': <ImageListPage />,
   '/list': <ListPage />,
@@ -77,6 +79,7 @@ class App extends Component {
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
+          {this.renderListItem('Dialog', `${imagePath}/dialog_180px.svg`, 'dialog')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
