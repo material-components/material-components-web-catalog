@@ -57,10 +57,7 @@ class SelectHero extends Component {
 }
 
 class SelectDemos extends Component {
-  constructor(props) {
-    super(props);
-    this.selects = [];
-  }
+  selects = [];
 
   initSelect = (selectEl) => {
     const select = new MDCSelect(selectEl);
