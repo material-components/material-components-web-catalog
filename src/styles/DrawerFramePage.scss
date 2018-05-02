@@ -1,0 +1,19 @@
+@import "@material/drawer/dist/mdc.drawer";
+@import '@material/theme/mixins';
+
+.drawer-header-flex {
+  display: inline-flex;
+  flex: 1 1 auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.drawer-container-flex {
+  display: inline-flex;
+  flex: 1 1 auto;
+}
+
+.mdc-drawer__header {
+  @include mdc-theme-prop(background-color, primary);
+  @include mdc-theme-prop(color, on-primary);
+}
