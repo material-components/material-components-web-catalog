@@ -10,7 +10,6 @@ const propToVariant = {
   persistent: {title: 'Persistent Drawer', variant: 'mdc-drawer--persistent'},
   permanent: {title: 'Permanent Drawer', variant: 'mdc-drawer--permanent'},
   permanentBelowTopAppBar: {title: 'Permanent Drawer Below Toolbar', variant: 'mdc-drawer--permanent'},
-
 };
 
 class DrawerFramePage extends Component {
@@ -19,24 +18,27 @@ class DrawerFramePage extends Component {
   drawer = null;
 
   initDrawer = drawerEle => {
-    if(this.props.type === 'temporary') {
+    const {match} = this.props;
+    if(match.params.type === 'temporary') {
       this.drawer = new MDCTemporaryDrawer(drawerEle);
-    } else if (this.props.type === 'persistent') {
+    } else if (match.params.type === 'persistent') {
       this.drawer = new MDCPersistentDrawer(drawerEle);
     }
   };
 
   initTopAppBar = topAppBarEle => {
+    const {match} = this.props;
     this.topAppBar = new MDCTopAppBar(topAppBarEle);
 
-    if (this.props.type === 'temporary' || this.props.type === 'persistent') {
+    if (match.params.type === 'temporary' || match.params.type === 'persistent') {
       topAppBarEle.addEventListener('MDCTopAppBar:nav', () => this.drawer.open = !this.drawer.open);
     }
   };
 
 
   render() {
-    const variant = propToVariant[this.props.type];
+    const {match} = this.props;
+    const variant = propToVariant[match.params.type];
     const addFlexClass = variant !== propToVariant.permanentBelowTopAppBar;
     return (
         <div className='top-app-bar__frame'>

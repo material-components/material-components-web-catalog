@@ -19,30 +19,39 @@ class Sidebar extends Component {
 
   render() {
     const links = [{
-      content: 'Button',
-      url: '/button',
-    }, {
-      content: 'Card',
-      url: '/card',
-    }, {
-      content: 'Checkbox',
-      url: '/checkbox',
-    }, {
-      content: 'Fab',
-      url: '/fab',
-    }, {
-      content: 'Image List',
-      url: '/image-list',
-    }, {
-      content: 'List',
-      url: '/list',
-    }, {
-      content: 'Text Field',
-      url: '/text-field',
-    }, {
-      content: 'Top App Bar',
-      url: '/top-app-bar',
-    }];
+       content: 'Button',
+       url: '/button',
+     }, {
+       content: 'Card',
+       url: '/card',
+     }, {
+       content: 'Checkbox',
+       url: '/checkbox',
+     }, {
+       content: 'Drawer',
+       url: '/drawer',
+     }, {
+       content: 'Fab',
+       url: '/fab',
+     }, {
+       content: 'Icon Toggle',
+       url: '/icon-toggle',
+     }, {
+       content: 'Image List',
+       url: '/image-list',
+     }, {
+       content: 'Linear Progress Indicator',
+       url: '/linear-progress-indicator',
+     }, {
+       content: 'List',
+       url: '/list',
+     }, {
+       content: 'Text Field',
+       url: '/text-field',
+     }, {
+       content: 'Top App Bar',
+       url: '/top-app-bar',
+     }];
 
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>

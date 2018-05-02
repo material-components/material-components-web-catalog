@@ -4,8 +4,11 @@ import Sidebar from './Sidebar';
 import ButtonPage from './ButtonPage';
 import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
+import DrawerPage from './DrawerPage';
 import FabPage from './FabPage';
+import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
+import LinearProgressIndicatorPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
 import TextFieldPage from './TextFieldPage';
 import TopAppBarPage from './TopAppBarPage';
@@ -24,9 +27,12 @@ class ComponentSection extends Component {
         <Route path={`${match.path}/button`} component={ButtonPage} />
         <Route path={`${match.path}/card`} component={CardPage} />
         <Route path={`${match.path}/checkbox`} component={CheckboxPage} />
+        <Route path={`${match.path}/drawer`} component={DrawerPage} />
         <Route path={`${match.path}/fab`} component={FabPage} />
+        <Route path={`${match.path}/icon-toggle`} component={IconTogglePage} />
         <Route path={`${match.path}/image-list`} component={ImageListPage} />
         <Route path={`${match.path}/list`} component={ListPage} />
+        <Route path={`${match.path}/linear-progress-indicator`} component={LinearProgressIndicatorPage} />
         <Route path={`${match.path}/text-field`} component={TextFieldPage} />
         <Route path={`${match.path}/top-app-bar`} component={TopAppBarPage} />
       </Switch>
