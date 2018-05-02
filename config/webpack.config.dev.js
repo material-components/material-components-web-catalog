@@ -27,10 +27,19 @@ const env = getClientEnvironment(publicUrl);
 // List of all component names for generating the corresponding html pages.
 const components = [
   'button',
+  'card',
   'checkbox',
   'fab',
   'image-list',
-  'text-field'
+  'list',
+  'text-field',
+  'top-app-bar',
+  'top-app-bar/dense',
+  'top-app-bar/fixed',
+  'top-app-bar/standard',
+  'top-app-bar/prominent',
+  'top-app-bar/short',
+  'top-app-bar/short-collapsed'
 ];
 
 // This is the development configuration.

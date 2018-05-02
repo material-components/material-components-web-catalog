@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
+import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
 import DrawerPage from './DrawerPage';
 import FabPage from './FabPage';
 import ImageListPage from './ImageListPage';
+import ListPage from './ListPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
@@ -18,6 +20,7 @@ const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
+  '/card': <CardPage />,
   '/checkbox': <CheckboxPage />,
   '/drawer': <DrawerPage />,
   '/drawer/temporary': <DrawerFramePage type='temporary' />,
@@ -26,6 +29,7 @@ const componentUrlToPageMap = {
   '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/fab': <FabPage />,
   '/image-list': <ImageListPage />,
+  '/list': <ListPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type='dense'/>,
@@ -78,10 +82,12 @@ class App extends Component {
         <HeaderBar isTopPage />
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
+          {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
           {this.renderListItem('Drawer', `${imagePath}/.svg`, 'drawer')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
+          {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
         </ul>

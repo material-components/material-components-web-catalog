@@ -24,6 +24,10 @@ class ComponentPage extends Component {
       url: '/button',
       active: activeLink === 'Button',
     }, {
+      content: 'Card',
+      url: '/card',
+      active: activeLink === 'Card',
+    }, {
       content: 'Checkbox',
       url: '/checkbox',
       active: activeLink === 'Checkbox',
@@ -39,6 +43,10 @@ class ComponentPage extends Component {
       content: 'Image List',
       url: '/image-list',
       active: activeLink === 'Image List',
+    }, {
+      content: 'List',
+      url: '/list',
+      active: activeLink === 'List',
     }, {
       content: 'Text Field',
       url: '/text-field',
@@ -76,8 +84,7 @@ class ComponentPage extends Component {
           {this.props.hero}
         </div>
         <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`,
-          this.props.designLink)}
+        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, this.props.designLink)}
         {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, this.props.docsLink)}
         {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, this.props.sourceLink)}
 

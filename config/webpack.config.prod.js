@@ -49,6 +49,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 // List of all component names for generating the corresponding html pages.
 const components = [
   'button',
+  'card',
   'checkbox',
   'drawer',
   'drawer/temporary',
@@ -57,6 +58,7 @@ const components = [
   'drawer/permanentBelowTopAppBar',
   'fab',
   'image-list',
+  'list',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
