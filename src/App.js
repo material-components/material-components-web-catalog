@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
 import CheckboxPage from './CheckboxPage';
+import DrawerPage from './DrawerPage';
 import FabPage from './FabPage';
 import ImageListPage from './ImageListPage';
 import TextFieldPage from './TextFieldPage';
@@ -11,12 +12,18 @@ import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
 import './styles/App.scss';
+import DrawerFramePage from './frame/DrawerFramePage';
 
 const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
 const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/checkbox': <CheckboxPage />,
+  '/drawer': <DrawerPage />,
+  '/drawer/temporary': <DrawerFramePage type='temporary' />,
+  '/drawer/permanent': <DrawerFramePage type='permanent' />,
+  '/drawer/persistent': <DrawerFramePage type='persistent' />,
+  '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/fab': <FabPage />,
   '/image-list': <ImageListPage />,
   '/text-field': <TextFieldPage />,
@@ -72,6 +79,7 @@ class App extends Component {
         <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
+          {this.renderListItem('Drawer', `${imagePath}/.svg`, 'drawer')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
