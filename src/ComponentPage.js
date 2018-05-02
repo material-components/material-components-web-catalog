@@ -12,7 +12,7 @@ class ComponentPage extends Component {
         href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
         key={index}
         role='listitem'
-        className={`mdc-list-item mdc-typography--body1 ${link.active ? 'sidebar-active' : ''}`}>
+        className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
           {link.content}
        </a>
     );
@@ -70,7 +70,7 @@ class ComponentPage extends Component {
   renderDemoWrapper() {
     return(
       <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
-        <h1 className='mdc-typography--headline5'>{this.props.title}</h1>
+        <h1>{this.props.title}</h1>
         <p className='mdc-typography--body1'>{this.props.description}</p>
         <div className='hero'>
           {this.props.hero}

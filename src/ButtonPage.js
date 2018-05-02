@@ -67,7 +67,7 @@ class ButtonDemos extends Component {
   renderButtonVariant(title, variantClass) {
     return (
       <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
+        <h3>{title}</h3>
         <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
           Default
         </button>

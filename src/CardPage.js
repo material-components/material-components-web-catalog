@@ -12,34 +12,33 @@ const CardPage = () => {
     <div>
       <HeaderBar />
       <ComponentPage
-        hero={<CardHero/>}
+        hero={<Card image actions className='demo-card--hero' />}
         title='Card'
         description='Cards contain content and actions about a single subject.'
         designLink='https://material.io/guidelines/components/cards.html'
         docsLink='https://material.io/components/web/catalog/cards/'
         sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
-        demos={<CardDemos/>}
+        demos={<CardDemos />}
       />
     </div>
   );
 };
 
-class CardHero extends Component {
+class Card extends Component {
   componentWillUnmount() {
     this.ripple.destroy();
-    this.iconToggle.destroy();
   }
 
   render() {
+    const {actions, className, image} = this.props;
     return (
       <div>
-        <div className='mdc-card demo-card demo-card--hero'>
+        <div className={`mdc-card demo-card ${className}`}>
           <div
             className='mdc-card__primary-action'
             tabIndex='0'
             ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}>
-            <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'
-                 style={{backgroundImage: `url("${imagePath}/card_media_16x9.jpg")`}}></div>
+            {image ? <CardImage /> : null}
             <div className='demo-card__primary'>
               <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
               <h3 className='demo-card__subtitle mdc-typography--subtitle2'>by Kurt Wagner</h3>
@@ -48,31 +47,18 @@ class CardHero extends Component {
               Visit ten places on our planet that are undergoing the biggest changes today.
             </div>
           </div>
-          <div className='mdc-card__actions'>
-            <div className='mdc-card__action-buttons'>
-              <button className='mdc-button mdc-card__action mdc-card__action--button'>Read</button>
-              <button className='mdc-button mdc-card__action mdc-card__action--button'>Bookmark</button>
-            </div>
-            <div className='mdc-card__action-icons'>
-              <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-                 tabIndex='0'
-                 role='button'
-                 aria-pressed='false'
-                 aria-label='Add to favorites'
-                 title='Add to favorites'
-                 data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-                 data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-                 ref={(surfaceEl) => this.iconToggle = new MDCIconToggle(surfaceEl)}>
-                favorite_border
-              </i>
-              <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
-              <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
-            </div>
-          </div>
+          {actions ? <CardActionRow /> : null}
         </div>
       </div>
     );
   }
+}
+
+const CardImage = () => {
+  return (
+    <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'
+       style={{backgroundImage: `url("${imagePath}/photos/3x2/2.jpg")`}}></div>
+  );
 }
 
 class CardActionIcon extends Component {
@@ -94,31 +80,31 @@ class CardActionIcon extends Component {
   }
 }
 
-const CardActionStarIcon = (props) => {
-  return (
-    <CardActionIcon
-      title={props.title}
-      className='demo-card__action-icon--star'
-      icon='star_border'
-    />
-  );
-}
+class CardActionButton extends Component {
+  componentWillUnmount() {
+    this.ripple.destroy();
+  }
 
-class PhotoCard extends Component {
   render() {
     return (
-      <div className='mdc-card demo-card demo-card--photo'>
-        <div className='mdc-card__primary-action demo-card__primary-action' tabIndex='0' ref={this.props.initRipple}>
-          <div className='mdc-card__media mdc-card__media--square demo-card__media'
-               style={{backgroundImage: `url("${imagePath}/card_media_1x1.jpg")`}}>
-            <div className='mdc-card__media-content demo-card__media-content--with-title'>
-              <div className='demo-card__media-title mdc-typography--subtitle2'>
-                Vacation Photos
-              </div>
-            </div>
-          </div>
+      <button
+        ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}
+        className='mdc-button mdc-card__action mdc-card__action--button'>
+        {this.props.text}
+      </button>
+    );
+  }
+}
+
+class CardActionRow extends Component {
+  render() {
+    return (
+      <div className='mdc-card__actions'>
+        <div className='mdc-card__action-buttons'>
+          <CardActionButton text='Read' />
+          <CardActionButton text='Bookmark' />
         </div>
-        <div className='mdc-card__actions mdc-card__action-icons'>
+        <div className='mdc-card__action-icons'>
           <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
              tabIndex='0'
              role='button'
@@ -127,111 +113,15 @@ class PhotoCard extends Component {
              title='Add to favorites'
              data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
              data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-             ref={this.props.initIconToggle}>
+             ref={(surfaceEl) => this.iconToggle = new MDCIconToggle(surfaceEl)}>
             favorite_border
           </i>
-          <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-             tabIndex='0'
-             role='button'
-             aria-pressed='false'
-             aria-label='Add bookmark'
-             title='Add bookmark'
-             data-toggle-on='{"content": "bookmark", "label": "Remove bookmark"}'
-             data-toggle-off='{"content": "bookmark_border", "label": "Add bookmark"}'
-             ref={this.props.initIconToggle}>
-            bookmark_border
-          </i>
           <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
+          <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
         </div>
       </div>
     );
   }
-}
-
-const MusicCard = (props) => {
-  return (
-    <div className='mdc-card demo-card demo-card--music'>
-      <div
-        className='mdc-card__primary-action demo-card__primary-action'
-        tabIndex='0'
-        ref={props.initRipple}>
-        <div className='demo-card__music-row'>
-          <div className='mdc-card__media mdc-card__media--square demo-card__media demo-card__media--music'
-               style={{backgroundImage: `url("${imagePath}/card_media_1x1.jpg")`}}></div>
-          <div className='demo-card__music-info'>
-            <div className='demo-card__music-title mdc-typography--headline5'>Rozes</div>
-            <div className='demo-card__music-artist mdc-typography--body2'>Under the Grave</div>
-            <div className='demo-card__music-year mdc-typography--body2'>(2016)</div>
-          </div>
-        </div>
-      </div>
-      <hr className='mdc-list-divider'/>
-      <div className='mdc-card__actions'>
-        <div className='mdc-card__action-buttons demo-card__action-buttons--text-only'>Rate this album</div>
-        <div className='mdc-card__action-icons'>
-          <CardActionStarIcon title='1 star'/>
-          <CardActionStarIcon title='2 star'/>
-          <CardActionStarIcon title='3 star'/>
-          <CardActionStarIcon title='4 star'/>
-          <CardActionStarIcon title='5 star'/>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-class CardHeadlineRow extends Component {
-  componentWillUnmount() {
-    this.ripple.destroy();
-  }
-
-  render() {
-    return (
-      <div
-        className='demo-card-article mdc-ripple-surface'
-        tabIndex='0'
-        ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}>
-        <h2 className='demo-card-article__title mdc-typography--headline5'>{this.props.title}</h2>
-        <p className='demo-card-article__snippet mdc-typography--body2'>
-          {this.props.subtitle}
-        </p>
-      </div>
-    );
-  }
-}
-
-const NewsCard = ({initRipple}) => {
-  const headlines = [{
-    title: 'Copper on the rise',
-    subtitle: 'Copper price soars amid global market optimism and increased demand.',
-  }, {
-    title: 'U.S. tech startups rebound',
-    subtitle: 'Favorable business conditions have allowed startups to secure more fundraising deals compared to last year.',
-  }, {
-    title: 'Asia\'s clean energy ambitions',
-    subtitle: 'China plans to invest billions of dollars for the development of over 300 clean energy projects in Southeast Asia.',
-  }];
-
-  return (
-    <div className='mdc-card mdc-card--outlined demo-card'>
-      <div className='demo-card-article-group-heading mdc-typography--subtitle2'>Headlines</div>
-      {headlines.map((headline, index) => (
-        <div key={index}>
-          <hr className='mdc-list-divider'/>
-          <CardHeadlineRow title={headline.title} subtitle={headline.subtitle} />
-        </div>
-      ))}
-
-      <hr className='mdc-list-divider'/>
-
-      <div className='mdc-card__actions mdc-card__actions--full-bleed demo-card__actions--full-bleed'>
-        <div className='mdc-button mdc-card__action mdc-card__action--button demo-card-action' tabIndex='0' ref={initRipple}>
-          All Business Headlines
-          <i className='material-icons' aria-hidden='true'>arrow_forward</i>
-        </div>
-      </div>
-    </div>
-  );
 }
 
 class CardDemos extends Component {
@@ -250,9 +140,8 @@ class CardDemos extends Component {
     return (
       <div>
         <section className='demo-card-collection'>
-          <PhotoCard initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
-          <MusicCard initRipple={this.initRipple} initIconToggle={this.initIconToggle} />
-          <NewsCard initRipple={this.initRipple} />
+          <Card image />
+          <Card actions />
         </section>
       </div>
     );
