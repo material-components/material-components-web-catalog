@@ -12,7 +12,6 @@
     "@material/layout-grid": "^0.34.0",
     "@material/list": "^0.35.0",
     "@material/ripple": "^0.35.0",
-    "@material/rtl": "^0.35.0",
     "@material/textfield": "^0.35.0",
     "@material/theme": "^0.35.0",
     "@material/top-app-bar": "^0.35.0",

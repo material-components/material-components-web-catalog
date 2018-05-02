@@ -5,8 +5,6 @@
 @import "@material/ripple/dist/mdc.ripple";
 
 // Sass mixins
-@import "@material/ripple/mixins";
-@import "@material/rtl/mixins";
 @import "@material/theme/mixins";
 @import "@material/theme/variables";
 
@@ -24,7 +22,7 @@
 }
 
 //
-// Book card
+// card
 //
 
 .demo-card__primary {
