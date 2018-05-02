@@ -30,6 +30,7 @@ const components = [
   'card',
   'checkbox',
   'fab',
+  'icon-toggle',
   'image-list',
   'list',
   'text-field',
