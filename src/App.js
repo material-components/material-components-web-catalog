@@ -9,6 +9,7 @@ import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
 import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
+import RipplePage from './RipplePage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
@@ -36,6 +37,7 @@ const componentUrlToPageMap = {
   '/image-list': <ImageListPage />,
   '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
+  '/ripple': <RipplePage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type='dense'/>,
@@ -97,6 +99,7 @@ class App extends Component {
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
+          {this.renderListItem('Ripple', `${imagePath}/ripple_180px.svg`, 'ripple')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
         </ul>
