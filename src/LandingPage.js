@@ -38,7 +38,7 @@ class LandingPage extends Component {
     const fullUrl = `/component/${url}`;
     return (
       <li className='catalog-image-list-item mdc-image-list__item'>
-        <Link to={fullUrl}>
+        <Link to={fullUrl} className='catalog-image-link'>
           <div className='catalog-image-list-item-container mdc-image-list__image-aspect-container mdc-ripple-surface'
                ref={(el) => el && this.initRipple(el)}>
             <img className='mdc-image-list__image' src={`${imagePath}/${imageSource}`} alt={`${title} icon`}/>

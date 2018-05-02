@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCTextField} from '@material/textfield';
 import classnames from 'classnames';
 
-import './styles/TextFieldPage.scss';
+import './styles/TextFieldCatalog.scss';
 
 const getLabel = (dense) => {
   if (dense) {
@@ -94,8 +94,8 @@ const HelperText = () => (
   </p>
 );
 
-const TextFieldPage = () => (
-  <ComponentView
+const TextFieldCatalog = () => (
+  <ComponentPanel
     hero={<TextField textFieldId='hero-text-field-id'/>}
     title='Text Field'
     description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
@@ -158,4 +158,4 @@ class TextFieldDemos extends Component {
   }
 }
 
-export default TextFieldPage;
+export default TextFieldCatalog;

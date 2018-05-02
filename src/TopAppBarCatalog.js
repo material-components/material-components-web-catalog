@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
-import './styles/TopAppBarPage.scss';
+import './styles/TopAppBarCatalog.scss';
 
-const TopAppBarPage = (props) => {
+const TopAppBarCatalog = (props) => {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<TopAppBarHero/>}
       title='Top App Bar'
       description='Top App Bars are a container for items such as application title, navigation icon, and action items.'
@@ -89,4 +89,4 @@ class TopAppBarDemos extends Component {
   }
 }
 
-export default TopAppBarPage;
+export default TopAppBarCatalog;

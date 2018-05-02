@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
 
-class ComponentView extends Component {
+class ComponentPanel extends Component {
 
   renderResource(title, imageSource, url) {
     return (
@@ -35,4 +35,4 @@ class ComponentView extends Component {
   }
 }
 
-export default ComponentView;
+export default ComponentPanel;

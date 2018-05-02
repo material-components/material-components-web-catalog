@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/FabPage.scss';
+import './styles/FabCatalog.scss';
 
 class Fab extends Component {
   componentWillUnmount() {
@@ -39,11 +39,11 @@ const FabDemos = () => (
   </div>
 );
 
-const FabPage = () => {
+const FabCatalog = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<Fab />}
       title='Floating Action Button'
       description={description}
@@ -55,4 +55,4 @@ const FabPage = () => {
   );
 }
 
-export default FabPage;
+export default FabCatalog;

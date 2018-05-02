@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
 
-import './styles/CheckboxPage.scss';
+import './styles/CheckboxCatalog.scss';
 
-const CheckboxPage = () => {
+const CheckboxCatalog = () => {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<CheckboxHero/>}
       title='Checkbox'
       description='Checkboxes allow the user to select multiple options from a set.'
@@ -113,4 +113,4 @@ class CheckboxDemos extends Component {
   }
 }
 
-export default CheckboxPage;
+export default CheckboxCatalog;

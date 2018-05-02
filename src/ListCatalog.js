@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCRipple} from '@material/ripple';
 import classnames from 'classnames';
 
-import './styles/ListPage.scss';
+import './styles/ListCatalog.scss';
 
-const ListPage = () => (
-  <ComponentView
+const ListCatalog = () => (
+  <ComponentPanel
     hero={<ListHero/>}
     title='List'
     description='Lists present multiple line items vertically as a single continuous element.'
@@ -136,4 +136,4 @@ const ListDemos = () => (
   </div>
 );
 
-export default ListPage;
+export default ListCatalog;

@@ -1,7 +1,7 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
 
-import '../styles/TopAppBarFramePage.scss';
+import '../styles/TopAppBarFrameCatalog.scss';
 
 const propToVariant = {
   short: {title: 'Short', variant: 'mdc-top-app-bar--short'},

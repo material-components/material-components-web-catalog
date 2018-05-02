@@ -3,7 +3,7 @@ import {MDCPersistentDrawer, MDCTemporaryDrawer} from '@material/drawer';
 
 import React, {Component} from 'react';
 
-import '../styles/DrawerFramePage.scss';
+import '../styles/DrawerFrameCatalog.scss';
 
 const propToVariant = {
   temporary: {title: 'Temporary Drawer', variant: 'mdc-drawer--temporary'},

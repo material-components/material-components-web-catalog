@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
-import './styles/DrawerPage.scss';
+import './styles/DrawerCatalog.scss';
 
-const DrawerPage = (props) => {
+const DrawerCatalog = (props) => {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<DrawerHero/>}
       title='Drawer'
       description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'
@@ -95,4 +95,4 @@ class DrawerDemos extends Component {
   }
 }
 
-export default DrawerPage;
+export default DrawerCatalog;

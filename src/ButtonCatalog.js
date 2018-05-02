@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/ButtonPage.scss';
+import './styles/ButtonCatalog.scss';
 
-const ButtonPage = () => {
+const ButtonCatalog = () => {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<ButtonHero />}
       title='Button'
       description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
@@ -90,4 +90,4 @@ class ButtonDemos extends Component {
   }
 }
 
-export default ButtonPage;
+export default ButtonCatalog;

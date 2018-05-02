@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
-import './styles/CardPage.scss';
+import './styles/CardCatalog.scss';
 
-const CardPage = () => {
+const CardCatalog = () => {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<Card image actions className='demo-card--hero' />}
       title='Card'
       description='Cards contain content and actions about a single subject.'
@@ -141,4 +141,4 @@ const CardDemos = () => {
   );
 }
 
-export default CardPage;
+export default CardCatalog;

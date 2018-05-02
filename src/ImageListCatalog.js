@@ -1,12 +1,12 @@
 import React from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {imagePath} from './constants';
 
-import './styles/ImageListPage.scss';
+import './styles/ImageListCatalog.scss';
 
-function ImageListPage() {
+function ImageListCatalog() {
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<ImageListHero />}
       title='Image List'
       description='Image lists display a collection of images in an organized grid.'
@@ -111,4 +111,4 @@ function ImageListImage(props) {
   );
 }
 
-export default ImageListPage;
+export default ImageListCatalog;

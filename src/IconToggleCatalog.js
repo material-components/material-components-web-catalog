@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import ComponentView from './ComponentView.js';
+import ComponentPanel from './ComponentPanel.js';
 import {MDCIconToggle} from '@material/icon-toggle';
 
-import './styles/IconTogglePage.scss';
+import './styles/IconToggleCatalog.scss';
 
-const IconTogglePage = () => {
+const IconToggleCatalog = () => {
   const description = 'Icons are appropriate for toggle buttons that allow a single choice to be selected or ' +
                       'deselected, such as adding or removing a star to an item. '
   return (
-    <ComponentView
+    <ComponentPanel
       hero={<IconToggle/>}
       title='Icon Toggle'
       description={description}
@@ -36,4 +36,4 @@ class IconToggle extends Component {
   }
 }
 
-export default IconTogglePage;
+export default IconToggleCatalog;
