@@ -48,7 +48,7 @@ class TopAppBarFramePage extends Component {
   }
 
   getIcons(variant) {
-    const isShort = variant.startsWith('mdc-top-app-bar--short');
+    const isShort = variant.indexOf('mdc-top-app-bar--short') !== -1;
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
     const topAppBarIconSectionClasses = 'mdc-top-app-bar__section mdc-top-app-bar__section--align-end';
 
