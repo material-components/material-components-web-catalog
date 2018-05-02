@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './styles/ComponentPage.scss';
 import {imagePath} from './constants';
@@ -32,6 +32,10 @@ class ComponentPage extends Component {
       url: '/fab',
       active: activeLink === 'Floating Action Button',
     }, {
+      content: 'Image List',
+      url: '/image-list',
+      active: activeLink === 'Image List',
+    }, {
       content: 'List',
       url: '/list',
       active: activeLink === 'List',
@@ -39,6 +43,10 @@ class ComponentPage extends Component {
       content: 'Text Field',
       url: '/text-field',
       active: activeLink === 'Text Field',
+    }, {
+      content: 'Top App Bar',
+      url: '/top-app-bar',
+      active: activeLink === 'Top App Bar',
     }];
 
     return(
