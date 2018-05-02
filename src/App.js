@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
 import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
+import DialogPage from './DialogPage';
 import DrawerPage from './DrawerPage';
 import ElevationPage from './ElevationPage';
 import FabPage from './FabPage';
@@ -26,6 +27,7 @@ const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/card': <CardPage />,
   '/checkbox': <CheckboxPage />,
+  '/dialog': <DialogPage />,
   '/drawer': <DrawerPage />,
   '/drawer/temporary': <DrawerFramePage type='temporary' />,
   '/drawer/permanent': <DrawerFramePage type='permanent' />,
@@ -92,6 +94,7 @@ class App extends Component {
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
+          {this.renderListItem('Dialog', `${imagePath}/dialog_180px.svg`, 'dialog')}
           {this.renderListItem('Drawer', `${imagePath}/drawer_180px.svg`, 'drawer')}
           {this.renderListItem('Elevation', `${imagePath}/elevation_180px.svg`, 'elevation')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
