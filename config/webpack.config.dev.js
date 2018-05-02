@@ -35,6 +35,7 @@ const components = [
   'drawer/persistent',
   'drawer/permanentBelowTopAppBar',
   'fab',
+  'elevation',
   'icon-toggle',
   'image-list',
   'linear-progress-indicator',
