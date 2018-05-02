@@ -6,13 +6,15 @@ import {MDCIconToggle} from '@material/icon-toggle';
 import './styles/IconTogglePage.scss';
 
 const IconTogglePage = () => {
+  const description = 'Icons are appropriate for toggle buttons that allow a single choice to be selected or ' + 
+                      'deselected, such as adding or removing a star to an item. '
   return (
     <div>
       <HeaderBar />
       <ComponentPage
         hero={<IconToggle/>}
         title='Icon Toggle'
-        description='Icons are appropriate for toggle buttons that allow a single choice to be selected or deselected, such as adding or removing a star to an item. '
+        description={description}
         designLink='https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons'
         docsLink='https://material.io/components/web/catalog/buttons/icon-toggle-buttons/'
         sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-toggle'
