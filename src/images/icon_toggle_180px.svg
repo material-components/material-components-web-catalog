@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_toggle_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <path d="M17,13 L12,13 L12,18 L17,18 L17,13 Z M16,2 L16,4 L8,4 L8,2 L6,2 L6,4 L5,4 C3.89,4 3.01,4.9 3.01,6 L3,20 C3,21.1 3.89,22 5,22 L19,22 C20.1,22 21,21.1 21,20 L21,6 C21,4.9 20.1,4 19,4 L18,4 L18,2 L16,2 Z M19,20 L5,20 L5,9 L19,9 L19,20 Z" id="path-3"></path>
+        <path d="M11.99,2 C6.47,2 2,6.48 2,12 C2,17.52 6.47,22 11.99,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 11.99,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z" id="path-5"></path>
+        <polygon id="path-7" points="12.5 7 11 7 11 13 16.25 16.15 17 14.92 12.5 12.25"></polygon>
+        <path d="M12,5.9 C13.16,5.9 14.1,6.84 14.1,8 C14.1,9.16 13.16,10.1 12,10.1 C10.84,10.1 9.9,9.16 9.9,8 C9.9,6.84 10.84,5.9 12,5.9 Z M12,14.9 C14.97,14.9 18.1,16.36 18.1,17 L18.1,18.1 L5.9,18.1 L5.9,17 C5.9,16.36 9.03,14.9 12,14.9 Z M12,4 C9.79,4 8,5.79 8,8 C8,10.21 9.79,12 12,12 C14.21,12 16,10.21 16,8 C16,5.79 14.21,4 12,4 Z M12,13 C9.33,13 4,14.34 4,17 L4,20 L20,20 L20,17 C20,14.34 14.67,13 12,13 Z" id="path-9"></path>
+        <polygon id="path-11" points="8.25166667 17.2516667 4.08166667 13.0816667 2.66666667 14.4966667 8.25166667 20.0816667 20.2516667 8.08166667 18.8366667 6.66666667"></polygon>
+        <path d="M12,2 C8.13,2 5,5.13 5,9 C5,14.25 12,22 12,22 C12,22 19,14.25 19,9 C19,5.13 15.87,2 12,2 Z M12,11.5 C10.62,11.5 9.5,10.38 9.5,9 C9.5,7.62 10.62,6.5 12,6.5 C13.38,6.5 14.5,7.62 14.5,9 C14.5,10.38 13.38,11.5 12,11.5 Z" id="path-13"></path>
+        <path d="M12,8 C13.1,8 14,7.1 14,6 C14,4.9 13.1,4 12,4 C10.9,4 10,4.9 10,6 C10,7.1 10.9,8 12,8 L12,8 Z M12,10 C10.9,10 10,10.9 10,12 C10,13.1 10.9,14 12,14 C13.1,14 14,13.1 14,12 C14,10.9 13.1,10 12,10 L12,10 Z M12,16 C10.9,16 10,16.9 10,18 C10,19.1 10.9,20 12,20 C13.1,20 14,19.1 14,18 C14,16.9 13.1,16 12,16 L12,16 Z" id="path-15"></path>
+        <polygon id="path-17" points="11 5 11 11 5 11 5 13 11 13 11 19 13 19 13 13 19 13 19 11 13 11 13 5"></polygon>
+        <path d="M3,18 L21,18 L21,16 L3,16 L3,18 Z M3,13 L21,13 L21,11 L3,11 L3,13 Z M3,6 L3,8 L21,8 L21,6 L3,6 Z" id="path-19"></path>
+        <rect id="path-21" x="0" y="0" width="48" height="48" rx="24"></rect>
+        <path d="M141.502,39.491 L140.708,39.491 L140.432,39.765 C141.407,40.902 142,42.376 142,43.991 C142,47.581 139.09,50.491 135.5,50.491 C131.91,50.491 129,47.581 129,43.991 C129,40.401 131.91,37.491 135.5,37.491 C137.115,37.491 138.588,38.083 139.725,39.057 L140.001,38.783 L140.001,37.991 L144.999,33 L146.49,34.491 L141.502,39.491 L141.502,39.491 Z M135.5,39.491 C133.014,39.491 131,41.505 131,43.991 C131,46.476 133.014,48.491 135.5,48.491 C137.985,48.491 140,46.476 140,43.991 C140,41.505 137.985,39.491 135.5,39.491 L135.5,39.491 Z" id="path-23"></path>
+    </defs>
+    <g id="icon_toggle_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+        <g id="Icon-/-Event-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(30.000000, 126.000000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-4)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Access-Time-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 126.000000)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-6)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <g id="Shape" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-8)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Perm-Identity-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 79.000000)">
+                <mask id="mask-10" fill="white">
+                    <use xlink:href="#path-9"></use>
+                </mask>
+                <g id="Shape" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-87%" stroke="none" fill="none" mask="url(#mask-10)" fill-rule="evenodd" opacity="0.87">
+                    <rect id="Rectangle-13" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Done-/-Filled" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 30.000000)">
+                <mask id="mask-12" fill="white">
+                    <use xlink:href="#path-11"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-12)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Location-On-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(126.000000, 126.000000)">
+                <mask id="mask-14" fill="white">
+                    <use xlink:href="#path-13"></use>
+                </mask>
+                <g id="Shape" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-14)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-More-Vert-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(126.000000, 79.000000)">
+                <mask id="mask-16" fill="white">
+                    <use xlink:href="#path-15"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-16)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Add-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(30.000000, 30.000000)">
+                <mask id="mask-18" fill="white">
+                    <use xlink:href="#path-17"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-18)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Icon-/-Menu-/-Fill" mask="url(#mask-2)">
+            <g transform="translate(30.000000, 79.000000)">
+                <mask id="mask-20" fill="white">
+                    <use xlink:href="#path-19"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none" fill-rule="nonzero"></g>
+                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" stroke="none" fill="none" mask="url(#mask-20)" fill-rule="evenodd" opacity="0.54">
+                    <rect id="Rectangle" fill="#000000" x="0" y="0" width="24" height="24"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Group" mask="url(#mask-2)">
+            <g transform="translate(66.000000, 67.000000)">
+                <mask id="mask-22" fill="white">
+                    <use xlink:href="#path-21"></use>
+                </mask>
+                <g id="Mask" stroke="none" fill="none" opacity="0.16"></g>
+                <g id="✱-/-Color-/-Primary-/-500" stroke="none" fill="none" opacity="0.16" mask="url(#mask-22)" fill-rule="evenodd">
+                    <g transform="translate(-11.000000, -14.000000)" fill="#212121" id="Rectangle-13">
+                        <rect x="0" y="0" width="76" height="76"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <mask id="mask-24" fill="white">
+            <use xlink:href="#path-23"></use>
+        </mask>
+        <use id="Mask" fill="#727272" transform="translate(137.745000, 41.745500) scale(1, -1) translate(-137.745000, -41.745500) " xlink:href="#path-23"></use>
+    </g>
+</svg>
