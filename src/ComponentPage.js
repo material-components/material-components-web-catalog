@@ -4,15 +4,17 @@ import Sidebar from './Sidebar';
 import ButtonCatalog from './ButtonCatalog';
 import CardCatalog from './CardCatalog';
 import CheckboxCatalog from './CheckboxCatalog';
+import DialogCatalog from './DialogCatalog';
 import DrawerCatalog from './DrawerCatalog';
+import ElevationCatalog from './ElevationCatalog';
 import FabCatalog from './FabCatalog';
 import IconToggleCatalog from './IconToggleCatalog';
 import ImageListCatalog from './ImageListCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
 import ListCatalog from './ListCatalog';
+import SelectCatalog from './SelectCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
-import HeaderBar from './HeaderBar';
 
 import {Switch, Route} from 'react-router';
 
@@ -27,12 +29,15 @@ class ComponentPage extends Component {
         <Route path={`${match.path}/button`} component={ButtonCatalog} />
         <Route path={`${match.path}/card`} component={CardCatalog} />
         <Route path={`${match.path}/checkbox`} component={CheckboxCatalog} />
+        <Route path={`${match.path}/dialog`} component={DialogCatalog} />
         <Route path={`${match.path}/drawer`} component={DrawerCatalog} />
+        <Route path={`${match.path}/elevation`} component={ElevationCatalog} />
         <Route path={`${match.path}/fab`} component={FabCatalog} />
         <Route path={`${match.path}/icon-toggle`} component={IconToggleCatalog} />
         <Route path={`${match.path}/image-list`} component={ImageListCatalog} />
         <Route path={`${match.path}/list`} component={ListCatalog} />
         <Route path={`${match.path}/linear-progress-indicator`} component={LinearProgressIndicatorCatalog} />
+        <Route path={`${match.path}/select`} component={SelectCatalog} />
         <Route path={`${match.path}/text-field`} component={TextFieldCatalog} />
         <Route path={`${match.path}/top-app-bar`} component={TopAppBarCatalog} />
       </Switch>

@@ -11,7 +11,6 @@ class CatalogPage extends Component {
 
   render() {
     const {location} = this.props;
-    console.log( location)
     return (
       <div>
         <HeaderBar isTopPage={location.pathname === '/'} />
