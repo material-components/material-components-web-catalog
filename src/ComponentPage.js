@@ -32,9 +32,17 @@ class ComponentPage extends Component {
       url: '/checkbox',
       active: activeLink === 'Checkbox',
     }, {
+      content: 'Dialog',
+      url: '/dialog',
+      active: activeLink === 'Dialog',
+    }, {
       content: 'Drawer',
       url: '/drawer',
       active: activeLink === 'Drawer',
+    }, {
+      content: 'Elevation',
+      url: '/elevation',
+      active: activeLink === 'Elevation',
     }, {
       content: 'Fab',
       url: '/fab',
@@ -55,6 +63,10 @@ class ComponentPage extends Component {
       content: 'List',
       url: '/list',
       active: activeLink === 'List',
+    }, {
+      content: 'Select',
+      url: '/select',
+      active: activeLink === 'Select',
     }, {
       content: 'Slider',
       url: '/slider',
