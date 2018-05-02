@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ButtonPage from './ButtonPage';
 import CardPage from './CardPage';
 import CheckboxPage from './CheckboxPage';
+import DrawerPage from './DrawerPage';
 import FabPage from './FabPage';
 import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
@@ -15,6 +16,7 @@ import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
 import './styles/App.scss';
+import DrawerFramePage from './frame/DrawerFramePage';
 
 const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
 
@@ -22,6 +24,11 @@ const componentUrlToPageMap = {
   '/button': <ButtonPage />,
   '/card': <CardPage />,
   '/checkbox': <CheckboxPage />,
+  '/drawer': <DrawerPage />,
+  '/drawer/temporary': <DrawerFramePage type='temporary' />,
+  '/drawer/permanent': <DrawerFramePage type='permanent' />,
+  '/drawer/persistent': <DrawerFramePage type='persistent' />,
+  '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/fab': <FabPage />,
   '/icon-toggle': <IconTogglePage />,
   '/image-list': <ImageListPage />,
@@ -81,6 +88,7 @@ class App extends Component {
           {this.renderListItem('Button', `${imagePath}/buttons_180px.svg`, 'button')}
           {this.renderListItem('Card', `${imagePath}/cards_180px.svg`, 'card')}
           {this.renderListItem('Checkbox', `${imagePath}/checkbox_180px.svg`, 'checkbox')}
+          {this.renderListItem('Drawer', `${imagePath}/drawer_180px.svg`, 'drawer')}
           {this.renderListItem('Fab', `${imagePath}/floating_action_button_180px.svg`, 'fab')}
           {this.renderListItem('Icon Toggle', `${imagePath}/icon_toggle_180px.svg`, 'icon-toggle')}
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
