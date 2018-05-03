@@ -41,6 +41,7 @@ const components = [
   'linear-progress-indicator',
   'list',
   'menu',
+  'radio',
   'ripple',
   'select',
   'slider',

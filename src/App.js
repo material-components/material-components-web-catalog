@@ -11,6 +11,7 @@ import ImageListPage from './ImageListPage';
 import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
 import MenuPage from './MenuPage';
+import RadioButtonPage from './RadioButtonPage';
 import RipplePage from './RipplePage';
 import SelectPage from './SelectPage';
 import SliderPage from './SliderPage';
@@ -43,6 +44,7 @@ const componentUrlToPageMap = {
   '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
   '/menu': <MenuPage />,
+  '/radio': <RadioButtonPage />,
   '/ripple': <RipplePage />,
   '/select': <SelectPage />,
   '/slider': <SliderPage />,
@@ -110,6 +112,7 @@ class App extends Component {
           {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Menu', `${imagePath}/menu_180px.svg`, 'menu')}
+          {this.renderListItem('Radio', `${imagePath}/radio_180px.svg`, 'radio')}
           {this.renderListItem('Ripple', `${imagePath}/ripple_180px.svg`, 'ripple')}
           {this.renderListItem('Select', `${imagePath}/form_field_180px.svg`, 'select')}
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}

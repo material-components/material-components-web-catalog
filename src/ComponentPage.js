@@ -47,6 +47,10 @@ class ComponentPage extends Component {
       content: 'Fab',
       url: '/fab',
       active: activeLink === 'Floating Action Button',
+    },  {
+      content: 'Radio Button',
+      url: '/radio',
+      active: activeLink === 'Radio Button',
     }, {
       content: 'Icon Toggle',
       url: '/icon-toggle',
