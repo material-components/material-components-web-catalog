@@ -22,11 +22,6 @@ class ChipsHero extends Component {
   constructor(props) {
     super(props);
     this.chipSet = null;
-    this.initChipSet = chipSetEl => {
-      if (chipSetEl) {
-        this.chipSet = new MDCChipSet(chipSetEl);
-      }
-    }
   }
 
   componentWillUnmount() {
@@ -42,8 +37,13 @@ class ChipsHero extends Component {
   }
 
   render() {
+    const initChipSet = chipSetEl => {
+      if (chipSetEl) {
+        this.chipSet = new MDCChipSet(chipSetEl);
+      }
+    }
     return (
-      <div className='mdc-chip-set' ref={this.initChipSet}>
+      <div className='mdc-chip-set' ref={initChipSet}>
         {this.renderChip('Chip One')}
         {this.renderChip('Chip Two')}
         {this.renderChip('Chip Three')}
@@ -57,7 +57,6 @@ class ChipsDemos extends Component {
   constructor(props) {
     super(props);
     this.chipSets = [];
-    this.initChipSet = chipSetEl => chipSetEl && this.chipSets.push(new MDCChipSet(chipSetEl));
   }
 
   componentWillUnmount() {
@@ -104,10 +103,11 @@ class ChipsDemos extends Component {
   }
 
   render() {
+    const initChipSet = chipSetEl => chipSetEl && this.chipSets.push(new MDCChipSet(chipSetEl));
     return (
       <div>
         <h3>Choice Chips</h3>
-        <div className='mdc-chip-set mdc-chip-set--choice' ref={this.initChipSet}>
+        <div className='mdc-chip-set mdc-chip-set--choice' ref={initChipSet}>
           {this.renderChip('Extra Small')}
           {this.renderChip('Small')}
           {this.renderChip('Medium', 'mdc-chip--selected')}
@@ -117,14 +117,14 @@ class ChipsDemos extends Component {
 
         <h3>Filter Chips</h3>
         <h3 className='mdc-typography--body2'>No leading icon</h3>
-        <div className='mdc-chip-set mdc-chip-set--filter' ref={this.initChipSet}>
+        <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
           {this.renderFilterChip('Tops', 'mdc-chip--selected')}
           {this.renderFilterChip('Bottoms', 'mdc-chip--selected')}
           {this.renderFilterChip('Shoes')}
           {this.renderFilterChip('Accessories')}
         </div>
         <h3 className='mdc-typography--body2'>With leading icon</h3>
-        <div className='mdc-chip-set mdc-chip-set--filter' ref={this.initChipSet}>
+        <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
           {this.renderFilterChip('Alice',
             'mdc-chip--selected',
             this.renderIcon('face', 'mdc-chip__icon--leading mdc-chip__icon--leading-hidden'))}
@@ -141,7 +141,7 @@ class ChipsDemos extends Component {
 
         <div className='catalog-variant'>
           <h3>Action Chips</h3>
-          <div className='mdc-chip-set' ref={this.initChipSet}>
+          <div className='mdc-chip-set' ref={initChipSet}>
             {this.renderChip('Add to calendar',
               '' /* classes */,
               this.renderIcon('event', 'mdc-chip__icon--leading'))}
