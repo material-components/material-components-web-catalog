@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
 import './styles/TopAppBarCatalog.scss';
 
 const TopAppBarCatalog = (props) => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<TopAppBarHero/>}
       title='Top App Bar'
       description='Top App Bars are a container for items such as application title, navigation icon, and action items.'

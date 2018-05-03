@@ -4,12 +4,12 @@ import React, {Component} from 'react';
 import '../styles/TopAppBarFrameCatalog.scss';
 
 const propToVariant = {
-  short: {title: 'Short', variant: 'mdc-top-app-bar--short'},
-  shortCollapsed: {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
-  fixed: {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
-  prominent: {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
-  dense: {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
-  standard: {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
+  'short': {title: 'Short', variant: 'mdc-top-app-bar--short'},
+  'short-collapsed': {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
+  'fixed': {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
+  'prominent': {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
+  'dense': {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
+  'standard': {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
 };
 
 class TopAppBarFramePage extends Component {

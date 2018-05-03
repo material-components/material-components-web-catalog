@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCSelect} from '@material/select/dist/mdc.select';
 
 import './styles/SelectCatalog.scss';
@@ -7,7 +7,7 @@ import './styles/SelectCatalog.scss';
 const SelectCatalog = () => {
   const description = 'Selects allow users to select from a single-option menu. It functions as a wrapper around the browser\'s native <select> element.';
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<SelectHero />}
       title='Select'
       description={description}

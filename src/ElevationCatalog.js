@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import './styles/ElevationCatalog.scss';
 
 const MAX_ELEVATION_LEVELS = 24;
@@ -7,7 +7,7 @@ const MAX_ELEVATION_LEVELS = 24;
 const ElevationCatalog = () => {
   const description = 'Elevation is the relative depth, or distance, between two surfaces along the z-axis.';
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<ElevationHero />}
       title='Elevation'
       description={description}

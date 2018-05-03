@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCDialog} from '@material/dialog/dist/mdc.dialog';
 
 import './styles/DialogCatalog.scss';
 
 const DialogCatalog = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<DialogHero />}
       title='Dialog'
       description='Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'

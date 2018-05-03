@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
 import './styles/ButtonCatalog.scss';
 
 const ButtonCatalog = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<ButtonHero />}
       title='Button'
       description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'

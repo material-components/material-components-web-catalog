@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Sidebar from './Sidebar';
+import ComponentSidebar from './ComponentSidebar';
 import ButtonCatalog from './ButtonCatalog';
 import CardCatalog from './CardCatalog';
 import CheckboxCatalog from './CheckboxCatalog';
@@ -23,25 +23,23 @@ import './styles/ComponentPage.scss';
 
 class ComponentPage extends Component {
   renderComponentRoutes() {
-    const {match} = this.props;
-
     return (
       <Switch>
-        <Route path={`${match.path}/button`} component={ButtonCatalog} />
-        <Route path={`${match.path}/card`} component={CardCatalog} />
-        <Route path={`${match.path}/checkbox`} component={CheckboxCatalog} />
-        <Route path={`${match.path}/dialog`} component={DialogCatalog} />
-        <Route path={`${match.path}/drawer`} component={DrawerCatalog} />
-        <Route path={`${match.path}/elevation`} component={ElevationCatalog} />
-        <Route path={`${match.path}/fab`} component={FabCatalog} />
-        <Route path={`${match.path}/icon-toggle`} component={IconToggleCatalog} />
-        <Route path={`${match.path}/image-list`} component={ImageListCatalog} />
-        <Route path={`${match.path}/list`} component={ListCatalog} />
-        <Route path={`${match.path}/linear-progress-indicator`} component={LinearProgressIndicatorCatalog} />
-        <Route path={`${match.path}/slider`} component={SliderCatalog} />
-        <Route path={`${match.path}/select`} component={SelectCatalog} />
-        <Route path={`${match.path}/text-field`} component={TextFieldCatalog} />
-        <Route path={`${match.path}/top-app-bar`} component={TopAppBarCatalog} />
+        <Route path='/component/button' component={ButtonCatalog} />
+        <Route path='/component/card' component={CardCatalog} />
+        <Route path='/component/checkbox' component={CheckboxCatalog} />
+        <Route path='/component/dialog' component={DialogCatalog} />
+        <Route path='/component/drawer' component={DrawerCatalog} />
+        <Route path='/component/elevation' component={ElevationCatalog} />
+        <Route path='/component/fab' component={FabCatalog} />
+        <Route path='/component/icon-toggle' component={IconToggleCatalog} />
+        <Route path='/component/image-list' component={ImageListCatalog} />
+        <Route path='/component/list' component={ListCatalog} />
+        <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
+        <Route path='/component/slider' component={SliderCatalog} />
+        <Route path='/component/select' component={SelectCatalog} />
+        <Route path='/component/text-field' component={TextFieldCatalog} />
+        <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
       </Switch>
     );
   }
@@ -52,7 +50,7 @@ class ComponentPage extends Component {
         <div className='mdc-top-app-bar--fixed-adjust'>
           <div className='mdc-layout-grid'>
             <div className='mdc-layout-grid__inner'>
-              <Sidebar {...this.props} />
+              <ComponentSidebar {...this.props} />
               {this.renderComponentRoutes()}
             </div>
           </div>

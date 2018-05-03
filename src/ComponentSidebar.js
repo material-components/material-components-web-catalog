@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 
-class Sidebar extends Component {
+class ComponentSidebar extends Component {
 
   renderSidebarLink(link, index) {
     const {match} = this.props;
@@ -74,4 +74,4 @@ class Sidebar extends Component {
 }
 
 
-export default Sidebar;
+export default ComponentSidebar;

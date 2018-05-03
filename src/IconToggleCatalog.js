@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCIconToggle} from '@material/icon-toggle';
 
 import './styles/IconToggleCatalog.scss';
@@ -8,7 +8,7 @@ const IconToggleCatalog = () => {
   const description = 'Icons are appropriate for toggle buttons that allow a single choice to be selected or ' +
                       'deselected, such as adding or removing a star to an item. '
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<IconToggle/>}
       title='Icon Toggle'
       description={description}

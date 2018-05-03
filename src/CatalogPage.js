@@ -1,26 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 import ComponentPage from './ComponentPage';
-import LandingPage from './LandingPage';
+import ComponentImageList from './ComponentImageList';
 import HeaderBar from './HeaderBar';
 
 import {Switch, Route} from 'react-router';
 
-
-class CatalogPage extends Component {
-
-  render() {
-    const {location} = this.props;
-    return (
-      <div>
-        <HeaderBar isTopPage={location.pathname === '/'} />
-        <Switch>
-          <Route exact path='/' component={LandingPage} />
-          <Route path='/component' component={ComponentPage} />
-        </Switch>
-      </div>
-    );
-  }
+// This is a separate page (Not App.js), since Drawer and TopAppBar
+// need to be separate pages due to iFrames.
+const CatalogPage = (props) => {
+  const {location} = props;
+  return (
+    <div>
+      <HeaderBar isTopPage={location.pathname === '/'} />
+      <Switch>
+        <Route exact path='/' component={ComponentImageList} />
+        <Route path='/component' component={ComponentPage} />
+      </Switch>
+    </div>
+  );
 }
 
 export default CatalogPage;

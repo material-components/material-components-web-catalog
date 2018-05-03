@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCLinearProgress} from '@material/linear-progress/dist/mdc.linearProgress';
 
 import './styles/LinearProgressIndicatorCatalog.scss';
 
 const LinearProgressCatalog = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<LinearProgressHero />}
       title='Linear Progress Indicator'
       description='Progress indicators display the length of a process or express an unspecified wait time.'

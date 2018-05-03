@@ -3,7 +3,7 @@ import {imagePath} from './constants';
 import {MDCRipple} from '@material/ripple';
 import {Link} from 'react-router-dom';
 
-class LandingPage extends Component {
+class ComponentImageList extends Component {
 
   ripples = [];
   initRipple = el => el && this.ripples.push(new MDCRipple(el));
@@ -55,4 +55,4 @@ class LandingPage extends Component {
   }
 }
 
-export default LandingPage;
+export default ComponentImageList;

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
 
 import './styles/CheckboxCatalog.scss';
 
 const CheckboxCatalog = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<CheckboxHero/>}
       title='Checkbox'
       description='Checkboxes allow the user to select multiple options from a set.'

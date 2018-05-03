@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
 import './styles/FabCatalog.scss';
@@ -43,7 +43,7 @@ const FabCatalog = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<Fab />}
       title='Floating Action Button'
       description={description}

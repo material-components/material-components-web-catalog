@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
@@ -8,7 +8,7 @@ import './styles/CardCatalog.scss';
 
 const CardCatalog = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<Card image actions className='demo-card--hero' />}
       title='Card'
       description='Cards contain content and actions about a single subject.'

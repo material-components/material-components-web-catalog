@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
 import './styles/DrawerCatalog.scss';
 
 const DrawerCatalog = (props) => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<DrawerHero/>}
       title='Drawer'
       description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'

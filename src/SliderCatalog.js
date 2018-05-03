@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCSlider} from '@material/slider';
 
 import './styles/SliderCatalog.scss';
 
 const SliderCatalog = () => (
-  <ComponentPanel
+  <ComponentCatalogPanel
     hero={<SliderHero/>}
     title='Slider'
     description='Sliders let users select from a range of values by moving the slider thumb.'
