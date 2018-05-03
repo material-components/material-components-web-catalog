@@ -11,7 +11,7 @@ const TabsCatalog = () => {
       hero={<TabsHero />}
       title='Tabs'
       description='Tabs make it easy to explore and switch between different views.'
-      designLink='https://material.io/guidelines/components/tabs.html'
+      designLink='https://material.io/go/design-tabs'
       docsLink='https://material.io/components/web/catalog/tabs/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-tabs'
       demos={<TabsDemos />}
