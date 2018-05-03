@@ -21,6 +21,7 @@ import SelectCatalog from './SelectCatalog';
 import SliderCatalog from './SliderCatalog';
 import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
+import TabsCatalog from './TabsCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 import TypographyCatalog from './TypographyCatalog';
@@ -55,6 +56,7 @@ class ComponentPage extends Component {
         <Route path='/component/slider' component={SliderCatalog} />
         <Route path='/component/snackbar' component={SnackbarCatalog} />
         <Route path='/component/switch' component={SwitchCatalog} />
+        <Route path='/component/tabs' component={TabsCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
         <Route path='/component/typography' component={TypographyCatalog} />
