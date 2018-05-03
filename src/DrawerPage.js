@@ -77,7 +77,6 @@ class DrawerDemos extends Component {
         {this.getVariant('Temporary', 'temporary')}
         {this.getVariant('Persistent', 'persistent')}
         {this.getVariant('Permanent', 'permanent')}
-        {this.getVariant('Permanent Below Top App Bar', 'permanentBelowTopAppBar')}
       </div>
     );
   }

@@ -10,10 +10,12 @@ import IconTogglePage from './IconTogglePage';
 import ImageListPage from './ImageListPage';
 import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
+import MenuPage from './MenuPage';
 import RadioButtonPage from './RadioButtonPage';
 import RipplePage from './RipplePage';
 import SelectPage from './SelectPage';
 import SliderPage from './SliderPage';
+import SwitchPage from './SwitchPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
@@ -35,17 +37,18 @@ const componentUrlToPageMap = {
   '/drawer/temporary': <DrawerFramePage type='temporary' />,
   '/drawer/permanent': <DrawerFramePage type='permanent' />,
   '/drawer/persistent': <DrawerFramePage type='persistent' />,
-  '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/elevation': <ElevationPage />,
   '/fab': <FabPage />,
   '/icon-toggle': <IconTogglePage />,
   '/image-list': <ImageListPage />,
   '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
+  '/menu': <MenuPage />,
   '/radio': <RadioButtonPage />,
   '/ripple': <RipplePage />,
   '/select': <SelectPage />,
   '/slider': <SliderPage />,
+  '/switch': <SwitchPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type='dense'/>,
@@ -108,10 +111,12 @@ class App extends Component {
           {this.renderListItem('Image List', `${imagePath}/image_list_180px.svg`, 'image-list')}
           {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
+          {this.renderListItem('Menu', `${imagePath}/menu_180px.svg`, 'menu')}
           {this.renderListItem('Radio', `${imagePath}/radio_180px.svg`, 'radio')}
           {this.renderListItem('Ripple', `${imagePath}/ripple_180px.svg`, 'ripple')}
           {this.renderListItem('Select', `${imagePath}/form_field_180px.svg`, 'select')}
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}
+          {this.renderListItem('Switch', `${imagePath}/switch_180px.svg`, 'switch')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
         </ul>
