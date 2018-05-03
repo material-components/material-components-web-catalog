@@ -10,7 +10,6 @@ const LayoutGridCatalog = () => {
       hero={<LayoutGridHero />}
       title='Layout Grid'
       description='Material design’s responsive UI is based on a 12-column grid layout.'
-      designLink='https://material.io/go/design-responsive-ui'
       docsLink='https://material.io/components/web/catalog/layout-grid/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid'
       demos={<LayoutGridDemos />}
