@@ -41,6 +41,7 @@ const components = [
   'image-list',
   'linear-progress-indicator',
   'list',
+  'menu',
   'select',
   'slider',
   'text-field',
