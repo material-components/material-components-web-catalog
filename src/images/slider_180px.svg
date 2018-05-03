@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background: #FAFAFA;">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>slider_108px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="3" width="142" height="2" rx="1"></rect>
+        <rect id="path-5" x="0" y="3" width="86" height="2" rx="1"></rect>
+        <rect id="path-7" x="9.05941988e-14" y="0" width="12" height="12" rx="6"></rect>
+        <path d="M27.3201,27.31 C25.0301,29.6 17.0001,35.8114648 17.0001,43.0014648 L17.0001,46.0041504 C17.0001,49.0541504 19.5401,51.06 20.2401,51.76 C21.3301,52.84 22.0001,54.34 22.0001,56 C22.0001,59.31 19.3201,62 16.0001,62 C12.6801,62 10.0001,59.31 10.0001,56 C10.0001,54.34 10.6701,52.84 11.7501,51.76 C12.4601,51.06 15.0001,49.0541504 15.0001,46.0041504 C15.0001,43.9708171 15.0001,42.9699219 15.0001,43.0014648 C15.0001,35.8114648 6.9701,29.6 4.6801,27.31 C1.7901,24.42 9.99999993e-05,20.42 9.99999993e-05,16 C9.99999993e-05,7.16 7.1501,0.01 16.0001,0 C24.8501,0.01 32.0001,7.16 32.0001,16 C32.0001,20.42 30.2101,24.42 27.3201,27.31 Z" id="path-9"></path>
+    </defs>
+    <g id="slider_108px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g id="Slider-/-with-Value" mask="url(#mask-2)">
+                <g transform="translate(19.000000, 50.000000)">
+                    <g id="Slider-/-Continuous" transform="translate(0.000000, 32.000000)">
+                        <g id="Slider-/-Elements-/-Rail-/-Track" transform="translate(0.000000, 20.000000)">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <use id="Surface" fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-3"></use>
+                            <g id="✱-/-Color-/-Primary-/-Main" opacity="0.24" mask="url(#mask-4)" fill="#212121" fill-rule="evenodd">
+                                <g id="✱-/-Color-/-Primary-/-900">
+                                    <rect id="Rectangle-13" x="0" y="0" width="142" height="8"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Slider-/-Elements-/-Rail-/-Selected" transform="translate(0.000000, 20.000000)">
+                            <mask id="mask-6" fill="white">
+                                <use xlink:href="#path-5"></use>
+                            </mask>
+                            <use id="Surface" fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            <g id="✱-/-Color-/-Primary-/-Main" mask="url(#mask-6)" fill="#212121" fill-rule="evenodd">
+                                <g id="✱-/-Color-/-Primary-/-900">
+                                    <rect id="Rectangle-13" x="0" y="0" width="86" height="8"></rect>
+                                </g>
+                            </g>
+                        </g>
+                        <g id="Slider-/-Elements-/-Knob" transform="translate(79.000000, 18.000000)">
+                            <mask id="mask-8" fill="white">
+                                <use xlink:href="#path-7"></use>
+                            </mask>
+                            <use id="Surface" fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-7"></use>
+                            <g id="✱-/-Color-/-Primary-/-Main" mask="url(#mask-8)" fill="#212121" fill-rule="evenodd">
+                                <g id="✱-/-Color-/-Primary-/-900">
+                                    <rect id="Rectangle-13" x="0" y="0" width="12" height="12"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Slider-/-Elements-/-Value-Indicator" transform="translate(69.000000, 0.000000)">
+                        <mask id="mask-10" fill="white">
+                            <use xlink:href="#path-9"></use>
+                        </mask>
+                        <use id="Mask" fill="#DB33D7" fill-rule="evenodd" xlink:href="#path-9"></use>
+                        <g id="✱-/-Color-/-Primary-/-Main" mask="url(#mask-10)" fill="#212121" fill-rule="evenodd">
+                            <g id="✱-/-Color-/-Primary-/-900">
+                                <rect id="Rectangle-13" x="0" y="0" width="32" height="62"></rect>
+                            </g>
+                        </g>
+                        <g id="Text-/-Caption-/-P---Dark-/-Center" mask="url(#mask-10)" font-family="Roboto-Regular, Roboto" font-size="12" font-weight="normal" letter-spacing="0.400000006" line-spacing="16">
+                            <g transform="translate(4.000000, 8.000000)" id="Caption">
+                                <text>
+                                    <tspan x="4.86171874" y="11" fill="#FFFFFF">60</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

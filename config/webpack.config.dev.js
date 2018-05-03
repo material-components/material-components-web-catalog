@@ -27,9 +27,24 @@ const env = getClientEnvironment(publicUrl);
 // List of all component names for generating the corresponding html pages.
 const components = [
   'button',
+  'card',
   'checkbox',
+  'dialog',
+  'drawer',
+  'drawer/temporary',
+  'drawer/permanent',
+  'drawer/persistent',
+  'drawer/permanentBelowTopAppBar',
   'fab',
+  'elevation',
+  'icon-toggle',
+  'image-list',
+  'linear-progress-indicator',
+  'list',
   'radio',
+  'ripple',
+  'select',
+  'slider',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
@@ -37,7 +52,7 @@ const components = [
   'top-app-bar/standard',
   'top-app-bar/prominent',
   'top-app-bar/short',
-  'top-app-bar/short-collapsed',
+  'top-app-bar/short-collapsed'
 ];
 
 // This is the development configuration.
