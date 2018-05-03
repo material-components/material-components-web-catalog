@@ -64,17 +64,23 @@ class ComponentSidebar extends Component {
       content: 'Ripple',
       url: '/ripple',
     }, {
+      content: 'Select',
+      url: '/select',
+    }, {
       content: 'Shape',
       url: '/shape',
     }, {
       content: 'Slider',
       url: '/slider',
     }, {
-      content: 'Select',
-      url: '/select',
+      content: 'Snackbar',
+      url: '/snackbar',
     }, {
       content: 'Switch',
       url: '/switch',
+    }, {
+      content: 'Tabs',
+      url: '/tabs',
     }, {
       content: 'Text Field',
       url: '/text-field',

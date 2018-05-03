@@ -32,10 +32,12 @@ class ComponentImageList extends Component {
           {this.renderListItem('Menu', 'menu_180px.svg', 'menu')}
           {this.renderListItem('Radio', 'radio_180px.svg', 'radio')}
           {this.renderListItem('Ripple', 'ripple_180px.svg', 'ripple')}
+          {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
           {this.renderListItem('Shape', 'shape_180px.svg', 'shape')}
           {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
-          {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
+          {this.renderListItem('Snackbar', 'snackbar_180px.svg', 'snackbar')}
           {this.renderListItem('Switch', 'switch_180px.svg', 'switch')}
+          {this.renderListItem('Tabs', 'tabs_180px.svg', 'tabs')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}
           {this.renderListItem('Typography', 'fonts_180px.svg', 'typography')}
