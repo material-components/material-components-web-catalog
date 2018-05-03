@@ -65,6 +65,7 @@ const components = [
   'list',
   'select',
   'slider',
+  'snackbar',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',

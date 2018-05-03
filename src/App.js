@@ -12,6 +12,7 @@ import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
 import SelectPage from './SelectPage';
 import SliderPage from './SliderPage';
+import SnackbarPage from './SnackbarPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
@@ -42,6 +43,7 @@ const componentUrlToPageMap = {
   '/list': <ListPage />,
   '/select': <SelectPage />,
   '/slider': <SliderPage />,
+  '/snackbar': <SnackbarPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type='dense'/>,
@@ -106,6 +108,7 @@ class App extends Component {
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Select', `${imagePath}/form_field_180px.svg`, 'select')}
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}
+          {this.renderListItem('Snackbar', `${imagePath}/snackbar_180px.svg`, 'snackbar')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
         </ul>
