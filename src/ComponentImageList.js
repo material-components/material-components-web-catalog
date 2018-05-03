@@ -20,6 +20,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Button', 'buttons_180px.svg', 'button')}
           {this.renderListItem('Card', 'cards_180px.svg', 'card')}
           {this.renderListItem('Checkbox', 'checkbox_180px.svg', 'checkbox')}
+          {this.renderListItem('Chips', 'chips_180px.svg', 'chips')}
           {this.renderListItem('Dialog', 'dialog_180px.svg', 'dialog')}
           {this.renderListItem('Drawer', 'drawer_180px.svg', 'drawer')}
           {this.renderListItem('Elevation', 'elevation_180px.svg', 'elevation')}
@@ -37,6 +38,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Tabs', 'tabs_180px.svg', 'tabs')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}
+          {this.renderListItem('Typography', 'fonts_180px.svg', 'typography')}
         </ul>
       </div>
     );
