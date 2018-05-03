@@ -2,8 +2,11 @@ import React, {Component} from 'react';
 
 import {Switch, Route} from 'react-router';
 import {withRouter} from 'react-router-dom';
+import CatalogPage from './CatalogPage';
 import TopAppBarFramePage from './frame/TopAppBarFramePage';
 import DrawerFramePage from './frame/DrawerFramePage';
+
+import './styles/App.scss';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {

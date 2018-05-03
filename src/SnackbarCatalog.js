@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCSnackbar} from '@material/snackbar/dist/mdc.snackbar';
 
-import './styles/SnackbarPage.scss';
+import './styles/SnackbarCatalog.scss';
 
-const SnackbarPage = () => {
+const SnackbarCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<SnackbarHero />}
-        title='Snackbar'
-        description='Snackbars provide brief feedback about an operation through a message at the bottom of the screen.'
-        designLink='https://material.io/guidelines/components/snackbars-toasts.html'
-        docsLink='https://material.io/components/web/catalog/snackbars/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar'
-        demos={<SnackbarDemo />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<SnackbarHero />}
+      title='Snackbar'
+      description='Snackbars provide brief feedback about an operation through a message at the bottom of the screen.'
+      designLink='https://material.io/guidelines/components/snackbars-toasts.html'
+      docsLink='https://material.io/components/web/catalog/snackbars/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar'
+      demos={<SnackbarDemo />}
+    />
   );
 };
 
@@ -44,6 +40,9 @@ class SnackbarDemo extends Component {
   snackbarData = {message: 'Message Sent', actionHandler: () => {}, actionText: 'Undo'};
   
   initSnackbar = (snackbarEl, isStartAligned) => {
+    if (!snackbarEl) {
+      return;
+    }
     isStartAligned ? 
       this.startAlignedSnackbar = new MDCSnackbar(snackbarEl) : this.snackbar = new MDCSnackbar(snackbarEl);
   }
@@ -97,4 +96,4 @@ class SnackbarDemo extends Component {
   }
 }
 
-export default SnackbarPage;
+export default SnackbarCatalog;
