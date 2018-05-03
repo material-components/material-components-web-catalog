@@ -41,6 +41,7 @@ const components = [
   'image-list',
   'linear-progress-indicator',
   'list',
+  'ripple',
   'select',
   'slider',
   'text-field',
