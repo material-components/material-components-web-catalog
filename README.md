@@ -11,16 +11,16 @@ Developed by a core team of engineers and UX designers at Google, these componen
 
 Follow these steps to add a new component to the MDC Web demo catalog.
 
-1. Add a new file to the `src` directory for the JSX (e.g. `FooPage.js`). It should follow this template:
+1. Add a new file to the `src` directory for the JSX (e.g. `FooCatalog.js`). It should follow this template:
 
 ```js
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCFoo} from '@material/foo';
 
-import './FooPage.scss';
+import './styles/FooCatalog.scss';
 
-const FooPage = () => {
+const FooCatalog = () => {
   return (
     <ComponentCatalogPanel
       hero={<FooHero />}
@@ -52,11 +52,14 @@ class FooDemos extends Component {
   }
 }
 
-export default FooPage;
+export default FooCatalog;
 
 ```
 
-2. Add a new file to the `src` directory for styling the demo page (e.g. `FooPage.scss`):
+> Note: If your components only require a `render` method, you can write functional components rather than classes,
+> e.g. `function Foo() { ... }`. In this case, `props` are passed in as an argument instead of accessed via `this`.
+
+2. Add a new file to the `src/styles` directory for styling the demo page (e.g. `FooCatalog.scss`):
 
 ```js
 @import "@material/foo/dist/mdc.foo";
@@ -66,7 +69,7 @@ export default FooPage;
 
 Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
 
-3. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
+3. Add a SVG image associated with the component (e.g. `ic_foo_180px.svg`) to the `src/images` directory.
 
 4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
 
@@ -76,7 +79,7 @@ class ComponentImageList extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', 'ic_foo_24px.svg', 'foo')}
+      {this.renderListItem('Foo', 'ic_foo_180px.svg', 'foo')}
     );
   }
 }
