@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>menu_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <path d="M3.2,0 L99.2,0 C100.967311,-8.17308814e-15 102.4,1.4326888 102.4,3.2 L102.4,147.2 C102.4,148.967311 100.967311,150.4 99.2,150.4 L3.2,150.4 C1.4326888,150.4 2.88096846e-15,148.967311 2.66453526e-15,147.2 L4.4408921e-16,3.2 C2.27656009e-16,1.4326888 1.4326888,2.98918506e-15 3.2,2.66453526e-15 Z" id="path-3"></path>
+        <filter x="-32.7%" y="-15.0%" width="165.4%" height="144.5%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter2"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter2" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter3"></feMorphology>
+            <feOffset dx="0" dy="6" in="shadowSpreadOuter3" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M3.2,0 L99.2,0 C100.967311,-8.17308814e-15 102.4,1.4326888 102.4,3.2 L102.4,112 C102.4,113.767311 100.967311,115.2 99.2,115.2 L3.2,115.2 C1.4326888,115.2 1.02853176e-14,113.767311 2.22044605e-15,112 L4.4408921e-16,3.2 C2.27656009e-16,1.4326888 1.4326888,2.54509585e-15 3.2,2.22044605e-15 Z" id="path-6"></path>
+        <filter x="-32.7%" y="-19.5%" width="165.4%" height="158.2%" filterUnits="objectBoundingBox" id="filter-8">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter2"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter2" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="5.5" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feMorphology radius="0.5" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter3"></feMorphology>
+            <feOffset dx="0" dy="6" in="shadowSpreadOuter3" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M0.8,0 L114.2,0 C114.641828,7.76727589e-15 115,0.3581722 115,0.8 L115,25.0206897 C115,25.4625175 114.641828,25.8206897 114.2,25.8206897 L0.8,25.8206897 C0.3581722,25.8206897 -2.94349387e-15,25.4625175 -2.99760217e-15,25.0206897 L1.11022302e-16,0.8 C5.69140024e-17,0.3581722 0.3581722,7.47296265e-16 0.8,6.66133815e-16 Z" id="path-9"></path>
+        <rect id="path-11" x="0" y="0" width="115" height="25.8206897" rx="0.8"></rect>
+        <rect id="path-13" x="0" y="0" width="115" height="25.8206897" rx="0.8"></rect>
+        <rect id="path-15" x="0" y="0" width="115" height="25.8206897" rx="0.8"></rect>
+        <polygon id="path-17" points="7.6 14 11.6 10 7.6 6"></polygon>
+        <rect id="path-19" x="0" y="0" width="115" height="25.8206897" rx="0.8"></rect>
+    </defs>
+    <g id="menu_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Menu-/-Exposed">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g mask="url(#mask-2)">
+                <g transform="translate(39.000000, 15.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Surface" stroke="none" fill="none">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-3"></use>
+                        <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="✱-/-State-Overlay-/-Black-/-Selected" stroke="none" fill="none" mask="url(#mask-4)" fill-rule="evenodd" opacity="0.08">
+                        <rect id="Black-State-Overlay" fill="#000000" x="0" y="0" width="111.523404" height="149.361702"></rect>
+                    </g>
+                    <g id="Menu-/-Dropdown-/-Small" stroke="none" fill="none" mask="url(#mask-4)">
+                        <g transform="translate(0.000000, 35.200000)">
+                            <mask id="mask-7" fill="white">
+                                <use xlink:href="#path-6"></use>
+                            </mask>
+                            <g id="Surface" stroke="none" fill="none">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-6"></use>
+                                <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-6"></use>
+                            </g>
+                            <g id="✱-/-Color-/-Surface-/-Light" stroke="none" fill="none" mask="url(#mask-7)" fill-rule="evenodd">
+                                <rect id="Rectangle-13" fill="#FAFAFA" x="0" y="0" width="102" height="115"></rect>
+                            </g>
+                            <g id="List-/-Single-Line-/-Text-/-Body-2" stroke="none" fill="none" mask="url(#mask-7)">
+                                <g transform="translate(-6.400000, 57.600000)">
+                                    <g id="✱-/-Text-/-Body-2-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(12.800000, 4.631579)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="11.2" font-weight="normal" letter-spacing="0.2" line-spacing="16">
+                                        <text id="Body-2" fill="#000000">
+                                            <tspan x="0" y="10">Menu 3</tspan>
+                                        </text>
+                                    </g>
+                                    <g id="List-/-State-/-Selected">
+                                        <mask id="mask-10" fill="white">
+                                            <use xlink:href="#path-9"></use>
+                                        </mask>
+                                        <g id="Surface"></g>
+                                        <g id="✱-/-State-Overlay-/-Black-/-Selected" mask="url(#mask-10)" fill="#000000" fill-rule="evenodd" opacity="0.08">
+                                            <rect id="Black-State-Overlay" x="0" y="0" width="114.510638" height="25.8893617"></rect>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="List-/-Single-Line-/-Text-/-Body-2" stroke="none" fill="none" mask="url(#mask-7)">
+                                <g transform="translate(-6.400000, 32.000000)">
+                                    <g id="✱-/-Text-/-Body-2-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(12.800000, 4.631579)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="11.2" font-weight="normal" letter-spacing="0.2" line-spacing="16">
+                                        <text id="Body-2" fill="#000000">
+                                            <tspan x="0" y="10">Menu 2</tspan>
+                                        </text>
+                                    </g>
+                                    <g id="List-/-State-/-Resting">
+                                        <mask id="mask-12" fill="white">
+                                            <use xlink:href="#path-11"></use>
+                                        </mask>
+                                        <g id="Surface"></g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="List-/-Single-Line-/-Text-/-Body-2" stroke="none" fill="none" mask="url(#mask-7)">
+                                <g transform="translate(-6.400000, 6.400000)">
+                                    <g id="✱-/-Text-/-Body-2-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(12.800000, 4.631579)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="11.2" font-weight="normal" letter-spacing="0.2" line-spacing="16">
+                                        <text id="Body-2" fill="#000000">
+                                            <tspan x="0" y="10">Menu 1</tspan>
+                                        </text>
+                                    </g>
+                                    <g id="List-/-State-/-Resting">
+                                        <mask id="mask-14" fill="white">
+                                            <use xlink:href="#path-13"></use>
+                                        </mask>
+                                        <g id="Surface"></g>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="List-/-Single-Line-/-Text-/-Body-2" stroke="none" fill="none" mask="url(#mask-7)">
+                                <g transform="translate(-6.400000, 83.200000)">
+                                    <g id="✱-/-Text-/-Body-2-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(12.800000, 4.631579)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="11.2" font-weight="normal" letter-spacing="0.2" line-spacing="16">
+                                        <text id="Body-2" fill="#000000">
+                                            <tspan x="0" y="10">Menu 4</tspan>
+                                        </text>
+                                    </g>
+                                    <g id="List-/-State-/-Resting">
+                                        <mask id="mask-16" fill="white">
+                                            <use xlink:href="#path-15"></use>
+                                        </mask>
+                                        <g id="Surface"></g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="List-/-Single-Line-/-Text-/-Body-2" stroke="none" fill="none" mask="url(#mask-4)">
+                        <g transform="translate(-6.400000, 6.400000)">
+                            <g id="Icon-/-Arrow-Drop-Down-/-Fill" transform="translate(83.000000, 3.536842)">
+                                <mask id="mask-18" fill="white">
+                                    <use xlink:href="#path-17"></use>
+                                </mask>
+                                <g id="Mask" fill-rule="nonzero" transform="translate(9.600000, 10.000000) rotate(90.000000) translate(-9.600000, -10.000000) "></g>
+                                <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-18)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                                    <rect id="Rectangle" x="0" y="0" width="18.9530864" height="18.9530864"></rect>
+                                </g>
+                            </g>
+                            <g id="✱-/-Text-/-Body-2-/-Selected-/-On-Surface-/-High-Emphasis-/-Left" transform="translate(12.800000, 4.631579)" fill-opacity="0.87" font-family="Roboto-Regular, Roboto" font-size="11.2" font-weight="normal" letter-spacing="0.2" line-spacing="16">
+                                <text id="Body-2" fill="#000000">
+                                    <tspan x="0" y="10">Menu</tspan>
+                                </text>
+                            </g>
+                            <g id="List-/-State-/-Resting">
+                                <mask id="mask-20" fill="white">
+                                    <use xlink:href="#path-19"></use>
+                                </mask>
+                                <g id="Surface"></g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

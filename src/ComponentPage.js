@@ -64,6 +64,14 @@ class ComponentPage extends Component {
       url: '/list',
       active: activeLink === 'List',
     }, {
+      content: 'Menu',
+      url: '/menu',
+      active: activeLink === 'Menu',
+    }, {
+      content: 'Ripple',
+      url: '/ripple',
+      active: activeLink === 'Ripple',
+    }, {
       content: 'Select',
       url: '/select',
       active: activeLink === 'Select',
@@ -71,6 +79,10 @@ class ComponentPage extends Component {
       content: 'Slider',
       url: '/slider',
       active: activeLink === 'Slider',
+    }, {
+      content: 'Switch',
+      url: '/switch',
+      active: activeLink === 'Switch',
     }, {
       content: 'Text Field',
       url: '/text-field',
