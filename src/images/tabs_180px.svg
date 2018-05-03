@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>tabs_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="0" width="288" height="38.4"></rect>
+        <filter x="-6.8%" y="-35.2%" width="113.5%" height="201.6%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" type="matrix" in="shadowBlurOuter2" result="shadowMatrixOuter2"></feColorMatrix>
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter3"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter3" result="shadowBlurOuter3"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter3" result="shadowMatrixOuter3"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                <feMergeNode in="shadowMatrixOuter3"></feMergeNode>
+            </feMerge>
+        </filter>
+        <rect id="path-6" x="0" y="0" width="96" height="38.4"></rect>
+        <rect id="path-8" x="0" y="0" width="96" height="38.4"></rect>
+        <rect id="path-10" x="0" y="0" width="96" height="38.4"></rect>
+    </defs>
+    <g id="tabs_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-+-Tab-/-Text-Tab-/-Raised-Mask">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g id="Group" mask="url(#mask-2)" fill="#F5F5F5">
+                <g transform="translate(0.000000, 40.000000)" id="Rectangle">
+                    <rect x="0" y="0" width="225" height="166"></rect>
+                </g>
+            </g>
+            <g id="Tab-/-Fixed-Tabs-/-Text-Labels-Only-/-Raised" mask="url(#mask-2)">
+                <g transform="translate(0.000000, 30.000000)">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Surface" stroke="none" fill="none">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-3"></use>
+                        <use fill="#FAFAFA" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    </g>
+                    <g id="✱-/-Color-/-Surface-/-Primary-or-Secondary" stroke="none" fill="none" mask="url(#mask-4)" fill-rule="evenodd">
+                        <g id="✱-/-Color-/-Primary-/-500" fill="#212121">
+                            <rect id="Rectangle-13" x="0" y="0" width="288" height="38"></rect>
+                        </g>
+                    </g>
+                    <g id="Tab-/-Elements-/-Text-Tab-/-Inactive-/-Enabled" stroke="none" fill="none" mask="url(#mask-4)">
+                        <g transform="translate(192.000000, 0.000000)">
+                            <mask id="mask-7" fill="white">
+                                <use xlink:href="#path-6"></use>
+                            </mask>
+                            <g id="Surface" stroke="none" fill="none"></g>
+                            <g id="✱-/-Text-/-Button-/-White-/-High-Emphasis-/-Center" stroke="none" fill="none" mask="url(#mask-7)" font-family="Roboto-Medium, Roboto" font-size="11.2" font-weight="400" letter-spacing="1" line-spacing="12.8">
+                                <g transform="translate(0.000000, 12.800000)" id="Button">
+                                    <text>
+                                        <tspan x="25.825" y="7.97109375" fill="#FFFFFF">TAB</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Tab-/-Elements-/-Text-Tab-/-Inactive-/-Enabled" stroke="none" fill="none" mask="url(#mask-4)">
+                        <g transform="translate(96.000000, 0.000000)">
+                            <mask id="mask-9" fill="white">
+                                <use xlink:href="#path-8"></use>
+                            </mask>
+                            <g id="Surface" stroke="none" fill="none"></g>
+                            <g id="✱-/-Text-/-Button-/-White-/-High-Emphasis-/-Center" stroke="none" fill="none" mask="url(#mask-9)" font-family="Roboto-Medium, Roboto" font-size="11.2" font-weight="400" letter-spacing="1" line-spacing="12.8">
+                                <g transform="translate(0.000000, 12.800000)" id="Button">
+                                    <text>
+                                        <tspan x="25.825" y="7.97109375" fill="#FFFFFF">TAB</tspan>
+                                    </text>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Tab-/-Elements-/-Text-Tab-/-Active-/-Enabled" stroke="none" fill="none" mask="url(#mask-4)">
+                        <mask id="mask-11" fill="white">
+                            <use xlink:href="#path-10"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="Tab-/-Elements-/-Indicator" mask="url(#mask-11)" fill="#FFFFFF" fill-rule="evenodd">
+                            <g id="✱-/-Color-/-Surface-/-Base" transform="translate(0.000000, 36.000000)">
+                                <rect id="Rectangle-13" x="0" y="0" width="96" height="2"></rect>
+                            </g>
+                        </g>
+                        <g id="✱-/-Text-/-Button-/-White-/-High-Emphasis-/-Center" mask="url(#mask-11)" font-family="Roboto-Medium, Roboto" font-size="11.2" font-weight="400" letter-spacing="1" line-spacing="12.8">
+                            <g transform="translate(0.000000, 12.800000)" id="Button">
+                                <text>
+                                    <tspan x="8.24492187" y="7.97109375" fill="#FFFFFF">ITEM ONE</tspan>
+                                </text>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
