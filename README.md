@@ -11,25 +11,25 @@ Developed by a core team of engineers and UX designers at Google, these componen
 
 Follow these steps to add a new component to the MDC Web demo catalog.
 
-1. Add a new file to the `src` directory for the JSX (e.g. `FooPage.js`). It should follow this template:
+1. Add a new file to the `src` directory for the JSX (e.g. `FooCatalog.js`). It should follow this template:
 
 ```js
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCFoo} from '@material/foo';
 
-import './FooPage.scss';
+import './styles/FooCatalog.scss';
 
-const FooPage = () => {
+const FooCatalog = () => {
   return (
     <ComponentCatalogPanel
-      hero={<FooHero/>}
+      hero={<FooHero />}
       title='Foo'
       description='A short description about the Foo component.'
       designLink='https://material.io/guidelines/components/foo.html'
       docsLink='https://material.io/components/web/catalog/foo/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
-      demos={<FooDemos/>}
+      demos={<FooDemos />}
     />
   );
 }
@@ -52,11 +52,14 @@ class FooDemos extends Component {
   }
 }
 
-export default FooPage;
+export default FooCatalog;
 
 ```
 
-2. Add a new file to the `src` directory for styling the demo page (e.g. `FooPage.scss`):
+> _NOTE_: If your components only require a `render` method, you can write functional components rather than classes,
+> e.g. `function Foo() { ... }`. In this case, `props` are passed in as an argument instead of accessed via `this`.
+
+2. Add a new file to the `src/styles` directory for styling the demo page (e.g. `FooCatalog.scss`):
 
 ```js
 @import "@material/foo/dist/mdc.foo";
@@ -64,9 +67,9 @@ export default FooPage;
 // Custom styles here
 ```
 
-Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
+> _NOTE_: We import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
 
-3. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
+3. Add a SVG image associated with the component (e.g. `foo_180px.svg`) to the `src/images` directory.
 
 4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
 
@@ -76,13 +79,13 @@ class ComponentImageList extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', 'ic_foo_24px.svg', 'foo')}
+      {this.renderListItem('Foo', 'foo_180px.svg', 'foo')}
     );
   }
 }
 ```
 
-5. Add a new entry in the `links` in the `render()` method in `Sidebar.js`:
+5. Add a new entry in the `links` in the `render()` method in `ComponentSidebar.js`:
 
 ```js
 const links = [
@@ -94,7 +97,7 @@ const links = [
 ];
 ```
 
-6. Add a `<Route>` on the `ComponentPage.js`:
+6. Add a `<Route>` in `ComponentPage.js`:
 
 ```js
 import FooCatalog from './FooCatalog';
@@ -103,7 +106,7 @@ class ComponentPage extends Component {
   ...
   renderComponentRoutes() {
     ...
-    <Route path='component/foo' component={FooCatalog} />
+    <Route path='/component/foo' component={FooCatalog} />
   }
 }
 ```
@@ -120,13 +123,12 @@ Then point your browser to http://localhost:3000/.
 
 ## Local Testing
 
-To run a build that can be locally tested using any HTTP server, run
+To run a build that can be locally tested using any HTTP server:
 
-```
-npm run build:local
-```
-
-Then serve the top-level repository directory, and browse to http://localhost:<port>/material-components-web-catalog/.
+1. `npm run build`
+2. Rename the `build` folder to `material-components-web-catalog`
+3. Serve the top-level repository directory (e.g. with `live-server`)
+4. Browse to http://localhost:<port>/material-components-web-catalog/
 
 ## Deployment
 

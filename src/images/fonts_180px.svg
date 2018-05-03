@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>fonts_180px </title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+    </defs>
+    <g id="fonts_180px-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Headline-4-+-Line-+-Line-Copy-2-+-Line-Copy-+-Line-Copy-3-Mask">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <text id="Headline-4" mask="url(#mask-2)" font-family="Roboto-Medium, Roboto" font-size="150" font-weight="400" letter-spacing="1.10294116" fill="#212121">
+                <tspan x="20" y="143">A</tspan>
+                <tspan x="120.932043" y="143" font-size="130">z</tspan>
+            </text>
+            <path d="M-26.5,36.5 L205.577573,36.5" id="Line" stroke="#212121" stroke-width="2" stroke-linecap="square" mask="url(#mask-2)"></path>
+            <path d="M22,211.077573 L22,-21" id="Line-Copy-2" stroke="#212121" stroke-width="2" stroke-linecap="square" mask="url(#mask-2)"></path>
+            <path d="M-26.5,142.5 L205.577573,142.5" id="Line-Copy" stroke="#212121" stroke-width="2" stroke-linecap="square" mask="url(#mask-2)"></path>
+            <path d="M1,76 L233.077573,76" id="Line-Copy-3" stroke="#212121" stroke-width="2" stroke-dasharray="10,6" mask="url(#mask-2)"></path>
+        </g>
+    </g>
+</svg>

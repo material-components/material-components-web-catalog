@@ -4,6 +4,7 @@ import ComponentSidebar from './ComponentSidebar';
 import ButtonCatalog from './ButtonCatalog';
 import CardCatalog from './CardCatalog';
 import CheckboxCatalog from './CheckboxCatalog';
+import ChipsCatalog from './ChipsCatalog';
 import DialogCatalog from './DialogCatalog';
 import DrawerCatalog from './DrawerCatalog';
 import ElevationCatalog from './ElevationCatalog';
@@ -21,6 +22,7 @@ import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
+import TypographyCatalog from './TypographyCatalog';
 
 import {Switch, Route} from 'react-router';
 
@@ -35,6 +37,7 @@ class ComponentPage extends Component {
         <Route path='/component/button' component={ButtonCatalog} />
         <Route path='/component/card' component={CardCatalog} />
         <Route path='/component/checkbox' component={CheckboxCatalog} />
+        <Route path='/component/chips' component={ChipsCatalog} />
         <Route path='/component/dialog' component={DialogCatalog} />
         <Route path='/component/drawer' component={DrawerCatalog} />
         <Route path='/component/elevation' component={ElevationCatalog} />
@@ -52,6 +55,7 @@ class ComponentPage extends Component {
         <Route path='/component/switch' component={SwitchCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
+        <Route path='/component/typography' component={TypographyCatalog} />
       </Switch>
     );
   }
