@@ -44,7 +44,7 @@ class SwitchHero extends Component {
               <div className='mdc-switch__knob'/>
             </div>
           </div>
-          <label htmlFor='hero-switch'>off/on</label>
+          <label htmlFor='hero-switch' className='mdc-switch-label'>off/on</label>
         </div>
     );
   }
@@ -55,6 +55,7 @@ class SwitchDemos extends Component {
     return (
         <div>
           <h3 className='mdc-typography--subtitle2'>{title}</h3>
+          <div className='switch-demo'>
           <div className='mdc-switch'>
             <input type='checkbox' id={`${title}-switch`} className='mdc-switch__native-control' role='switch'
                    aria-checked='false' disabled={variant === 'disabled'}/>
@@ -62,7 +63,8 @@ class SwitchDemos extends Component {
               <div className='mdc-switch__knob'/>
             </div>
           </div>
-          <label htmlFor={`${title}-switch`}>off/on</label>
+          <label htmlFor={`${title}-switch`} className='mdc-switch-label'>off/on</label>
+          </div>
         </div>
     );
   }
@@ -71,7 +73,6 @@ class SwitchDemos extends Component {
     return (
       <div>
         {this.renderSwitchVariant('Switch')}
-        {this.renderSwitchVariant('Disabled Switch', 'disabled')}
       </div>
     );
   }
