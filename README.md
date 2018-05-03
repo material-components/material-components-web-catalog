@@ -15,14 +15,14 @@ Follow these steps to add a new component to the MDC Web demo catalog.
 
 ```js
 import React, { Component } from 'react';
-import ComponentPanel from './ComponentPanel.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCFoo} from '@material/foo';
 
 import './FooPage.scss';
 
 const FooPage = () => {
   return (
-    <ComponentPanel
+    <ComponentCatalogPanel
       hero={<FooHero/>}
       title='Foo'
       description='A short description about the Foo component.'
@@ -68,10 +68,10 @@ Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't ha
 
 3. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
 
-4. Render a new list item inside the `render()` element in `LandingPage.js`:
+4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
 
 ```js
-class LandingPage extends Component {
+class ComponentImageList extends Component {
   ...
   render() {
     return (
@@ -103,7 +103,7 @@ class ComponentPage extends Component {
   ...
   renderComponentRoutes() {
     ...
-    <Route path={`${match.path}/foo`} component={FooCatalog} />
+    <Route path='component/foo' component={FooCatalog} />
   }
 }
 ```
