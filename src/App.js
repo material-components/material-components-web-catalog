@@ -13,6 +13,7 @@ import ListPage from './ListPage';
 import RipplePage from './RipplePage';
 import SelectPage from './SelectPage';
 import SliderPage from './SliderPage';
+import SwitchPage from './SwitchPage';
 import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
@@ -44,6 +45,7 @@ const componentUrlToPageMap = {
   '/ripple': <RipplePage />,
   '/select': <SelectPage />,
   '/slider': <SliderPage />,
+  '/switch': <SwitchPage />,
   '/text-field': <TextFieldPage />,
   '/top-app-bar': <TopAppBarPage />,
   '/top-app-bar/dense': <TopAppBarFramePage type='dense'/>,
@@ -109,6 +111,7 @@ class App extends Component {
           {this.renderListItem('Ripple', `${imagePath}/ripple_180px.svg`, 'ripple')}
           {this.renderListItem('Select', `${imagePath}/form_field_180px.svg`, 'select')}
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}
+          {this.renderListItem('Switch', `${imagePath}/switch_180px.svg`, 'switch')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
         </ul>

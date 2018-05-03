@@ -66,6 +66,7 @@ const components = [
   'ripple',
   'select',
   'slider',
+  'switch',
   'text-field',
   'top-app-bar',
   'top-app-bar/dense',
