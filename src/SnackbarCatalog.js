@@ -18,46 +18,31 @@ const SnackbarCatalog = () => {
   );
 };
 
-class SnackbarHero extends Component {
-  render() {
-    return (
-      <div className='snackbar-hero'>
-        <div className='mdc-snackbar mdc-snackbar--active'
-            aria-live='assertive'
-            aria-atomic='true'
-            aria-hidden='true'>
-          <div className='mdc-snackbar__text'>Message Sent</div>
-          <div className='mdc-snackbar__action-wrapper'>
-            <button type='button' className='mdc-snackbar__action-button'>Undo</button>
-          </div>
+const SnackbarHero = () => {
+  return (
+    <div className='snackbar-hero'>
+      <div className='mdc-snackbar mdc-snackbar--active'
+          aria-live='assertive'
+          aria-atomic='true'
+          aria-hidden='true'>
+        <div className='mdc-snackbar__text'>Message Sent</div>
+        <div className='mdc-snackbar__action-wrapper'>
+          <button type='button' className='mdc-snackbar__action-button'>Undo</button>
         </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 class SnackbarDemo extends Component {
-  snackbarData = {message: 'Message Sent', actionHandler: () => {}, actionText: 'Undo'};
-  
-  initSnackbar = (snackbarEl, isStartAligned) => {
-    if (!snackbarEl) {
-      return;
-    }
-    isStartAligned ? 
-      this.startAlignedSnackbar = new MDCSnackbar(snackbarEl) : this.snackbar = new MDCSnackbar(snackbarEl);
-  }
-
-  componentWillUnmount() {
-    this.snackbar.destroy();
-    this.startAlignedSnackbar.destroy();
-  }
+  state = {showSnackbar: false, showStartAlignedSnackbar: false};
 
   handleShowClick = () => {
-    this.snackbar.show(this.snackbarData);
+    this.setState({showSnackbar: true});
   }
 
   handleShowStartAlignedClick = () => {
-    this.startAlignedSnackbar.show(this.snackbarData);
+    this.setState({showStartAlignedSnackbar: true});
   }
 
   render() {
@@ -71,27 +56,40 @@ class SnackbarDemo extends Component {
                 onClick={this.handleShowStartAlignedClick}>
           Show start aligned
         </button>
-        <div className='mdc-snackbar'
-          aria-live='assertive'
-          aria-atomic='true'
-          aria-hidden='true'
-          ref={this.initSnackbar}>
-            <div className='mdc-snackbar__text'></div>
-            <div className='mdc-snackbar__action-wrapper'>
-              <button type='button' className='mdc-snackbar__action-button'></button>
-            </div>
-        </div>
-        <div className='mdc-snackbar mdc-snackbar--align-start'
-          aria-live='assertive'
-          aria-atomic='true'
-          aria-hidden='true'
-          ref={startAlignedSnackbarEl => this.initSnackbar(startAlignedSnackbarEl, true /* isStartAligned */)}>
-            <div className='mdc-snackbar__text'></div>
-            <div className='mdc-snackbar__action-wrapper'>
-              <button type='button' className='mdc-snackbar__action-button'></button>
-            </div>
-        </div>
+        <Snackbar show={this.state.showSnackbar}/>
+        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true}/>
       </div>
+    )
+  }
+}
+
+class Snackbar extends Component {
+  snackbarData = {message: 'Message Sent', actionHandler: () => {}, actionText: 'Undo'};
+
+  initSnackbar = (snackbarEl) => {
+    this.snackbar = new MDCSnackbar(snackbarEl);
+  }
+
+  componentDidUpdate() {
+    this.props.show && this.snackbar.show(this.snackbarData);
+  }
+
+  componentWillUnmount() {
+    this.snackbar.destroy();
+  }
+
+  render() {
+    return (
+      <div className={'mdc-snackbar ' + (this.props.startAligned ? 'mdc-snackbar--align-start' : '')}
+        aria-live='assertive'
+        aria-atomic='true'
+        aria-hidden='true'
+        ref={this.initSnackbar}>
+        <div className='mdc-snackbar__text'></div>
+        <div className='mdc-snackbar__action-wrapper'>
+          <button type='button' className='mdc-snackbar__action-button'></button>
+        </div>
+      </div>    
     )
   }
 }

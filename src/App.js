@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
+import CatalogPage from './CatalogPage';
 
 import {Switch, Route} from 'react-router';
 import {withRouter} from 'react-router-dom';
-import CatalogPage from './CatalogPage';
 import TopAppBarFramePage from './frame/TopAppBarFramePage';
 import DrawerFramePage from './frame/DrawerFramePage';
 
