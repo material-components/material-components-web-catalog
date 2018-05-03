@@ -23,13 +23,13 @@ import './FooPage.scss';
 const FooPage = () => {
   return (
     <ComponentCatalogPanel
-      hero={<FooHero/>}
+      hero={<FooHero />}
       title='Foo'
       description='A short description about the Foo component.'
       designLink='https://material.io/guidelines/components/foo.html'
       docsLink='https://material.io/components/web/catalog/foo/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
-      demos={<FooDemos/>}
+      demos={<FooDemos />}
     />
   );
 }
@@ -82,7 +82,7 @@ class ComponentImageList extends Component {
 }
 ```
 
-5. Add a new entry in the `links` in the `render()` method in `Sidebar.js`:
+5. Add a new entry in the `links` in the `render()` method in `ComponentSidebar.js`:
 
 ```js
 const links = [
@@ -94,7 +94,7 @@ const links = [
 ];
 ```
 
-6. Add a `<Route>` on the `ComponentPage.js`:
+6. Add a `<Route>` in `ComponentPage.js`:
 
 ```js
 import FooCatalog from './FooCatalog';
@@ -120,13 +120,12 @@ Then point your browser to http://localhost:3000/.
 
 ## Local Testing
 
-To run a build that can be locally tested using any HTTP server, run
+To run a build that can be locally tested using any HTTP server:
 
-```
-npm run build:local
-```
-
-Then serve the top-level repository directory, and browse to http://localhost:<port>/material-components-web-catalog/.
+1. `npm run build`
+2. Rename the `build` folder to `material-components-web-catalog`
+3. Serve the top-level repository directory (e.g. with `live-server`)
+4. Browse to http://localhost:<port>/material-components-web-catalog/
 
 ## Deployment
 
