@@ -1,6 +1,7 @@
 @import "@material/layout-grid/dist/mdc.layout-grid";
 @import "@material/list/dist/mdc.list";
 @import "@material/typography/mixins";
+@import "./constants";
 
 .hero {
   display: flex;
@@ -9,7 +10,7 @@
   justify-content: center;
   min-height: 360px;
   padding: 24px;
-  background-color: rgba(0, 0, 0, .05);
+  background-color: $catalog-hero-background-color;
 }
 
 .sidebar-active {

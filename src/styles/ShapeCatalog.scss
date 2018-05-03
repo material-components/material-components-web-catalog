@@ -3,11 +3,10 @@
 @import "@material/shape/dist/mdc.shape";
 @import "@material/shape/mixins";
 @import "@material/theme/mixins";
+@import "./constants";
 
 .hero-shape-container {
-  @include mdc-shape-angled-corner(
-    mix(mdc-theme-prop-value(black), mdc-theme-prop-value(white), 5%),
-    10px);
+  @include mdc-shape-angled-corner($catalog-hero-background-color, 10px);
 }
 
 .contained-button-shape-container {
