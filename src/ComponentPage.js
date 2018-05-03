@@ -81,9 +81,17 @@ class ComponentPage extends Component {
       active: activeLink === 'Top App Bar',
     }];
 
+    const styles = [{
+      content: 'Typography',
+      url: '/typography',
+      active: activeLink === 'Typography',
+    }];
+
     return(
       <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
         {links.map(this.renderSidebarLink)}
+        <div className='mdc-list-divider' role='separator'></div>
+        {styles.map(this.renderSidebarLink)}
       </section>
     );
   }

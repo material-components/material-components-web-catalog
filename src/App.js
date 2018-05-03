@@ -16,6 +16,7 @@ import TextFieldPage from './TextFieldPage';
 import HeaderBar from './HeaderBar';
 import TopAppBarPage from './TopAppBarPage';
 import TopAppBarFramePage from './frame/TopAppBarFramePage';
+import TypographyPage from './TypographyPage';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
@@ -50,6 +51,7 @@ const componentUrlToPageMap = {
   '/top-app-bar/short': <TopAppBarFramePage type='short'/>,
   '/top-app-bar/short-collapsed': <TopAppBarFramePage type='shortCollapsed'/>,
   '/top-app-bar/standard': <TopAppBarFramePage type='standard'/>,
+  '/typography': <TypographyPage />,
 };
 
 class App extends Component {
@@ -108,6 +110,9 @@ class App extends Component {
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
           {this.renderListItem('Top App Bar', `${imagePath}/top_app_bar_180px.svg`, 'top-app-bar')}
+        </ul>
+        <ul className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
+          {this.renderListItem('Typography', `${imagePath}/fonts_180px.svg`, 'typography')}
         </ul>
       </div>
     );

@@ -50,7 +50,8 @@ const components = [
   'top-app-bar/standard',
   'top-app-bar/prominent',
   'top-app-bar/short',
-  'top-app-bar/short-collapsed'
+  'top-app-bar/short-collapsed',
+  'typography',
 ];
 
 // This is the development configuration.

@@ -72,7 +72,9 @@ const components = [
   'top-app-bar/standard',
   'top-app-bar/prominent',
   'top-app-bar/short',
-  'top-app-bar/short-collapsed'];
+  'top-app-bar/short-collapsed',
+  'typography',
+];
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
