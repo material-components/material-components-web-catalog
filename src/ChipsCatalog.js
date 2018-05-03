@@ -33,21 +33,21 @@ class ChipsHero extends Component {
     this.chipSet.destroy();
   }
 
+  renderChip(text) {
+    return (
+      <div className='mdc-chip' tabIndex='0'>
+        <div className='mdc-chip__text'>{text}</div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className='mdc-chip-set' ref={this.initChipSet}>
-        <div className='mdc-chip' tabIndex='0'>
-          <div className='mdc-chip__text'>Chip One</div>
-        </div>
-        <div className='mdc-chip' tabIndex='0'>
-          <div className='mdc-chip__text'>Chip Two</div>
-        </div>
-        <div className='mdc-chip' tabIndex='0'>
-          <div className='mdc-chip__text'>Chip Three</div>
-        </div>
-        <div className='mdc-chip' tabIndex='0'>
-          <div className='mdc-chip__text'>Chip Four</div>
-        </div>
+        {this.renderChip('Chip One')}
+        {this.renderChip('Chip Two')}
+        {this.renderChip('Chip Three')}
+        {this.renderChip('Chip Four')}
       </div>
     );
   }
