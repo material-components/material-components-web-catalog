@@ -49,6 +49,9 @@ class ComponentSidebar extends Component {
       content: 'Image List',
       url: '/image-list',
     }, {
+      content: 'Layout Grid',
+      url: '/layout-grid',
+    }, {
       content: 'Linear Progress Indicator',
       url: '/linear-progress-indicator',
     }, {
