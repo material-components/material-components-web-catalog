@@ -34,6 +34,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
           {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
           {this.renderListItem('Switch', 'switch_180px.svg', 'switch')}
+          {this.renderListItem('Tabs', 'tabs_180px.svg', 'tabs')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}
         </ul>

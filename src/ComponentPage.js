@@ -18,6 +18,7 @@ import RippleCatalog from './RippleCatalog';
 import SelectCatalog from './SelectCatalog';
 import SliderCatalog from './SliderCatalog';
 import SwitchCatalog from './SwitchCatalog';
+import TabsCatalog from './TabsCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 
@@ -48,6 +49,7 @@ class ComponentPage extends Component {
         <Route path='/component/slider' component={SliderCatalog} />
         <Route path='/component/select' component={SelectCatalog} />
         <Route path='/component/switch' component={SwitchCatalog} />
+        <Route path='/component/tabs' component={TabsCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
       </Switch>
