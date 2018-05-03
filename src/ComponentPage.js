@@ -69,10 +69,10 @@ class ComponentPage extends Component {
   render() {
     return (
       <div>
-        <div className='mdc-top-app-bar--fixed-adjust'>
-          <div className='mdc-layout-grid'>
+        <div className='mdc-top-app-bar--fixed-adjust demo-panel'>
+          <ComponentSidebar {...this.props} />
+          <div className='mdc-layout-grid demo-content'>
             <div className='mdc-layout-grid__inner'>
-              <ComponentSidebar {...this.props} />
               {this.renderComponentRoutes()}
             </div>
           </div>

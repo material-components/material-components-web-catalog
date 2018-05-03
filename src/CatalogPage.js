@@ -8,17 +8,24 @@ import {Switch, Route} from 'react-router';
 
 // This is a separate page (Not App.js), since Drawer and TopAppBar
 // need to be separate pages due to iFrames.
-const CatalogPage = (props) => {
-  const {location} = props;
-  return (
-    <div>
-      <HeaderBar isTopPage={location.pathname === '/'} />
-      <Switch>
-        <Route exact path='/' component={ComponentImageList} />
-        <Route path='/component' component={ComponentPage} />
-      </Switch>
-    </div>
-  );
+class CatalogPage extends React.Component {
+  state = {
+    isDrawerOpen: false
+  };
+
+  render() {
+    return (
+        <div>
+          <HeaderBar toggleDrawer={() => this.setState(
+              {isDrawerOpen: !this.state.isDrawerOpen})}
+                     isTopPage={this.props.location.pathname === '/'}/>
+          <Switch>
+            <Route exact path='/' render={(props) => <ComponentImageList {...props} />}/>
+            <Route path='/component' render={(props) => <ComponentPage {...props} isDrawerOpen={this.state.isDrawerOpen}/>} />
+          </Switch>
+        </div>
+    );
+  }
 }
 
 export default CatalogPage;
