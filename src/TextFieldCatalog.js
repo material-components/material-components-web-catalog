@@ -99,7 +99,7 @@ const TextFieldCatalog = () => (
     hero={<TextField textFieldId='hero-text-field-id'/>}
     title='Text Field'
     description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
-    designLink='https://material.io/guidelines/components/text-fields.html'
+    designLink='https://material.io/go/design-text-fields'
     docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
     demos={<TextFieldDemos/>}
