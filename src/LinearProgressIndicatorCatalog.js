@@ -95,8 +95,8 @@ class LinearProgressDemos extends Component {
       <div>
         {this.renderLinearProgressVariant('Buffered', '', true)}
         {this.renderLinearProgressVariant('Indeterminate', 'mdc-linear-progress--indeterminate')}
-        {this.renderLinearProgressVariant('Reversered', 'mdc-linear-progress--reversed')}
-        {this.renderLinearProgressVariant('Reversered Buffered', 'mdc-linear-progress--reversed', true)}
+        {this.renderLinearProgressVariant('Reversed', 'mdc-linear-progress--reversed')}
+        {this.renderLinearProgressVariant('Reversed Buffered', 'mdc-linear-progress--reversed', true)}
       </div>
     );
   }
