@@ -21,8 +21,6 @@ const CardCatalog = () => {
 };
 
 class Card extends Component {
-  initRipple = (surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl);
-
   componentWillUnmount() {
     this.ripple.destroy();
   }
@@ -35,7 +33,7 @@ class Card extends Component {
           <div
             className='mdc-card__primary-action'
             tabIndex='0'
-            ref={this.initRipple}>
+            ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
             {image ? <CardImage /> : null}
             <div className='demo-card__primary'>
               <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
@@ -60,8 +58,6 @@ const CardImage = () => {
 }
 
 class CardActionIcon extends Component {
-  initRipple = (surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl);
-
   componentWillUnmount() {
     this.ripple.destroy();
   }
@@ -73,7 +69,7 @@ class CardActionIcon extends Component {
         role='button'
         title={this.props.title}
         data-mdc-ripple-is-unbounded
-        ref={this.initRipple}>
+        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
         {this.props.icon}
       </i>
     );
@@ -81,8 +77,6 @@ class CardActionIcon extends Component {
 }
 
 class CardActionButton extends Component {
-  initRipple = (surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl);
-
   componentWillUnmount() {
     this.ripple.destroy();
   }
@@ -90,7 +84,7 @@ class CardActionButton extends Component {
   render() {
     return (
       <button
-        ref={this.initRipple}
+        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}
         className='mdc-button mdc-card__action mdc-card__action--button'>
         {this.props.text}
       </button>
@@ -99,8 +93,6 @@ class CardActionButton extends Component {
 }
 
 class CardActionRow extends Component {
-  initToggleIcon = (surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl);
-
   componentWillUnmount() {
     this.iconToggle.destroy();
   }
@@ -121,7 +113,7 @@ class CardActionRow extends Component {
              title='Add to favorites'
              data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
              data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-             ref={this.initToggleIcon}>
+             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
             favorite_border
           </i>
           <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
