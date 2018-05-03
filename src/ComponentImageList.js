@@ -32,8 +32,9 @@ class ComponentImageList extends Component {
           {this.renderListItem('Menu', 'menu_180px.svg', 'menu')}
           {this.renderListItem('Radio', 'radio_180px.svg', 'radio')}
           {this.renderListItem('Ripple', 'ripple_180px.svg', 'ripple')}
-          {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
           {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
+          {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
+          {this.renderListItem('Snackbar', 'snackbar_180px.svg', 'snackbar')}
           {this.renderListItem('Switch', 'switch_180px.svg', 'switch')}
           {this.renderListItem('Tabs', 'tabs_180px.svg', 'tabs')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}

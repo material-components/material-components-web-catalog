@@ -18,6 +18,7 @@ import RadioButtonCatalog from './RadioButtonCatalog';
 import RippleCatalog from './RippleCatalog';
 import SelectCatalog from './SelectCatalog';
 import SliderCatalog from './SliderCatalog';
+import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
 import TabsCatalog from './TabsCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
@@ -49,8 +50,9 @@ class ComponentPage extends Component {
         <Route path='/component/menu' component={MenuCatalog} />
         <Route path='/component/radio' component={RadioButtonCatalog} />
         <Route path='/component/ripple' component={RippleCatalog} />
-        <Route path='/component/slider' component={SliderCatalog} />
         <Route path='/component/select' component={SelectCatalog} />
+        <Route path='/component/slider' component={SliderCatalog} />
+        <Route path='/component/snackbar' component={SnackbarCatalog} />
         <Route path='/component/switch' component={SwitchCatalog} />
         <Route path='/component/tabs' component={TabsCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
