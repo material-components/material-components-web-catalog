@@ -78,6 +78,9 @@ class ComponentSidebar extends Component {
     }, {
       content: 'Top App Bar',
       url: '/top-app-bar',
+    }, {
+      content: 'Typography',
+      url: '/typography',
     }];
 
     return(

@@ -21,6 +21,7 @@ import SliderCatalog from './SliderCatalog';
 import SwitchCatalog from './SwitchCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
+import TypographyCatalog from './TypographyCatalog';
 
 import {Switch, Route} from 'react-router';
 
@@ -52,6 +53,7 @@ class ComponentPage extends Component {
         <Route path='/component/switch' component={SwitchCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
+        <Route path='/component/typography' component={TypographyCatalog} />
       </Switch>
     );
   }
