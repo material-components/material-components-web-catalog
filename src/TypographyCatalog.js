@@ -1,11 +1,9 @@
 import React from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
-const TypographyPage = () => (
-  <div>
-    <HeaderBar />
-    <ComponentPage
+const TypographyCatalog = () => {
+  return (
+    <ComponentCatalogPanel
       hero={<TypographyHero/>}
       title='Typography'
       description='Roboto and Noto are the standard typefaces on Android and Chrome.'
@@ -14,8 +12,8 @@ const TypographyPage = () => (
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography'
       demos={<TypographyDemos/>}
     />
-  </div>
-);
+  )
+};
 
 const TypographyHero = () => {
   return (
@@ -45,4 +43,4 @@ const TypographyDemos = () => {
   )
 };
 
-export default TypographyPage;
+export default TypographyCatalog;
