@@ -9,7 +9,7 @@ const SliderCatalog = () => (
     hero={<SliderHero/>}
     title='Slider'
     description='Sliders let users select from a range of values by moving the slider thumb.'
-    designLink='https://material.io/guidelines/components/sliders.html'
+    designLink='https://material.io/go/design-sliders'
     docsLink='https://material.io/components/web/catalog/input-controls/sliders/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider'
     demos={<SliderDemos/>}

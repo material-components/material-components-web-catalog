@@ -10,7 +10,7 @@ const CheckboxCatalog = () => {
       hero={<CheckboxHero/>}
       title='Checkbox'
       description='Checkboxes allow the user to select multiple options from a set.'
-      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox'
+      designLink='https://material.io/go/design-checkboxes'
       docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
       demos={<CheckboxDemos/>}

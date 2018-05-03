@@ -10,7 +10,7 @@ const ChipsCatalog = () => {
       hero={<ChipsHero />}
       title='Chips'
       description='Chips are compact elements that allow users to enter information, select a choice, filter content, or trigger an action.'
-      designLink='https://material.io/guidelines/components/chips.html'
+      designLink='https://material.io/go/design-chips'
       docsLink='https://material.io/components/web/catalog/chips/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips'
       demos={<ChipsDemos />}
