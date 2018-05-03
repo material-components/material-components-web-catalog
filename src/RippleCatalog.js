@@ -10,7 +10,7 @@ const RippleCatalog = () => {
       hero={<RippleHero />}
       title='Ripple'
       description='Ripples are visual representations used to communicate the status of a component or interactive element.'
-      designLink='https://material.io/go/design-choreography'
+      designLink='https://material.io/go/design-states'
       docsLink='https://material.io/components/web/catalog/ripples/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple'
       demos={<RippleDemos />}
