@@ -28,6 +28,9 @@ class ComponentSidebar extends Component {
       content: 'Checkbox',
       url: '/checkbox',
     }, {
+      content: 'Chips',
+      url: '/chips',
+    }, {
       content: 'Dialog',
       url: '/dialog',
     }, {
