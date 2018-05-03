@@ -4,6 +4,7 @@ import ComponentSidebar from './ComponentSidebar';
 import ButtonCatalog from './ButtonCatalog';
 import CardCatalog from './CardCatalog';
 import CheckboxCatalog from './CheckboxCatalog';
+import ChipsCatalog from './ChipsCatalog';
 import DialogCatalog from './DialogCatalog';
 import DrawerCatalog from './DrawerCatalog';
 import ElevationCatalog from './ElevationCatalog';
@@ -35,6 +36,7 @@ class ComponentPage extends Component {
         <Route path='/component/button' component={ButtonCatalog} />
         <Route path='/component/card' component={CardCatalog} />
         <Route path='/component/checkbox' component={CheckboxCatalog} />
+        <Route path='/component/chips' component={ChipsCatalog} />
         <Route path='/component/dialog' component={DialogCatalog} />
         <Route path='/component/drawer' component={DrawerCatalog} />
         <Route path='/component/elevation' component={ElevationCatalog} />

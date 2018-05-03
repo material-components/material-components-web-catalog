@@ -28,6 +28,9 @@ class ComponentSidebar extends Component {
       content: 'Checkbox',
       url: '/checkbox',
     }, {
+      content: 'Chips',
+      url: '/chips',
+    }, {
       content: 'Dialog',
       url: '/dialog',
     }, {
@@ -37,7 +40,7 @@ class ComponentSidebar extends Component {
       content: 'Elevation',
       url: '/elevation',
     }, {
-      content: 'Fab',
+      content: 'FAB',
       url: '/fab',
     }, {
       content: 'Icon Toggle',

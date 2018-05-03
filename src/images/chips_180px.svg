@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>chips_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+        <rect id="path-3" x="0" y="0" width="138" height="32" rx="16"></rect>
+        <path d="M13,11.87 L11.87,13 L9,10.13 L6.13,13 L5,11.87 L7.87,9 L5,6.13 L6.13,5 L9,7.87 L11.87,5 L13,6.13 L10.13,9 L13,11.87 Z M9,1 C4.58,1 1,4.58 1,9 C1,13.42 4.58,17 9,17 C13.42,17 17,13.42 17,9 C17,4.58 13.42,1 9,1 L9,1 Z" id="path-5"></path>
+        <rect id="path-7" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-9" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-11" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-13" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-15" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-17" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-19" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-21" x="0" y="0" width="145" height="32" rx="16"></rect>
+        <rect id="path-23" x="0" y="0" width="145" height="32" rx="16"></rect>
+    </defs>
+    <g id="chips_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <g id="Group-6" mask="url(#mask-2)">
+                <g transform="translate(-215.000000, -14.000000)">
+                    <g id="Chips-/-Input-/-Text-only-/-Enabled" stroke-width="1" fill-rule="evenodd" transform="translate(237.000000, 88.000000)">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <use id="Surface" fill="#FAFAFA" xlink:href="#path-3"></use>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#mask-4)" fill="#000000" opacity="0.87">
+                            <rect id="Rectangle-13" x="0" y="0" width="138" height="32"></rect>
+                        </g>
+                        <text id="Body-2" mask="url(#mask-4)" font-family="Roboto-Regular, Roboto" font-size="14" font-weight="normal" line-spacing="20" letter-spacing="0.25" fill="#FFFFFF" fill-opacity="0.87">
+                            <tspan x="12" y="19">Enabled Entity</tspan>
+                        </text>
+                        <g id="Icon-/-Cancel-/-Fill" mask="url(#mask-4)">
+                            <g transform="translate(112.000000, 7.000000)">
+                                <mask id="mask-6" fill="white">
+                                    <use xlink:href="#path-5"></use>
+                                </mask>
+                                <g id="Mask" stroke="none" fill="none"></g>
+                                <g id="✱-/-Color-/-Icons-/-White-/-100%" stroke="none" fill="none" mask="url(#mask-6)" fill-rule="evenodd">
+                                    <rect id="Rectangle-13" fill="#FFFFFF" x="0" y="0" width="18" height="18"></rect>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(157.000000, 132.000000)">
+                        <mask id="mask-8" fill="white">
+                            <use xlink:href="#path-7"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-8)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(237.000000, 0.000000)">
+                        <mask id="mask-10" fill="white">
+                            <use xlink:href="#path-9"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-10)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(237.000000, 176.000000)">
+                        <mask id="mask-12" fill="white">
+                            <use xlink:href="#path-11"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-12)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(80.000000, 176.000000)">
+                        <mask id="mask-14" fill="white">
+                            <use xlink:href="#path-13"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-14)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(80.000000, 88.000000)">
+                        <mask id="mask-16" fill="white">
+                            <use xlink:href="#path-15"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-16)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(387.000000, 88.000000)">
+                        <mask id="mask-18" fill="white">
+                            <use xlink:href="#path-17"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-18)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(157.000000, 44.000000)">
+                        <mask id="mask-20" fill="white">
+                            <use xlink:href="#path-19"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-20)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(316.000000, 132.000000)">
+                        <mask id="mask-22" fill="white">
+                            <use xlink:href="#path-21"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-22)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                    <g id="Chips-/-Action-/-with-Image-/-Enabled" transform="translate(316.000000, 44.000000)">
+                        <mask id="mask-24" fill="white">
+                            <use xlink:href="#path-23"></use>
+                        </mask>
+                        <g id="Surface"></g>
+                        <g id="✱-/-Color-/-Icons-/-Black-/-Disabled" opacity="0.119999997" mask="url(#mask-24)" fill="#000000" fill-rule="evenodd">
+                            <rect id="Rectangle" opacity="0.38" x="0" y="0" width="145" height="32"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

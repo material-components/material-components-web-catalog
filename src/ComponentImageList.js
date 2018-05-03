@@ -20,10 +20,11 @@ class ComponentImageList extends Component {
           {this.renderListItem('Button', 'buttons_180px.svg', 'button')}
           {this.renderListItem('Card', 'cards_180px.svg', 'card')}
           {this.renderListItem('Checkbox', 'checkbox_180px.svg', 'checkbox')}
+          {this.renderListItem('Chips', 'chips_180px.svg', 'chips')}
           {this.renderListItem('Dialog', 'dialog_180px.svg', 'dialog')}
           {this.renderListItem('Drawer', 'drawer_180px.svg', 'drawer')}
           {this.renderListItem('Elevation', 'elevation_180px.svg', 'elevation')}
-          {this.renderListItem('Fab', 'floating_action_button_180px.svg', 'fab')}
+          {this.renderListItem('FAB', 'floating_action_button_180px.svg', 'fab')}
           {this.renderListItem('Icon Toggle', 'icon_toggle_180px.svg', 'icon-toggle')}
           {this.renderListItem('Image List', 'image_list_180px.svg', 'image-list')}
           {this.renderListItem('List', 'list_180px.svg', 'list')}
