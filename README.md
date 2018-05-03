@@ -56,7 +56,7 @@ export default FooCatalog;
 
 ```
 
-> Note: If your components only require a `render` method, you can write functional components rather than classes,
+> _NOTE_: If your components only require a `render` method, you can write functional components rather than classes,
 > e.g. `function Foo() { ... }`. In this case, `props` are passed in as an argument instead of accessed via `this`.
 
 2. Add a new file to the `src/styles` directory for styling the demo page (e.g. `FooCatalog.scss`):
@@ -67,9 +67,9 @@ export default FooCatalog;
 // Custom styles here
 ```
 
-Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
+> _NOTE_: We import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
 
-3. Add a SVG image associated with the component (e.g. `ic_foo_180px.svg`) to the `src/images` directory.
+3. Add a SVG image associated with the component (e.g. `foo_180px.svg`) to the `src/images` directory.
 
 4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
 
@@ -79,7 +79,7 @@ class ComponentImageList extends Component {
   render() {
     return (
       ...
-      {this.renderListItem('Foo', 'ic_foo_180px.svg', 'foo')}
+      {this.renderListItem('Foo', 'foo_180px.svg', 'foo')}
     );
   }
 }
@@ -106,7 +106,7 @@ class ComponentPage extends Component {
   ...
   renderComponentRoutes() {
     ...
-    <Route path='component/foo' component={FooCatalog} />
+    <Route path='/component/foo' component={FooCatalog} />
   }
 }
 ```
