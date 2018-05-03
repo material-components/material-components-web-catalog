@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>layout_grid_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="180" height="180"></rect>
+    </defs>
+    <g id="layout_grid_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Container-+-Container-Copy-3-+-Container-Copy-11-+-Container-Copy-12-+-Container-Copy-+-Container-Copy-4-+-Container-Copy-7-+-Container-Copy-8-+-Container-Copy-2-+-Container-Copy-5-Mask">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+            <rect id="Container" fill="#E3E3E3" mask="url(#mask-2)" x="24" y="22" width="88" height="88"></rect>
+            <rect id="Container-Copy-3" fill="#E3E3E3" mask="url(#mask-2)" x="24" y="68" width="42" height="42"></rect>
+            <rect id="Container-Copy-11" fill="#E3E3E3" mask="url(#mask-2)" x="116" y="68" width="19" height="19"></rect>
+            <rect id="Container-Copy-12" fill="#E3E3E3" mask="url(#mask-2)" x="139" y="68" width="19" height="19"></rect>
+            <rect id="Container-Copy" fill="#E3E3E3" mask="url(#mask-2)" x="70" y="22" width="42" height="42"></rect>
+            <rect id="Container-Copy-4" fill="#E3E3E3" mask="url(#mask-2)" x="70" y="68" width="42" height="42"></rect>
+            <rect id="Container-Copy-7" fill="#E3E3E3" mask="url(#mask-2)" x="70" y="114" width="42" height="42"></rect>
+            <rect id="Container-Copy-8" fill="#E3E3E3" mask="url(#mask-2)" x="24" y="114" width="42" height="42"></rect>
+            <rect id="Container-Copy-2" fill="#E3E3E3" mask="url(#mask-2)" x="116" y="22" width="42" height="42"></rect>
+            <rect id="Container-Copy-5" fill="#E3E3E3" mask="url(#mask-2)" x="116" y="91" width="42" height="65"></rect>
+        </g>
+    </g>
+</svg>

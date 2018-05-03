@@ -13,6 +13,7 @@ import IconToggleCatalog from './IconToggleCatalog';
 import ImageListCatalog from './ImageListCatalog';
 import MenuCatalog from './MenuCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
+import LayoutGridCatalog from './LayoutGridCatalog';
 import ListCatalog from './ListCatalog';
 import RadioButtonCatalog from './RadioButtonCatalog';
 import RippleCatalog from './RippleCatalog';
@@ -43,6 +44,7 @@ class ComponentPage extends Component {
         <Route path='/component/fab' component={FabCatalog} />
         <Route path='/component/icon-toggle' component={IconToggleCatalog} />
         <Route path='/component/image-list' component={ImageListCatalog} />
+        <Route path='/component/layout-grid' component={LayoutGridCatalog} />
         <Route path='/component/list' component={ListCatalog} />
         <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
         <Route path='/component/menu' component={MenuCatalog} />
