@@ -97,20 +97,20 @@ class ShapeDemos extends Component {
 
         <h3>Card</h3>
         <div className='card-shape-container mdc-shape-container'>
-          <div class='mdc-card mdc-card--outlined'>
-            <div class='mdc-card__primary-action' ref={initRipple}>
-              <div class='demo-card__primary'>
-                <h2 class='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
-                <h3 class='demo-card__subtitle mdc-typography--subtitle2'>by Kurt Wagner</h3>
+          <div className='mdc-card mdc-card--outlined'>
+            <div className='mdc-card__primary-action' ref={initRipple}>
+              <div className='demo-card__primary'>
+                <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
+                <h3 className='demo-card__subtitle mdc-typography--subtitle2'>by Kurt Wagner</h3>
               </div>
-              <div class='demo-card__secondary mdc-typography--body2'>
+              <div className='demo-card__secondary mdc-typography--body2'>
                 Visit ten places on our planet that are undergoing the biggest changes today.
               </div>
             </div>
-            <div class='mdc-card__actions'>
-              <div class='mdc-card__action-icons'>
-                <i class='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-                  tabindex='0'
+            <div className='mdc-card__actions'>
+              <div className='mdc-card__action-icons'>
+                <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
+                  tabIndex='0'
                   role='button'
                   aria-pressed='false'
                   aria-label='Add to favorites'
@@ -120,16 +120,16 @@ class ShapeDemos extends Component {
                   ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
                   favorite_border
                 </i>
-                <i class='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                  tabindex='0'
+                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
+                  tabIndex='0'
                   role='button'
                   title='Share'
                   data-mdc-ripple-is-unbounded
                   ref={initRipple}>
                   share
                 </i>
-                <i class='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                  tabindex='0'
+                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
+                  tabIndex='0'
                   role='button'
                   title='More options'
                   data-mdc-ripple-is-unbounded
