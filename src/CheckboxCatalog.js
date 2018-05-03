@@ -78,17 +78,14 @@ class CheckboxDemos extends Component {
     this.checkboxes.forEach(checkbox => checkbox.destroy());
   }
 
-  renderCheckboxVariant(title, indeterminate) {
+  renderCheckboxVariant(title, inputRefCallback) {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'
-                 ref={input => {
-                   if (!input) return;
-                   input.indeterminate = indeterminate;
-                 }}/>
+                 ref={inputRefCallback}/>
           <div className='mdc-checkbox__background'>
             <svg className='mdc-checkbox__checkmark'
                  viewBox='0 0 24 24'>
@@ -107,7 +104,15 @@ class CheckboxDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderCheckboxVariant('Indeterminate', true)}
+        {this.renderCheckboxVariant('Unchecked')}
+        {this.renderCheckboxVariant('Indeterminate', inputEl => {
+          if (!inputEl) return;
+          inputEl.indeterminate = true;
+        })}
+        {this.renderCheckboxVariant('Checked', inputEl => {
+          if (!inputEl) return;
+          inputEl.checked = true;
+        })}
       </div>
     );
   }
