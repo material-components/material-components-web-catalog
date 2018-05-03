@@ -27,7 +27,9 @@
   padding: 1rem;
   cursor: pointer;
   user-select: none;
-  -webkit-user-select: none
+  -webkit-user-select: none;
+  background-color: #ffffff;
+  outline: none;
 }
 
 .ripple-demo-icon.mdc-ripple-surface {

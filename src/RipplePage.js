@@ -32,8 +32,7 @@ class RippleHero extends Component {
 
   render() {
     return (
-      <div className='hero-ripple-surface mdc-ripple-surface' ref={this.initRipple}>
-      </div>
+        <div className='ripple-demo-box mdc-ripple-surface' ref={this.initRipple} />
     );
   }
 }
@@ -61,7 +60,7 @@ class RippleDemos extends Component {
           <div className='ripple-demos'>
             <div className='ripple-demo-col'>
               <h3>{title}</h3>
-              <div className={variant + ' mdc-ripple-surface'} ref={this.initRipple}>
+              <div tabIndex='0' className={variant + ' mdc-ripple-surface'} ref={this.initRipple}>
                 {text}
               </div>
             </div>
