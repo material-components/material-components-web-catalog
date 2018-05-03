@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@material/animation": "^0.34.0",
+    "@material/auto-init": "^0.35.0",
     "@material/button": "^0.35.0",
     "@material/card": "^0.35.0",
     "@material/checkbox": "^0.35.0",
