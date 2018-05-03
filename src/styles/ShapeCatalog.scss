@@ -1,1 +1,23 @@
+@import "@material/card/dist/mdc.card";
 @import "@material/shape/dist/mdc.shape";
+@import "@material/shape/mixins";
+@import "@material/theme/variables";
+
+.mdc-shape-container {
+  margin: 10px;
+}
+
+.hero-shape-container {
+  @include mdc-shape-angled-corner(
+    mix(mdc-theme-prop-value(black), mdc-theme-prop-value(white), 5%),
+    10px);
+}
+
+.contained-button-shape-container {
+  @include mdc-shape-angled-corner(white, 10px);
+}
+
+.outlined-button-shape-container {
+  @include mdc-shape-angled-corner(white, 10px);
+  @include mdc-shape-angled-corner-outline(2px, mdc-theme-prop-value(primary));
+}

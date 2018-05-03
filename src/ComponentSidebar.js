@@ -64,6 +64,9 @@ class ComponentSidebar extends Component {
       content: 'Ripple',
       url: '/ripple',
     }, {
+      content: 'Shape',
+      url: '/shape',
+    }, {
       content: 'Slider',
       url: '/slider',
     }, {
