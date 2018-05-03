@@ -69,8 +69,6 @@ function getClientEnvironment(publicUrl) {
         return env;
       },
       {
-        // Determines whether to append .html to links for local (non-Jekyll) testing.
-        MDC_NO_JEKYLL: process.env.MDC_NO_JEKYLL || false,
         // Useful for determining whether we’re running in production mode.
         // Most importantly, it switches React into the correct mode.
         NODE_ENV: process.env.NODE_ENV || 'development',

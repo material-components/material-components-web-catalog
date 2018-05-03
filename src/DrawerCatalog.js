@@ -1,33 +1,27 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
-import './styles/DrawerPage.scss';
+import './styles/DrawerCatalog.scss';
 
-const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
-
-const DrawerPage = () => {
+const DrawerCatalog = (props) => {
   return (
-    <div>
-      <HeaderBar title='Drawer'/>
-      <ComponentPage
-        hero={<DrawerHero/>}
-        title='Drawer'
-        description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'
-        designLink='https://material.io/guidelines/patterns/navigation-drawer.html'
-        docsLink='https://material.io/components/web/catalog/drawers/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer'
-        demos={<DrawerDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<DrawerHero/>}
+      title='Drawer'
+      description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'
+      designLink='https://material.io/guidelines/patterns/navigation-drawer.html'
+      docsLink='https://material.io/components/web/catalog/drawers/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer'
+      demos={<DrawerDemos {...props} />}
+    />
   );
 };
 
 class DrawerHero extends Component {
-
   ripples = [];
   initRipple = icon => {
+    if (!icon) return;
     const current = new MDCRipple(icon);
     current.unbounded = true;
     this.ripples.push(current);
@@ -82,20 +76,22 @@ class DrawerDemos extends Component {
   }
 
   getVariant(title, path) {
-    const {PUBLIC_URL} = process.env;
+    const {match} = this.props;
+    const drawerVariantLink = `#${match.url}/${path}`;
+
     return (
       <div className='drawer-demo'>
         <div>
-          <a href={`${PUBLIC_URL}/drawer/${path}${pageExt}`} target='_blank'>
+          <a href={drawerVariantLink} target='_blank'>
             <h3 className='mdc-typography--subtitle2'>{title}</h3>
           </a>
         </div>
         <div>
-          <iframe className='drawer-iframe' title={title} sandbox='allow-scripts' src={`${PUBLIC_URL}/drawer/${path}${pageExt}`} />
+          <iframe className='drawer-iframe' title={title} sandbox='allow-scripts' src={`${window.location.href}/${path}`} />
         </div>
       </div>
     );
   }
 }
 
-export default DrawerPage;
+export default DrawerCatalog;

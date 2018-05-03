@@ -1,30 +1,26 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/RipplePage.scss';
+import './styles/RippleCatalog.scss';
 
-const RipplePage = () => {
+const RippleCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<RippleHero />}
-        title='Ripple'
-        description='Ripples are visual representations used to communicate the status of a component or interactive element.'
-        designLink='https://material.io/guidelines/motion/choreography.html#choreography-radial-reaction'
-        docsLink='https://material.io/components/web/catalog/ripples/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple'
-        demos={<RippleDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<RippleHero />}
+      title='Ripple'
+      description='Ripples are visual representations used to communicate the status of a component or interactive element.'
+      designLink='https://material.io/guidelines/motion/choreography.html#choreography-radial-reaction'
+      docsLink='https://material.io/components/web/catalog/ripples/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple'
+      demos={<RippleDemos />}
+    />
   );
 }
 
 class RippleHero extends Component {
   ripples = [];
-  initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
+  initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
@@ -43,6 +39,7 @@ class RippleDemos extends Component {
   ripples = [];
 
   initRipple = buttonEl => {
+    if (!buttonEl) return;
     const ripple = new MDCRipple(buttonEl);
 
     if(buttonEl.classList.contains('mdc-ripple-radius-unbounded')) {
@@ -83,4 +80,4 @@ class RippleDemos extends Component {
   }
 }
 
-export default RipplePage;
+export default RippleCatalog;

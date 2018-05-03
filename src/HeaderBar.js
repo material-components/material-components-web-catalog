@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import './styles/HeaderBar.scss';
 import {MDCTopAppBar} from '@material/top-app-bar';
 import {imagePath} from './constants';
+import {Link} from 'react-router-dom';
 
 class HeaderBar extends Component {
   componentDidMount() {
@@ -27,16 +28,14 @@ class HeaderBar extends Component {
 }
 
 function HeaderIcon(props) {
-  const {PUBLIC_URL, NODE_ENV} = process.env;
-  const publicUrl = NODE_ENV === 'production' ? PUBLIC_URL : '/';
   return (
-    <a href={publicUrl} className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
+    <Link to='/' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
       {
         props.isTopPage ?
           <img src={`${imagePath}/ic_component_24px_white.svg`} alt='Material logo' /> :
           <i className='material-icons' alt='Back button'>&#xE5C4;</i>
       }
-    </a>
+    </Link>
   );
 }
 

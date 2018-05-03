@@ -1,23 +1,19 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
-import './styles/SwitchPage.scss';
+import './styles/SwitchCatalog.scss';
 
-const SwitchPage = () => {
+const SwitchCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<SwitchHero/>}
-        title='Switch'
-        description='Switches communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-switch'
-        docsLink='https://material.io/components/web/catalog/input-controls/switches/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-switch'
-        demos={<SwitchDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<SwitchHero/>}
+      title='Switch'
+      description='Switches communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
+      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-switch'
+      docsLink='https://material.io/components/web/catalog/input-controls/switches/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-switch'
+      demos={<SwitchDemos/>}
+    />
   );
 };
 
@@ -78,4 +74,4 @@ class SwitchDemos extends Component {
   }
 }
 
-export default SwitchPage;
+export default SwitchCatalog;

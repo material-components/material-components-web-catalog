@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
-
-import './styles/ElevationPage.scss';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import './styles/ElevationCatalog.scss';
 
 const MAX_ELEVATION_LEVELS = 24;
 
-const ElevationPage = () => {
+const ElevationCatalog = () => {
   const description = 'Elevation is the relative depth, or distance, between two surfaces along the z-axis.';
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<ElevationHero />}
-        title='Elevation'
-        description={description}
-        designLink='https://material.io/guidelines/material-design/elevation-shadows.html'
-        docsLink='https://material.io/components/web/catalog/elevation/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation'
-        demos={<ElevationDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<ElevationHero />}
+      title='Elevation'
+      description={description}
+      designLink='https://material.io/guidelines/material-design/elevation-shadows.html'
+      docsLink='https://material.io/components/web/catalog/elevation/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation'
+      demos={<ElevationDemos />}
+    />
   );
 };
 class ElevationHero extends Component {
@@ -44,9 +39,9 @@ class ElevationHero extends Component {
 class ElevationDemos extends Component {
   render() {
     return (
-        <div className='elevation-demo-container'>
-          {this.getElevationDemos()}
-        </div>
+      <div className='elevation-demo-container'>
+        {this.getElevationDemos()}
+      </div>
     );
   }
 
@@ -63,4 +58,4 @@ class ElevationDemos extends Component {
   }
 }
 
-export default ElevationPage;
+export default ElevationCatalog;

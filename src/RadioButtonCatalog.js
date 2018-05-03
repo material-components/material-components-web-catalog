@@ -1,31 +1,27 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/RadioButtonPage.scss';
+import './styles/RadioButtonCatalog.scss';
 
-const RadioButtonPage = () => {
+const RadioButtonCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<RadioButtonHero/>}
-        title='Radio Button'
-        description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button'
-        docsLink='https://material.io/components/web/catalog/input-controls/radio-buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio'
-        demos={<RadioButtonDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<RadioButtonHero/>}
+      title='Radio Button'
+      description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
+      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button'
+      docsLink='https://material.io/components/web/catalog/input-controls/radio-buttons/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio'
+      demos={<RadioButtonDemos/>}
+    />
   );
 }
 
 class RadioButtonHero extends Component {
 
   ripples = [];
-  initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
+  initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
@@ -94,4 +90,4 @@ class RadioButtonDemos extends Component {
   }
 }
 
-export default RadioButtonPage;
+export default RadioButtonCatalog;

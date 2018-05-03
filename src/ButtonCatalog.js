@@ -1,24 +1,20 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/ButtonPage.scss';
+import './styles/ButtonCatalog.scss';
 
-const ButtonPage = () => {
+const ButtonCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<ButtonHero />}
-        title='Button'
-        description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/buttons.html'
-        docsLink='https://material.io/components/web/catalog/buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
-        demos={<ButtonDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<ButtonHero />}
+      title='Button'
+      description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
+      designLink='https://material.io/guidelines/components/buttons.html'
+      docsLink='https://material.io/components/web/catalog/buttons/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
+      demos={<ButtonDemos />}
+    />
   );
 }
 
@@ -26,7 +22,7 @@ class ButtonHero extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
-    this.initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
+    this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
   componentWillUnmount() {
@@ -57,7 +53,7 @@ class ButtonDemos extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
-    this.initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
+    this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
   componentWillUnmount() {
@@ -94,4 +90,4 @@ class ButtonDemos extends Component {
   }
 }
 
-export default ButtonPage;
+export default ButtonCatalog;

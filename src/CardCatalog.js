@@ -1,26 +1,22 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCIconToggle} from '@material/icon-toggle';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
-import './styles/CardPage.scss';
+import './styles/CardCatalog.scss';
 
-const CardPage = () => {
+const CardCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<Card image actions className='demo-card--hero' />}
-        title='Card'
-        description='Cards contain content and actions about a single subject.'
-        designLink='https://material.io/guidelines/components/cards.html'
-        docsLink='https://material.io/components/web/catalog/cards/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
-        demos={<CardDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<Card image actions className='demo-card--hero' />}
+      title='Card'
+      description='Cards contain content and actions about a single subject.'
+      designLink='https://material.io/guidelines/components/cards.html'
+      docsLink='https://material.io/components/web/catalog/cards/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
+      demos={<CardDemos />}
+    />
   );
 };
 
@@ -37,7 +33,7 @@ class Card extends Component {
           <div
             className='mdc-card__primary-action'
             tabIndex='0'
-            ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}>
+            ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
             {image ? <CardImage /> : null}
             <div className='demo-card__primary'>
               <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
@@ -73,7 +69,7 @@ class CardActionIcon extends Component {
         role='button'
         title={this.props.title}
         data-mdc-ripple-is-unbounded
-        ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}>
+        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
         {this.props.icon}
       </i>
     );
@@ -88,7 +84,7 @@ class CardActionButton extends Component {
   render() {
     return (
       <button
-        ref={(surfaceEl) => this.ripple = new MDCRipple(surfaceEl)}
+        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}
         className='mdc-button mdc-card__action mdc-card__action--button'>
         {this.props.text}
       </button>
@@ -96,30 +92,36 @@ class CardActionButton extends Component {
   }
 }
 
-const CardActionRow = () => {
-  return (
-    <div className='mdc-card__actions'>
-      <div className='mdc-card__action-buttons'>
-        <CardActionButton text='Read' />
-        <CardActionButton text='Bookmark' />
+class CardActionRow extends Component {
+  componentWillUnmount() {
+    this.iconToggle.destroy();
+  }
+
+  render() {
+    return (
+      <div className='mdc-card__actions'>
+        <div className='mdc-card__action-buttons'>
+          <CardActionButton text='Read' />
+          <CardActionButton text='Bookmark' />
+        </div>
+        <div className='mdc-card__action-icons'>
+          <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
+             tabIndex='0'
+             role='button'
+             aria-pressed='false'
+             aria-label='Add to favorites'
+             title='Add to favorites'
+             data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
+             data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
+             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
+            favorite_border
+          </i>
+          <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
+          <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
+        </div>
       </div>
-      <div className='mdc-card__action-icons'>
-        <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-           tabIndex='0'
-           role='button'
-           aria-pressed='false'
-           aria-label='Add to favorites'
-           title='Add to favorites'
-           data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-           data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-           ref={(surfaceEl) => this.iconToggle = new MDCIconToggle(surfaceEl)}>
-          favorite_border
-        </i>
-        <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
-        <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 const CardDemos = () => {
@@ -131,4 +133,4 @@ const CardDemos = () => {
   );
 }
 
-export default CardPage;
+export default CardCatalog;

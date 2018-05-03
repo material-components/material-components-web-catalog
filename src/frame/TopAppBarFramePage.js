@@ -1,15 +1,15 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
 
-import '../styles/TopAppBarFramePage.scss';
+import '../styles/TopAppBarFrameCatalog.scss';
 
 const propToVariant = {
-  short: {title: 'Short', variant: 'mdc-top-app-bar--short'},
-  shortCollapsed: {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
-  fixed: {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
-  prominent: {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
-  dense: {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
-  standard: {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
+  'short': {title: 'Short', variant: 'mdc-top-app-bar--short'},
+  'short-collapsed': {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
+  'fixed': {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
+  'prominent': {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
+  'dense': {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
+  'standard': {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
 };
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -23,7 +23,7 @@ const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 class TopAppBarFramePage extends Component {
 
   topAppBar = null;
-  initTopAppBar = topAppBarEle => this.topAppBar = new MDCTopAppBar(topAppBarEle);
+  initTopAppBar = topAppBarEle => this.topAppBar = topAppBarEle && new MDCTopAppBar(topAppBarEle);
 
   componentWillUnmount() {
     if (this.topAppBar) {
@@ -32,9 +32,10 @@ class TopAppBarFramePage extends Component {
   }
 
   render() {
+    const {match} = this.props;
     return (
       <div className='top-app-bar__frame'>
-        {this.getVariant(propToVariant[this.props.type])}
+        {this.getVariant(propToVariant[match.params.type])}
       </div>
     );
   }
