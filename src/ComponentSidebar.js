@@ -37,7 +37,7 @@ class ComponentSidebar extends Component {
       content: 'Elevation',
       url: '/elevation',
     }, {
-      content: 'Fab',
+      content: 'FAB',
       url: '/fab',
     }, {
       content: 'Icon Toggle',
