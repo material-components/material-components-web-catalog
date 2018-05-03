@@ -12,7 +12,7 @@ const MenuCatalog = () => {
       hero={<MenuHero />}
       title='Menu'
       description='Menus display a list of choices on a transient sheet of material.'
-      designLink='https://material.io/guidelines/components/menus.html'
+      designLink='https://material.io/go/design-menus'
       docsLink='https://material.io/components/web/catalog/menus/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu'
       demos={<MenuDemos />}
