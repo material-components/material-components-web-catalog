@@ -67,6 +67,9 @@ class Snackbar extends Component {
   snackbarData = {message: 'Message Sent', actionHandler: () => {}, actionText: 'Undo'};
 
   initSnackbar = (snackbarEl) => {
+    if (!snackbarEl) {
+      return;
+    }
     this.snackbar = new MDCSnackbar(snackbarEl);
   }
 
