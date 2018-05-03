@@ -57,6 +57,12 @@ class ShapeDemos extends Component {
     this.ripples.forEach(ripple => ripple.destroy());
   }
 
+  renderCorner(position) {
+    return(
+      <div className={`mdc-shape-container__corner mdc-shape-container__corner--${position}`}></div>
+    );
+  }
+
   render() {
     const initRipple = el => el && this.ripples.push(new MDCRipple(el));
     return (
@@ -64,29 +70,29 @@ class ShapeDemos extends Component {
         <h3>Contained Button</h3>
         <div className='contained-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--unelevated' ref={initRipple}>Skip</button>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-left'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-right'></div>
+          {this.renderCorner('top-left')}
+          {this.renderCorner('bottom-right')}
         </div>
         <div className='contained-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--unelevated' ref={initRipple}>Finish</button>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-left'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-right'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-right'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-left'></div>
+          {this.renderCorner('top-left')}
+          {this.renderCorner('top-right')}
+          {this.renderCorner('bottom-left')}
+          {this.renderCorner('bottom-right')}
         </div>
 
         <h3>Outlined Button</h3>
         <div className='outlined-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--outlined' ref={initRipple}>Skip</button>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-left'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-right'></div>
+          {this.renderCorner('top-left')}
+          {this.renderCorner('bottom-right')}
         </div>
         <div className='outlined-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--outlined' ref={initRipple}>Finish</button>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-left'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-right'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-right'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-left'></div>
+          {this.renderCorner('top-left')}
+          {this.renderCorner('top-right')}
+          {this.renderCorner('bottom-left')}
+          {this.renderCorner('bottom-right')}
         </div>
 
         <h3>Card</h3>
@@ -133,8 +139,8 @@ class ShapeDemos extends Component {
               </div>
             </div>
           </div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--top-right'></div>
-          <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-left'></div>
+          {this.renderCorner('top-right')}
+          {this.renderCorner('bottom-left')}
         </div>
       </div>
     );
