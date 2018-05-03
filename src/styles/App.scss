@@ -18,9 +18,10 @@ body {
 
 #catalog-image-list {
   @include mdc-image-list-aspect(1); // Images are square
-  @include mdc-image-list-standard-columns(5, $component-list-gutter-size);
+  @include mdc-image-list-standard-columns(4, $component-list-gutter-size);
 
   max-width: 1000px;
+  padding-top: 128px;
 }
 
 @media (max-width: map-get($breakpoints, tablet)) {
