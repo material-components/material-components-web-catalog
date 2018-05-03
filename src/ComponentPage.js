@@ -64,6 +64,10 @@ class ComponentPage extends Component {
       url: '/list',
       active: activeLink === 'List',
     }, {
+      content: 'Ripple',
+      url: '/ripple',
+      active: activeLink === 'Ripple',
+    }, {
       content: 'Select',
       url: '/select',
       active: activeLink === 'Select',
