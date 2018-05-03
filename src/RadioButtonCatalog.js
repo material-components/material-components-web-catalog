@@ -10,7 +10,7 @@ const RadioButtonCatalog = () => {
       hero={<RadioButtonHero/>}
       title='Radio Button'
       description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button'
+      designLink='https://material.io/go/design-radio-buttons'
       docsLink='https://material.io/components/web/catalog/input-controls/radio-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio'
       demos={<RadioButtonDemos/>}

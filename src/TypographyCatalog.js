@@ -7,7 +7,7 @@ const TypographyCatalog = () => {
       hero={<TypographyHero/>}
       title='Typography'
       description='Roboto is the standard typeface on Android and Chrome.'
-      designLink='https://material.io/guidelines/style/typography.html'
+      designLink='https://material.io/go/design-typography'
       docsLink='https://material.io/components/web/catalog/typography/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography'
       demos={<TypographyDemos/>}

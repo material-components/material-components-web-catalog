@@ -10,7 +10,7 @@ const DialogCatalog = () => {
       hero={<DialogHero />}
       title='Dialog'
       description='Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
-      designLink='https://material.io/guidelines/components/dialogs.html'
+      designLink='https://material.io/go/design-dialogs'
       docsLink='https://material.io/components/web/catalog/dialogs/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog'
       demos={<DialogDemos />}
