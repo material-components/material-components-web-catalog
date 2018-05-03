@@ -1,9 +1,40 @@
-@import "@material/ripple/dist/mdc.ripple";
+@import "@material/ripple/mixins";
+@import "@material/elevation/mixins";
 
-.demo-button {
-  margin: 8px 16px;
+.hero-ripple-surface {
+  width: 100%;
+  min-height: 360px;
 }
 
-.hero-button {
-  margin: 16px 32px;
+.ripple-demos {
+  display: flex;
+  flex: 1 1 45%;
+  flex-wrap: wrap;
+}
+
+.ripple-demo-col {
+  min-width: 400px;
+}
+
+.ripple-demo-box {
+  @include mdc-elevation(2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100px;
+  padding: 1rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none
+}
+
+.ripple-demo-icon.mdc-ripple-surface {
+  @include mdc-ripple-radius-unbounded;
+
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  padding: 12px;
 }

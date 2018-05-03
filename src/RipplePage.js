@@ -32,7 +32,7 @@ class RippleHero extends Component {
 
   render() {
     return (
-      <div className='material-surface' ref={this.initRipple}>
+      <div className='hero-ripple-surface mdc-ripple-surface' ref={this.initRipple}>
       </div>
     );
   }
@@ -40,7 +40,16 @@ class RippleHero extends Component {
 
 class RippleDemos extends Component {
   ripples = [];
-  initRipple = buttonEl => this.ripples.push(new MDCRipple(buttonEl));
+
+  initRipple = buttonEl => {
+    const ripple = new MDCRipple(buttonEl);
+
+    if(buttonEl.classList.contains('mdc-ripple-radius-unbounded')) {
+      ripple.unbounded = true;
+    }
+
+    this.ripples.push(ripple);
+  };
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
@@ -50,15 +59,15 @@ class RippleDemos extends Component {
     return (
         <div>
           <div className='ripple-demos'>
-            <div>
+            <div className='ripple-demo-col'>
               <h3>{title}</h3>
-              <div className={variant} ref={this.initRipple}>
+              <div className={variant + ' mdc-ripple-surface'} ref={this.initRipple}>
                 {text}
               </div>
             </div>
             <div>
               <h3>{title} - CSS Only</h3>
-              <div className={variant}>
+              <div className={variant + ' mdc-ripple-surface'}>
                 {text}
               </div>
             </div>
@@ -70,11 +79,10 @@ class RippleDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderRippleVariant('Bounded Ripple', 'ripple-demo-bounded mdc-ripple-surface', 'Interact with me!')}
-        {this.renderRippleVariant('Unbounded Ripple', 'ripple-demo-icon material-icons', 'favorite')}
-        {this.renderRippleVariant('Theme Colors Primary', 'ripple-demo-theme-primary', 'Primary')}
-        {this.renderRippleVariant('Theme Colors Secondary', 'ripple-demo-theme-secondary', 'Secondary')}
-        {this.renderRippleVariant('Button Example', 'mdc-button material-icons ripple-demo-button', 'button')}
+        {this.renderRippleVariant('Bounded Ripple', 'ripple-demo-box', 'Interact with me!')}
+        {this.renderRippleVariant('Unbounded Ripple', 'ripple-demo-icon material-icons mdc-ripple-radius-unbounded', 'favorite')}
+        {this.renderRippleVariant('Theme Colors Primary', 'ripple-demo-box mdc-ripple-surface--primary', 'Primary')}
+        {this.renderRippleVariant('Theme Colors Secondary', 'ripple-demo-box mdc-ripple-surface--accent', 'Secondary')}
       </div>
     );
   }
