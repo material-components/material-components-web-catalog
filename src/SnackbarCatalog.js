@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCSnackbar} from '@material/snackbar/dist/mdc.snackbar';
+import classnames from 'classnames';
 
 import './styles/SnackbarCatalog.scss';
 
@@ -41,8 +42,16 @@ class SnackbarDemo extends Component {
     this.setState({showSnackbar: true});
   }
 
+  handleSnackbarShown = () => {
+    this.setState({showSnackbar: false});
+  }
+
   handleShowStartAlignedClick = () => {
     this.setState({showStartAlignedSnackbar: true});
+  }
+
+  handleShowStartAlignedSnackbarShown = () => {
+    this.setState({showStartAlignedSnackbar: false});
   }
 
   render() {
@@ -56,8 +65,9 @@ class SnackbarDemo extends Component {
                 onClick={this.handleShowStartAlignedClick}>
           Show start aligned
         </button>
-        <Snackbar show={this.state.showSnackbar}/>
-        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true}/>
+        <Snackbar show={this.state.showSnackbar} handleShown={this.handleSnackbarShown}/>
+        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true} 
+                  handleShown={this.handleShowStartAlignedSnackbarShown}/>
       </div>
     )
   }
@@ -73,8 +83,11 @@ class Snackbar extends Component {
     this.snackbar = new MDCSnackbar(snackbarEl);
   }
 
-  componentDidUpdate() {
-    this.props.show && this.snackbar.show(this.snackbarData);
+  componentDidUpdate(prevProps) {
+    if (this.props.show) {
+      this.snackbar.show(this.snackbarData);
+      this.props.handleShown();
+    }
   }
 
   componentWillUnmount() {
@@ -82,8 +95,12 @@ class Snackbar extends Component {
   }
 
   render() {
+    const classes = classnames('mdc-snackbar', {
+      'mdc-snackbar--align-start': this.props.startAligned,
+    });
+
     return (
-      <div className={'mdc-snackbar ' + (this.props.startAligned ? 'mdc-snackbar--align-start' : '')}
+      <div className={classes}
         aria-live='assertive'
         aria-atomic='true'
         aria-hidden='true'
