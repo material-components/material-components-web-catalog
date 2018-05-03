@@ -1,29 +1,26 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCLinearProgress} from '@material/linear-progress/dist/mdc.linearProgress';
 
-import './styles/LinearProgressIndicatorPage.scss';
+import './styles/LinearProgressIndicatorCatalog.scss';
 
-const LinearProgressPage = () => {
+const LinearProgressCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<LinearProgressHero />}
-        title='Linear Progress Indicator'
-        description='Progress indicators display the length of a process or express an unspecified wait time.'
-        designLink='https://material.io/guidelines/components/progress-activity.html'
-        docsLink='https://material.io/components/web/catalog/linear-progress/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress'
-        demos={<LinearProgressDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<LinearProgressHero />}
+      title='Linear Progress Indicator'
+      description='Progress indicators display the length of a process or express an unspecified wait time.'
+      designLink='https://material.io/guidelines/components/progress-activity.html'
+      docsLink='https://material.io/components/web/catalog/linear-progress/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress'
+      demos={<LinearProgressDemos />}
+    />
   );
 }
 
 class LinearProgressHero extends Component {
   initIndicator = (indicatorEl) => {
+    if (!indicatorEl) return;
     this.indicator = new MDCLinearProgress(indicatorEl);
     this.indicator.progress = 0.5;
   }
@@ -51,18 +48,17 @@ class LinearProgressHero extends Component {
 }
 
 class LinearProgressDemos extends Component {
-  constructor(props) {
-    super(props);
-    this.indicators = [];
-  }
+  indicators = [];
 
   initIndicator = (indicatorEl) => {
+    if (!indicatorEl) return;
     const indicator = new MDCLinearProgress(indicatorEl);
     indicator.progress = 0.5;
     this.indicators.push(indicator);
   }
 
   initBufferIndicator = (indicatorEl) => {
+    if (!indicatorEl) return;
     const indicator = new MDCLinearProgress(indicatorEl);
     indicator.progress = 0.5;
     indicator.buffer = 0.75;
@@ -76,10 +72,10 @@ class LinearProgressDemos extends Component {
   renderLinearProgressVariant(title, variantClass, buffer) {
     const initFunction = buffer ? this.initBufferIndicator : this.initIndicator;
     return (
-      <div class='demo-linear-progress-indicator'>
+      <div className='demo-linear-progress-indicator'>
         <h3>{title}</h3>
         <div role='progressbar'
-          className={`mdc-linear-progress ${variantClass}`} 
+          className={`mdc-linear-progress ${variantClass}`}
           ref={initFunction}>
           <div className='mdc-linear-progress__buffering-dots'></div>
           <div className='mdc-linear-progress__buffer'></div>
@@ -106,4 +102,4 @@ class LinearProgressDemos extends Component {
   }
 }
 
-export default LinearProgressPage;
+export default LinearProgressCatalog;

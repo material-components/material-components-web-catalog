@@ -1,26 +1,22 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCMenu} from '@material/menu';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/MenuPage.scss';
+import './styles/MenuCatalog.scss';
 
-const MenuPage = () => {
+const MenuCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<MenuHero />}
-        title='Menu'
-        description='Menus display a list of choices on a transient sheet of material.'
-        designLink='https://material.io/guidelines/components/menus.html'
-        docsLink='https://material.io/components/web/catalog/menus/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu'
-        demos={<MenuDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<MenuHero />}
+      title='Menu'
+      description='Menus display a list of choices on a transient sheet of material.'
+      designLink='https://material.io/guidelines/components/menus.html'
+      docsLink='https://material.io/components/web/catalog/menus/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu'
+      demos={<MenuDemos />}
+    />
   )
 };
 
@@ -77,6 +73,7 @@ class MenuDemos extends Component {
 
 class Menu extends Component {
   initMenu = (menuEl) => {
+    if (!menuEl) return;
     this.menuEl = menuEl;
     this.menu = new MDCMenu(menuEl);
   };
@@ -145,7 +142,7 @@ const MenuDOM = (props) => {
 };
 
 class MenuItem extends Component {
-  initRipple = (rippleEl) => this.ripple = new MDCRipple(rippleEl);
+  initRipple = (rippleEl) => this.ripple = rippleEl && new MDCRipple(rippleEl);
 
   componentWillUnmount() {
     this.ripple.destroy();
@@ -164,4 +161,4 @@ const MenuDivider = () => {
   )
 }
 
-export default MenuPage;
+export default MenuCatalog;

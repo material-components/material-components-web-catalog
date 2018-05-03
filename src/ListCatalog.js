@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 import classnames from 'classnames';
 
-import './styles/ListPage.scss';
+import './styles/ListCatalog.scss';
 
-const ListPage = () => (
-  <div>
-    <HeaderBar />
-    <ComponentPage
-      hero={<ListHero/>}
-      title='List'
-      description='Lists present multiple line items vertically as a single continuous element.'
-      designLink='https://material.io/guidelines/components/lists.html'
-      docsLink='https://material.io/components/web/catalog/lists/'
-      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-list'
-      demos={<ListDemos/>}
-    />
-  </div>
+const ListCatalog = () => (
+  <ComponentCatalogPanel
+    hero={<ListHero/>}
+    title='List'
+    description='Lists present multiple line items vertically as a single continuous element.'
+    designLink='https://material.io/guidelines/components/lists.html'
+    docsLink='https://material.io/components/web/catalog/lists/'
+    sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-list'
+    demos={<ListDemos/>}
+  />
 );
 
 const ListHero = () => (
@@ -38,7 +34,7 @@ const ListDivider = () => (
 class ListItem extends Component {
 
   ripple = null;
-  initRipple = (surface) => this.ripple = new MDCRipple(surface);
+  initRipple = (surface) => this.ripple = surface && new MDCRipple(surface);
 
   componentWillUnmount() {
     this.ripple.destroy();
@@ -140,4 +136,4 @@ const ListDemos = () => (
   </div>
 );
 
-export default ListPage;
+export default ListCatalog;
