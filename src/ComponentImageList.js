@@ -27,6 +27,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('FAB', 'floating_action_button_180px.svg', 'fab')}
           {this.renderListItem('Icon Toggle', 'icon_toggle_180px.svg', 'icon-toggle')}
           {this.renderListItem('Image List', 'image_list_180px.svg', 'image-list')}
+          {this.renderListItem('Layout Grid', 'layout_grid_180px.svg', 'layout-grid')}
           {this.renderListItem('List', 'list_180px.svg', 'list')}
           {this.renderListItem('Linear Progress', 'linear_progress_180px.svg', 'linear-progress-indicator')}
           {this.renderListItem('Menu', 'menu_180px.svg', 'menu')}
