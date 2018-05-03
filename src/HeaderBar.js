@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import './styles/HeaderBar.scss';
 import {MDCTopAppBar} from '@material/top-app-bar';
 import {imagePath} from './constants';
-import {Link} from 'react-router-dom';
 
 class HeaderBar extends Component {
   componentDidMount() {
@@ -16,7 +15,7 @@ class HeaderBar extends Component {
           <div className='mdc-top-app-bar__row'>
             <section
                 className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <HeaderIcon isTopPage={this.props.isTopPage}/>
+              <HeaderIcon toggleDrawer={this.props.toggleDrawer} isTopPage={this.props.isTopPage}/>
               <span className='mdc-top-app-bar__title catalog-top-app-bar__title'>
               Material Components for Web
               </span>
@@ -29,13 +28,13 @@ class HeaderBar extends Component {
 
 function HeaderIcon(props) {
   return (
-    <Link to='/' className='material-icons mdc-top-app-bar__navigation-icon' title='Home'>
+    <button className='material-icons mdc-top-app-bar__navigation-icon' title='Home' onClick={props.toggleDrawer}>
       {
         props.isTopPage ?
           <img src={`${imagePath}/ic_component_24px_white.svg`} alt='Material logo' /> :
-          <i className='material-icons' alt='Back button'>&#xE5C4;</i>
+          <i className='material-icons' alt='Menu button'>menu</i>
       }
-    </Link>
+    </button>
   );
 }
 
