@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
 import ComponentPage from './ComponentPage.js';
 import HeaderBar from './HeaderBar.js';
 import {MDCMenu} from '@material/menu';
+import {MDCRipple} from '@material/ripple';
 
 import './styles/MenuPage.scss';
 
@@ -24,16 +26,10 @@ const MenuPage = () => {
 
 const MenuHero = () => {
   return (
-    <div className='mdc-menu mdc-menu--open' tabIndex='0'>
-      <ul className='mdc-menu__items mdc-list' role='menu' aria-hidden='true'>
-        <li className='mdc-list-item' role='menuitem' tabIndex='0'>
-          A Menu Item
-        </li>
-        <li className='mdc-list-item' role='menuitem' tabIndex='0'>
-          Another Menu Item
-        </li>
-      </ul>
-    </div>
+    <MenuDOM defaultOpen className='hero-menu'>
+      <MenuItem name='A Menu Item' />
+      <MenuItem name='Another Menu Item' />
+    </MenuDOM>
   );
 };
 
@@ -108,16 +104,24 @@ class Menu extends Component {
   }
 
   handleSelected(evt) {
-    this.props.handleSelected(evt.detail);
+    if (this.props.handleSelected) {
+      this.props.handleSelected(evt.detail);
+    }
   }
 
   handleCancel() {
-    this.props.handleCancel();
+    if (this.props.handleCancel) {
+      this.props.handleCancel();
+    }
   }
 
   render() {
+    const classes = classnames('mdc-menu', {
+      'mdc-menu--open': this.props.defaultOpen,
+    }, this.props.className);
+
     return (
-      <div className='mdc-menu' tabIndex='-1' ref={this.initMenu}>
+      <div className={classes} tabIndex={this.props.open ? 0 : -1} ref={this.initMenu}>
         <ul className='mdc-menu__items mdc-list' role='menu' aria-hidden='true'>
           {this.props.children}
         </ul>
@@ -126,10 +130,32 @@ class Menu extends Component {
   }
 }
 
-const MenuItem = (props) => {
+const MenuDOM = (props) => {
+  const classes = classnames('mdc-menu', {
+    'mdc-menu--open': props.defaultOpen,
+  }, props.className);
+
   return (
-    <li className='mdc-list-item' role='menuitem' tabIndex='0'>{props.name}</li>
+    <div className={classes} tabIndex={props.open ? 0 : -1} >
+      <ul className='mdc-menu__items mdc-list' role='menu' aria-hidden='true'>
+        {props.children}
+      </ul>
+    </div>
   );
+};
+
+class MenuItem extends Component {
+  initRipple = (rippleEl) => this.ripple = new MDCRipple(rippleEl);
+
+  componentWillUnmount() {
+    this.ripple.destroy();
+  }
+
+  render() {
+    return (
+      <li className='mdc-list-item' role='menuitem' tabIndex='0' ref={this.initRipple}>{this.props.name}</li>
+    );
+  }
 };
 
 const MenuDivider = () => {
