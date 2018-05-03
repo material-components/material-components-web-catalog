@@ -3,6 +3,7 @@ import {imagePath} from './constants';
 import {MDCRipple} from '@material/ripple';
 import {Link} from 'react-router-dom';
 
+// ComponentImageList renders the home page with a link to each component.
 class ComponentImageList extends Component {
 
   ripples = [];

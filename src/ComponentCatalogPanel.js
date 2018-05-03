@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
 
+// ComponentCatalogPanel is the container for catalog component content,
+// that renders the hero and demo sections.
 class ComponentCatalogPanel extends Component {
 
   renderResource(title, imageSource, url) {

@@ -21,6 +21,8 @@ import {Switch, Route} from 'react-router';
 
 import './styles/ComponentPage.scss';
 
+// ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
+// for each component based on the URL.
 class ComponentPage extends Component {
   renderComponentRoutes() {
     return (
