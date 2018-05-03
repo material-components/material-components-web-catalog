@@ -20,10 +20,11 @@ class ComponentImageList extends Component {
           {this.renderListItem('Button', 'buttons_180px.svg', 'button')}
           {this.renderListItem('Card', 'cards_180px.svg', 'card')}
           {this.renderListItem('Checkbox', 'checkbox_180px.svg', 'checkbox')}
+          {this.renderListItem('Chips', 'chips_180px.svg', 'chips')}
           {this.renderListItem('Dialog', 'dialog_180px.svg', 'dialog')}
           {this.renderListItem('Drawer', 'drawer_180px.svg', 'drawer')}
           {this.renderListItem('Elevation', 'elevation_180px.svg', 'elevation')}
-          {this.renderListItem('Fab', 'floating_action_button_180px.svg', 'fab')}
+          {this.renderListItem('FAB', 'floating_action_button_180px.svg', 'fab')}
           {this.renderListItem('Icon Toggle', 'icon_toggle_180px.svg', 'icon-toggle')}
           {this.renderListItem('Image List', 'image_list_180px.svg', 'image-list')}
           {this.renderListItem('List', 'list_180px.svg', 'list')}
@@ -36,6 +37,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Switch', 'switch_180px.svg', 'switch')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}
+          {this.renderListItem('Typography', 'fonts_180px.svg', 'typography')}
         </ul>
       </div>
     );
