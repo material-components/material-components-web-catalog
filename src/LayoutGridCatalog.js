@@ -9,7 +9,7 @@ const LayoutGridCatalog = () => {
     <ComponentCatalogPanel
       hero={<LayoutGridHero />}
       title='Layout Grid'
-      description='Menus display a list of choices on a transient sheet of material.'
+      description='Material design’s responsive UI is based on a 12-column grid layout.'
       designLink='https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-grid'
       docsLink='https://material.io/components/web/catalog/layout-grid/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid'
@@ -67,7 +67,7 @@ const LayoutGridDemos = () => {
       </LayoutGrid>
 
       <h3 className='mdc-typography--subheading2'>Cell Alignment</h3>
-      <p>Cell alignment requires a cell height smaller than the grid's inner height.</p>
+      <p>Cell alignment requires a cell height smaller than the grid\'s inner height.</p>
       <LayoutGrid className='demo-grid demo-grid--cell-alignment'>
         <LayoutGridInner className='demo-inner'>
           <LayoutGridCell className='demo-cell demo-cell--alignment' align='top'></LayoutGridCell>
