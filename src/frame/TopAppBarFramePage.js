@@ -1,21 +1,29 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import React, {Component} from 'react';
 
-import '../styles/TopAppBarFramePage.scss';
+import '../styles/TopAppBarFrameCatalog.scss';
 
 const propToVariant = {
-  short: {title: 'Short', variant: 'mdc-top-app-bar--short'},
-  shortCollapsed: {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
-  fixed: {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
-  prominent: {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
-  dense: {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
-  standard: {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
+  'short': {title: 'Short', variant: 'mdc-top-app-bar--short'},
+  'short-collapsed': {title: 'Short - Always Collapsed', variant: 'mdc-top-app-bar--short mdc-top-app-bar--short-collapsed'},
+  'fixed': {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
+  'prominent': {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
+  'dense': {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
+  'standard': {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
 };
+
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.`;
 
 class TopAppBarFramePage extends Component {
 
   topAppBar = null;
-  initTopAppBar = topAppBarEle => this.topAppBar = new MDCTopAppBar(topAppBarEle);
+  initTopAppBar = topAppBarEle => this.topAppBar = topAppBarEle && new MDCTopAppBar(topAppBarEle);
 
   componentWillUnmount() {
     if (this.topAppBar) {
@@ -24,9 +32,10 @@ class TopAppBarFramePage extends Component {
   }
 
   render() {
+    const {match} = this.props;
     return (
       <div className='top-app-bar__frame'>
-        {this.getVariant(propToVariant[this.props.type])}
+        {this.getVariant(propToVariant[match.params.type])}
       </div>
     );
   }
@@ -34,7 +43,7 @@ class TopAppBarFramePage extends Component {
   getVariant(type = propToVariant.standard) {
     return (
       <div className='demo-frame'>
-        <header className={`mdc-top-app-bar ${type.variant}`} ref={this.initTopAppBar}>
+        <header className={`mdc-top-app-bar ${type.variant}`} style={{top: 0}} ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <button className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
@@ -43,6 +52,22 @@ class TopAppBarFramePage extends Component {
             {this.getIcons(type.variant)}
           </div>
         </header>
+        <div>
+          <div>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

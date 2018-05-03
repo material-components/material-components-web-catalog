@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCTextField} from '@material/textfield';
 import classnames from 'classnames';
 
-import './styles/TextFieldPage.scss';
+import './styles/TextFieldCatalog.scss';
 
 const getLabel = (dense) => {
   if (dense) {
@@ -29,7 +28,7 @@ const TextField = (props) => {
 
   return (
     <div className='text-field-container'>
-      <div className={classes} ref={textFieldEl => new MDCTextField(textFieldEl)}>
+      <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
         <Label textFieldId={textFieldId} dense={dense}/>
@@ -48,7 +47,7 @@ const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
   });
   return (
     <div className='text-field-container'>
-      <div className={classes} ref={textFieldEl => new MDCTextField(textFieldEl)}>
+      <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {textarea ?
           <TextArea textFieldId={textFieldId}/> :
           <Input placeholder={getLabel(dense)} textFieldId={textFieldId}/>}
@@ -95,19 +94,16 @@ const HelperText = () => (
   </p>
 );
 
-const TextFieldPage = () => (
-  <div>
-    <HeaderBar />
-    <ComponentPage
-      hero={<TextField textFieldId='hero-text-field-id'/>}
-      title='Text Field'
-      description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
-      designLink='https://material.io/guidelines/components/text-fields.html'
-      docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
-      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
-      demos={<TextFieldDemos/>}
-    />
-  </div>
+const TextFieldCatalog = () => (
+  <ComponentCatalogPanel
+    hero={<TextField textFieldId='hero-text-field-id'/>}
+    title='Text Field'
+    description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
+    designLink='https://material.io/guidelines/components/text-fields.html'
+    docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
+    sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
+    demos={<TextFieldDemos/>}
+  />
 );
 
 
@@ -162,4 +158,4 @@ class TextFieldDemos extends Component {
   }
 }
 
-export default TextFieldPage;
+export default TextFieldCatalog;

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>radio_180px</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0 180 0 180 190 0 190"></polygon>
+        <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z" id="path-3"></path>
+        <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z M12,17 C14.7614237,17 17,14.7614237 17,12 C17,9.23857625 14.7614237,7 12,7 C9.23857625,7 7,9.23857625 7,12 C7,14.7614237 9.23857625,17 12,17 Z" id="path-5"></path>
+        <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z" id="path-7"></path>
+        <path d="M12,2 C6.48,2 2,6.48 2,12 C2,17.52 6.48,22 12,22 C17.52,22 22,17.52 22,12 C22,6.48 17.52,2 12,2 Z M12,20 C7.58,20 4,16.42 4,12 C4,7.58 7.58,4 12,4 C16.42,4 20,7.58 20,12 C20,16.42 16.42,20 12,20 Z" id="path-9"></path>
+    </defs>
+    <g id="radio_180px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FAFAFA" xlink:href="#path-1"></use>
+        <g id="Selection-Control-/-Radio-/-On-/-Enabled" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 27.000000)" id="Icon-/-Toggle-/-Radio-Checked-/-Fill">
+                <g>
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="ic_radio_button_checked_24px" fill-rule="nonzero"></g>
+                    <g id="✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#mask-4)" fill="#000000" fill-rule="evenodd" opacity="0.87">
+                        <rect id="Rectangle-13" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Selection-Control-/-Radio-/-On-/-Enabled" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 95.000000)" id="Icon-/-Toggle-/-Radio-Checked-/-Fill">
+                <g>
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="ic_radio_button_checked_24px" fill-rule="nonzero"></g>
+                    <g id="✱-/-Color-/-Icons-/-Black-/-Active" mask="url(#mask-6)" fill="#000000" fill-rule="evenodd" opacity="0.87">
+                        <rect id="Rectangle-13" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Selection-Control-/-Radio-/-Off-/-Enabled" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 61.000000)" id="Icon-/-Toggle-/-Radio-Unchecked-/-Fill">
+                <g>
+                    <mask id="mask-8" fill="white">
+                        <use xlink:href="#path-7"></use>
+                    </mask>
+                    <g id="icon/toggle/radio_button_unchecked_24px" fill-rule="nonzero"></g>
+                    <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-8)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                        <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="Selection-Control-/-Radio-/-Off-/-Enabled" mask="url(#mask-2)">
+            <g transform="translate(78.000000, 129.000000)" id="Icon-/-Toggle-/-Radio-Unchecked-/-Fill">
+                <g>
+                    <mask id="mask-10" fill="white">
+                        <use xlink:href="#path-9"></use>
+                    </mask>
+                    <g id="icon/toggle/radio_button_unchecked_24px" fill-rule="nonzero"></g>
+                    <g id="✱-/-Color-/-Icons-/-Black-/-Inactive" mask="url(#mask-10)" fill="#000000" fill-rule="evenodd" opacity="0.54">
+                        <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

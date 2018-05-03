@@ -24,35 +24,6 @@ const publicUrl = '';
 // Get environment variables to inject into our app.
 const env = getClientEnvironment(publicUrl);
 
-// List of all component names for generating the corresponding html pages.
-const components = [
-  'button',
-  'card',
-  'checkbox',
-  'dialog',
-  'drawer',
-  'drawer/temporary',
-  'drawer/permanent',
-  'drawer/persistent',
-  'drawer/permanentBelowTopAppBar',
-  'fab',
-  'elevation',
-  'icon-toggle',
-  'image-list',
-  'linear-progress-indicator',
-  'list',
-  'select',
-  'slider',
-  'text-field',
-  'top-app-bar',
-  'top-app-bar/dense',
-  'top-app-bar/fixed',
-  'top-app-bar/standard',
-  'top-app-bar/prominent',
-  'top-app-bar/short',
-  'top-app-bar/short-collapsed'
-];
-
 // This is the development configuration.
 // It is focused on developer experience and fast rebuilds.
 // The production configuration is different and lives in a separate file.
@@ -258,14 +229,7 @@ module.exports = {
       inject: true,
       template: paths.appHtml,
     }),
-  ].concat(components.map(componentName => {
-    // Generates an html page for each component with the <script> injected.
-    return new HtmlWebpackPlugin({
-      filename: `${componentName}.html`,
-      inject: true,
-      template: paths.appHtml
-    })
-  })).concat([
+  ].concat([
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:

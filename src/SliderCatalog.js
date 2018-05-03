@@ -1,27 +1,24 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCSlider} from '@material/slider';
 
-import './styles/SliderPage.scss';
+import './styles/SliderCatalog.scss';
 
-const SliderPage = () => (
-  <div>
-    <HeaderBar />
-    <ComponentPage
-      hero={<SliderHero/>}
-      title='Slider'
-      description='Sliders let users select from a range of values by moving the slider thumb.'
-      designLink='https://material.io/guidelines/components/sliders.html'
-      docsLink='https://material.io/components/web/catalog/input-controls/sliders/'
-      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider'
-      demos={<SliderDemos/>}
-    />
-  </div>
+const SliderCatalog = () => (
+  <ComponentCatalogPanel
+    hero={<SliderHero/>}
+    title='Slider'
+    description='Sliders let users select from a range of values by moving the slider thumb.'
+    designLink='https://material.io/guidelines/components/sliders.html'
+    docsLink='https://material.io/components/web/catalog/input-controls/sliders/'
+    sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider'
+    demos={<SliderDemos/>}
+  />
 );
 
 class SliderHero extends Component {
   initSlider = (sliderEl) => {
+    if (!sliderEl) return;
     this.slider = new MDCSlider(sliderEl);
   }
 
@@ -53,6 +50,7 @@ class SliderDemos extends Component {
   sliders = [];
 
   initSlider = (sliderEl) => {
+    if (!sliderEl) return;
     this.sliders.push(new MDCSlider(sliderEl));
   }
 
@@ -101,4 +99,4 @@ class SliderDemos extends Component {
   }
 }
 
-export default SliderPage;
+export default SliderCatalog;

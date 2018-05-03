@@ -1,3 +1,3 @@
-const imagePath = `${process.env.PUBLIC_URL}/static/media`;
+const imagePath = `${window.location.origin}${window.location.pathname}static/media`;
 
 export {imagePath};

@@ -1,130 +1,68 @@
 import React, {Component} from 'react';
 
+import ComponentSidebar from './ComponentSidebar';
+import ButtonCatalog from './ButtonCatalog';
+import CardCatalog from './CardCatalog';
+import CheckboxCatalog from './CheckboxCatalog';
+import DialogCatalog from './DialogCatalog';
+import DrawerCatalog from './DrawerCatalog';
+import ElevationCatalog from './ElevationCatalog';
+import FabCatalog from './FabCatalog';
+import IconToggleCatalog from './IconToggleCatalog';
+import ImageListCatalog from './ImageListCatalog';
+import MenuCatalog from './MenuCatalog';
+import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
+import ListCatalog from './ListCatalog';
+import RadioButtonCatalog from './RadioButtonCatalog';
+import RippleCatalog from './RippleCatalog';
+import SelectCatalog from './SelectCatalog';
+import SliderCatalog from './SliderCatalog';
+import SwitchCatalog from './SwitchCatalog';
+import TextFieldCatalog from './TextFieldCatalog';
+import TopAppBarCatalog from './TopAppBarCatalog';
+
+import {Switch, Route} from 'react-router';
+
 import './styles/ComponentPage.scss';
-import {imagePath} from './constants';
 
-const pageExt = process.env.MDC_NO_JEKYLL ? '.html' : '';
-
+// ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
+// for each component based on the URL.
 class ComponentPage extends Component {
-  renderSidebarLink(link, index) {
+  renderComponentRoutes() {
     return (
-      <a
-        href={`${process.env.PUBLIC_URL}${link.url}${pageExt}`}
-        key={index}
-        role='listitem'
-        className={`mdc-list-item ${link.active ? 'sidebar-active' : ''}`}>
-          {link.content}
-       </a>
-    );
-  }
-
-  renderSidebar(activeLink) {
-    const links = [{
-      content: 'Button',
-      url: '/button',
-      active: activeLink === 'Button',
-    }, {
-      content: 'Card',
-      url: '/card',
-      active: activeLink === 'Card',
-    }, {
-      content: 'Checkbox',
-      url: '/checkbox',
-      active: activeLink === 'Checkbox',
-    }, {
-      content: 'Dialog',
-      url: '/dialog',
-      active: activeLink === 'Dialog',
-    }, {
-      content: 'Drawer',
-      url: '/drawer',
-      active: activeLink === 'Drawer',
-    }, {
-      content: 'Elevation',
-      url: '/elevation',
-      active: activeLink === 'Elevation',
-    }, {
-      content: 'Fab',
-      url: '/fab',
-      active: activeLink === 'Floating Action Button',
-    }, {
-      content: 'Icon Toggle',
-      url: '/icon-toggle',
-      active: activeLink === 'Icon Toggle',
-    }, {
-      content: 'Image List',
-      url: '/image-list',
-      active: activeLink === 'Image List',
-    }, {
-      content: 'Linear Progress Indicator',
-      url: '/linear-progress-indicator',
-      active: activeLink === 'Linear Progress Indicator',
-    }, {
-      content: 'List',
-      url: '/list',
-      active: activeLink === 'List',
-    }, {
-      content: 'Select',
-      url: '/select',
-      active: activeLink === 'Select',
-    }, {
-      content: 'Slider',
-      url: '/slider',
-      active: activeLink === 'Slider',
-    }, {
-      content: 'Text Field',
-      url: '/text-field',
-      active: activeLink === 'Text Field',
-    }, {
-      content: 'Top App Bar',
-      url: '/top-app-bar',
-      active: activeLink === 'Top App Bar',
-    }];
-
-    return(
-      <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
-        {links.map(this.renderSidebarLink)}
-      </section>
-    );
-  }
-
-  renderResource(title, imageSource, url) {
-    return (
-      <a href={url} role='listitem' className='mdc-list-item' target='_blank'>
-        <span className='mdc-list-item__graphic'>
-          <img src={imageSource} className='resources-icon' alt={`${title} icon`}/>
-        </span>
-        <span className='mdc-list-item__text'>{title}</span>
-      </a>
-    );
-  }
-
-  renderDemoWrapper() {
-    return(
-      <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
-        <h1 className='mdc-typography--headline'>{this.props.title}</h1>
-        <p className='mdc-typography--body1'>{this.props.description}</p>
-        <div className='hero'>
-          {this.props.hero}
-        </div>
-        <h2 className='demo-title mdc-typography--title'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, this.props.designLink)}
-        {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, this.props.docsLink)}
-        {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, this.props.sourceLink)}
-
-        <h2 className='demo-title mdc-typography--title'>Demos</h2>
-        {this.props.demos}
-      </section>
+      <Switch>
+        <Route path='/component/button' component={ButtonCatalog} />
+        <Route path='/component/card' component={CardCatalog} />
+        <Route path='/component/checkbox' component={CheckboxCatalog} />
+        <Route path='/component/dialog' component={DialogCatalog} />
+        <Route path='/component/drawer' component={DrawerCatalog} />
+        <Route path='/component/elevation' component={ElevationCatalog} />
+        <Route path='/component/fab' component={FabCatalog} />
+        <Route path='/component/icon-toggle' component={IconToggleCatalog} />
+        <Route path='/component/image-list' component={ImageListCatalog} />
+        <Route path='/component/list' component={ListCatalog} />
+        <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
+        <Route path='/component/menu' component={MenuCatalog} />
+        <Route path='/component/radio' component={RadioButtonCatalog} />
+        <Route path='/component/ripple' component={RippleCatalog} />
+        <Route path='/component/slider' component={SliderCatalog} />
+        <Route path='/component/select' component={SelectCatalog} />
+        <Route path='/component/switch' component={SwitchCatalog} />
+        <Route path='/component/text-field' component={TextFieldCatalog} />
+        <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
+      </Switch>
     );
   }
 
   render() {
     return (
-      <div className='mdc-top-app-bar--fixed-adjust'>
-        <div className='mdc-layout-grid'>
-          <div className='mdc-layout-grid__inner'>
-            {this.renderSidebar(this.props.title)}
-            {this.renderDemoWrapper()}
+      <div>
+        <div className='mdc-top-app-bar--fixed-adjust'>
+          <div className='mdc-layout-grid'>
+            <div className='mdc-layout-grid__inner'>
+              <ComponentSidebar {...this.props} />
+              {this.renderComponentRoutes()}
+            </div>
           </div>
         </div>
       </div>
