@@ -67,7 +67,7 @@ const LayoutGridDemos = () => {
       </LayoutGrid>
 
       <h3 className='mdc-typography--subheading2'>Cell Alignment</h3>
-      <p>Cell alignment requires a cell height smaller than the grid\'s inner height.</p>
+      <p>Cell alignment requires a cell height smaller than the inner height of the grid.</p>
       <LayoutGrid className='demo-grid demo-grid--cell-alignment'>
         <LayoutGridInner className='demo-inner'>
           <LayoutGridCell className='demo-cell demo-cell--alignment' align='top'></LayoutGridCell>
