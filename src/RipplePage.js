@@ -12,7 +12,7 @@ const RipplePage = () => {
       <ComponentPage
         hero={<RippleHero />}
         title='Ripple'
-        description=''
+        description='Ripples are visual representations used to communicate the status of a component or interactive element.'
         designLink='https://material.io/guidelines/motion/choreography.html#choreography-radial-reaction'
         docsLink='https://material.io/components/web/catalog/ripples/'
         sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple'
@@ -62,12 +62,6 @@ class RippleDemos extends Component {
             <div className='ripple-demo-col'>
               <h3>{title}</h3>
               <div className={variant + ' mdc-ripple-surface'} ref={this.initRipple}>
-                {text}
-              </div>
-            </div>
-            <div>
-              <h3>{title} - CSS Only</h3>
-              <div className={variant + ' mdc-ripple-surface'}>
                 {text}
               </div>
             </div>
