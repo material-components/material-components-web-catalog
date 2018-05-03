@@ -13,9 +13,9 @@ const RadioButtonPage = () => {
         hero={<RadioButtonHero/>}
         title='Radio Button'
         description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-        designLink='https://material.io/guidelines/components/buttons.html'
-        docsLink='https://material.io/components/web/catalog/buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
+        designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-radio-button'
+        docsLink='https://material.io/components/web/catalog/input-controls/radio-buttons/'
+        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio'
         demos={<RadioButtonDemos/>}
       />
     </div>
@@ -71,7 +71,7 @@ class RadioButtonDemos extends Component {
               <div className='mdc-radio__inner-circle'/>
             </div>
           </div>
-          <label id='radio-1-label' htmlFor='radio-1'>Radio 1</label>
+          <label id='radio-1-label' className='radio-demo-label' htmlFor='radio-1'>Radio 1</label>
           <div className='mdc-radio'>
             <input className='mdc-radio__native-control' type='radio' id='radio-2' name={name} />
             <div className='mdc-radio__background'>
