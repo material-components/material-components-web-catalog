@@ -1,24 +1,20 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
 
-import './styles/CheckboxPage.scss';
+import './styles/CheckboxCatalog.scss';
 
-const CheckboxPage = () => {
+const CheckboxCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<CheckboxHero/>}
-        title='Checkbox'
-        description='Checkboxes allow the user to select multiple options from a set.'
-        designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox'
-        docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
-        demos={<CheckboxDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<CheckboxHero/>}
+      title='Checkbox'
+      description='Checkboxes allow the user to select multiple options from a set.'
+      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox'
+      docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
+      demos={<CheckboxDemos/>}
+    />
   );
 }
 
@@ -26,7 +22,7 @@ class CheckboxHero extends Component {
   constructor(props) {
     super(props);
     this.checkboxes = [];
-    this.initCheckbox = checkboxEl => this.checkboxes.push(new MDCCheckbox(checkboxEl));
+    this.initCheckbox = checkboxEl => checkboxEl && this.checkboxes.push(new MDCCheckbox(checkboxEl));
   }
 
   componentWillUnmount() {
@@ -75,7 +71,7 @@ class CheckboxDemos extends Component {
   constructor(props) {
     super(props);
     this.checkboxes = [];
-    this.initCheckbox = checkboxEl => this.checkboxes.push(new MDCCheckbox(checkboxEl));
+    this.initCheckbox = checkboxEl => checkboxEl && this.checkboxes.push(new MDCCheckbox(checkboxEl));
   }
 
   componentWillUnmount() {
@@ -89,7 +85,10 @@ class CheckboxDemos extends Component {
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'
-                 ref={input => input.indeterminate = indeterminate}/>
+                 ref={input => {
+                   if (!input) return;
+                   input.indeterminate = indeterminate;
+                 }}/>
           <div className='mdc-checkbox__background'>
             <svg className='mdc-checkbox__checkmark'
                  viewBox='0 0 24 24'>
@@ -114,4 +113,4 @@ class CheckboxDemos extends Component {
   }
 }
 
-export default CheckboxPage;
+export default CheckboxCatalog;

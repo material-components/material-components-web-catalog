@@ -1,29 +1,26 @@
 import React, {Component} from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCDialog} from '@material/dialog/dist/mdc.dialog';
 
-import './styles/DialogPage.scss';
+import './styles/DialogCatalog.scss';
 
-const DialogPage = () => {
+const DialogCatalog = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<DialogHero />}
-        title='Dialog'
-        description='Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
-        designLink='https://material.io/guidelines/components/dialogs.html'
-        docsLink='https://material.io/components/web/catalog/dialogs/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog'
-        demos={<DialogDemos />}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<DialogHero />}
+      title='Dialog'
+      description='Dialogs inform users about a specific task and may contain critical information, require decisions, or involve multiple tasks.'
+      designLink='https://material.io/guidelines/components/dialogs.html'
+      docsLink='https://material.io/components/web/catalog/dialogs/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog'
+      demos={<DialogDemos />}
+    />
   );
 };
 
 class DialogHero extends Component {
   initDialog = (dialogEl) => {
+    if (!dialogEl) return;
     this.dialogEl = dialogEl;
     this.dialog = new MDCDialog(dialogEl);
   };
@@ -108,6 +105,7 @@ class Dialog extends Component {
   handleAccept_ = () => this.handleAccept();
   handleCancel_ = () => this.handleCancel();
   initDialog = (dialogEl) => {
+    if (!dialogEl) return;
     this.dialogEl = dialogEl;
     this.dialog = new MDCDialog(dialogEl);
   };
@@ -134,7 +132,7 @@ class Dialog extends Component {
   handleAccept() {
     this.props.handleAccept();
   }
-  
+
   handleCancel() {
     this.props.handleCancel();
   }
@@ -178,4 +176,4 @@ class Dialog extends Component {
   }
 }
 
-export default DialogPage;
+export default DialogCatalog;

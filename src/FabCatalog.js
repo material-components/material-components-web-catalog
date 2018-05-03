@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
 
-import './styles/FabPage.scss';
+import './styles/FabCatalog.scss';
 
 class Fab extends Component {
   componentWillUnmount() {
@@ -32,31 +31,28 @@ class Fab extends Component {
 
 const FabDemos = () => (
   <div>
-    <h3 className='mdc-typography--subheading2'>Standard Floating Action</h3>
+    <h3 className='mdc-typography--subheading2'>Standard Floating Action Button</h3>
     <Fab />
 
-    <h3 className='mdc-typography--subheading2'>Mini Floating Action</h3>
+    <h3 className='mdc-typography--subheading2'>Mini Floating Action Button</h3>
     <Fab mini />
   </div>
 );
 
-const FabPage = () => {
+const FabCatalog = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<Fab />}
-        title='Floating Action Button'
-        description={description}
-        designLink='https://material.io/guidelines/components/buttons-floating-action-button.html'
-        docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
-        sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
-        demos={<FabDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<Fab />}
+      title='Floating Action Button'
+      description={description}
+      designLink='https://material.io/guidelines/components/buttons-floating-action-button.html'
+      docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
+      sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
+      demos={<FabDemos/>}
+    />
   );
 }
 
-export default FabPage;
+export default FabCatalog;

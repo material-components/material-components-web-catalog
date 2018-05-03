@@ -15,26 +15,22 @@ Follow these steps to add a new component to the MDC Web demo catalog.
 
 ```js
 import React, { Component } from 'react';
-import ComponentPage from './ComponentPage.js';
-import HeaderBar from './HeaderBar.js';
+import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCFoo} from '@material/foo';
 
 import './FooPage.scss';
 
 const FooPage = () => {
   return (
-    <div>
-      <HeaderBar />
-      <ComponentPage
-        hero={<FooHero/>}
-        title='Foo'
-        description='A short description about the Foo component.'
-        designLink='https://material.io/guidelines/components/foo.html'
-        docsLink='https://material.io/components/web/catalog/foo/'
-        sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
-        demos={<FooDemos/>}
-      />
-    </div>
+    <ComponentCatalogPanel
+      hero={<FooHero/>}
+      title='Foo'
+      description='A short description about the Foo component.'
+      designLink='https://material.io/guidelines/components/foo.html'
+      docsLink='https://material.io/components/web/catalog/foo/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-foo'
+      demos={<FooDemos/>}
+    />
   );
 }
 
@@ -70,32 +66,23 @@ export default FooPage;
 
 Note that we import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
 
-3. Add an entry in the `urlToComponentPageMap` in `App.js`:
+3. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
+
+4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
 
 ```js
-const urlToComponentPageMap = {
-  ...,
-  '/foo': <FooPage />,
-};
-```
-
-4. Add a 24px icon associated with the component (e.g. `ic_foo_24px.svg`) to the `src/images` directory.
-
-5. Render a new list item inside the `catalog-image-list` element in `App.js`:
-
-```js
-class App extends Component {
+class ComponentImageList extends Component {
   ...
   render() {
     return (
       ...
-      {this.renderListItem('Foo', `${imagePath}/ic_foo_24px.svg`, 'foo')}
+      {this.renderListItem('Foo', 'ic_foo_24px.svg', 'foo')}
     );
   }
 }
 ```
 
-6. Add a new entry in the `links` in the `renderSidebar(...)` method in `ComponentPage.js`:
+5. Add a new entry in the `links` in the `render()` method in `Sidebar.js`:
 
 ```js
 const links = [
@@ -103,9 +90,22 @@ const links = [
   {
     content: 'Foo',
     url: '/foo',
-    active: activeLink === 'Foo',
   }
 ];
+```
+
+6. Add a `<Route>` on the `ComponentPage.js`:
+
+```js
+import FooCatalog from './FooCatalog';
+
+class ComponentPage extends Component {
+  ...
+  renderComponentRoutes() {
+    ...
+    <Route path='component/foo' component={FooCatalog} />
+  }
+}
 ```
 
 ## Development

@@ -40,8 +40,11 @@ body {
 
 .catalog-image-list-label {
   font-weight: 500;
-  text-decoration: none;
   color: $material-color-grey-900;
+}
+
+a.catalog-image-link {
+  text-decoration: none;
 }
 
 // Needed until the following PR gets resolved
