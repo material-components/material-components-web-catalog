@@ -32,7 +32,9 @@ class RippleHero extends Component {
 
   render() {
     return (
-        <div className='ripple-demo-box mdc-ripple-surface' ref={this.initRipple} />
+        <div className='ripple-demo-box mdc-ripple-surface' ref={this.initRipple}>
+          Click here!
+        </div>
     );
   }
 }
