@@ -34,7 +34,6 @@ const componentUrlToPageMap = {
   '/drawer/temporary': <DrawerFramePage type='temporary' />,
   '/drawer/permanent': <DrawerFramePage type='permanent' />,
   '/drawer/persistent': <DrawerFramePage type='persistent' />,
-  '/drawer/permanentBelowTopAppBar': <DrawerFramePage type='permanentBelowTopAppBar' />,
   '/elevation': <ElevationPage />,
   '/fab': <FabPage />,
   '/icon-toggle': <IconTogglePage />,

@@ -34,7 +34,6 @@ const components = [
   'drawer/temporary',
   'drawer/permanent',
   'drawer/persistent',
-  'drawer/permanentBelowTopAppBar',
   'fab',
   'elevation',
   'icon-toggle',
