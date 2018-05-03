@@ -28,7 +28,7 @@ class RippleHero extends Component {
 
   render() {
     return (
-        <div className='ripple-demo-box mdc-ripple-surface' ref={this.initRipple}>
+        <div className='ripple-demo-box' ref={this.initRipple}>
           Click here!
         </div>
     );
@@ -59,7 +59,7 @@ class RippleDemos extends Component {
           <div className='ripple-demos'>
             <div className='ripple-demo-col'>
               <h3>{title}</h3>
-              <div tabIndex='0' className={variant + ' mdc-ripple-surface'} ref={this.initRipple}>
+              <div tabIndex='0' className={variant} ref={this.initRipple}>
                 {text}
               </div>
             </div>
@@ -73,8 +73,8 @@ class RippleDemos extends Component {
       <div>
         {this.renderRippleVariant('Bounded Ripple', 'ripple-demo-box', 'Interact with me!')}
         {this.renderRippleVariant('Unbounded Ripple', 'ripple-demo-icon material-icons mdc-ripple-radius-unbounded', 'favorite')}
-        {this.renderRippleVariant('Theme Colors Primary', 'ripple-demo-box mdc-ripple-surface--primary', 'Primary')}
-        {this.renderRippleVariant('Theme Colors Secondary', 'ripple-demo-box mdc-ripple-surface--accent', 'Secondary')}
+        {this.renderRippleVariant('Theme Colors: Primary', 'ripple-demo-box ripple-demo-box--primary', 'Primary')}
+        {this.renderRippleVariant('Theme Colors: Secondary', 'ripple-demo-box ripple-demo-box--secondary', 'Secondary')}
       </div>
     );
   }
