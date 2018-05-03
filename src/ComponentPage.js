@@ -10,10 +10,14 @@ import ElevationCatalog from './ElevationCatalog';
 import FabCatalog from './FabCatalog';
 import IconToggleCatalog from './IconToggleCatalog';
 import ImageListCatalog from './ImageListCatalog';
+import MenuCatalog from './MenuCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
 import ListCatalog from './ListCatalog';
+import RadioButtonCatalog from './RadioButtonCatalog';
+import RippleCatalog from './RippleCatalog';
 import SelectCatalog from './SelectCatalog';
 import SliderCatalog from './SliderCatalog';
+import SwitchCatalog from './SwitchCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 
@@ -38,8 +42,12 @@ class ComponentPage extends Component {
         <Route path='/component/image-list' component={ImageListCatalog} />
         <Route path='/component/list' component={ListCatalog} />
         <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
+        <Route path='/component/menu' component={MenuCatalog} />
+        <Route path='/component/radio' component={RadioButtonCatalog} />
+        <Route path='/component/ripple' component={RippleCatalog} />
         <Route path='/component/slider' component={SliderCatalog} />
         <Route path='/component/select' component={SelectCatalog} />
+        <Route path='/component/switch' component={SwitchCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
       </Switch>

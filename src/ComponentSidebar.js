@@ -52,11 +52,23 @@ class ComponentSidebar extends Component {
       content: 'List',
       url: '/list',
     }, {
+      content: 'Menu',
+      url: '/menu',
+    }, {
+      content: 'Radio Button',
+      url: '/radio',
+    }, {
+      content: 'Ripple',
+      url: '/ripple',
+    }, {
       content: 'Slider',
       url: '/slider',
     }, {
       content: 'Select',
       url: '/select',
+    }, {
+      content: 'Switch',
+      url: '/switch',
     }, {
       content: 'Text Field',
       url: '/text-field',

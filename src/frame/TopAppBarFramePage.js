@@ -12,6 +12,14 @@ const propToVariant = {
   'standard': {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
 };
 
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+    anim id est laborum.`;
+
 class TopAppBarFramePage extends Component {
 
   topAppBar = null;
@@ -35,7 +43,7 @@ class TopAppBarFramePage extends Component {
   getVariant(type = propToVariant.standard) {
     return (
       <div className='demo-frame'>
-        <header className={`mdc-top-app-bar ${type.variant}`} ref={this.initTopAppBar}>
+        <header className={`mdc-top-app-bar ${type.variant}`} style={{top: 0}} ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <button className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
@@ -44,6 +52,22 @@ class TopAppBarFramePage extends Component {
             {this.getIcons(type.variant)}
           </div>
         </header>
+        <div>
+          <div>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+            <p>
+              {loremIpsum}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }
