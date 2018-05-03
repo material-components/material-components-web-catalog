@@ -68,6 +68,10 @@ class ComponentPage extends Component {
       url: '/menu',
       active: activeLink === 'Menu',
     }, {
+      content: 'Ripple',
+      url: '/ripple',
+      active: activeLink === 'Ripple',
+    }, {
       content: 'Select',
       url: '/select',
       active: activeLink === 'Select',

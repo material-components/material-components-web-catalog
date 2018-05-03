@@ -11,6 +11,7 @@ import ImageListPage from './ImageListPage';
 import LinearProgressPage from './LinearProgressIndicatorPage';
 import ListPage from './ListPage';
 import MenuPage from './MenuPage';
+import RipplePage from './RipplePage';
 import SelectPage from './SelectPage';
 import SliderPage from './SliderPage';
 import TextFieldPage from './TextFieldPage';
@@ -42,6 +43,7 @@ const componentUrlToPageMap = {
   '/linear-progress-indicator': <LinearProgressPage />,
   '/list': <ListPage />,
   '/menu': <MenuPage />,
+  '/ripple': <RipplePage />,
   '/select': <SelectPage />,
   '/slider': <SliderPage />,
   '/text-field': <TextFieldPage />,
@@ -107,6 +109,7 @@ class App extends Component {
           {this.renderListItem('Linear Progress', `${imagePath}/linear_progress_180px.svg`, 'linear-progress-indicator')}
           {this.renderListItem('List', `${imagePath}/list_180px.svg`, 'list')}
           {this.renderListItem('Menu', `${imagePath}/menu_180px.svg`, 'menu')}
+          {this.renderListItem('Ripple', `${imagePath}/ripple_180px.svg`, 'ripple')}
           {this.renderListItem('Select', `${imagePath}/form_field_180px.svg`, 'select')}
           {this.renderListItem('Slider', `${imagePath}/slider_180px.svg`, 'slider')}
           {this.renderListItem('Text Field', `${imagePath}/form_field_180px.svg`, 'text-field')}
