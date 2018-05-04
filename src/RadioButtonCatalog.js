@@ -57,8 +57,9 @@ class RadioButtonDemos extends Component {
   initRadio = radioEl => radioEl && this.radios.push(new MDCRadio(radioEl));
 
   componentDidMount() {
-    for (var i = 0, formField; formField = this.formFields[i]; i++) {
-      formField.input = this.radios[i];
+    // This assumes every radio button in the demos is wrapped in a form field.
+    for (var i = 0; i < this.formFields.length; i++) {
+      this.formFields[i].input = this.radios[i];
     }
   }
 
@@ -83,7 +84,7 @@ class RadioButtonDemos extends Component {
           </div>
           <label id='radio-1-label' className='radio-demo-label' htmlFor='radio-1'>Radio 1</label>
         </div>
-        <div class='mdc-form-field' ref={this.initFormField}>
+        <div className='mdc-form-field' ref={this.initFormField}>
           <div className='mdc-radio' ref={this.initRadio}>
             <input className='mdc-radio__native-control' type='radio' id='radio-2' name={name} />
             <div className='mdc-radio__background'>
