@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {unregister} from './registerServiceWorker';
-import {HashRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 
 ReactDOM.render((
-  <HashRouter>
+  <BrowserRouter basename='material-components-web-catalog'>
     <App />
-  </HashRouter>
+  </BrowserRouter>
 ), document.getElementById('root'));
 
 unregister();
