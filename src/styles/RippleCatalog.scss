@@ -1,5 +1,6 @@
-@import "@material/ripple/mixins";
 @import "@material/elevation/mixins";
+@import "@material/ripple/mixins";
+@import "@material/theme/mixins";
 
 .hero-ripple-surface {
   width: 100%;
@@ -16,8 +17,18 @@
   min-width: 400px;
 }
 
+.ripple-demo-box,
+.ripple-demo-icon {
+  @include mdc-ripple-surface;
+  @include mdc-states;
+
+  cursor: pointer;
+  outline: none;
+}
+
 .ripple-demo-box {
   @include mdc-elevation(2);
+  @include mdc-ripple-radius-bounded;
 
   display: flex;
   align-items: center;
@@ -29,14 +40,25 @@
   user-select: none;
   -webkit-user-select: none;
   background-color: #ffffff;
-  outline: none;
+  overflow: hidden;
 }
 
-.ripple-demo-icon.mdc-ripple-surface {
+.ripple-demo-box--primary {
+  @include mdc-states(primary);
+  @include mdc-theme-prop(color, primary);
+}
+
+.ripple-demo-box--secondary {
+  @include mdc-states(secondary);
+  @include mdc-theme-prop(color, secondary);
+}
+
+.ripple-demo-icon {
   @include mdc-ripple-radius-unbounded;
 
   width: 24px;
   height: 24px;
   font-size: 24px;
   padding: 12px;
+  overflow: visible;
 }
