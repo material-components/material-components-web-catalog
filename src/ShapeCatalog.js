@@ -27,7 +27,7 @@ class ShapeHero extends Component {
   render() {
     return (
       <div className='hero-shape-container mdc-shape-container'>
-        <button className='mdc-button mdc-button--unelevated' ref={el => this.ripple = new MDCRipple(el)}>Angled Corners</button>
+        <button className='mdc-button mdc-button--unelevated' ref={el => this.ripple = el && new MDCRipple(el)}>Angled Corners</button>
         <div className='mdc-shape-container__corner mdc-shape-container__corner--top-left'></div>
         <div className='mdc-shape-container__corner mdc-shape-container__corner--top-right'></div>
         <div className='mdc-shape-container__corner mdc-shape-container__corner--bottom-right'></div>
@@ -38,7 +38,11 @@ class ShapeHero extends Component {
 }
 
 class ShapeDemos extends Component {
-  ripples = [];
+  constructor(props) {
+    super(props);
+    this.ripples = [];
+    this.initRipple = surfaceEl => surfaceEl && this.ripples.push(new MDCRipple(surfaceEl));
+  }
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
@@ -56,12 +60,12 @@ class ShapeDemos extends Component {
       <div>
         <h3>Contained Button</h3>
         <div className='contained-button-shape-container mdc-shape-container'>
-          <button className='mdc-button mdc-button--unelevated' ref={el => this.ripples.push(new MDCRipple(el))}>Skip</button>
+          <button className='mdc-button mdc-button--unelevated' ref={this.initRipple}>Skip</button>
           {this.renderCorner('top-left')}
           {this.renderCorner('bottom-right')}
         </div>
         <div className='contained-button-shape-container mdc-shape-container'>
-          <button className='mdc-button mdc-button--unelevated' ref={el => this.ripples.push(new MDCRipple(el))}>Finish</button>
+          <button className='mdc-button mdc-button--unelevated' ref={this.initRipple}>Finish</button>
           {this.renderCorner('top-left')}
           {this.renderCorner('top-right')}
           {this.renderCorner('bottom-left')}
@@ -70,12 +74,12 @@ class ShapeDemos extends Component {
 
         <h3>Outlined Button</h3>
         <div className='outlined-button-shape-container mdc-shape-container'>
-          <button className='mdc-button mdc-button--outlined' ref={el => this.ripples.push(new MDCRipple(el))}>Skip</button>
+          <button className='mdc-button mdc-button--outlined' ref={this.initRipple}>Skip</button>
           {this.renderCorner('top-left')}
           {this.renderCorner('bottom-right')}
         </div>
         <div className='outlined-button-shape-container mdc-shape-container'>
-          <button className='mdc-button mdc-button--outlined' ref={el => this.ripples.push(new MDCRipple(el))}>Finish</button>
+          <button className='mdc-button mdc-button--outlined' ref={this.initRipple}>Finish</button>
           {this.renderCorner('top-left')}
           {this.renderCorner('top-right')}
           {this.renderCorner('bottom-left')}
@@ -85,7 +89,7 @@ class ShapeDemos extends Component {
         <h3>Card</h3>
         <div className='card-shape-container mdc-shape-container'>
           <div className='mdc-card mdc-card--outlined'>
-            <div className='mdc-card__primary-action' ref={el => this.ripples.push(new MDCRipple(el))}>
+            <div className='mdc-card__primary-action' ref={this.initRipple}>
               <div className='demo-card__primary'>
                 <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
                 <h3 className='demo-card__subtitle mdc-typography--subtitle2'>by Kurt Wagner</h3>
@@ -112,7 +116,7 @@ class ShapeDemos extends Component {
                   role='button'
                   title='Share'
                   data-mdc-ripple-is-unbounded
-                  ref={el => this.ripples.push(new MDCRipple(el))}>
+                  ref={this.initRipple}>
                   share
                 </i>
                 <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
@@ -120,7 +124,7 @@ class ShapeDemos extends Component {
                   role='button'
                   title='More options'
                   data-mdc-ripple-is-unbounded
-                  ref={el => this.ripples.push(new MDCRipple(el))}>
+                  ref={this.initRipple}>
                   more_vert
                 </i>
               </div>
