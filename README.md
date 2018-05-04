@@ -71,15 +71,19 @@ export default FooCatalog;
 
 3. Add a SVG image associated with the component (e.g. `foo_180px.svg`) to the `src/images` directory.
 
-4. Render a new list item inside the `render()` element in `ComponentImageList.js`:
+4. Import the SVG and render a new list item inside the `render()` element in `ComponentImageList.js`:
 
 ```js
+import fooImg from './images/foo_180px.svg';
+
+...
+
 class ComponentImageList extends Component {
   ...
   render() {
     return (
       ...
-      {this.renderListItem('Foo', 'foo_180px.svg', 'foo')}
+      {this.renderListItem('Foo', fooImg, 'foo')}
     );
   }
 }

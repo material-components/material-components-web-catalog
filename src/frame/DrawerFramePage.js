@@ -53,7 +53,7 @@ class DrawerFramePage extends Component {
             <div className='drawer-header-flex'>
               {this.getTopAppBar(variant)}
             </div>
-            <div>
+            <div className='mdc-top-app-bar--fixed-adjust'>
               <p>
                 {loremIpsum}
               </p>
@@ -124,7 +124,7 @@ class DrawerFramePage extends Component {
 
   getTopAppBar(type = propToVariant.temporary) {
     return (
-        <header className='mdc-top-app-bar' style={{top: 0}} ref={this.initTopAppBar}>
+        <header className='mdc-top-app-bar' ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <button className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
