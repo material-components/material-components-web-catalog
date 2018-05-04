@@ -6,6 +6,7 @@ import {imagePath} from './constants';
 class ComponentCatalogPanel extends Component {
 
   renderResource(title, imageSource, url) {
+    if (!url) return;
     return (
       <a href={url} role='listitem' className='mdc-list-item' target='_blank'>
         <span className='mdc-list-item__graphic'>

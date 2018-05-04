@@ -49,6 +49,9 @@ class ComponentSidebar extends Component {
       content: 'Image List',
       url: '/image-list',
     }, {
+      content: 'Layout Grid',
+      url: '/layout-grid',
+    }, {
       content: 'Linear Progress Indicator',
       url: '/linear-progress-indicator',
     }, {
@@ -64,14 +67,23 @@ class ComponentSidebar extends Component {
       content: 'Ripple',
       url: '/ripple',
     }, {
-      content: 'Slider',
-      url: '/slider',
-    }, {
       content: 'Select',
       url: '/select',
     }, {
+      content: 'Shape',
+      url: '/shape',
+    }, {
+      content: 'Slider',
+      url: '/slider',
+    }, {
+      content: 'Snackbar',
+      url: '/snackbar',
+    }, {
       content: 'Switch',
       url: '/switch',
+    }, {
+      content: 'Tabs',
+      url: '/tabs',
     }, {
       content: 'Text Field',
       url: '/text-field',
