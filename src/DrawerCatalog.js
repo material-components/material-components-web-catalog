@@ -78,6 +78,7 @@ class DrawerDemos extends Component {
   getVariant(title, path) {
     const {match} = this.props;
     const drawerVariantLink = `#${match.url}/${path}`;
+    const src = `${window.location.protocol}//${window.location.host}${window.location.pathname}?bust${drawerVariantLink}`;
 
     return (
       <div className='drawer-demo'>
@@ -87,7 +88,7 @@ class DrawerDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='drawer-iframe' title={title} src={`${window.location.href}/${path}`} />
+          <iframe className='drawer-iframe' title={title} src={src} />
         </div>
       </div>
     );
