@@ -92,6 +92,7 @@ class ComponentPage extends Component {
   }
 
   animate(drawerWidth, stateName) {
+    if (!this.demoContentEl) return;
     this.demoContentEl.style.setProperty('transform', `translateX(${drawerWidth / 2}px)`);
     // Force repaint
     this.demoContentEl.getBoundingClientRect();
