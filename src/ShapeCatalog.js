@@ -96,7 +96,7 @@ class ShapeDemos extends Component {
             </div>
             <div className='mdc-card__actions'>
               <div className='mdc-card__action-icons'>
-                <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
+                <i className='demo-shape-icon mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
                   tabIndex='0'
                   role='button'
                   aria-pressed='false'
@@ -107,7 +107,7 @@ class ShapeDemos extends Component {
                   ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
                   favorite_border
                 </i>
-                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
+                <i className='demo-shape-icon material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
                   tabIndex='0'
                   role='button'
                   title='Share'
@@ -115,7 +115,7 @@ class ShapeDemos extends Component {
                   ref={el => this.ripples.push(new MDCRipple(el))}>
                   share
                 </i>
-                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
+                <i className='demo-shape-icon material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
                   tabIndex='0'
                   role='button'
                   title='More options'
