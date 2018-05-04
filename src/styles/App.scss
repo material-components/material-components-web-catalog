@@ -54,3 +54,10 @@ a.catalog-image-link {
   margin-top: 0;
   padding-top: 64px;
 }
+
+// Needed until MDC Web #2702 is resolved
+// See: https://github.com/material-components/material-components-web/issues/2702
+.mdc-card__action--icon {
+  width: 48px;
+  height: 48px;
+}
