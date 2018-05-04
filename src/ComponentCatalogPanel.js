@@ -20,7 +20,7 @@ class ComponentCatalogPanel extends Component {
   render() {
     const {designLink, description, demos, docsLink, hero, sourceLink, title} = this.props;
     return(
-      <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-12'>
+      <section className='demo-wrapper mdc-layout-grid__cell mdc-layout-grid__cell--span-10'>
         <h1 className='mdc-typography--headline'>{title}</h1>
         <p className='mdc-typography--body1'>{description}</p>
         <div className='hero'>
