@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCFormField} from '@material/form-field';
+import {withFormField} from './FormField';
 import {MDCRadio} from '@material/radio';
 
 import './styles/RadioButtonCatalog.scss';
@@ -19,71 +20,57 @@ const RadioButtonCatalog = () => {
   );
 }
 
-class RadioButtonHero extends Component {
-  radios = [];
-
-  componentWillUnmount() {
-    this.radios.forEach(radio => radio.destroy());
-  }
-
-  render() {
-    return (
-      <div>
-        <Radio name='hero-radio-set' id='hero-radio-1' defaultChecked refCallback={el => el && this.radios.push(new MDCRadio(el))} />
-        <Radio name='hero-radio-set' id='hero-radio-2' refCallback={el => el && this.radios.push(new MDCRadio(el))} />
-      </div>
-    );
-  }
-}
+const RadioButtonHero = () => {
+  return (
+    <div>
+      <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-1' defaultChecked />
+      <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-2' />
+    </div>
+  );
+};
 
 const RadioButtonDemos = () => {
   return (
     <div>
       <h3 className='mdc-typography--subtitle2'>Radio Buttons</h3>
-      <FormFieldRadio name='demo-radio-set' id='radio-1' label='Radio 1' defaultChecked />
-      <FormFieldRadio name='demo-radio-set' id='radio-2' label='Radio 2' />
+      <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 1' defaultChecked />
+      <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 2' />
     </div>
   );
 }
 
-class FormFieldRadio extends Component {
-  componentDidMount() {
-    if (!this.formField || !this.radio) return;
-    this.formField.input = this.radio;
-  }
+class Radio extends Component {
+  initRadio = (radioEl) => this.radio = new MDCRadio(radioEl);
 
   componentWillUnmount() {
-    this.formField && this.formField.destroy();
-    this.radio && this.radio.destroy();
+    this.radio.destroy();
+  }
+
+  componentDidMount() {
+    if (!this.props.handleInit || !this.radio) return;
+    this.props.handleInit(this.radio);
   }
 
   render() {
-    return(
-      <div className='demo-radio-form-field mdc-form-field' ref={el => this.formField = el && new MDCFormField(el)}>
-        <Radio name={this.props.name}
-               id={this.props.id}
-               defaultChecked={this.props.defaultChecked} 
-               refCallback={el => this.radio = el && new MDCRadio(el)} />
-        <label htmlFor={this.props.id}>{this.props.label}</label>
-      </div>
-    );
-  }
-}
+    const classes = classnames('mdc-radio', this.props.className);
 
-const Radio = (props) => {
-  return(
-    <div className='demo-radio mdc-radio' ref={props.refCallback}>
+    return (
+      <div className={classes}
+           ref={this.initRadio}>
       <input className='mdc-radio__native-control'
               type='radio'
-              id={props.id}
-              name={props.name}
-              defaultChecked={props.defaultChecked} />
+              id={this.props.id}
+              name={this.props.name}
+              defaultChecked={this.props.defaultChecked} />
       <div className='mdc-radio__background'>
         <div className='mdc-radio__outer-circle'/>
         <div className='mdc-radio__inner-circle'/>
       </div>
     </div>
-  );
+    )
+  }
 }
+
+const RadioFormField = withFormField(Radio);
 
 export default RadioButtonCatalog;
