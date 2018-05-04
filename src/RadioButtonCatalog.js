@@ -19,51 +19,23 @@ const RadioButtonCatalog = () => {
   );
 }
 
-class RadioButtonHero extends Component {
-  radios = [];
-  initRadio = radioEl => radioEl && this.radios.push(new MDCRadio(radioEl));
-
-  componentWillUnmount() {
-    this.radios.forEach(radio => radio.destroy());
-  }
-
-  render() {
-    return (
-      <div>
-        <div className='mdc-radio' ref={this.initRadio}>
-          <input className='mdc-radio__native-control' type='radio' id='hero-radio-1' name='radios' defaultChecked />
-          <div className='mdc-radio__background'>
-            <div className='mdc-radio__outer-circle'/>
-            <div className='mdc-radio__inner-circle'/>
-          </div>
-        </div>
-        <div className='mdc-radio' ref={this.initRadio}>
-          <input className='mdc-radio__native-control' type='radio' id='hero-radio-2' name='radios' />
-          <div className='mdc-radio__background'>
-            <div className='mdc-radio__outer-circle'/>
-            <div className='mdc-radio__inner-circle'/>
-          </div>
-        </div>
-      </div>
-    );
-  }
+const RadioButtonHero = () => {
+  return (
+    <div>
+      <Radio name='hero-radio-set' id='hero-radio-1' defaultChecked />
+      <Radio name='hero-radio-set' id='hero-radio-2' />
+    </div>
+  );
 }
 
-class RadioButtonDemos extends Component {
-  setCount = 0;
-
-  render() {
-    const name = `radio-set-${this.setCount}`;
-    this.setCount++;
-
-    return (
-      <div>
-        <h3 className='mdc-typography--subtitle2'>Radio Buttons</h3>
-        <FormFieldRadio name={name} id='radio-1' label='Radio 1' defaultChecked />
-        <FormFieldRadio name={name} id='radio-2' label='Radio 2' />
-      </div>
-    );
-  }
+const RadioButtonDemos = () => {
+  return (
+    <div>
+      <h3 className='mdc-typography--subtitle2'>Radio Buttons</h3>
+      <FormFieldRadio name='demo-radio-set' id='radio-1' label='Radio 1' defaultChecked />
+      <FormFieldRadio name='demo-radio-set' id='radio-2' label='Radio 2' />
+    </div>
+  );
 }
 
 class FormFieldRadio extends Component {
@@ -79,8 +51,8 @@ class FormFieldRadio extends Component {
 
   render() {
     return(
-      <div className='mdc-form-field' ref={el => this.formField = new MDCFormField(el)}>
-        <div className='mdc-radio' ref={el => this.radio = new MDCRadio(el)}>
+      <div className='demo-radio-form-field mdc-form-field' ref={el => this.formField = el && new MDCFormField(el)}>
+        <div className='mdc-radio' ref={el => this.radio = el && new MDCRadio(el)}>
           <input className='mdc-radio__native-control'
                  type='radio'
                  id={this.props.id}
@@ -92,6 +64,28 @@ class FormFieldRadio extends Component {
           </div>
         </div>
         <label htmlFor={this.props.id}>{this.props.label}</label>
+      </div>
+    );
+  }
+}
+
+class Radio extends Component {
+  componentWillUnmount() {
+    this.radio && this.radio.destroy();
+  }
+
+  render() {
+    return(
+      <div className='demo-radio mdc-radio' ref={el => this.radio = el && new MDCRadio(el)}>
+        <input className='mdc-radio__native-control'
+                type='radio'
+                id={this.props.id}
+                name={this.props.name}
+                defaultChecked={this.props.defaultChecked} />
+        <div className='mdc-radio__background'>
+          <div className='mdc-radio__outer-circle'/>
+          <div className='mdc-radio__inner-circle'/>
+        </div>
       </div>
     );
   }
