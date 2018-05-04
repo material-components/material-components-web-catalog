@@ -1,0 +1,37 @@
+@import "@material/card/dist/mdc.card";
+@import "@material/card/variables";
+@import "@material/shape/dist/mdc.shape";
+@import "@material/shape/mixins";
+@import "@material/theme/mixins";
+@import "./variables";
+
+.hero-shape-container {
+  @include mdc-shape-angled-corner($catalog-hero-background-color, 10px);
+}
+
+.contained-button-shape-container {
+  @include mdc-shape-angled-corner(white, 10px);
+
+  margin: 10px;
+}
+
+.outlined-button-shape-container {
+  @include mdc-shape-angled-corner(white, 10px);
+  @include mdc-shape-angled-corner-outline(2px, mdc-theme-prop-value(primary));
+
+  margin: 10px;
+}
+
+.card-shape-container {
+  @include mdc-shape-angled-corner($mdc-theme-background, 40px);
+  @include mdc-shape-angled-corner-outline($mdc-card-outline-width, $mdc-card-outline-color);
+}
+
+.card-shape-container .mdc-card {
+  width: 380px;
+}
+
+.demo-shape-icon {
+  width: 48px;
+  height: 48px;
+}

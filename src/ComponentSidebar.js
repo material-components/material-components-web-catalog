@@ -42,9 +42,10 @@ class ComponentSidebar extends Component {
 
   renderSidebarLink(link, index) {
     const {match} = this.props;
+    const path = link.url === '/' ? link.url : match.url + link.url;
     return (
       <NavLink
-        to={`${match.url}${link.url}`}
+        to={`${path}`}
         key={index}
         role='listitem'
         activeClassName='sidebar-active'
@@ -56,6 +57,9 @@ class ComponentSidebar extends Component {
 
   render() {
     const links = [{
+      content: 'Home',
+      url: '/',
+    }, {
       content: 'Button',
       url: '/button',
     }, {
@@ -106,6 +110,9 @@ class ComponentSidebar extends Component {
     }, {
       content: 'Select',
       url: '/select',
+    }, {
+      content: 'Shape',
+      url: '/shape',
     }, {
       content: 'Slider',
       url: '/slider',

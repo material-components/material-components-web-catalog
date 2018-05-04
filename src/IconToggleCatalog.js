@@ -12,7 +12,7 @@ const IconToggleCatalog = () => {
       hero={<IconToggle/>}
       title='Icon Toggle'
       description={description}
-      designLink='https://material.io/guidelines/components/buttons.html#buttons-toggle-buttons'
+      designLink='https://material.io/go/design-buttons'
       docsLink='https://material.io/components/web/catalog/buttons/icon-toggle-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-toggle'
       demos={<IconToggle/>}

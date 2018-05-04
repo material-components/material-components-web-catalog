@@ -13,7 +13,6 @@ $component-list-gutter-size: 8px;
 
 body {
   margin: 0;
-  padding-bottom: 100px;
 }
 
 #catalog-image-list {
@@ -22,6 +21,7 @@ body {
 
   max-width: 1000px;
   padding-top: 128px;
+  padding-bottom: 100px;
 }
 
 @media (max-width: map-get($breakpoints, tablet)) {
@@ -49,8 +49,10 @@ a.catalog-image-link {
 }
 
 // Needed until the following PR gets resolved
-// https://github.com/material-components/material-components-web/pull/2643
-.mdc-top-app-bar--fixed-adjust {
-  margin-top: 0;
-  padding-top: 64px;
+// https://github.com/material-components/material-components-web/pull/2704
+@media (max-width: 599px) {
+  .mdc-top-app-bar--fixed-adjust {
+    margin-top: 0;
+    padding-top: 56px;
+  }
 }
