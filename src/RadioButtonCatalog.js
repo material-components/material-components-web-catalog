@@ -22,6 +22,10 @@ const RadioButtonCatalog = () => {
 class RadioButtonHero extends Component {
   radios = [];
 
+  componentWillUnmount() {
+    this.radios.forEach(radio => radio.destroy());
+  }
+
   render() {
     return (
       <div>
@@ -66,26 +70,20 @@ class FormFieldRadio extends Component {
   }
 }
 
-class Radio extends Component {
-  componentWillUnmount() {
-    this.radio && this.radio.destroy();
-  }
-
-  render() {
-    return(
-      <div className='demo-radio mdc-radio' ref={this.props.refCallback}>
-        <input className='mdc-radio__native-control'
-                type='radio'
-                id={this.props.id}
-                name={this.props.name}
-                defaultChecked={this.props.defaultChecked} />
-        <div className='mdc-radio__background'>
-          <div className='mdc-radio__outer-circle'/>
-          <div className='mdc-radio__inner-circle'/>
-        </div>
+const Radio = (props) => {
+  return(
+    <div className='demo-radio mdc-radio' ref={props.refCallback}>
+      <input className='mdc-radio__native-control'
+              type='radio'
+              id={props.id}
+              name={props.name}
+              defaultChecked={props.defaultChecked} />
+      <div className='mdc-radio__background'>
+        <div className='mdc-radio__outer-circle'/>
+        <div className='mdc-radio__inner-circle'/>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default RadioButtonCatalog;
