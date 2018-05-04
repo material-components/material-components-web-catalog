@@ -35,11 +35,17 @@ class ComponentSidebar extends Component {
   }
 
   componentWillUnmount() {
-    this.drawerEl.removeEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
-    this.drawerEl.removeEventListener('MDCPErsistentDrawer:close', this.handleDrawerClose_);
+    if (this.drawerEl) {
+      this.drawerEl.removeEventListener('MDCPersistentDrawer:open',
+          this.handleDrawerOpen_);
+      this.drawerEl.removeEventListener('MDCPErsistentDrawer:close',
+          this.handleDrawerClose_);
+    }
+    if (this.drawer) {
+      this.drawer.destroy();
+    }
     window.removeEventListener('resize', this.debounceResizeMethod_);
     this.ripples.forEach(ripple => ripple.destroy());
-    this.drawer.destroy();
   }
 
   componentWillReceiveProps(nextProps) {
