@@ -10,8 +10,8 @@ const TopAppBarCatalog = (props) => {
       hero={<TopAppBarHero/>}
       title='Top App Bar'
       description='Top App Bars are a container for items such as application title, navigation icon, and action items.'
-      designLink='https://material.io/guidelines/components/app-bar-top.html'
-      docsLink='https://material.io/components/web/catalog/topappbars/'
+      designLink='https://material.io/go/design-app-bar-top'
+      docsLink='https://material.io/components/web/catalog/top-app-bar/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
       demos={<TopAppBarDemos {...props}/>}
     />

@@ -10,7 +10,7 @@ const DrawerCatalog = (props) => {
       hero={<DrawerHero/>}
       title='Drawer'
       description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'
-      designLink='https://material.io/guidelines/patterns/navigation-drawer.html'
+      designLink='https://material.io/go/design-navigation-drawer'
       docsLink='https://material.io/components/web/catalog/drawers/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer'
       demos={<DrawerDemos {...props} />}

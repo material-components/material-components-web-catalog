@@ -11,7 +11,7 @@ const ElevationCatalog = () => {
       hero={<ElevationHero />}
       title='Elevation'
       description={description}
-      designLink='https://material.io/guidelines/material-design/elevation-shadows.html'
+      designLink='https://material.io/go/design-elevation'
       docsLink='https://material.io/components/web/catalog/elevation/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation'
       demos={<ElevationDemos />}

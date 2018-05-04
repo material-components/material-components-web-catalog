@@ -27,14 +27,17 @@ class ComponentImageList extends Component {
           {this.renderListItem('FAB', 'floating_action_button_180px.svg', 'fab')}
           {this.renderListItem('Icon Toggle', 'icon_toggle_180px.svg', 'icon-toggle')}
           {this.renderListItem('Image List', 'image_list_180px.svg', 'image-list')}
+          {this.renderListItem('Layout Grid', 'layout_grid_180px.svg', 'layout-grid')}
           {this.renderListItem('List', 'list_180px.svg', 'list')}
           {this.renderListItem('Linear Progress', 'linear_progress_180px.svg', 'linear-progress-indicator')}
           {this.renderListItem('Menu', 'menu_180px.svg', 'menu')}
           {this.renderListItem('Radio', 'radio_180px.svg', 'radio')}
           {this.renderListItem('Ripple', 'ripple_180px.svg', 'ripple')}
-          {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
           {this.renderListItem('Select', 'form_field_180px.svg', 'select')}
+          {this.renderListItem('Slider', 'slider_180px.svg', 'slider')}
+          {this.renderListItem('Snackbar', 'snackbar_180px.svg', 'snackbar')}
           {this.renderListItem('Switch', 'switch_180px.svg', 'switch')}
+          {this.renderListItem('Tabs', 'tabs_180px.svg', 'tabs')}
           {this.renderListItem('Text Field', 'form_field_180px.svg', 'text-field')}
           {this.renderListItem('Top App Bar', 'top_app_bar_180px.svg', 'top-app-bar')}
           {this.renderListItem('Typography', 'fonts_180px.svg', 'typography')}

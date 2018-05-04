@@ -12,13 +12,16 @@ import FabCatalog from './FabCatalog';
 import IconToggleCatalog from './IconToggleCatalog';
 import ImageListCatalog from './ImageListCatalog';
 import MenuCatalog from './MenuCatalog';
+import LayoutGridCatalog from './LayoutGridCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
 import ListCatalog from './ListCatalog';
 import RadioButtonCatalog from './RadioButtonCatalog';
 import RippleCatalog from './RippleCatalog';
 import SelectCatalog from './SelectCatalog';
 import SliderCatalog from './SliderCatalog';
+import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
+import TabsCatalog from './TabsCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 import TypographyCatalog from './TypographyCatalog';
@@ -43,14 +46,17 @@ class ComponentPage extends Component {
         <Route path='/component/fab' component={FabCatalog} />
         <Route path='/component/icon-toggle' component={IconToggleCatalog} />
         <Route path='/component/image-list' component={ImageListCatalog} />
+        <Route path='/component/layout-grid' component={LayoutGridCatalog} />
         <Route path='/component/list' component={ListCatalog} />
         <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
         <Route path='/component/menu' component={MenuCatalog} />
         <Route path='/component/radio' component={RadioButtonCatalog} />
         <Route path='/component/ripple' component={RippleCatalog} />
-        <Route path='/component/slider' component={SliderCatalog} />
         <Route path='/component/select' component={SelectCatalog} />
+        <Route path='/component/slider' component={SliderCatalog} />
+        <Route path='/component/snackbar' component={SnackbarCatalog} />
         <Route path='/component/switch' component={SwitchCatalog} />
+        <Route path='/component/tabs' component={TabsCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
         <Route path='/component/typography' component={TypographyCatalog} />

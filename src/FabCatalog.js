@@ -47,7 +47,7 @@ const FabCatalog = () => {
       hero={<Fab />}
       title='Floating Action Button'
       description={description}
-      designLink='https://material.io/guidelines/components/buttons-floating-action-button.html'
+      designLink='https://material.io/go/design-fab'
       docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
       demos={<FabDemos/>}
