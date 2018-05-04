@@ -10,7 +10,7 @@ const LinearProgressCatalog = () => {
       hero={<LinearProgressHero />}
       title='Linear Progress Indicator'
       description='Progress indicators display the length of a process or express an unspecified wait time.'
-      designLink='https://material.io/guidelines/components/progress-activity.html'
+      designLink='https://material.io/go/design-progress-indicators'
       docsLink='https://material.io/components/web/catalog/linear-progress/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress'
       demos={<LinearProgressDemos />}

@@ -11,7 +11,7 @@ const SelectCatalog = () => {
       hero={<SelectHero />}
       title='Select'
       description={description}
-      designLink='https://material.io/guidelines/components/text-fields.html'
+      designLink='https://material.io/go/design-text-fields'
       docsLink='https://material.io/components/web/catalog/input-controls/select-menus/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-select'
       demos={<SelectDemos />}
