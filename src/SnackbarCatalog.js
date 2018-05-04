@@ -11,7 +11,7 @@ const SnackbarCatalog = () => {
       hero={<SnackbarHero />}
       title='Snackbar'
       description='Snackbars provide brief feedback about an operation through a message at the bottom of the screen.'
-      designLink='https://material.io/guidelines/components/snackbars-toasts.html'
+      designLink='https://material.io/go/design-snackbar'
       docsLink='https://material.io/components/web/catalog/snackbars/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar'
       demos={<SnackbarDemo />}

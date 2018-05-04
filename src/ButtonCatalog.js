@@ -10,7 +10,7 @@ const ButtonCatalog = () => {
       hero={<ButtonHero />}
       title='Button'
       description='Buttons communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-      designLink='https://material.io/guidelines/components/buttons.html'
+      designLink='https://material.io/go/design-buttons'
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}

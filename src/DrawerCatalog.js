@@ -10,7 +10,7 @@ const DrawerCatalog = (props) => {
       hero={<DrawerHero/>}
       title='Drawer'
       description='The navigation drawer slides in from the left and contains the navigation destinations for your app.'
-      designLink='https://material.io/guidelines/patterns/navigation-drawer.html'
+      designLink='https://material.io/go/design-navigation-drawer'
       docsLink='https://material.io/components/web/catalog/drawers/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer'
       demos={<DrawerDemos {...props} />}
@@ -43,16 +43,16 @@ class DrawerHero extends Component {
             </header>
             <nav className='mdc-drawer__content mdc-list-group'>
               <div id='icon-with-text-demo' className='mdc-list'>
-                <a className='mdc-list-item mdc-list-item--selected demo-drawer-list-item' href='#' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
+                <a className='mdc-list-item mdc-list-item--selected demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
                   <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
                 </a>
-                <a className='mdc-list-item demo-drawer-list-item' href='#' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
+                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
                   <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
                 </a>
-                <a className='mdc-list-item demo-drawer-list-item' href='#' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
+                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
                   <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
                 </a>
-                <a className='mdc-list-item demo-drawer-list-item' href='#' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
+                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
                   <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
                 </a>
               </div>
@@ -87,7 +87,7 @@ class DrawerDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='drawer-iframe' title={title} sandbox='allow-scripts' src={`${window.location.href}/${path}`} />
+          <iframe className='drawer-iframe' title={title} src={`${window.location.href}/${path}`} />
         </div>
       </div>
     );

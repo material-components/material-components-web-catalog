@@ -12,7 +12,7 @@ const CardCatalog = () => {
       hero={<Card image actions className='demo-card--hero' />}
       title='Card'
       description='Cards contain content and actions about a single subject.'
-      designLink='https://material.io/guidelines/components/cards.html'
+      designLink='https://material.io/go/design-cards'
       docsLink='https://material.io/components/web/catalog/cards/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
       demos={<CardDemos />}
