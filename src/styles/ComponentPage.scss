@@ -35,3 +35,11 @@
 .demo-drawer {
   z-index: 1;
 }
+
+.demo-content--animating-open {
+  transition: 200ms transform cubic-bezier(.4, 0, .2, 1) 50ms;
+}
+
+.demo-content--animating-close {
+  transition: 125ms transform cubic-bezier(.4, 0, .2, 1);
+}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
 
 import ComponentSidebar from './ComponentSidebar';
 import ButtonCatalog from './ButtonCatalog';
@@ -33,6 +34,14 @@ import './styles/ComponentPage.scss';
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
 class ComponentPage extends Component {
+  state = {opening: false, closing: false, drawerWidth: undefined};
+  initDemoContent = (el) => {
+    this.demoContentEl = el;
+  };
+  handleOpen_ = (drawerWidth) => this.handleOpen(drawerWidth);
+  handleClose_ = (drawerWidth) => this.handleClose(drawerWidth);
+  handleTransitionEnd_ = (evt) => this.handleTransitionEnd(evt);
+
   renderComponentRoutes() {
     return (
       <Switch>
@@ -64,12 +73,40 @@ class ComponentPage extends Component {
     );
   }
 
+  handleOpen(drawerWidth) {
+    this.demoContentEl.style.setProperty('transform', `translateX(${-drawerWidth / 2}px)`);
+    this.demoContentEl.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      this.setState({opening: true});
+      this.demoContentEl.style.setProperty('transform', '');
+    });
+  }
+
+  handleClose(drawerWidth) {
+    this.demoContentEl.style.setProperty('transform', `translateX(${drawerWidth / 2}px)`);
+    this.demoContentEl.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      this.setState({closing: true});
+      this.demoContentEl.style.setProperty('transform', '');
+    });
+  }
+
+  handleTransitionEnd(evt) {
+    if (evt.target !== this.demoContentEl) return;
+    this.setState({opening: false, closing: false});
+  }
+
   render() {
+    const classes = classnames('mdc-layout-grid', 'demo-content', {
+      'demo-content--animating-open': this.state.opening,
+      'demo-content--animating-close': this.state.closing,
+    });
+
     return (
       <div>
         <div className='mdc-top-app-bar--fixed-adjust demo-panel'>
-          <ComponentSidebar {...this.props} />
-          <div className='mdc-layout-grid demo-content'>
+          <ComponentSidebar {...this.props} handleOpen={this.handleOpen_} handleClose={this.handleClose_} />
+          <div className={classes} ref={this.initDemoContent} onTransitionEnd={this.handleTransitionEnd_}>
             <div className='mdc-layout-grid__inner'>
               {this.renderComponentRoutes()}
             </div>

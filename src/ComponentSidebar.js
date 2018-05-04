@@ -7,7 +7,16 @@ class ComponentSidebar extends Component {
   initDrawer = ele => {
     if(!ele) return;
     this.drawer = new MDCPersistentDrawer(ele);
+    this.drawerEl = ele;
   };
+
+  handleDrawerOpen_ = () => this.handleDrawerOpen();
+  handleDrawerClose_ = () => this.handleDrawerClose();
+
+  componentDidMount() {
+    this.drawerEl.addEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
+    this.drawerEl.addEventListener('MDCPersistentDrawer:close', this.handleDrawerClose_);
+  }
 
   componentWillReceiveProps(nextProps) {
     if(this.drawer) {
@@ -15,6 +24,20 @@ class ComponentSidebar extends Component {
         this.drawer.open = nextProps.isDrawerOpen;
       }
     }
+  }
+
+  computeDrawerWidth() {
+    return this.drawer.drawer.offsetWidth;
+  }
+
+  handleDrawerOpen() {
+    if (!this.props.handleOpen) return;
+    this.props.handleOpen(this.computeDrawerWidth());
+  }
+
+  handleDrawerClose() {
+    if (!this.props.handleClose) return;
+    this.props.handleClose(this.computeDrawerWidth());
   }
 
   renderSidebarLink(link, index) {
@@ -107,13 +130,13 @@ class ComponentSidebar extends Component {
     }];
 
     return(
-        <aside className='mdc-drawer mdc-drawer--persistent demo-drawer' ref={this.initDrawer}>
-          <nav className='mdc-drawer__drawer'>
-            <nav className='mdc-drawer__content mdc-list-group'>
-              {links.map((link, index) => this.renderSidebarLink(link, index))}
-            </nav>
+      <aside className='mdc-drawer mdc-drawer--persistent demo-drawer' ref={this.initDrawer}>
+        <nav className='mdc-drawer__drawer'>
+          <nav className='mdc-drawer__content mdc-list-group'>
+            {links.map((link, index) => this.renderSidebarLink(link, index))}
           </nav>
-        </aside>
+        </nav>
+      </aside>
     );
   }
 }
