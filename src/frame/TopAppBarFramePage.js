@@ -73,14 +73,14 @@ class TopAppBarFramePage extends Component {
   }
 
   getOffset(type = propToVariant.standard) {
-    let offsetClass = '';
+    let offsetClass = `${type.variant}-fixed-adjust`;
+
     if(type === propToVariant.standard || type === propToVariant.fixed) {
       offsetClass = 'mdc-top-app-bar--fixed-adjust';
     } else if (type === propToVariant['short-collapsed']) {
       offsetClass = 'mdc-top-app-bar--short-fixed-adjust'
-    } else {
-      offsetClass = `${type.variant}-fixed-adjust`;
     }
+
     return offsetClass;
   }
 
