@@ -35,7 +35,7 @@ import './styles/ComponentPage.scss';
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
 class ComponentPage extends Component {
-  state = {opening: false, closing: false, drawerWidth: undefined};
+  state = {opening: false, closing: false};
   initDemoContent = (el) => {
     this.demoContentEl = el;
   };
@@ -76,26 +76,29 @@ class ComponentPage extends Component {
   }
 
   handleOpen(drawerWidth) {
-    this.demoContentEl.style.setProperty('transform', `translateX(${-drawerWidth / 2}px)`);
-    this.demoContentEl.getBoundingClientRect();
-    requestAnimationFrame(() => {
-      this.setState({opening: true});
-      this.demoContentEl.style.setProperty('transform', '');
-    });
+    // Negative drawerWidth because we're sliding from to right
+    this.animate(-drawerWidth, 'opening');
   }
 
   handleClose(drawerWidth) {
-    this.demoContentEl.style.setProperty('transform', `translateX(${drawerWidth / 2}px)`);
-    this.demoContentEl.getBoundingClientRect();
-    requestAnimationFrame(() => {
-      this.setState({closing: true});
-      this.demoContentEl.style.setProperty('transform', '');
-    });
+    // Positive drawerWidth because we're sliding from to left
+    this.animate(drawerWidth, 'closing');
   }
 
   handleTransitionEnd(evt) {
     if (evt.target !== this.demoContentEl) return;
+    if (!this.state.opening && !this.state.closing) return;
     this.setState({opening: false, closing: false});
+  }
+
+  animate(drawerWidth, stateName) {
+    this.demoContentEl.style.setProperty('transform', `translateX(${drawerWidth / 2}px)`);
+    // Force repaint
+    this.demoContentEl.getBoundingClientRect();
+    requestAnimationFrame(() => {
+      this.setState({[stateName]: true});
+      this.demoContentEl.style.setProperty('transform', '');
+    });
   }
 
   render() {
