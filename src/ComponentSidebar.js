@@ -1,13 +1,28 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
+import {MDCPersistentDrawer} from '@material/drawer';
 
 class ComponentSidebar extends Component {
+  drawer = null;
+  initDrawer = ele => {
+    if(!ele) return;
+    this.drawer = new MDCPersistentDrawer(ele);
+  };
+
+  componentWillReceiveProps(nextProps) {
+    if(this.drawer) {
+      if (this.props.isDrawerOpen !== nextProps.isDrawerOpen) {
+        this.drawer.open = !this.drawer.open;
+      }
+    }
+  }
 
   renderSidebarLink(link, index) {
     const {match} = this.props;
+    const path = link.url === '/' ? link.url : match.url + link.url;
     return (
       <NavLink
-        to={`${match.url}${link.url}`}
+        to={`${path}`}
         key={index}
         role='listitem'
         activeClassName='sidebar-active'
@@ -19,6 +34,9 @@ class ComponentSidebar extends Component {
 
   render() {
     const links = [{
+      content: 'Home',
+      url: '/',
+    }, {
       content: 'Button',
       url: '/button',
     }, {
@@ -93,9 +111,13 @@ class ComponentSidebar extends Component {
     }];
 
     return(
-      <section className='sidebar mdc-layout-grid__cell mdc-layout-grid__cell--span-2'>
-        {links.map((link, index) => this.renderSidebarLink(link, index))}
-      </section>
+        <aside className='mdc-drawer mdc-drawer--persistent demo-drawer' ref={this.initDrawer}>
+          <nav className='mdc-drawer__drawer'>
+            <nav className='mdc-drawer__content mdc-list-group'>
+              {links.map((link, index) => this.renderSidebarLink(link, index))}
+            </nav>
+          </nav>
+        </aside>
     );
   }
 }
