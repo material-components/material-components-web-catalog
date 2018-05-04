@@ -86,7 +86,7 @@ class DrawerDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='drawer-iframe' title={title} sandbox='allow-scripts' src={drawerVariantLink} />
+          <iframe className='drawer-iframe' title={title} src={drawerVariantLink} />
         </div>
       </div>
     );
