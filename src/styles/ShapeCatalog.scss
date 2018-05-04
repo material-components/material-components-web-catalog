@@ -3,7 +3,7 @@
 @import "@material/shape/dist/mdc.shape";
 @import "@material/shape/mixins";
 @import "@material/theme/mixins";
-@import "./constants";
+@import "./variables";
 
 .hero-shape-container {
   @include mdc-shape-angled-corner($catalog-hero-background-color, 10px);
