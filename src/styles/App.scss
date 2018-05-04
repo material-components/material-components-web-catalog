@@ -49,8 +49,10 @@ a.catalog-image-link {
 }
 
 // Needed until the following PR gets resolved
-// https://github.com/material-components/material-components-web/pull/2643
-.mdc-top-app-bar--fixed-adjust {
-  margin-top: 0;
-  padding-top: 64px;
+// https://github.com/material-components/material-components-web/pull/2704
+@media (max-width: 599px) {
+  .mdc-top-app-bar--fixed-adjust {
+    margin-top: 0;
+    padding-top: 56px;
+  }
 }

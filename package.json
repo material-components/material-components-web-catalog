@@ -27,7 +27,7 @@
     "@material/tabs": "^0.35.0",
     "@material/textfield": "^0.35.0",
     "@material/theme": "^0.35.0",
-    "@material/top-app-bar": "^0.35.0",
+    "@material/top-app-bar": "^0.35.1",
     "@material/typography": "^0.35.0",
     "ajv": "^6.4.0",
     "autoprefixer": "7.1.6",

@@ -9,7 +9,7 @@ const propToVariant = {
   'fixed': {title: 'Fixed', variant: 'mdc-top-app-bar--fixed'},
   'prominent': {title: 'Prominent', variant: 'mdc-top-app-bar--prominent'},
   'dense': {title: 'Dense', variant: 'mdc-top-app-bar--dense'},
-  'standard': {title: 'Standard', variant: 'mdc-top-app-bar--standard'},
+  'standard': {title: 'Standard', variant: ''},
 };
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -52,7 +52,7 @@ class TopAppBarFramePage extends Component {
             {this.getIcons(type.variant)}
           </div>
         </header>
-        <div>
+        <div className={this.getOffset(type)}>
           <div>
             <p>
               {loremIpsum}
@@ -70,6 +70,18 @@ class TopAppBarFramePage extends Component {
         </div>
       </div>
     );
+  }
+
+  getOffset(type = propToVariant.standard) {
+    let offsetClass = '';
+    if(type === propToVariant.standard || type === propToVariant.fixed) {
+      offsetClass = 'mdc-top-app-bar--fixed-adjust';
+    } else if (type === propToVariant['short-collapsed']) {
+      offsetClass = 'mdc-top-app-bar--short-fixed-adjust'
+    } else {
+      offsetClass = `${type.variant}-fixed-adjust`;
+    }
+    return offsetClass;
   }
 
   getIcons(variant) {
