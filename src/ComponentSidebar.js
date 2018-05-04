@@ -195,9 +195,7 @@ class ComponentSidebar extends Component {
         this.drawer = new MDCTemporaryDrawer(this.drawerEl);
       }, 225)
 
-    }
-
-    if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCTemporaryDrawer) {
+    } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCTemporaryDrawer) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
