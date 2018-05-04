@@ -13,7 +13,6 @@ $component-list-gutter-size: 8px;
 
 body {
   margin: 0;
-  padding-bottom: 100px;
 }
 
 #catalog-image-list {
@@ -22,6 +21,7 @@ body {
 
   max-width: 1000px;
   padding-top: 128px;
+  padding-bottom: 100px;
 }
 
 @media (max-width: map-get($breakpoints, tablet)) {
