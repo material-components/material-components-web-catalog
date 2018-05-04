@@ -19,13 +19,17 @@ const RadioButtonCatalog = () => {
   );
 }
 
-const RadioButtonHero = () => {
-  return (
-    <div>
-      <Radio name='hero-radio-set' id='hero-radio-1' defaultChecked />
-      <Radio name='hero-radio-set' id='hero-radio-2' />
-    </div>
-  );
+class RadioButtonHero extends Component {
+  radios = [];
+
+  render() {
+    return (
+      <div>
+        <Radio name='hero-radio-set' id='hero-radio-1' defaultChecked refCallback={el => el && this.radios.push(new MDCRadio(el))} />
+        <Radio name='hero-radio-set' id='hero-radio-2' refCallback={el => el && this.radios.push(new MDCRadio(el))} />
+      </div>
+    );
+  }
 }
 
 const RadioButtonDemos = () => {
@@ -52,17 +56,10 @@ class FormFieldRadio extends Component {
   render() {
     return(
       <div className='demo-radio-form-field mdc-form-field' ref={el => this.formField = el && new MDCFormField(el)}>
-        <div className='mdc-radio' ref={el => this.radio = el && new MDCRadio(el)}>
-          <input className='mdc-radio__native-control'
-                 type='radio'
-                 id={this.props.id}
-                 name={this.props.name}
-                 defaultChecked={this.props.defaultChecked} />
-          <div className='mdc-radio__background'>
-            <div className='mdc-radio__outer-circle'/>
-            <div className='mdc-radio__inner-circle'/>
-          </div>
-        </div>
+        <Radio name={this.props.name}
+               id={this.props.id}
+               defaultChecked={this.props.defaultChecked} 
+               refCallback={el => this.radio = el && new MDCRadio(el)} />
         <label htmlFor={this.props.id}>{this.props.label}</label>
       </div>
     );
@@ -76,7 +73,7 @@ class Radio extends Component {
 
   render() {
     return(
-      <div className='demo-radio mdc-radio' ref={el => this.radio = el && new MDCRadio(el)}>
+      <div className='demo-radio mdc-radio' ref={this.props.refCallback}>
         <input className='mdc-radio__native-control'
                 type='radio'
                 id={this.props.id}
