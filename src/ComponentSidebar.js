@@ -28,25 +28,18 @@ class ComponentSidebar extends Component {
     }
   };
 
-  debounceResizeMethod_ = () => {
-    clearTimeout(this.debounceTimeout);
-    this.debounceTimeout = setTimeout(() =>
-        this.handleResize_(), 50)
-  };
-
-  handleListItemClick_ = (history, path, e) => {
-    history.push(path);
-    e.preventDefault();
-
-    if (this.drawer instanceof MDCTemporaryDrawer && this.drawer.open) {
-      this.drawer.open = false;
-    }
-  };
-
   componentDidMount() {
     this.drawerEl.addEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
     this.drawerEl.addEventListener('MDCPersistentDrawer:close', this.handleDrawerClose_);
     window.addEventListener('resize', this.debounceResizeMethod_);
+  }
+
+  componentWillUnmount() {
+    this.drawerEl.removeEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
+    this.drawerEl.removeEventListener('MDCPErsistentDrawer:close', this.handleDrawerClose_);
+    window.removeEventListener('resize', this.debounceResizeMethod_);
+    this.ripples.forEach(ripple => ripple.destroy());
+    this.drawer.destroy();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -207,6 +200,21 @@ class ComponentSidebar extends Component {
       }, 225)
     }
   }
+
+  debounceResizeMethod_ = () => {
+    clearTimeout(this.debounceTimeout);
+    this.debounceTimeout = setTimeout(() =>
+        this.handleResize_(), 50)
+  };
+
+  handleListItemClick_ = (history, path, e) => {
+    history.push(path);
+    e.preventDefault();
+
+    if (this.drawer instanceof MDCTemporaryDrawer && this.drawer.open) {
+      this.drawer.open = false;
+    }
+  };
 }
 
 
