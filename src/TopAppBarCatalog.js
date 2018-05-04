@@ -82,7 +82,7 @@ class TopAppBarDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='frame' title={title} sandbox='allow-scripts allow-same-origin' src={`${window.location.href}/${path}`} />
+          <iframe className='frame' title={title} src={`${window.location.href}/${path}`} />
         </div>
       </div>
     );
