@@ -12,16 +12,17 @@ class ComponentSidebar extends Component {
   componentWillReceiveProps(nextProps) {
     if(this.drawer) {
       if (this.props.isDrawerOpen !== nextProps.isDrawerOpen) {
-        this.drawer.open = nextProps.isDrawerOpen;
+        this.drawer.open = !this.drawer.open;
       }
     }
   }
 
   renderSidebarLink(link, index) {
     const {match} = this.props;
+    const path = link.url === '/' ? link.url : match.url + link.url;
     return (
       <NavLink
-        to={`${match.url}${link.url}`}
+        to={`${path}`}
         key={index}
         role='listitem'
         activeClassName='sidebar-active'
@@ -33,6 +34,9 @@ class ComponentSidebar extends Component {
 
   render() {
     const links = [{
+      content: 'Home',
+      url: '/',
+    }, {
       content: 'Button',
       url: '/button',
     }, {
