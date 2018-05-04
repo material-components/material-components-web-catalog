@@ -1,27 +1,58 @@
 import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom';
-import {MDCPersistentDrawer} from '@material/drawer';
+import {MDCPersistentDrawer, MDCTemporaryDrawer} from '@material/drawer';
+import {MDCRipple} from '@material/ripple';
+
+const SCREEN_WIDTH_BREAKPOINT = 799;
+const PERSISTENT_DRAWER_CLASS = 'mdc-drawer--persistent';
+const TEMPORARY_DRAWER_CLASS = 'mdc-drawer--temporary';
 
 class ComponentSidebar extends Component {
   drawer = null;
-  initDrawer = ele => {
-    if(!ele) return;
-    this.drawer = new MDCPersistentDrawer(ele);
-    this.drawerEl = ele;
-  };
+  ripples = [];
+  debounceTimeout = 0;
 
+  initRipple = ele => ele && this.ripples.push(new MDCRipple(ele));
   handleDrawerOpen_ = () => this.handleDrawerOpen();
   handleDrawerClose_ = () => this.handleDrawerClose();
+
+  initDrawer = ele => {
+    if(!ele) return;
+    this.drawerEl = ele;
+
+    if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT) {
+      this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
+      this.drawer = new MDCPersistentDrawer(ele);
+    } else {
+      this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
+      this.drawer = new MDCTemporaryDrawer(ele);
+    }
+  };
+
+  debounceResizeMethod_ = () => {
+    clearTimeout(this.debounceTimeout);
+    this.debounceTimeout = setTimeout(() =>
+        this.handleResize_(), 50)
+  };
+
+  handleListItemClick_ = (history, path, e) => {
+    history.push(path);
+    e.preventDefault();
+
+    if (this.drawer instanceof MDCTemporaryDrawer && this.drawer.open) {
+      this.drawer.open = false;
+    }
+  };
 
   componentDidMount() {
     this.drawerEl.addEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
     this.drawerEl.addEventListener('MDCPersistentDrawer:close', this.handleDrawerClose_);
+    window.addEventListener('resize', this.debounceResizeMethod_);
   }
 
   componentWillReceiveProps(nextProps) {
     if(this.drawer) {
       if (this.props.isDrawerOpen !== nextProps.isDrawerOpen) {
-        this.drawer.open = nextProps.isDrawerOpen;
+        this.drawer.open = !this.drawer.open;
       }
     }
   }
@@ -41,17 +72,22 @@ class ComponentSidebar extends Component {
   }
 
   renderSidebarLink(link, index) {
-    const {match} = this.props;
+    const {match, history, location} = this.props;
     const path = link.url === '/' ? link.url : match.url + link.url;
+    const className = path === location.pathname ? 'mdc-list-item' : 'mdc-list-item';
     return (
-      <NavLink
-        to={`${path}`}
+      <a
+        onClick={(e) => this.handleListItemClick_(history, path, e)}
         key={index}
         role='listitem'
-        activeClassName='sidebar-active'
-        className='mdc-list-item'>
-          {link.content}
-       </NavLink>
+        className={className}
+        ref={this.initRipple}
+        tabIndex='0'
+        >
+        <span className={path === location.pathname ? 'sidebar-active' : ''}>
+        {link.content}
+      </span>
+       </a>
     );
   }
 
@@ -137,7 +173,7 @@ class ComponentSidebar extends Component {
     }];
 
     return(
-      <aside className='mdc-drawer mdc-drawer--persistent demo-drawer' ref={this.initDrawer}>
+      <aside className='mdc-drawer demo-drawer' ref={this.initDrawer}>
         <nav className='mdc-drawer__drawer'>
           <nav className='mdc-drawer__content mdc-list-group'>
             {links.map((link, index) => this.renderSidebarLink(link, index))}
@@ -145,6 +181,33 @@ class ComponentSidebar extends Component {
         </nav>
       </aside>
     );
+  }
+
+  handleResize_() {
+    if (document.body.offsetWidth <= SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCPersistentDrawer) {
+      if (this.drawer.open) {
+        this.drawer.open = false;
+      }
+      setTimeout(() => {
+        this.drawer.destroy();
+        this.drawerEl.classList.remove(PERSISTENT_DRAWER_CLASS);
+        this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
+        this.drawer = new MDCTemporaryDrawer(this.drawerEl);
+      }, 225)
+
+    }
+
+    if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCTemporaryDrawer) {
+      if (this.drawer.open) {
+        this.drawer.open = false;
+      }
+      setTimeout(() => {
+        this.drawer.destroy();
+        this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
+        this.drawerEl.classList.remove(TEMPORARY_DRAWER_CLASS);
+        this.drawer = new MDCPersistentDrawer(this.drawerEl);
+      }, 225)
+    }
   }
 }
 

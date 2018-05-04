@@ -35,6 +35,10 @@
 
 .demo-drawer {
   z-index: 1;
+
+  .mdc-list-item:not(.sidebar-active) {
+    font-weight: 400;
+  }
 }
 
 .demo-content--animating-open {
