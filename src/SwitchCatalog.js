@@ -9,7 +9,7 @@ const SwitchCatalog = () => {
       hero={<SwitchHero/>}
       title='Switch'
       description='Switches communicate an action a user can take. They are typically placed throughout your UI, in places like dialogs, forms, cards, and toolbars.'
-      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-switch'
+      designLink='https://material.io/go/design-switches'
       docsLink='https://material.io/components/web/catalog/input-controls/switches/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-switch'
       demos={<SwitchDemos/>}
