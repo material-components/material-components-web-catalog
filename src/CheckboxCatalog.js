@@ -10,7 +10,7 @@ const CheckboxCatalog = () => {
       hero={<CheckboxHero/>}
       title='Checkbox'
       description='Checkboxes allow the user to select multiple options from a set.'
-      designLink='https://material.io/guidelines/components/selection-controls.html#selection-controls-checkbox'
+      designLink='https://material.io/go/design-checkboxes'
       docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
       demos={<CheckboxDemos/>}
@@ -78,17 +78,14 @@ class CheckboxDemos extends Component {
     this.checkboxes.forEach(checkbox => checkbox.destroy());
   }
 
-  renderCheckboxVariant(title, indeterminate) {
+  renderCheckboxVariant(title, inputRefCallback) {
     return (
       <div>
         <h3 className='mdc-typography--subheading2'>{title}</h3>
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'
-                 ref={input => {
-                   if (!input) return;
-                   input.indeterminate = indeterminate;
-                 }}/>
+                 ref={inputRefCallback}/>
           <div className='mdc-checkbox__background'>
             <svg className='mdc-checkbox__checkmark'
                  viewBox='0 0 24 24'>
@@ -107,7 +104,15 @@ class CheckboxDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderCheckboxVariant('Indeterminate', true)}
+        {this.renderCheckboxVariant('Unchecked')}
+        {this.renderCheckboxVariant('Indeterminate', inputEl => {
+          if (!inputEl) return;
+          inputEl.indeterminate = true;
+        })}
+        {this.renderCheckboxVariant('Checked', inputEl => {
+          if (!inputEl) return;
+          inputEl.checked = true;
+        })}
       </div>
     );
   }

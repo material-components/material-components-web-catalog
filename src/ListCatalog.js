@@ -10,7 +10,7 @@ const ListCatalog = () => (
     hero={<ListHero/>}
     title='List'
     description='Lists present multiple line items vertically as a single continuous element.'
-    designLink='https://material.io/guidelines/components/lists.html'
+    designLink='https://material.io/go/design-lists'
     docsLink='https://material.io/components/web/catalog/lists/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-list'
     demos={<ListDemos/>}

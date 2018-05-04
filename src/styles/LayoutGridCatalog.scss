@@ -1,0 +1,27 @@
+@import '@material/layout-grid/dist/mdc.layout-grid';
+
+.demo-grid {
+  background: rgba(0, 0, 0, 0.2);
+  min-width: 360px;
+}
+
+.demo-grid--alignment {
+  max-width: 800px;
+}
+
+.demo-grid--cell-alignment {
+  min-height: 200px;
+}
+
+.demo-inner {
+  min-height: 200px;
+}
+
+.demo-cell {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100px;
+}
+
+.demo-cell--alignment {
+  max-height: 50px;
+}
