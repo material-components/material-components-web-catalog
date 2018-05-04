@@ -73,6 +73,7 @@ class TopAppBarDemos extends Component {
   getVariant(title, path) {
     const {match} = this.props;
     const topAppBarVariantLink = `#${match.url}/${path}`;
+    const src = `${window.location.protocol}//${window.location.host}${window.location.pathname}?bust${topAppBarVariantLink}`;
 
     return (
       <div className='demo'>
@@ -82,7 +83,7 @@ class TopAppBarDemos extends Component {
           </a>
         </div>
         <div>
-          <iframe className='frame' title={title} src={`${window.location.href}/${path}`} />
+          <iframe className='frame' title={title} src={src} />
         </div>
       </div>
     );
