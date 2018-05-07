@@ -51,7 +51,7 @@ class MenuDemos extends Component {
   render() {
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>Anchored Menu</h3>
+        <h3 className='mdc-typography--subtitle1'>Anchored Menu</h3>
         <button className='mdc-button' onClick={this.handleOpenClick_}>Open menu</button>
         <div className='mdc-menu-anchor'>
           <Menu open={this.state.open} focusIndex={this.state.focusIndex} handleSelected={this.handleSelected_} handleCancel={this.handleCancel_}>

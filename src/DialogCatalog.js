@@ -92,7 +92,7 @@ class DialogDemos extends Component {
   render() {
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>Scrollable Dialog</h3>
+        <h3 className='mdc-typography--subtitle1'>Scrollable Dialog</h3>
         <Dialog open={this.state.open} handleAccept={this.handleAccept_} handleCancel={this.handleCancel_}/>
         <button className='mdc-button' onClick={this.handleOpenClick_}>Open dialog</button>
         {this.renderMessage()}

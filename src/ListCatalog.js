@@ -95,7 +95,7 @@ class List extends Component {
 
 const ListVariant = (props) => (
   <div>
-    <h3 className='mdc-typography--subheading2'>{props.title}</h3>
+    <h3 className='mdc-typography--subtitle1'>{props.title}</h3>
     <List {...props} />
   </div>
 );

@@ -50,7 +50,7 @@ class SwitchDemos extends Component {
   renderSwitchVariant(title, variant) {
     return (
         <div>
-          <h3 className='mdc-typography--subtitle2'>{title}</h3>
+          <h3 className='mdc-typography--subtitle1'>{title}</h3>
           <div className='switch-demo'>
           <div className='mdc-switch'>
             <input type='checkbox' id={`${title}-switch`} className='mdc-switch__native-control' role='switch'

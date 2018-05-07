@@ -69,7 +69,7 @@ class SelectDemos extends Component {
   renderSelectVariant(title, variantClass) {
     return (
       <div>
-        <h3>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className={`mdc-select demo-select ${variantClass}`} ref={this.initSelect}>
           <select className='mdc-select__native-control' defaultValue=''>
             <option value='' disabled></option>

@@ -32,7 +32,7 @@ const TabsHero = () => {
 const TabsDemos = () => {
   return (
     <div>
-      <h3 className='mdc-typography--subheading2'>Scrolling Tabs</h3>
+      <h3 className='mdc-typography--subtitle1'>Scrolling Tabs</h3>
       <TabScroller>
         <Tab active name='Passionfruit' />
         <Tab name='Orange' />

@@ -31,10 +31,10 @@ class Fab extends Component {
 
 const FabDemos = () => (
   <div>
-    <h3 className='mdc-typography--subheading2'>Standard Floating Action Button</h3>
+    <h3 className='mdc-typography--subtitle1'>Standard Floating Action Button</h3>
     <Fab />
 
-    <h3 className='mdc-typography--subheading2'>Mini Floating Action Button</h3>
+    <h3 className='mdc-typography--subtitle1'>Mini Floating Action Button</h3>
     <Fab mini />
   </div>
 );

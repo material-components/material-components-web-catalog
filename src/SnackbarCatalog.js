@@ -57,7 +57,7 @@ class SnackbarDemo extends Component {
   render() {
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>Snackbars</h3>
+        <h3 className='mdc-typography--subtitle1'>Snackbars</h3>
         <button className='mdc-button mdc-button--raised snackbar-demo-button' onClick={this.handleShowClick}>
           Show snackbar
         </button>
