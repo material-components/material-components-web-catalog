@@ -58,7 +58,7 @@ class ShapeDemos extends Component {
   render() {
     return (
       <div>
-        <h3>Contained Button</h3>
+        <h3 className='mdc-typography--subtitle1'>Contained Button</h3>
         <div className='contained-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--unelevated' ref={this.initRipple}>Skip</button>
           {this.renderCorner('top-left')}
@@ -72,7 +72,7 @@ class ShapeDemos extends Component {
           {this.renderCorner('bottom-right')}
         </div>
 
-        <h3>Outlined Button</h3>
+        <h3 className='mdc-typography--subtitle1'>Outlined Button</h3>
         <div className='outlined-button-shape-container mdc-shape-container'>
           <button className='mdc-button mdc-button--outlined' ref={this.initRipple}>Skip</button>
           {this.renderCorner('top-left')}
@@ -86,7 +86,7 @@ class ShapeDemos extends Component {
           {this.renderCorner('bottom-right')}
         </div>
 
-        <h3>Card</h3>
+        <h3 className='mdc-typography--subtitle1'>Card</h3>
         <div className='card-shape-container mdc-shape-container'>
           <div className='mdc-card mdc-card--outlined'>
             <div className='mdc-card__primary-action' ref={this.initRipple}>

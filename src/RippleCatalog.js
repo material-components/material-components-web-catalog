@@ -58,7 +58,7 @@ class RippleDemos extends Component {
         <div>
           <div className='ripple-demos'>
             <div className='ripple-demo-col'>
-              <h3>{title}</h3>
+              <h3 className='mdc-typography--subtitle1'>{title}</h3>
               <div tabIndex='0' className={variant} ref={this.initRipple}>
                 {text}
               </div>

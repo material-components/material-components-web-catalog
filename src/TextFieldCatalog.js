@@ -114,7 +114,7 @@ class TextFieldDemos extends Component {
     const variantId = args.reduce((allArgs, arg) => `${allArgs}-${arg}`, '');
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='text-field-row'>
           <TextField {...variants} textFieldId={`text-field-${variantId}`} />
           <TextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
@@ -130,7 +130,7 @@ class TextFieldDemos extends Component {
     const variantId = args.reduce((allArgs, arg) => `${allArgs}-${arg}`, 'fullwidth');
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='text-field-row text-field-row-fullwidth'>
           <FullWidthTextField {...variants} textFieldId={`text-field-${variantId}`} />
           <FullWidthTextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />

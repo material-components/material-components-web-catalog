@@ -57,10 +57,10 @@ function ImageListDemos() {
 
   return (
     <div>
-      <h3 className='mdc-typography--subheading2'>Standard Image List with Text Protection</h3>
+      <h3 className='mdc-typography--subtitle1'>Standard Image List with Text Protection</h3>
       <ImageList className='standard-image-list mdc-image-list--with-text-protection' items={standardImageListItems}
         includeAspectContainer />
-      <h3 className='mdc-typography--subheading2'>Masonry Image List</h3>
+      <h3 className='mdc-typography--subtitle1'>Masonry Image List</h3>
       <ImageList className='mdc-image-list--masonry masonry-image-list' items={masonryImageListItems} />
     </div>
   );

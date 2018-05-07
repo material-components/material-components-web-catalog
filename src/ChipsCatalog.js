@@ -106,7 +106,7 @@ class ChipsDemos extends Component {
     const initChipSet = chipSetEl => chipSetEl && this.chipSets.push(new MDCChipSet(chipSetEl));
     return (
       <div>
-        <h3>Choice Chips</h3>
+        <h3 className='mdc-typography--subtitle1'>Choice Chips</h3>
         <div className='mdc-chip-set mdc-chip-set--choice' ref={initChipSet}>
           {this.renderChip('Extra Small')}
           {this.renderChip('Small')}
@@ -115,7 +115,7 @@ class ChipsDemos extends Component {
           {this.renderChip('Extra Large')}
         </div>
 
-        <h3>Filter Chips</h3>
+        <h3 className='mdc-typography--subtitle1'>Filter Chips</h3>
         <h3 className='mdc-typography--body2'>No leading icon</h3>
         <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
           {this.renderFilterChip('Tops', 'mdc-chip--selected')}
@@ -140,7 +140,7 @@ class ChipsDemos extends Component {
         </div>
 
         <div className='catalog-variant'>
-          <h3>Action Chips</h3>
+          <h3 className='mdc-typography--subtitle1'>Action Chips</h3>
           <div className='mdc-chip-set' ref={initChipSet}>
             {this.renderChip('Add to calendar',
               '' /* classes */,

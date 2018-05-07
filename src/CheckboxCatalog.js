@@ -81,7 +81,7 @@ class CheckboxDemos extends Component {
   renderCheckboxVariant(title, inputRefCallback) {
     return (
       <div>
-        <h3 className='mdc-typography--subheading2'>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'

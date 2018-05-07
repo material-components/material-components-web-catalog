@@ -73,7 +73,7 @@ class LinearProgressDemos extends Component {
     const initFunction = buffer ? this.initBufferIndicator : this.initIndicator;
     return (
       <div className='demo-linear-progress-indicator'>
-        <h3>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div role='progressbar'
           className={`mdc-linear-progress ${variantClass}`}
           ref={initFunction}>

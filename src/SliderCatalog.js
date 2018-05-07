@@ -61,7 +61,7 @@ class SliderDemos extends Component {
   renderSliderVariant(title, variantClass) {
     return (
       <div className='demo-slider'>
-        <h3>{title}</h3>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className={`mdc-slider ${variantClass}`} tabIndex='0' role='slider'
           aria-valuemin='0' aria-valuemax='50' aria-valuenow='25'
           aria-label='Select Value'

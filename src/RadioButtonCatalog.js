@@ -32,7 +32,7 @@ const RadioButtonHero = () => {
 const RadioButtonDemos = () => {
   return (
     <div>
-      <h3 className='mdc-typography--subtitle2'>Radio Buttons</h3>
+      <h3 className='mdc-typography--subtitle1'>Radio Buttons</h3>
       <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 1' defaultChecked />
       <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 2' />
     </div>

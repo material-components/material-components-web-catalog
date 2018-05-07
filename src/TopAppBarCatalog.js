@@ -79,7 +79,7 @@ class TopAppBarDemos extends Component {
       <div className='demo'>
         <div>
           <a href={topAppBarVariantLink} target='_blank'>
-            <h3 className='mdc-typography--subtitle2'>{title}</h3>
+            <h3 className='mdc-typography--subtitle1'>{title}</h3>
           </a>
         </div>
         <div>
