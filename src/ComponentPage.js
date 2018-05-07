@@ -103,7 +103,7 @@ class ComponentPage extends Component {
   }
 
   render() {
-    const classes = classnames('mdc-layout-grid', 'demo-content', {
+    const classes = classnames('demo-content', {
       'demo-content--animating-open': this.state.opening,
       'demo-content--animating-close': this.state.closing,
     });
@@ -113,9 +113,7 @@ class ComponentPage extends Component {
         <div className='mdc-top-app-bar--fixed-adjust demo-panel'>
           <ComponentSidebar {...this.props} handleOpen={this.handleOpen_} handleClose={this.handleClose_} />
           <div className={classes} ref={this.initDemoContent} onTransitionEnd={this.handleTransitionEnd_}>
-            <div className='mdc-layout-grid__inner'>
-              {this.renderComponentRoutes()}
-            </div>
+            {this.renderComponentRoutes()}
           </div>
         </div>
       </div>

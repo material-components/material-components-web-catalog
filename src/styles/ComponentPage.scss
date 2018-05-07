@@ -1,4 +1,3 @@
-@import "@material/layout-grid/dist/mdc.layout-grid";
 @import "@material/list/dist/mdc.list";
 @import "@material/typography/mixins";
 @import "./variables";
@@ -15,10 +14,6 @@
 
 .sidebar-active {
   font-weight: 600;
-}
-
-.demo-wrapper {
-  max-width: 1000px;
 }
 
 .demo-title {
@@ -50,5 +45,7 @@
 }
 
 .demo-content {
-  padding-bottom: 100px;
+  width: 900px;
+  margin: 0 auto;
+  padding: 40px 16px 100px;
 }
