@@ -19,7 +19,7 @@ body {
   @include mdc-image-list-aspect(1); // Images are square
   @include mdc-image-list-standard-columns(4, $component-list-gutter-size);
 
-  max-width: 1000px;
+  max-width: 900px;
   padding-top: 128px;
   padding-bottom: 100px;
 }
