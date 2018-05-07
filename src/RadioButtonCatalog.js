@@ -40,7 +40,7 @@ const RadioButtonDemos = () => {
 }
 
 class Radio extends Component {
-  initRadio = (radioEl) => this.radio = new MDCRadio(radioEl);
+  initRadio = (radioEl) => this.radio = radioEl && new MDCRadio(radioEl);
 
   componentWillUnmount() {
     this.radio.destroy();
@@ -55,18 +55,17 @@ class Radio extends Component {
     const classes = classnames('mdc-radio', this.props.className);
 
     return (
-      <div className={classes}
-           ref={this.initRadio}>
-      <input className='mdc-radio__native-control'
-              type='radio'
-              id={this.props.id}
-              name={this.props.name}
-              defaultChecked={this.props.defaultChecked} />
-      <div className='mdc-radio__background'>
-        <div className='mdc-radio__outer-circle'/>
-        <div className='mdc-radio__inner-circle'/>
+      <div className={classes} ref={this.initRadio}>
+        <input className='mdc-radio__native-control'
+                type='radio'
+                id={this.props.id}
+                name={this.props.name}
+                defaultChecked={this.props.defaultChecked} />
+        <div className='mdc-radio__background'>
+          <div className='mdc-radio__outer-circle'/>
+          <div className='mdc-radio__inner-circle'/>
+        </div>
       </div>
-    </div>
     )
   }
 }

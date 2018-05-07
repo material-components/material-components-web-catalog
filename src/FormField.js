@@ -6,8 +6,8 @@ import './styles/FormField.scss';
 
 function withFormField(WrappedComponent) {
   return class extends Component {
-    initLabel = (formFieldEl) => this.formField = new MDCFormField(formFieldEl);
-    handleInit = (input) => this.input = input;
+    initLabel = (formFieldEl) => this.formField = formFieldEl && new MDCFormField(formFieldEl);
+    handleInit = (inputEl) => this.input = inputEl;
 
     componentWillMount() {
       this.id_ = Math.random();
