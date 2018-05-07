@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCRipple} from '@material/ripple';
+import {withFormField} from './FormField';
+import {MDCRadio} from '@material/radio';
 
 import './styles/RadioButtonCatalog.scss';
 
@@ -18,76 +20,56 @@ const RadioButtonCatalog = () => {
   );
 }
 
-class RadioButtonHero extends Component {
+const RadioButtonHero = () => {
+  return (
+    <div>
+      <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-1' defaultChecked />
+      <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-2' />
+    </div>
+  );
+};
 
-  ripples = [];
-  initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
+const RadioButtonDemos = () => {
+  return (
+    <div>
+      <h3 className='mdc-typography--subtitle2'>Radio Buttons</h3>
+      <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 1' defaultChecked />
+      <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 2' />
+    </div>
+  );
+}
+
+class Radio extends Component {
+  initRadio = (radioEl) => this.radio = radioEl && new MDCRadio(radioEl);
 
   componentWillUnmount() {
-    this.ripples.forEach(ripple => ripple.destroy());
+    this.radio.destroy();
+  }
+
+  componentDidMount() {
+    if (!this.props.handleInit || !this.radio) return;
+    this.props.handleInit(this.radio);
   }
 
   render() {
+    const classes = classnames('mdc-radio', this.props.className);
+
     return (
-      <div>
-        <div className='mdc-radio'>
-          <input className='mdc-radio__native-control' type='radio' id='hero-radio-1' name='radios' defaultChecked />
-          <div className='mdc-radio__background'>
-            <div className='mdc-radio__outer-circle'/>
-            <div className='mdc-radio__inner-circle'/>
-          </div>
-        </div>
-        <div className='mdc-radio'>
-          <input className='mdc-radio__native-control' type='radio' id='hero-radio-2' name='radios' />
-          <div className='mdc-radio__background'>
-            <div className='mdc-radio__outer-circle'/>
-            <div className='mdc-radio__inner-circle'/>
-          </div>
+      <div className={classes} ref={this.initRadio}>
+        <input className='mdc-radio__native-control'
+                type='radio'
+                id={this.props.id}
+                name={this.props.name}
+                defaultChecked={this.props.defaultChecked} />
+        <div className='mdc-radio__background'>
+          <div className='mdc-radio__outer-circle'/>
+          <div className='mdc-radio__inner-circle'/>
         </div>
       </div>
-    );
+    )
   }
 }
 
-class RadioButtonDemos extends Component {
-
-  setCount = 0;
-
-  renderRadioButtonVariant(title) {
-    this.setCount++;
-    const name = `radio-set-${this.setCount}`;
-    return (
-      <div className='demo-example'>
-        <h3 className='mdc-typography--subtitle2'>{title}</h3>
-        <div className='mdc-form-field'>
-          <div className='mdc-radio'>
-            <input className='mdc-radio__native-control' type='radio' id='radio-1' name={name} defaultChecked />
-            <div className='mdc-radio__background'>
-              <div className='mdc-radio__outer-circle'/>
-              <div className='mdc-radio__inner-circle'/>
-            </div>
-          </div>
-          <label id='radio-1-label' className='radio-demo-label' htmlFor='radio-1'>Radio 1</label>
-          <div className='mdc-radio'>
-            <input className='mdc-radio__native-control' type='radio' id='radio-2' name={name} />
-            <div className='mdc-radio__background'>
-              <div className='mdc-radio__outer-circle'/>
-              <div className='mdc-radio__inner-circle'/>
-            </div>
-          </div>
-          <label id='radio-2-label' htmlFor='radio-2'>Radio 2</label>
-        </div>
-      </div>
-    );
-  }
-
-  render() {
-    return (
-      <div>
-        {this.renderRadioButtonVariant('Radio Button')}
-      </div>
-    );
-  }
-}
+const RadioFormField = withFormField(Radio);
 
 export default RadioButtonCatalog;
