@@ -46,7 +46,7 @@ const LayoutGridDemos = () => {
       </LayoutGrid>
 
       <h3 className='mdc-typography--subtitle1'>Grid Left Alignment</h3>
-      <p>This requires a max-width on the top-level grid element.</p>
+      <p className='mdc-typography--body2'>This requires a max-width on the top-level grid element.</p>
       <LayoutGrid className='demo-grid demo-grid--alignment' align='left'>
         <LayoutGridInner>
           <LayoutGridCell className='demo-cell'></LayoutGridCell>
@@ -56,7 +56,7 @@ const LayoutGridDemos = () => {
       </LayoutGrid>
 
       <h3 className='mdc-typography--subtitle1'>Right Alignment</h3>
-      <p>This requires a max-width on the top-level grid element.</p>
+      <p className='mdc-typography--body2'>This requires a max-width on the top-level grid element.</p>
       <LayoutGrid className='demo-grid demo-grid--alignment' align='right'>
         <LayoutGridInner>
           <LayoutGridCell className='demo-cell'></LayoutGridCell>
@@ -66,7 +66,7 @@ const LayoutGridDemos = () => {
       </LayoutGrid>
 
       <h3 className='mdc-typography--subtitle1'>Cell Alignment</h3>
-      <p>Cell alignment requires a cell height smaller than the inner height of the grid.</p>
+      <p className='mdc-typography--body2'>Cell alignment requires a cell height smaller than the inner height of the grid.</p>
       <LayoutGrid className='demo-grid demo-grid--cell-alignment'>
         <LayoutGridInner className='demo-inner'>
           <LayoutGridCell className='demo-cell demo-cell--alignment' align='top'></LayoutGridCell>
