@@ -76,10 +76,6 @@
 
   $demo-section-margin: 48px;
 
-  $demo-color-custom: $material-color-red-500;
-  $demo-color-low-luminance: $material-color-brown-900;
-  $demo-color-high-luminance: $material-color-amber-50;
-
   figure {
     margin-left: 0;
     margin-right: 0;
@@ -155,14 +151,6 @@
     border-radius: 4px;
   }
 
-  .demo-theme-bg--low-luminance {
-    background-color: $demo-color-low-luminance;
-  }
-
-  .demo-theme-bg--high-luminance {
-    background-color: $demo-color-high-luminance;
-  }
-
   .demo-theme-bg--custom-light {
     background-color: #dddddd;
   }
@@ -202,11 +190,6 @@
     margin-top: 16px;
   }
 
-  .demo-button__code {
-    font-size: smaller;
-    text-transform: none;
-  }
-
   //
   // Card demo
   //
@@ -227,8 +210,7 @@
     align-items: center;
   }
 
-  .demo-checkbox-wrapper,
-  .demo-checkbox-toggle-button {
+  .demo-checkbox-wrapper {
     margin-right: 10px;
   }
 
@@ -356,9 +338,5 @@
   .demo-text-field-wrapper {
     display: inline-block;
     margin: 16px 16px 0 0;
-  }
-
-  .demo-text-field {
-    margin-top: 0 !important;
   }
 }

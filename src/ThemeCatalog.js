@@ -314,7 +314,7 @@ class ThemeDemos extends Component {
     return (
         <ThemeDemoSection title='Dialog'>
 
-          <aside className='mdc-dialog mdc-dialog--open demo-dialog'>
+          <aside className='mdc-dialog mdc-dialog--open demo-dialog' style={{'position': 'relative'}}>
             <div className='mdc-dialog__surface'>
               <header className='mdc-dialog__header'>
                 <h3 id='mdc-dialog-default-label'
@@ -795,7 +795,7 @@ class ThemeDemoSection extends Component {
     return (
         <section className='demo-component-section'>
           <h3 className='mdc-typography--headline5 demo-component-section__heading'>
-            {this.props.title || ''}
+            {this.props.title}
           </h3>
 
           {this.props.children}
@@ -831,7 +831,7 @@ class ColorDemoWrapper extends Component {
     return (
         <fieldset className='demo-fieldset--color'>
           <legend className='mdc-typography--subtitle1'>
-            {this.props.title || ''}
+            {this.props.title}
           </legend>
           {this.props.children}
         </fieldset>
