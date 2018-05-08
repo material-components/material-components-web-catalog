@@ -164,6 +164,9 @@ class ComponentSidebar extends Component {
       content: 'Text Field',
       url: '/text-field',
     }, {
+      content: 'Theme',
+      url: '/theme',
+    }, {
       content: 'Top App Bar',
       url: '/top-app-bar',
     }, {

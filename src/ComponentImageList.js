@@ -24,6 +24,7 @@ import sliderImg from './images/slider_180px.svg';
 import snackbarImg from './images/snackbar_180px.svg';
 import switchImg from './images/switch_180px.svg';
 import tabsImg from './images/tabs_180px.svg';
+import themeImg from './images/ic_theme_24px.svg';
 import topAppBarImg from './images/top_app_bar_180px.svg';
 import typographyImg from './images/fonts_180px.svg';
 
@@ -64,6 +65,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Switch', switchImg, 'switch')}
           {this.renderListItem('Tabs', tabsImg, 'tabs')}
           {this.renderListItem('Text Field', inputImg, 'text-field')}
+          {this.renderListItem('Theme', themeImg, 'theme')}
           {this.renderListItem('Top App Bar', topAppBarImg, 'top-app-bar')}
           {this.renderListItem('Typography', typographyImg, 'typography')}
         </ul>

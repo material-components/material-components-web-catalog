@@ -16,10 +16,10 @@ const ThemeCatalog = () => {
     <ComponentCatalogPanel
       hero={<ThemeHero />}
       title='Theme'
-      description=''
-      designLink='https://material.io/guidelines/components/buttons.html'
-      docsLink='https://material.io/components/web/catalog/buttons/'
-      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
+      description='Color in Material Design is inspired by bold hues juxtaposed with muted environments, deep shadows, and bright highlights.'
+      designLink='https://material.io/go/design-color-theming'
+      docsLink='https://material.io/components/web/catalog/theme/'
+      sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme'
       demos={<ThemeDemos />}
     />
   );
@@ -87,6 +87,7 @@ class ThemeDemos extends Component {
   initCheckbox = ele => ele && this.componentInstances.push(new MDCCheckbox(ele));
   initIconToggle = ele => ele && this.componentInstances.push(new MDCIconToggle(ele));
   initLinearProgress = ele => {
+    if(!ele) return;
     const linearProgress = new MDCLinearProgress(ele);
     this.componentInstances.push(linearProgress);
     linearProgress.progress = 0.5;
