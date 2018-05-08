@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCCheckbox} from '@material/checkbox';
 import {MDCIconToggle} from '@material/icon-toggle';
+import {MDCLinearProgress} from '@material/linear-progress';
 import {MDCRipple} from '@material/ripple';
 import {MDCSelect} from '@material/select';
 import {MDCSlider} from '@material/slider';
 import {MDCTextField} from '@material/textfield';
+import {imagePath} from './constants';
+
+import './styles/ThemeCatalog.scss';
 
 const ThemeCatalog = () => {
   return (
@@ -23,10 +27,34 @@ const ThemeCatalog = () => {
 
 class ThemeHero extends Component {
   componentInstances = [];
+  themeStyles = null;
   initRipple = ele => ele && this.componentInstances.push(new MDCRipple(ele));
+
+  componentWillMount() {
+    if(!this.themeStyles) {
+      fetch('asset-manifest.json')
+          .then(result => result.json())
+          .then(data => this.themeStyles = data['theme.css'])
+          .then(() => this.appendThemeStyle());
+    } else {
+      this.appendThemeStyle();
+    }
+  }
+
+  appendThemeStyle() {
+    if(this.themeStyles) {
+      const styles = document.createElement('link');
+      styles.setAttribute('rel', 'stylesheet');
+      styles.setAttribute('type', 'text/css');
+      styles.setAttribute('id', 'themeStylesheet');
+      styles.setAttribute('href', this.themeStyles);
+      document.getElementsByTagName('head')[0].appendChild(styles);
+    }
+  }
 
   componentWillUnmount() {
     this.componentInstances.forEach(ripple => ripple.destroy());
+    document.head.removeChild(document.getElementById('themeStylesheet'));
   }
 
   render() {
@@ -41,7 +69,7 @@ class ThemeHero extends Component {
         <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple}>
           Unelevated
         </button>
-        <button className='hero-button mdc-button mdc-button--stroked' ref={this.initRipple}>
+        <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple}>
           Stroked
         </button>
       </div>
@@ -50,13 +78,33 @@ class ThemeHero extends Component {
 }
 
 class ThemeDemos extends Component {
+
+  state = {
+    checkboxToggled: false,
+  };
+
   componentInstances = [];
   initCheckbox = ele => ele && this.componentInstances.push(new MDCCheckbox(ele));
-  initIconToggle = ele => ele;// && this.componentInstances.push(new MDCIconToggle(ele));
+  initIconToggle = ele => ele && this.componentInstances.push(new MDCIconToggle(ele));
+  initLinearProgress = ele => {
+    const linearProgress = new MDCLinearProgress(ele);
+    this.componentInstances.push(linearProgress);
+    linearProgress.progress = 0.5;
+    if (ele.dataset.buffer) {
+      linearProgress.buffer = 0.75;
+    }
+  };
   initRipple = buttonEl => buttonEl && this.componentInstances.push(new MDCRipple(buttonEl));
   initSelect = ele => ele && this.componentInstances.push(new MDCSelect(ele));
   initSlider = ele => ele && this.componentInstances.push(new MDCSlider(ele));
   initTextField = ele => ele && this.componentInstances.push(new MDCTextField(ele));
+
+  toggleIndeterminate = evt => {
+    const boxes = this.componentInstances.filter(component =>  component instanceof MDCCheckbox);
+    boxes.forEach(box => box.indeterminate = !box.indeterminate);
+  };
+
+  toggleAlignEnd = () => this.setState({checkboxToggled: !this.state.checkboxToggled});
 
   componentWillUnmount() {
     this.componentInstances.forEach(component => component.destroy());
@@ -71,7 +119,6 @@ class ThemeDemos extends Component {
             </h2>
 
             <section className='demo-component-section'>
-              <i id='classes' className='demo-anchor-with-toolbar-offset' />
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 CSS Classes
               </h3>
@@ -187,7 +234,6 @@ class ThemeDemos extends Component {
             </h2>
 
             <section className='demo-component-section'>
-              <i id='button' className='demo-anchor-with-toolbar-offset' />
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Button
               </h3>
@@ -232,14 +278,13 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='card' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Card
               </h3>
 
               <div className='demo-card-wrapper'>
                 <div className='mdc-card'>
-                  <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'/>
+                  <CardImage />
                   <div className='mdc-card__actions'>
                     <div className='mdc-card__action-buttons'>
                       <button className='mdc-button mdc-card__action mdc-card__action--button' ref={this.initRipple}>Read</button>
@@ -253,20 +298,22 @@ class ThemeDemos extends Component {
                          aria-pressed='false'
                          aria-label='Add to favorites'
                          title='Add to favorites'
-                         data-toggle-on={{'content': 'favorite', 'label': 'Remove from favorites'}}
-                         data-toggle-off={{'content': 'favorite_border', 'label': 'Add to favorites'}}>
+                         data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
+                         data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'>
                         favorite_border
                       </i>
                       <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
                          tabIndex='0'
                          role='button'
                          data-mdc-ripple-is-unbounded
-                         title='Share'>share</i>
+                         title='Share'
+                         ref={this.initRipple}>share</i>
                       <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
                          tabIndex='0'
                          role='button'
                          data-mdc-ripple-is-unbounded
-                         title='More options'>more_vert</i>
+                         title='More options'
+                         ref={this.initRipple}>more_vert</i>
                     </div>
                   </div>
                 </div>
@@ -274,15 +321,14 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='checkbox' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Checkbox
                 <a href='#' className='demo-component-section__permalink' title='Permalink to the theme demo for the checkbox component'>#</a>
               </h3>
 
               <div className='demo-checkbox-row'>
-                <div className='mdc-form-field demo-checkbox-wrapper'>
-                  <div className='mdc-checkbox demo-checkbox' data->
+                <div className={`mdc-form-field demo-checkbox-wrapper ${this.state.checkboxToggled ? 'mdc-form-field--align-end' : ''}`}>
+                  <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
                     <input type='checkbox'
                            id='enabled-checkbox'
                            className='mdc-checkbox__native-control'/>
@@ -291,7 +337,6 @@ class ThemeDemos extends Component {
                            viewBox='0 0 24 24'>
                         <path className='mdc-checkbox__checkmark-path'
                               fill='none'
-                              stroke='white'
                               d='M1.73,12.91 8.1,19.28 22.79,4.59'/>
                       </svg>
                       <div className='mdc-checkbox__mixedmark'/>
@@ -300,8 +345,8 @@ class ThemeDemos extends Component {
                   <label htmlFor='enabled-checkbox' id='enabled-checkbox-label'>Enabled</label>
                 </div>
 
-                <div className='mdc-form-field demo-checkbox-wrapper'>
-                  <div className='mdc-checkbox demo-checkbox'>
+                <div className={`mdc-form-field demo-checkbox-wrapper ${this.state.checkboxToggled ? 'mdc-form-field--align-end' : ''}`}>
+                  <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
                     <input type='checkbox'
                            id='indeterminate-checkbox'
                            className='mdc-checkbox__native-control'/>
@@ -319,8 +364,8 @@ class ThemeDemos extends Component {
                   <label htmlFor='indeterminate-checkbox' id='indeterminate-checkbox-label'>Indeterminate</label>
                 </div>
 
-                <div className='mdc-form-field demo-checkbox-wrapper'>
-                  <div className='mdc-checkbox mdc-checkbox--disabled demo-checkbox'>
+                <div className={`mdc-form-field demo-checkbox-wrapper ${this.state.checkboxToggled ? 'mdc-form-field--align-end' : ''}`}>
+                  <div className='mdc-checkbox mdc-checkbox--disabled demo-checkbox' ref={this.initCheckbox}>
                     <input type='checkbox'
                            id='disabled-checkbox'
                            className='mdc-checkbox__native-control'
@@ -339,22 +384,21 @@ class ThemeDemos extends Component {
                   <label htmlFor='disabled-checkbox' id='disabled-checkbox-label'>Disabled</label>
                 </div>
 
-                <button type='button' className='mdc-button mdc-button--outlined demo-checkbox-toggle-button' id='checkbox-toggle--indeterminate' ref={this.initRipple}>
+                <button type='button' className='mdc-button mdc-button--outlined demo-checkbox-toggle-button' id='checkbox-toggle--indeterminate' ref={this.initRipple} onClick={this.toggleIndeterminate}>
                   <span>Toggle <code className='demo-button__code'>indeterminate</code></span>
                 </button>
-                <button type='button' className='mdc-button mdc-button--outlined demo-checkbox-toggle-button' id='checkbox-toggle--align-end' ref={this.initRipple}>
+                <button type='button' className='mdc-button mdc-button--outlined demo-checkbox-toggle-button' id='checkbox-toggle--align-end' ref={this.initRipple} onClick={this.toggleAlignEnd}>
                   <span>Toggle <code className='demo-button__code'>--align-end</code></span>
                 </button>
               </div>
             </section>
 
             <section className='demo-component-section'>
-              <i id='dialog' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Dialog
               </h3>
 
-              <aside className='mdc-dialog demo-dialog'>
+              <aside className='mdc-dialog mdc-dialog--open demo-dialog'>
                 <div className='mdc-dialog__surface'>
                   <header className='mdc-dialog__header'>
                     <h3 id='mdc-dialog-default-label' className='mdc-dialog__header__title'>
@@ -373,7 +417,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='drawer' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Drawer
               </h3>
@@ -382,7 +425,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='fab' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Floating Action Button (FAB)
               </h3>
@@ -394,7 +436,7 @@ class ThemeDemos extends Component {
                       <div className='demo-fab-tile__title'>Default</div>
                       <div className='demo-fab-tile__snippet mdc-typography--body1'>Secondary theme color</div>
                     </figcaption>
-                    <button className='mdc-fab material-icons demo-fab' aria-label='Favorite'>
+                    <button className='mdc-fab material-icons demo-fab' aria-label='Favorite' ref={this.initRipple}>
                 <span className='mdc-fab__icon'>
                   favorite_border
                 </span>
@@ -405,7 +447,7 @@ class ThemeDemos extends Component {
                       <div className='demo-fab-tile__title'>Mini</div>
                       <div className='demo-fab-tile__snippet mdc-typography--body1'><code>mdc-fab--mini</code></div>
                     </figcaption>
-                    <button className='mdc-fab mdc-fab--mini material-icons demo-fab' aria-label='Favorite'>
+                    <button className='mdc-fab mdc-fab--mini material-icons demo-fab' aria-label='Favorite' ref={this.initRipple}>
                 <span className='mdc-fab__icon'>
                   favorite_border
                 </span>
@@ -416,7 +458,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='icon-toggle' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Icon Toggle
                 <a href='#' className='demo-component-section__permalink' title='Permalink to the theme demo for the icon toggle component'>#</a>
@@ -432,8 +473,8 @@ class ThemeDemos extends Component {
                      aria-label='Add to favorites'
                      aria-pressed='false'
                      tabIndex='0'
-                     data-toggle-on={{'content': 'favorite', 'label': 'Remove From Favorites'}}
-                     data-toggle-off={{'content': 'favorite_border', 'label': 'Add to Favorites'}}>
+                     data-toggle-on='{"content": "favorite", "label": "Remove From Favorites"}'
+                     data-toggle-off='{"content": "favorite_border", "label": "Add to Favorites"}'>
                     favorite_border
                   </i>
                 </div>
@@ -448,8 +489,8 @@ class ThemeDemos extends Component {
                      aria-pressed='false'
                      aria-disabled='true'
                      tabIndex='-1'
-                     data-toggle-on={{'content': 'favorite', 'label': 'Remove From Favorites'}}
-                     data-toggle-off={{'content': 'favorite_border', 'label': 'Add to Favorites'}}>
+                     data-toggle-on='{"content": "favorite", "label": "Remove From Favorites"}'
+                     data-toggle-off='{"content": "favorite_border", "label": "Add to Favorites"}'>
                     favorite_border
                   </i>
                 </div>
@@ -457,7 +498,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='linear-progress' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Linear Progress
                 <a href='#' className='demo-component-section__permalink' title='Permalink to the theme demo for the linear progress component'>#</a>
@@ -465,7 +505,7 @@ class ThemeDemos extends Component {
 
               <figure className='demo-linear-progress-row'>
                 <figcaption className='mdc-typography--subtitle1'>Indeterminate</figcaption>
-                <div role='progressbar' className='mdc-linear-progress mdc-linear-progress--indeterminate'>
+                <div role='progressbar' className='mdc-linear-progress mdc-linear-progress--indeterminate' ref={this.initLinearProgress}>
                   <div className='mdc-linear-progress__buffering-dots'/>
                   <div className='mdc-linear-progress__buffer'/>
                   <div className='mdc-linear-progress__bar mdc-linear-progress__primary-bar'>
@@ -479,7 +519,7 @@ class ThemeDemos extends Component {
 
               <figure className='demo-linear-progress-row'>
                 <figcaption className='mdc-typography--subtitle1'>Buffer</figcaption>
-                <div role='progressbar' className='mdc-linear-progress' data-buffer='true'>
+                <div role='progressbar' className='mdc-linear-progress' data-buffer='true' ref={this.initLinearProgress}>
                   <div className='mdc-linear-progress__buffering-dots'/>
                   <div className='mdc-linear-progress__buffer'/>
                   <div className='mdc-linear-progress__bar mdc-linear-progress__primary-bar'>
@@ -493,7 +533,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='radio' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Radio Button
               </h3>
@@ -546,7 +585,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='select' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Select
               </h3>
@@ -578,7 +616,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='slider' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Slider
               </h3>
@@ -604,7 +641,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='switch' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Switch
               </h3>
@@ -630,7 +666,6 @@ class ThemeDemos extends Component {
             </section>
 
             <section className='demo-component-section'>
-              <i id='text-field' className='demo-anchor-with-toolbar-offset'/>
               <h3 className='mdc-typography--headline5 demo-component-section__heading'>
                 Text Field
               </h3>
@@ -686,5 +721,12 @@ class ThemeDemos extends Component {
   );
   }
   }
+
+const CardImage = () => {
+  return (
+      <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'
+           style={{backgroundImage: `url("${imagePath}/photos/3x2/2.jpg")`}} />
+  );
+}
 
   export default ThemeCatalog;

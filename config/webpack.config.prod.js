@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackExcludeAssetsPlugin = require('html-webpack-exclude-assets-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -37,6 +38,10 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
+const extractThemeFile = 'static/css/theme.[contenthash:8].css';
+
+const mainExtract = new ExtractTextPlugin(cssFilename);
+const themeExtract = new ExtractTextPlugin(extractThemeFile);
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
@@ -46,6 +51,54 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
   ? // Making sure that the publicPath goes back to to build folder.
     { publicPath: Array(cssFilename.split('/').length).join('../') }
   : {};
+
+const scssLoaders = Object.assign(
+    {
+      fallback: {
+        loader: require.resolve('style-loader'),
+        options: {
+          hmr: false,
+        },
+      },
+      use: [
+        {
+          loader: require.resolve('css-loader'),
+          options: {
+            importLoaders: 1,
+            minimize: true,
+            sourceMap: shouldUseSourceMap,
+          },
+        },
+        {
+          loader: require.resolve('postcss-loader'),
+          options: {
+            // Necessary for external CSS imports to work
+            // https://github.com/facebookincubator/create-react-app/issues/2677
+            ident: 'postcss',
+            plugins: () => [
+              require('postcss-flexbugs-fixes'),
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9', // React doesn't support IE8 anyway
+                ],
+                flexbox: 'no-2009',
+              }),
+            ],
+          },
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            includePaths: ['./node_modules']
+          }
+        },
+      ],
+    },
+    extractTextPluginOptions
+)
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -168,56 +221,13 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
-                {
-                  fallback: {
-                    loader: require.resolve('style-loader'),
-                    options: {
-                      hmr: false,
-                    },
-                  },
-                  use: [
-                    {
-                      loader: require.resolve('css-loader'),
-                      options: {
-                        importLoaders: 1,
-                        minimize: true,
-                        sourceMap: shouldUseSourceMap,
-                      },
-                    },
-                    {
-                      loader: require.resolve('postcss-loader'),
-                      options: {
-                        // Necessary for external CSS imports to work
-                        // https://github.com/facebookincubator/create-react-app/issues/2677
-                        ident: 'postcss',
-                        plugins: () => [
-                          require('postcss-flexbugs-fixes'),
-                          autoprefixer({
-                            browsers: [
-                              '>1%',
-                              'last 4 versions',
-                              'Firefox ESR',
-                              'not ie < 9', // React doesn't support IE8 anyway
-                            ],
-                            flexbox: 'no-2009',
-                          }),
-                        ],
-                      },
-                    },
-                    {
-                      loader: 'sass-loader',
-                      options: {
-                        includePaths: ['./node_modules']
-                      }
-                    },
-                  ],
-                },
-                extractTextPluginOptions
-              )
-            ),
+            exclude: /ThemeCatalog\.scss/,
+            loader: mainExtract.extract(scssLoaders),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+          },
+          {
+            test: /ThemeCatalog\.scss$/i,
+            use: themeExtract.extract(scssLoaders),
           },
           // Inline SVGs with svg-inline-loader.
           {
@@ -259,6 +269,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
+      excludeAssets: /theme.*.css/,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -270,8 +281,9 @@ module.exports = {
         minifyJS: true,
         minifyCSS: true,
         minifyURLs: true,
-      },
+      }
     }),
+    new HtmlWebpackExcludeAssetsPlugin(),
   ].concat([
     // Makes some environment variables available to the JS code, for example:
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
@@ -300,14 +312,18 @@ module.exports = {
       sourceMap: shouldUseSourceMap,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new ExtractTextPlugin({
-      filename: cssFilename,
-    }),
+    mainExtract,
+    themeExtract,
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
+      map: function(file) {
+        file.name = file.path.replace(/\..{8}\./, '.');
+        file.name = file.name.replace(file.name.substring(0, file.name.lastIndexOf('/') + 1), '');
+        return file;
+      },
     }),
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
