@@ -4,7 +4,6 @@
   "private": true,
   "devDependencies": {
     "@material/animation": "^0.34.0",
-    "@material/auto-init": "^0.35.0",
     "@material/button": "^0.35.0",
     "@material/card": "^0.35.0",
     "@material/checkbox": "^0.35.0",
@@ -132,5 +131,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "dependencies": {}
+  "dependencies": {
+    "webpack-merge": "^4.1.2"
+  }
 }

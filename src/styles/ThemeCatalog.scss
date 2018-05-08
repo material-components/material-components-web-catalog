@@ -33,22 +33,19 @@
   );
 
   @import "@material/theme/mdc-theme";
-  @import "@material/animation/functions";
   @import "@material/button/mdc-button";
   @import "@material/card/mdc-card";
   @import "@material/checkbox/mdc-checkbox";
   @import "@material/dialog/mdc-dialog";
   @import "@material/drawer/temporary/mdc-temporary-drawer";
-  @import "@material/elevation/mdc-elevation";
   @import "@material/fab/mdc-fab";
   @import "@material/form-field/mdc-form-field";
   @import "@material/icon-toggle/mdc-icon-toggle";
   @import "@material/linear-progress/mdc-linear-progress";
-  @import "@material/list/mdc-list";
-  @import "@material/menu/mdc-menu";
   @import "@material/radio/mdc-radio";
   @import "@material/ripple/mdc-ripple";
   @import "@material/select/mdc-select";
+  @import "@material/slider/mdc-slider";
   @import "@material/slider/mdc-slider";
   @import "@material/switch/mdc-switch";
   @import "@material/textfield/mdc-text-field";
@@ -57,40 +54,10 @@
   @import "@material/theme/variables";
   @import "@material/top-app-bar/mdc-top-app-bar";
 
-
-
-  // Used by ready.js to test whether the CSS has finished loading.
-  .demo-ready-detect {
-    position: relative;
-  }
-
   fieldset {
     margin: 0;
     padding: 0;
     border: 0;
-  }
-
-  .catalog-title {
-    font-family: "Roboto Mono", monospace;
-  }
-
-  .catalog-logo,
-  .catalog-back {
-    color: #eee;
-    text-decoration: none;
-  }
-
-  // Use full-opacity equivalent of rgba(0, 0, 0, .05) and expose for demos to reference
-  $hero-background-color: #f2f2f2;
-
-  .hero {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    height: 360px;
-    min-height: 360px;
-    background-color: $hero-background-color;
   }
 
   // Default padding on all examples.
@@ -104,7 +71,6 @@
       margin-left: 0;
     }
   }
-
 
   // stylelint-disable selector-class-pattern, selector-max-type, scss/dollar-variable-pattern
 
@@ -147,21 +113,6 @@
     background: $material-color-yellow-700;
     opacity: 0;
     transition: opacity 1s;
-  }
-
-  .demo-component-section--flash::before {
-    opacity: 0.5;
-    transition: none;
-  }
-
-  .demo-component-section__permalink {
-    color: inherit;
-    opacity: 0;
-
-    .demo-component-section:hover &,
-    .demo-component-section__heading--focus-within & {
-      opacity: 1;
-    }
   }
 
   //
@@ -264,14 +215,6 @@
     display: inline-block;
     margin: 0 24px 24px 0;
     vertical-align: top;
-  }
-
-  .demo-card__media {
-    background-image: url("/images/1-1.jpg");
-  }
-
-  .demo-card__media--16-9 {
-    background-image: url("/images/16-9.jpg");
   }
 
   //
