@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
+import {MDCRipple} from '@material/ripple';
 
 // ComponentCatalogPanel is the container for catalog component content,
 // that renders the hero and demo sections.
 class ComponentCatalogPanel extends Component {
+  ripples = [];
+  initRipple = el => el && this.ripples.push(new MDCRipple(el));
+
+  componentWillUnmount() {
+    this.ripples.forEach((ripple) => ripple.destroy());
+  }
 
   renderResource(title, imageSource, url) {
     if (!url) return;
     return (
-      <a href={url} role='listitem' className='mdc-list-item' target='_blank'>
+      <a href={url} role='listitem' className='mdc-list-item' target='_blank' ref={this.initRipple}>
         <span className='mdc-list-item__graphic'>
           <img src={imageSource} className='resources-icon' alt={`${title} icon`}/>
         </span>
