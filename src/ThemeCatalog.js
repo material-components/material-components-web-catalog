@@ -460,7 +460,7 @@ class ThemeDemos extends Component {
             <figcaption className='mdc-typography--subtitle1'>Buffer
             </figcaption>
             <div role='progressbar' className='mdc-linear-progress'
-                 data-buffer='true' ref={this.initLinearProgress}>
+                 ref={this.initLinearProgress}>
               <div className='mdc-linear-progress__buffering-dots'/>
               <div className='mdc-linear-progress__buffer'/>
               <div
