@@ -217,6 +217,8 @@ class ComponentSidebar extends Component {
   };
 
   handleListItemClick_ = (history, path, e) => {
+    // Early return if the user clicks the link for the current route.
+    if (this.props.location.pathname === path) return;
     history.push(path);
     e.preventDefault();
 
