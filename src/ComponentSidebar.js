@@ -76,7 +76,7 @@ class ComponentSidebar extends Component {
     const className = path === location.pathname ? 'mdc-list-item' : 'mdc-list-item';
     return (
       <a
-        onClick={(e) => path !== location.pathname && this.handleListItemClick_(history, path, e)}
+        onClick={(e) => this.handleListItemClick_(history, path, e)}
         key={index}
         role='listitem'
         className={className}
@@ -217,6 +217,8 @@ class ComponentSidebar extends Component {
   };
 
   handleListItemClick_ = (history, path, e) => {
+    // Early return if the user clicks the link for the current route.
+    if (this.props.location.pathname === path) return;
     history.push(path);
     e.preventDefault();
 
