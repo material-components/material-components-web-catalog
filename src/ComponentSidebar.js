@@ -76,7 +76,7 @@ class ComponentSidebar extends Component {
     const className = path === location.pathname ? 'mdc-list-item' : 'mdc-list-item';
     return (
       <a
-        onClick={(e) => this.handleListItemClick_(history, path, e)}
+        onClick={(e) => path !== location.pathname && this.handleListItemClick_(history, path, e)}
         key={index}
         role='listitem'
         className={className}
