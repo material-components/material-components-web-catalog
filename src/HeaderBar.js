@@ -17,10 +17,10 @@ class HeaderBar extends Component {
                 className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <HeaderIcon toggleDrawer={this.props.toggleDrawer} isTopPage={this.props.isTopPage}/>
               <span className='mdc-top-app-bar__title catalog-top-app-bar__title'>
-                <span className='catalog-top-app-bar__title-small-screen'>
+                <span className='catalog-top-app-bar__title--small-screen'>
                   MDC Web
                 </span>
-                <span className='catalog-top-app-bar__title-large-screen'>
+                <span className='catalog-top-app-bar__title--large-screen'>
                   Material Components for the Web
                 </span>
               </span>
