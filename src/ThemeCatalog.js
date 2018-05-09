@@ -91,12 +91,10 @@ class ThemeDemos extends Component {
       new MDCIconToggle(ele));
   initLinearProgress = ele => {
     if (!ele) return;
-    const linearProgress = new MDCLinearProgress(ele);
-    this.componentInstances.push(linearProgress);
-    linearProgress.progress = 0.5;
-    if (ele.dataset.buffer) {
-      linearProgress.buffer = 0.75;
-    }
+    const indicator = new MDCLinearProgress(ele);
+    indicator.progress = 0.5;
+    indicator.buffer = 0.75;
+    this.componentInstances.push(indicator);
   };
   initRipple = buttonEl => buttonEl && this.componentInstances.push(
       new MDCRipple(buttonEl));
