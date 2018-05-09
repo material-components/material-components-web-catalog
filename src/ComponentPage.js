@@ -31,6 +31,7 @@ import TypographyCatalog from './TypographyCatalog';
 import {Switch, Route} from 'react-router';
 
 import './styles/ComponentPage.scss';
+import ThemeCatalog from './ThemeCatalog';
 
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
@@ -69,6 +70,7 @@ class ComponentPage extends Component {
         <Route path='/component/switch' component={SwitchCatalog} />
         <Route path='/component/tabs' component={TabsCatalog} />
         <Route path='/component/text-field' component={TextFieldCatalog} />
+        <Route path='/component/theme' component={ThemeCatalog} />
         <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
         <Route path='/component/typography' component={TypographyCatalog} />
       </Switch>
