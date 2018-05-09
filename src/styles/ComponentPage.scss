@@ -108,14 +108,22 @@
 }
 .loadComponent-enter.loadComponent-enter-active {
   opacity: 1;
+  transform: translateY(-16px);
   transition: all 0.6s linear 0.4s;
 }
-.loadComponent-leave {
+
+.loadComponent-enter-done {
+  transform: translateY(-16px);
+}
+
+.loadComponent-exit {
   opacity: 1.0;
   position:absolute
 }
-.loadComponent-leave.loadComponent-leave-active {
+
+.loadComponent-exit.loadComponent-exit-active {
   opacity: 0;
+  transform: translateY(16px);
   transition: all 0.6s linear;
   position:absolute;
 }
