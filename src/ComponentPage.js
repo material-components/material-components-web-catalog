@@ -47,8 +47,8 @@ class ComponentPage extends Component {
 
   renderComponentRoutes() {
     return (
-        <TransitionGroup>
-          <CSSTransition key={this.props.location.pathname} timeout={1000} transitionEnterTimeout={400} transitionLeaveTimeout={600} classNames='loadComponent'>
+        <TransitionGroup ref={this.initDemoContent} onTransitionEnd={this.handleTransitionEnd_} classes='demo-content-transition'>
+          <CSSTransition key={this.props.location.pathname} timeout={1000} transitionEnterTimeout={600} classNames='loadComponent'>
             <Switch>
               <Route path='/component/button' component={ButtonCatalog} />
               <Route path='/component/card' component={CardCatalog} />
