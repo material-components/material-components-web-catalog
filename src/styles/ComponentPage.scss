@@ -55,7 +55,6 @@
   transform: translateY(15px);
 }
 
-
 .loadComponent-enter.loadComponent-enter-active {
   opacity: 1;
   transform: translateY(0);
@@ -70,5 +69,4 @@
 
 .loadComponent-exit {
   display: none;
-  opacity: 0;
 }
