@@ -38,11 +38,8 @@ class ButtonHero extends Component {
         <button className='hero-button mdc-button mdc-button--raised' ref={this.initRipple}>
           Raised
         </button>
-        <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple}>
-          Unelevated
-        </button>
-        <button className='hero-button mdc-button mdc-button--stroked' ref={this.initRipple}>
-          Stroked
+        <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple}>
+          Outlined
         </button>
       </div>
     );
@@ -83,8 +80,7 @@ class ButtonDemos extends Component {
       <div>
         {this.renderButtonVariant('Text Button')}
         {this.renderButtonVariant('Raised Button', 'mdc-button--raised')}
-        {this.renderButtonVariant('Unelevated Button', 'mdc-button--unelevated')}
-        {this.renderButtonVariant('Stroked Button', 'mdc-button--stroked')}
+        {this.renderButtonVariant('Outlined Button', 'mdc-button--outlined')}
       </div>
     );
   }
