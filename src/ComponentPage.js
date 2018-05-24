@@ -29,7 +29,7 @@ import TopAppBarCatalog from './TopAppBarCatalog';
 import TypographyCatalog from './TypographyCatalog';
 
 import {Switch, Route} from 'react-router';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import './styles/ComponentPage.scss';
 import ThemeCatalog from './ThemeCatalog';
