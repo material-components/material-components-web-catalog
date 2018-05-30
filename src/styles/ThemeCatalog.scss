@@ -40,7 +40,7 @@
   @import "@material/drawer/temporary/mdc-temporary-drawer";
   @import "@material/fab/mdc-fab";
   @import "@material/form-field/mdc-form-field";
-  @import "@material/icon-toggle/mdc-icon-toggle";
+  @import "@material/icon-button/mdc-icon-button";
   @import "@material/linear-progress/mdc-linear-progress";
   @import "@material/radio/mdc-radio";
   @import "@material/ripple/mdc-ripple";
@@ -266,18 +266,22 @@
   // Icon Toggle demo
   //
 
-  .mdc-icon-toggle {
-    // .material-icons and .mdc-icon-toggle each set different `display` values. Whichever CSS file is imported last
+  .mdc-icon-button {
+    // .material-icons and .mdc-icon-button each set different `display` values. Whichever CSS file is imported last
     // will win, so prevent them from fighting by specifying the value we want here.
     display: inline-flex;
   }
 
-  .demo-icon-toggle-row {
+  .demo-icon-toggle {
+    @include mdc-icon-button-ink-color(primary);
+  }
+
+  .demo-icon-button-row {
     display: flex;
     flex-wrap: wrap;
   }
 
-  .demo-icon-toggle-tile {
+  .demo-icon-button-tile {
     width: 200px;
     margin: 0 10px 10px 0;
     padding: 20px;

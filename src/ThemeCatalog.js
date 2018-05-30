@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCCheckbox} from '@material/checkbox';
-import {MDCIconToggle} from '@material/icon-toggle';
+import {MDCIconButtonToggle} from '@material/icon-button';
 import {MDCLinearProgress} from '@material/linear-progress';
 import {MDCRipple} from '@material/ripple';
 import {MDCSelect} from '@material/select';
@@ -88,7 +88,7 @@ class ThemeDemos extends Component {
   initCheckbox = ele => ele && this.componentInstances.push(
       new MDCCheckbox(ele));
   initIconToggle = ele => ele && this.componentInstances.push(
-      new MDCIconToggle(ele));
+      new MDCIconButtonToggle(ele));
   initLinearProgress = ele => {
     if (!ele) return;
     const indicator = new MDCLinearProgress(ele);
@@ -188,7 +188,7 @@ class ThemeDemos extends Component {
           <div className='demo-card-wrapper'>
             <div className='mdc-card'>
               <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'
-                   style={{backgroundImage: `url("${imagePath}/photos/3x2/2.jpg")`}} />
+                   style={{backgroundImage: `url('${imagePath}/photos/3x2/2.jpg')`}} />
               <div className='mdc-card__actions'>
                 <div className='mdc-card__action-buttons'>
                   <button
@@ -201,29 +201,23 @@ class ThemeDemos extends Component {
                   </button>
                 </div>
                 <div className='mdc-card__action-icons'>
-                  <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
+                  <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                      ref={this.initIconToggle}
-                     tabIndex='0'
-                     role='button'
                      aria-pressed='false'
                      aria-label='Add to favorites'
                      title='Add to favorites'
-                     data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-                     data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'>
-                    favorite_border
-                  </i>
-                  <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                     tabIndex='0'
-                     role='button'
+                     data-toggle-on-content='favorite'
+                     data-toggle-on-label='Remove from favorites'
+                     data-toggle-off-content='favorite_border'
+                     data-toggle-off-label='Add to favorites'>favorite_border</button>
+                  <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                      data-mdc-ripple-is-unbounded
                      title='Share'
-                     ref={this.initRipple}>share</i>
-                  <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                     tabIndex='0'
-                     role='button'
+                     ref={this.initRipple}>share</button>
+                  <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                      data-mdc-ripple-is-unbounded
                      title='More options'
-                     ref={this.initRipple}>more_vert</i>
+                     ref={this.initRipple}>more_vert</button>
                 </div>
               </div>
             </div>
@@ -394,38 +388,34 @@ class ThemeDemos extends Component {
 
   demoIconToggle() {
     return (
-        <ThemeDemoSection title='Icon Toggle'>
+        <ThemeDemoSection title='Icon Button Toggle'>
 
-          <div className='demo-icon-toggle-row'>
-            <div className='mdc-elevation--z2 demo-icon-toggle-tile'>
+          <div className='demo-icon-button-row'>
+            <div className='mdc-elevation--z2 demo-icon-button-tile'>
               <h4 className='mdc-typography--subtitle1'>Enabled</h4>
 
-              <i className='mdc-icon-toggle mdc-icon-toggle--primary material-icons'
+              <button className='mdc-icon-button material-icons demo-icon-toggle'
                  ref={this.initIconToggle}
-                 role='button'
                  aria-label='Add to favorites'
                  aria-pressed='false'
-                 tabIndex='0'
-                 data-toggle-on='{"content": "favorite", "label": "Remove From Favorites"}'
-                 data-toggle-off='{"content": "favorite_border", "label": "Add to Favorites"}'>
-                favorite_border
-              </i>
+                 data-toggle-on-content='favorite'
+                 data-toggle-on-label='Remove from favorites'
+                 data-toggle-off-content='favorite_border'
+                 data-toggle-off-label='Add to Favorites'>favorite_border</button>
             </div>
 
-            <div className='mdc-elevation--z2 demo-icon-toggle-tile'>
+            <div className='mdc-elevation--z2 demo-icon-button-tile'>
               <h4 className='mdc-typography--subtitle1'>Disabled</h4>
 
-              <i className='mdc-icon-toggle mdc-icon-toggle--disabled material-icons'
+              <button className='mdc-icon-button material-icons'
                  ref={this.initIconToggle}
-                 role='button'
+                 disabled
                  aria-label='Add to favorites'
                  aria-pressed='false'
-                 aria-disabled='true'
-                 tabIndex='-1'
-                 data-toggle-on='{"content": "favorite", "label": "Remove From Favorites"}'
-                 data-toggle-off='{"content": "favorite_border", "label": "Add to Favorites"}'>
-                favorite_border
-              </i>
+                 data-toggle-on-content='favorite'
+                 data-toggle-on-label='Remove from favorites'
+                 data-toggle-off-content='favorite_border'
+                 data-toggle-off-label='Add to favorites'>favorite_border</button>
             </div>
           </div>
         </ThemeDemoSection>

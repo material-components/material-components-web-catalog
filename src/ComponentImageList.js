@@ -50,7 +50,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Drawer', drawerImg, 'drawer')}
           {this.renderListItem('Elevation', elevationImg, 'elevation')}
           {this.renderListItem('FAB', fabImg, 'fab')}
-          {this.renderListItem('Icon Toggle', iconToggleImg, 'icon-toggle')}
+          {this.renderListItem('Icon Toggle', iconToggleImg, 'icon-button')}
           {this.renderListItem('Image List', imageListImg, 'image-list')}
           {this.renderListItem('Layout Grid', layoutGridImg, 'layout-grid')}
           {this.renderListItem('List', listImg, 'list')}

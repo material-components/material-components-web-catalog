@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCIconToggle} from '@material/icon-toggle';
+import {MDCIconButtonToggle} from '@material/icon-button';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
 
@@ -53,7 +53,7 @@ class Card extends Component {
 const CardImage = () => {
   return (
     <div className='mdc-card__media mdc-card__media--16-9 demo-card__media'
-       style={{backgroundImage: `url("${imagePath}/photos/3x2/2.jpg")`}}></div>
+       style={{backgroundImage: `url('${imagePath}/photos/3x2/2.jpg')`}}></div>
   );
 }
 
@@ -64,14 +64,10 @@ class CardActionIcon extends Component {
 
   render() {
     return (
-      <i className={`material-icons mdc-ripple-surface ${this.props.className}`}
-        tabIndex='0'
-        role='button'
+      <button className={`mdc-icon-button material-icons mdc-ripple-surface ${this.props.className}`}
         title={this.props.title}
         data-mdc-ripple-is-unbounded
-        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
-        {this.props.icon}
-      </i>
+        ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>{this.props.icon}</button>
     );
   }
 }
@@ -105,17 +101,15 @@ class CardActionRow extends Component {
           <CardActionButton text='Bookmark' />
         </div>
         <div className='mdc-card__action-icons'>
-          <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-             tabIndex='0'
-             role='button'
+          <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
              aria-pressed='false'
              aria-label='Add to favorites'
              title='Add to favorites'
-             data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-             data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
-            favorite_border
-          </i>
+             data-toggle-on-content='favorite'
+             data-toggle-on-label='Remove from favorites'
+             data-toggle-off-content='favorite_border'
+             data-toggle-off-label='Add to favorites'
+             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconButtonToggle(surfaceEl)}>favorite_border</button>
           <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
           <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
         </div>
