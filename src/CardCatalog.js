@@ -64,7 +64,7 @@ class CardActionIcon extends Component {
 
   render() {
     return (
-      <button className={`mdc-icon-button material-icons mdc-ripple-surface ${this.props.className}`}
+      <button className={`mdc-icon-button material-icons ${this.props.className}`}
         title={this.props.title}
         data-mdc-ripple-is-unbounded
         ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>{this.props.icon}</button>

@@ -394,7 +394,7 @@ class ThemeDemos extends Component {
             <div className='mdc-elevation--z2 demo-icon-button-tile'>
               <h4 className='mdc-typography--subtitle1'>Enabled</h4>
 
-              <button className='mdc-icon-button material-icons demo-icon-toggle'
+              <button className='mdc-icon-button material-icons demo-icon-button-toggle'
                  ref={this.initIconToggle}
                  aria-label='Add to favorites'
                  aria-pressed='false'

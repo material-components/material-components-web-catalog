@@ -5,7 +5,7 @@ import {MDCRipple} from '@material/ripple';
 
 import './styles/IconButtonCatalog.scss';
 
-const IconToggleCatalog = () => {
+const IconButtonCatalog = () => {
   const description = 'Icons are appropriate for buttons that allow a user to take actions or ' +
                       'make a selection, such as adding or removing a star to an item. ';
   return (
@@ -13,8 +13,8 @@ const IconToggleCatalog = () => {
       hero={<IconButtonToggle/>}
       title='Icon Button'
       description={description}
-      designLink='https://material.io/go/design-buttons'
-      docsLink='https://material.io/components/web/catalog/buttons/icon-button-buttons/'
+      designLink='https://material.io/design/components/buttons.html#toggle-button'
+      docsLink='https://material.io/components/web/catalog/buttons/icon-toggle-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button'
       demos={<IconButtonDemo/>}
     />
@@ -63,7 +63,6 @@ class IconButton extends Component {
         <div>
           <button className='mdc-icon-button material-icons'
             aria-label='Add to favorites'
-            data-toggle-off-content='favorite_border'
             ref={this.initRipple}>wifi</button>
         </div>
     )
@@ -80,4 +79,4 @@ const IconButtonDemo = () => (
     </div>
 )
 
-export default IconToggleCatalog;
+export default IconButtonCatalog;
