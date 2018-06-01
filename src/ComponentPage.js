@@ -10,7 +10,7 @@ import DialogCatalog from './DialogCatalog';
 import DrawerCatalog from './DrawerCatalog';
 import ElevationCatalog from './ElevationCatalog';
 import FabCatalog from './FabCatalog';
-import IconToggleCatalog from './IconToggleCatalog';
+import IconButtonCatalog from './IconButtonCatalog';
 import ImageListCatalog from './ImageListCatalog';
 import MenuCatalog from './MenuCatalog';
 import LayoutGridCatalog from './LayoutGridCatalog';
@@ -58,7 +58,7 @@ class ComponentPage extends Component {
               <Route path='/component/drawer' component={DrawerCatalog} />
               <Route path='/component/elevation' component={ElevationCatalog} />
               <Route path='/component/fab' component={FabCatalog} />
-              <Route path='/component/icon-toggle' component={IconToggleCatalog} />
+              <Route path='/component/icon-button' component={IconButtonCatalog} />
               <Route path='/component/image-list' component={ImageListCatalog} />
               <Route path='/component/layout-grid' component={LayoutGridCatalog} />
               <Route path='/component/list' component={ListCatalog} />

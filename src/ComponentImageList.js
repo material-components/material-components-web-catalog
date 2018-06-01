@@ -10,7 +10,7 @@ import dialogImg from './images/dialog_180px.svg';
 import drawerImg from './images/drawer_180px.svg';
 import elevationImg from './images/elevation_180px.svg';
 import fabImg from './images/floating_action_button_180px.svg';
-import iconToggleImg from './images/icon_toggle_180px.svg';
+import iconButtonImg from './images/icon_button_180px.svg';
 import imageListImg from './images/image_list_180px.svg';
 import inputImg from './images/form_field_180px.svg'; // Used for Text Field and Select
 import layoutGridImg from './images/layout_grid_180px.svg';
@@ -50,7 +50,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Drawer', drawerImg, 'drawer')}
           {this.renderListItem('Elevation', elevationImg, 'elevation')}
           {this.renderListItem('FAB', fabImg, 'fab')}
-          {this.renderListItem('Icon Toggle', iconToggleImg, 'icon-toggle')}
+          {this.renderListItem('Icon Button', iconButtonImg, 'icon-button')}
           {this.renderListItem('Image List', imageListImg, 'image-list')}
           {this.renderListItem('Layout Grid', layoutGridImg, 'layout-grid')}
           {this.renderListItem('List', listImg, 'list')}
