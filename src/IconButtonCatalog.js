@@ -14,7 +14,7 @@ const IconButtonCatalog = () => {
       title='Icon Button'
       description={description}
       designLink='https://material.io/design/components/buttons.html#toggle-button'
-      docsLink='https://material.io/components/web/catalog/buttons/icon-toggle-buttons/'
+      docsLink='https://material.io/components/web/catalog/buttons/icon-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button'
       demos={<IconButtonDemo/>}
     />
