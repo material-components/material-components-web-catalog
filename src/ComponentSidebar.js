@@ -119,8 +119,8 @@ class ComponentSidebar extends Component {
       content: 'FAB',
       url: '/fab',
     }, {
-      content: 'Icon Toggle',
-      url: '/icon-toggle',
+      content: 'Icon Button',
+      url: '/icon-button',
     }, {
       content: 'Image List',
       url: '/image-list',

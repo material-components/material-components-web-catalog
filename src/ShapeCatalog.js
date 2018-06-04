@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCIconToggle} from '@material/icon-toggle';
+import {MDCIconButtonToggle} from '@material/icon-button';
 import {MDCRipple} from '@material/ripple';
 
 import './styles/ShapeCatalog.scss';
@@ -100,33 +100,23 @@ class ShapeDemos extends Component {
             </div>
             <div className='mdc-card__actions'>
               <div className='mdc-card__action-icons'>
-                <i className='mdc-icon-toggle material-icons mdc-card__action mdc-card__action--icon'
-                  tabIndex='0'
-                  role='button'
+                <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                   aria-pressed='false'
                   aria-label='Add to favorites'
                   title='Add to favorites'
-                  data-toggle-on='{"content": "favorite", "label": "Remove from favorites"}'
-                  data-toggle-off='{"content": "favorite_border", "label": "Add to favorites"}'
-                  ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconToggle(surfaceEl)}>
-                  favorite_border
-                </i>
-                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                  tabIndex='0'
-                  role='button'
+                  data-toggle-on-content='favorite'
+                  data-toggle-on-label='Remove from favorites'
+                  data-toggle-off-content='favorite_border'
+                  data-toggle-off-label='Add to favorites'
+                  ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconButtonToggle(surfaceEl)}>favorite_border</button>
+                <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                   title='Share'
                   data-mdc-ripple-is-unbounded
-                  ref={this.initRipple}>
-                  share
-                </i>
-                <i className='material-icons mdc-card__action mdc-card__action--icon mdc-ripple-surface'
-                  tabIndex='0'
-                  role='button'
+                  ref={this.initRipple}>share</button>
+                <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                   title='More options'
                   data-mdc-ripple-is-unbounded
-                  ref={this.initRipple}>
-                  more_vert
-                </i>
+                  ref={this.initRipple}>more_vert</button>
               </div>
             </div>
           </div>
