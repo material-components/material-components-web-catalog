@@ -4,7 +4,6 @@
 
 .catalog-top-app-bar {
   @include mdc-top-app-bar-fill-color($material-color-grey-900);
-  z-index: 2;
 }
 
 .catalog-top-app-bar__title {

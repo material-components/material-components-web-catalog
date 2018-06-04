@@ -127,12 +127,21 @@ class DrawerFramePage extends Component {
         <header className='mdc-top-app-bar' ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <button className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
+              {this.getNavigationIcon(type)}
               <span className='mdc-top-app-bar__title'>{type.title}</span>
             </section>
           </div>
         </header>
     );
+  }
+
+  getNavigationIcon(type) {
+    if(type !== propToVariant.permanent) {
+      return (
+          <button
+              className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
+      )
+    }
   }
 }
 
