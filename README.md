@@ -62,12 +62,10 @@ export default FooCatalog;
 2. Add a new file to the `src/styles` directory for styling the demo page (e.g. `FooCatalog.scss`):
 
 ```js
-@import "@material/foo/dist/mdc.foo";
+@import "@material/foo/mdc.foo";
 
 // Custom styles here
 ```
-
-> _NOTE_: We import the compiled CSS `@material/foo/dist/mdc.foo` so we don't have to recompile Sass files.
 
 3. Add a SVG image associated with the component (e.g. `foo_180px.svg`) to the `src/images` directory.
 
