@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "material-components-web": "^0.36.1",
     "ajv": "^6.4.0",
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
@@ -35,6 +34,7 @@
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "material-components-web": "^0.37.0",
     "node-sass": "^4.8.3",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
