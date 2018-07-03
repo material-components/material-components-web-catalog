@@ -74,7 +74,7 @@ const scssLoaders = Object.assign(
         {
           loader: 'sass-loader',
           options: {
-            includePaths: ['./node_modules']
+            importer: require('./material-sass-importer')
           }
         },
       ],
