@@ -62,7 +62,7 @@ export default FooCatalog;
 2. Add a new file to the `src/styles` directory for styling the demo page (e.g. `FooCatalog.scss`):
 
 ```js
-@import "@material/foo/mdc.foo";
+@import "@material/foo/mdc-foo";
 
 // Custom styles here
 ```
