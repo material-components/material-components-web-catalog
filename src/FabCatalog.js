@@ -57,7 +57,7 @@ const FabDemos = () => (
 
     <h3 className='mdc-typography--subtitle1'>Extended FAB (without Icon)</h3>
     <Fab extended textLabel='Create'>
-      <span className='mdc-fab__icon material-icons'>add</span>
+      <span className='mdc-fab__label'>Create</span>
     </Fab>
   </div>
 );
