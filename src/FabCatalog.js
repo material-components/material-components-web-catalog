@@ -67,7 +67,11 @@ const FabCatalog = () => {
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
     <ComponentCatalogPanel
-      hero={<Fab />}
+      hero={
+        <Fab ariaLabel='Favorite'>
+          <span className='mdc-fab__icon material-icons'>favorite_border</span>
+        </Fab>
+      }
       title='Floating Action Button'
       description={description}
       designLink='https://material.io/go/design-fab'
