@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import classnames from 'classnames';
 import {MDCRipple} from '@material/ripple';
 
 import './styles/FabCatalog.scss';
@@ -10,21 +11,28 @@ class Fab extends Component {
   }
 
   render() {
-    const classes = `mdc-fab
-      ${this.props.mini ? 'mdc-fab--mini ' : ''}
-      ${this.props.extended ? 'mdc-fab--extended ' : ''}
-      ${this.props.classes ? this.props.classes : ''}`;
-    const ariaLabel = this.props.ariaLabel || this.props.textLabel;
+    const {
+      className,
+      children,
+      ariaLabel,
+      textLabel,
+      mini,
+      extended,
+    } = this.props;
+    const classes = classnames('mdc-fab', className, {
+      'mdc-fab--mini': mini,
+      'mdc-fab--extended': extended,
+    });
 
     return (
       <button
         className={classes}
-        aria-label={ariaLabel}
+        aria-label={ariaLabel || textLabel}
         ref={fabEl => {
           if(fabEl) { this.ripple = new MDCRipple(fabEl); }
         }}
       >
-        {this.props.children}
+        {children}
       </button>
     );
   }
@@ -34,17 +42,17 @@ const FabDemos = () => (
   <div>
     <h3 className='mdc-typography--subtitle1'>Standard Floating Action Button</h3>
     <Fab ariaLabel='Favorite'>
-      <span className='mdc-fab__icon material-icons'>favorite_border</span>
+      <i className='mdc-fab__icon material-icons'>favorite_border</i>
     </Fab>
 
     <h3 className='mdc-typography--subtitle1'>Mini Floating Action Button</h3>
     <Fab mini ariaLabel='Favorite'>
-      <span className='mdc-fab__icon material-icons'>favorite_border</span>
+    <i className='mdc-fab__icon material-icons'>favorite_border</i>
     </Fab>
 
     <h3 className='mdc-typography--subtitle1'>Extended FAB</h3>
     <Fab extended textLabel='Create'>
-      <span className='mdc-fab__icon material-icons'>add</span>
+    <i className='mdc-fab__icon material-icons'>add</i>
       <span className='mdc-fab__label'>Create</span>
     </Fab>
 
@@ -52,7 +60,7 @@ const FabDemos = () => (
     <h3 className='mdc-typography--subtitle1'>Extended FAB (Text label followed by icon)</h3>
     <Fab extended textLabel='Create'>
       <span className='mdc-fab__label'>Create</span>
-      <span className='mdc-fab__icon material-icons'>add</span>
+      <i className='mdc-fab__icon material-icons'>add</i>
     </Fab>
 
     <h3 className='mdc-typography--subtitle1'>Extended FAB (without Icon)</h3>
@@ -69,7 +77,7 @@ const FabCatalog = () => {
     <ComponentCatalogPanel
       hero={
         <Fab ariaLabel='Favorite'>
-          <span className='mdc-fab__icon material-icons'>favorite_border</span>
+          <i className='mdc-fab__icon material-icons'>favorite_border</i>
         </Fab>
       }
       title='Floating Action Button'
