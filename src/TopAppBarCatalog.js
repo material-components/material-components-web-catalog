@@ -41,7 +41,7 @@ class TopAppBarHero extends Component {
         <header className='mdc-top-app-bar'>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-
+              <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
               <span className='mdc-top-app-bar__title'>San Francisco</span>
             </section>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
