@@ -95,7 +95,7 @@ class SelectDemos extends Component {
   getIndicator(variantClass) {
     if (variantClass === outlinedClass) {
       return (
-        <React.Fragment>``
+        <React.Fragment>
           <div className='mdc-notched-outline'>
             <svg>
               <path className='mdc-notched-outline__path'></path>
@@ -105,7 +105,7 @@ class SelectDemos extends Component {
         </React.Fragment>
       );
     }
-    
+
     return (<div className='mdc-line-ripple'></div>);
   }
 
