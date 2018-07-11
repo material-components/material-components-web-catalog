@@ -1,11 +1,7 @@
-// Pre-compiled CSS
-@import "@material/button/dist/mdc.button";
-@import "@material/card/dist/mdc.card";
-@import "@material/ripple/dist/mdc.ripple";
-
-// Sass mixins
+@import "@material/button/mdc-button";
+@import "@material/card/mdc-card";
+@import "@material/ripple/mdc-ripple";
 @import "@material/theme/mixins";
-@import "@material/theme/variables";
 
 //
 // Card container

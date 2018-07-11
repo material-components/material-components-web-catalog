@@ -53,6 +53,8 @@ class SelectHero extends Component {
   }
 }
 
+const outlinedClass = 'mdc-select--outlined';
+
 class SelectDemos extends Component {
   selects = [];
 
@@ -84,16 +86,34 @@ class SelectDemos extends Component {
             </option>
           </select>
           <label className='mdc-floating-label'>Fruit</label>
-          <div className='mdc-line-ripple'></div>
+          {this.getIndicator(variantClass)}
         </div>
       </div>
     );
+  }
+
+  getIndicator(variantClass) {
+    if (variantClass === outlinedClass) {
+      return (
+        <React.Fragment>``
+          <div className='mdc-notched-outline'>
+            <svg>
+              <path className='mdc-notched-outline__path'></path>
+            </svg>
+          </div>
+          <div className='mdc-notched-outline__idle'></div>
+        </React.Fragment>
+      );
+    }
+    
+    return (<div className='mdc-line-ripple'></div>);
   }
 
   render() {
     return (
       <div>
         {this.renderSelectVariant('Box Select', 'mdc-select--box')}
+        {this.renderSelectVariant('Outlined Select', outlinedClass)}
       </div>
     );
   }

@@ -1,4 +1,4 @@
-@import "@material/list/dist/mdc.list";
+@import "@material/list/mdc-list";
 @import "@material/typography/mixins";
 @import "./variables";
 
@@ -48,4 +48,25 @@
   width: 900px;
   margin: 0 auto;
   padding: 40px 16px 100px;
+}
+
+.loadComponent-enter {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.loadComponent-enter.loadComponent-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 235ms linear 100ms;
+
+  // Fixed elements don't work well with transform so the snackbar needs to be hidden
+  // until the transition finishes.
+  .mdc-snackbar {
+    display: none;
+  }
+}
+
+.loadComponent-exit {
+  display: none;
 }

@@ -1,7 +1,7 @@
-@import "@material/typography/dist/mdc.typography";
-@import "@material/image-list/dist/mdc.image-list";
+@import "@material/typography/mdc-typography";
+@import "@material/image-list/mdc-image-list";
 @import "@material/image-list/mixins";
-@import "@material/ripple/dist/mdc.ripple";
+@import "@material/ripple/mdc-ripple";
 @import "@material/theme/color-palette";
 
 $breakpoints: (
@@ -46,20 +46,4 @@ body {
 
 a.catalog-image-link {
   text-decoration: none;
-}
-
-// Needed until the following PR gets resolved
-// https://github.com/material-components/material-components-web/pull/2704
-@media (max-width: 599px) {
-  .mdc-top-app-bar--fixed-adjust {
-    margin-top: 0;
-    padding-top: 56px;
-  }
-}
-
-// Needed until MDC Web #2702 is resolved
-// See: https://github.com/material-components/material-components-web/issues/2702
-.mdc-card__action--icon {
-  width: 48px;
-  height: 48px;
 }
