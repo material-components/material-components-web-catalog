@@ -19,7 +19,7 @@ class ComponentCatalogPanel extends Component {
         <span className='mdc-list-item__graphic'>
           <img src={imageSource} className='resources-icon' alt={`${title} icon`}/>
         </span>
-        <span className='mdc-list-item__text'>{title}</span>
+        {title}
       </a>
     );
   }
