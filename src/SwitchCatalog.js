@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import classnames from 'classnames';
+import {MDCSwitch} from '@material/switch';
 
 import './styles/SwitchCatalog.scss';
 
@@ -17,31 +19,42 @@ const SwitchCatalog = () => {
   );
 };
 
-class SwitchHero extends Component {
-  state = {
-    isChecked: true,
+class Switch extends Component {
+  initSwitch = (el) => {
+    if (!el) return;
+    this.switchControl = new MDCSwitch(el);
   };
 
-  handleChecked = (event) => {
-    this.setState({
-      isChecked: event.target.checked,
-    });
-  };
+  componentWillUnmount() {
+    this.switchControl && this.switchControl.destroy();
+  }
 
   render() {
+    const classes = classnames('mdc-switch', {
+      'mdc-switch--disabled': this.props.disabled,
+    });
+
     return (
-        <div>
-          <div className='mdc-switch'>
-            <input type='checkbox' id='hero-switch' className='mdc-switch__native-control' role='switch'
-                   aria-checked='false'
-                   checked={this.state.isChecked}
-                   onChange={this.handleChecked}/>
-            <div className='mdc-switch__background'>
-              <div className='mdc-switch__knob'/>
+      <span>
+        <div className={classes} ref={this.initSwitch}>
+          <div className='mdc-switch__track'></div>
+          <div className='mdc-switch__thumb-underlay'>
+            <div className='mdc-switch__thumb'>
+                <input type='checkbox' id={this.props.inputId} className='mdc-switch__native-control' role='switch'
+                       defaultChecked={this.props.defaultChecked} disabled={this.props.disabled} />
             </div>
           </div>
-          <label htmlFor='hero-switch' className='mdc-switch-label'>off/on</label>
         </div>
+        <label htmlFor={this.props.inputId}>{this.props.label}</label>
+      </span>
+    );
+  }
+}
+
+class SwitchHero extends Component {
+  render() {
+    return (
+      <Switch inputId='hero-switch' label='off/on' defaultChecked />
     );
   }
 }
@@ -49,19 +62,12 @@ class SwitchHero extends Component {
 class SwitchDemos extends Component {
   renderSwitchVariant(title, variant) {
     return (
-        <div>
-          <h3 className='mdc-typography--subtitle1'>{title}</h3>
-          <div className='switch-demo'>
-          <div className='mdc-switch'>
-            <input type='checkbox' id={`${title}-switch`} className='mdc-switch__native-control' role='switch'
-                   aria-checked='false' disabled={variant === 'disabled'}/>
-            <div className='mdc-switch__background'>
-              <div className='mdc-switch__knob'/>
-            </div>
-          </div>
-          <label htmlFor={`${title}-switch`} className='mdc-switch-label'>off/on</label>
-          </div>
+      <div>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
+        <div className='switch-demo'>
+          <Switch inputId={`${title}-switch`} label='off/on' disabled={variant === 'disabled'} />
         </div>
+      </div>
     );
   }
 

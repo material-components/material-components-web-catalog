@@ -48,11 +48,16 @@ class ListItem extends Component {
     }
   }
 
-  renderLineTwo() {
+  renderLines() {
     if (this.props.lineTwo) {
       return (
-        <span className='mdc-list-item__secondary-text'>{this.props.lineTwo}</span>
+        <span className='mdc-list-item__text'>
+          <span className='mdc-list-item__primary-text'>{this.props.lineOne}</span>
+          <span className='mdc-list-item__secondary-text'>{this.props.lineTwo}</span>
+        </span>
       );
+    } else {
+      return this.props.lineOne;
     }
   }
 
@@ -68,10 +73,7 @@ class ListItem extends Component {
     return (
       <li className='mdc-list-item' ref={this.initRipple}>
         {this.renderLeadingIcon()}
-        <span className='mdc-list-item__text'>
-          {this.props.lineOne}
-          {this.renderLineTwo()}
-        </span>
+        {this.renderLines()}
         {this.renderTrailingIcon()}
       </li>
     );
