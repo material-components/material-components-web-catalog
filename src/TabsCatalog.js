@@ -112,7 +112,7 @@ const Tab = (props) => {
     <button className={classes} role='tab' aria-selected={props.active ? 'true' : 'false'} tabIndex={props.active ? '0' : '-1'}>
       <div className='mdc-tab__content'>
         {props.icon &&
-          <span className='mdc-tab__icon material-icons'>{props.icon}</span>
+          <span className='mdc-tab__icon material-icons' aria-hidden='true'>{props.icon}</span>
         }
         <span className='mdc-tab__text-label'>{props.label}</span>
         { props.contentWidthIndicator && renderIndicator() }
