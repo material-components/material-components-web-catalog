@@ -53,7 +53,7 @@ class MenuDemos extends Component {
       <div>
         <h3 className='mdc-typography--subtitle1'>Anchored Menu</h3>
         <button className='mdc-button' onClick={this.handleOpenClick_}>Open menu</button>
-        <div className='mdc-menu-anchor'>
+        <div className='mdc-menu-surface--anchor'>
           <Menu open={this.state.open} focusIndex={this.state.focusIndex} handleSelected={this.handleSelected_} handleCancel={this.handleCancel_}>
             <MenuItem name='Passionfruit' />
             <MenuItem name='Orange' />
@@ -83,20 +83,18 @@ class Menu extends Component {
 
   componentDidMount() {
     this.menuEl.addEventListener('MDCMenu:selected', this.handleSelected_);
-    this.menuEl.addEventListener('MDCMenu:cancel', this.handleCancel_);
+    this.menuEl.addEventListener('MDCMenuSurface:closed', this.handleCancel_);
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.open !== this.props.open) {
-      this.props.open
-        ? this.menu.show({focusIndex: this.props.focusIndex})
-        : this.menu.hide();
+        this.menu.open = this.props.open;
     }
   }
 
   componentWillUnmount() {
     this.menuEl.removeEventListener('MDCMenu:selected', this.handleSelected_);
-    this.menuEl.removeEventListener('MDCMenu:cancel', this.handleCancel_);
+    this.menuEl.removeEventListener('MDCMenuSurface:closed', this.handleCancel_);
     this.menu.destroy();
   }
 
@@ -113,13 +111,13 @@ class Menu extends Component {
   }
 
   render() {
-    const classes = classnames('mdc-menu', {
-      'mdc-menu--open': this.props.defaultOpen,
+    const classes = classnames('mdc-menu', 'mdc-menu-surface', {
+      'mdc-menu-surface--open': this.props.defaultOpen,
     }, this.props.className);
 
     return (
       <div className={classes} tabIndex={this.props.open ? 0 : -1} ref={this.initMenu}>
-        <ul className='mdc-menu__items mdc-list' role='menu' aria-hidden='true'>
+        <ul className='mdc-list' role='menu' aria-hidden='true'>
           {this.props.children}
         </ul>
       </div>
@@ -128,13 +126,13 @@ class Menu extends Component {
 }
 
 const MenuDOM = (props) => {
-  const classes = classnames('mdc-menu', {
-    'mdc-menu--open': props.defaultOpen,
+  const classes = classnames('mdc-menu', 'mdc-menu-surface', {
+    'mdc-menu-surface--open': props.defaultOpen,
   }, props.className);
 
   return (
     <div className={classes} tabIndex={props.open ? 0 : -1} >
-      <ul className='mdc-menu__items mdc-list' role='menu' aria-hidden='true'>
+      <ul className='mdc-list' role='menu' aria-hidden='true'>
         {props.children}
       </ul>
     </div>
@@ -150,14 +148,14 @@ class MenuItem extends Component {
 
   render() {
     return (
-      <li className='mdc-list-item' role='menuitem' tabIndex='0' ref={this.initRipple}>{this.props.name}</li>
+      <li className='mdc-list-item' role='menuitem' tabIndex='-1' ref={this.initRipple}>{this.props.name}</li>
     );
   }
 };
 
 const MenuDivider = () => {
   return (
-    <li className='mdc-list-divider' role='separator'></li>
+    <li className='mdc-list-divider' role='separator'/>
   )
 }
 
