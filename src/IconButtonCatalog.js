@@ -35,7 +35,6 @@ class IconButtonToggle extends Component {
     return (
       <div>
         <button className='mdc-icon-button'
-          aria-hidden='true'
           aria-pressed='false'
           aria-label='Add to favorites'
           ref={this.initIconButtonToggle}>
