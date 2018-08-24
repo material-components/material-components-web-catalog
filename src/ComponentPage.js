@@ -2,37 +2,90 @@ import React, {Component} from 'react';
 import classnames from 'classnames';
 
 import ComponentSidebar from './ComponentSidebar';
-import ButtonCatalog from './ButtonCatalog';
-import CardCatalog from './CardCatalog';
-import CheckboxCatalog from './CheckboxCatalog';
-import ChipsCatalog from './ChipsCatalog';
-import DialogCatalog from './DialogCatalog';
-import DrawerCatalog from './DrawerCatalog';
-import ElevationCatalog from './ElevationCatalog';
-import FabCatalog from './FabCatalog';
-import IconButtonCatalog from './IconButtonCatalog';
-import ImageListCatalog from './ImageListCatalog';
-import MenuCatalog from './MenuCatalog';
-import LayoutGridCatalog from './LayoutGridCatalog';
-import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
-import ListCatalog from './ListCatalog';
-import RadioButtonCatalog from './RadioButtonCatalog';
-import RippleCatalog from './RippleCatalog';
-import ShapeCatalog from './ShapeCatalog';
-import SelectCatalog from './SelectCatalog';
-import SliderCatalog from './SliderCatalog';
-import SnackbarCatalog from './SnackbarCatalog';
-import SwitchCatalog from './SwitchCatalog';
-import TabsCatalog from './TabsCatalog';
-import TextFieldCatalog from './TextFieldCatalog';
-import TopAppBarCatalog from './TopAppBarCatalog';
-import TypographyCatalog from './TypographyCatalog';
-
 import {Switch, Route} from 'react-router';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import './styles/ComponentPage.scss';
-import ThemeCatalog from './ThemeCatalog';
+
+const components = [{
+  urlPath: 'button',
+  filePath: './ButtonCatalog',
+}, {
+  urlPath: 'card',
+  filePath: './CardCatalog',
+}, {
+  urlPath: 'checkbox',
+  filePath: './CheckboxCatalog',
+}, {
+  urlPath: 'chips',
+  filePath: './ChipsCatalog',
+}, {
+  urlPath: 'dialog',
+  filePath: './DialogCatalog',
+}, {
+  urlPath: 'drawer',
+  filePath: './DrawerCatalog',
+}, {
+  urlPath: 'elevation',
+  filePath: './ElevationCatalog',
+}, {
+  urlPath: 'fab',
+  filePath: './FabCatalog',
+}, {
+  urlPath: 'icon-button',
+  filePath: './IconButtonCatalog',
+}, {
+  urlPath: 'image-list',
+  filePath: './ImageListCatalog',
+}, {
+  urlPath: 'layout-grid',
+  filePath: './LayoutGridCatalog',
+}, {
+  urlPath: 'list',
+  filePath: './ListCatalog',
+}, {
+  urlPath: 'linear-progress-indicator',
+  filePath: './LinearProgressIndicatorCatalog',
+}, {
+  urlPath: 'menu',
+  filePath: './MenuCatalog',
+}, {
+  urlPath: 'radio',
+  filePath: './RadioButtonCatalog',
+}, {
+  urlPath: 'ripple',
+  filePath: './RippleCatalog',
+}, {
+  urlPath: 'select',
+  filePath: './SelectCatalog',
+}, {
+  urlPath: 'shape',
+  filePath: './ShapeCatalog',
+}, {
+  urlPath: 'slider',
+  filePath: './SliderCatalog',
+}, {
+  urlPath: 'snackbar',
+  filePath: './SnackbarCatalog',
+}, {
+  urlPath: 'switch',
+  filePath: './SwitchCatalog',
+}, {
+  urlPath: 'tabs',
+  filePath: './TabsCatalog',
+}, {
+  urlPath: 'text-field',
+  filePath: './TextFieldCatalog',
+}, {
+  urlPath: 'theme',
+  filePath: './ThemeCatalog',
+}, {
+  urlPath: 'top-app-bar',
+  filePath: './TopAppBarCatalog',
+}, {
+  urlPath: 'typography',
+  filePath: './TypographyCatalog',
+}];
 
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
@@ -50,32 +103,16 @@ class ComponentPage extends Component {
         <TransitionGroup ref={this.initDemoContent} onTransitionEnd={this.handleTransitionEnd_} classes='demo-content-transition'>
           <CSSTransition key={this.props.location.pathname} timeout={350} transitionExitTimeout={0} classNames='loadComponent'>
             <Switch>
-              <Route path='/component/button' component={ButtonCatalog} />
-              <Route path='/component/card' component={CardCatalog} />
-              <Route path='/component/checkbox' component={CheckboxCatalog} />
-              <Route path='/component/chips' component={ChipsCatalog} />
-              <Route path='/component/dialog' component={DialogCatalog} />
-              <Route path='/component/drawer' component={DrawerCatalog} />
-              <Route path='/component/elevation' component={ElevationCatalog} />
-              <Route path='/component/fab' component={FabCatalog} />
-              <Route path='/component/icon-button' component={IconButtonCatalog} />
-              <Route path='/component/image-list' component={ImageListCatalog} />
-              <Route path='/component/layout-grid' component={LayoutGridCatalog} />
-              <Route path='/component/list' component={ListCatalog} />
-              <Route path='/component/linear-progress-indicator' component={LinearProgressIndicatorCatalog} />
-              <Route path='/component/menu' component={MenuCatalog} />
-              <Route path='/component/radio' component={RadioButtonCatalog} />
-              <Route path='/component/ripple' component={RippleCatalog} />
-              <Route path='/component/select' component={SelectCatalog} />
-              <Route path='/component/shape' component={ShapeCatalog} />
-              <Route path='/component/slider' component={SliderCatalog} />
-              <Route path='/component/snackbar' component={SnackbarCatalog} />
-              <Route path='/component/switch' component={SwitchCatalog} />
-              <Route path='/component/tabs' component={TabsCatalog} />
-              <Route path='/component/text-field' component={TextFieldCatalog} />
-              <Route path='/component/theme' component={ThemeCatalog} />
-              <Route path='/component/top-app-bar' component={TopAppBarCatalog} />
-              <Route path='/component/typography' component={TypographyCatalog} />
+              {components.map((component) => {
+                const {filePath, urlPath} = component;
+                const Component = require(`${filePath}`).default;
+                return (
+                  <Route
+                    key={urlPath}
+                    path={`/component/${urlPath}`}
+                    render={(props) => <Component {...props}/>} />
+                );
+              })}
             </Switch>
           </CSSTransition>
         </TransitionGroup>
