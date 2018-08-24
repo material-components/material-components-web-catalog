@@ -2,90 +2,11 @@ import React, {Component} from 'react';
 import classnames from 'classnames';
 
 import ComponentSidebar from './ComponentSidebar';
-import {Switch, Route} from 'react-router';
+import {Switch} from 'react-router';
+import Routes from './Routes';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import './styles/ComponentPage.scss';
-
-const components = [{
-  urlPath: 'button',
-  filePath: './ButtonCatalog',
-}, {
-  urlPath: 'card',
-  filePath: './CardCatalog',
-}, {
-  urlPath: 'checkbox',
-  filePath: './CheckboxCatalog',
-}, {
-  urlPath: 'chips',
-  filePath: './ChipsCatalog',
-}, {
-  urlPath: 'dialog',
-  filePath: './DialogCatalog',
-}, {
-  urlPath: 'drawer',
-  filePath: './DrawerCatalog',
-}, {
-  urlPath: 'elevation',
-  filePath: './ElevationCatalog',
-}, {
-  urlPath: 'fab',
-  filePath: './FabCatalog',
-}, {
-  urlPath: 'icon-button',
-  filePath: './IconButtonCatalog',
-}, {
-  urlPath: 'image-list',
-  filePath: './ImageListCatalog',
-}, {
-  urlPath: 'layout-grid',
-  filePath: './LayoutGridCatalog',
-}, {
-  urlPath: 'list',
-  filePath: './ListCatalog',
-}, {
-  urlPath: 'linear-progress-indicator',
-  filePath: './LinearProgressIndicatorCatalog',
-}, {
-  urlPath: 'menu',
-  filePath: './MenuCatalog',
-}, {
-  urlPath: 'radio',
-  filePath: './RadioButtonCatalog',
-}, {
-  urlPath: 'ripple',
-  filePath: './RippleCatalog',
-}, {
-  urlPath: 'select',
-  filePath: './SelectCatalog',
-}, {
-  urlPath: 'shape',
-  filePath: './ShapeCatalog',
-}, {
-  urlPath: 'slider',
-  filePath: './SliderCatalog',
-}, {
-  urlPath: 'snackbar',
-  filePath: './SnackbarCatalog',
-}, {
-  urlPath: 'switch',
-  filePath: './SwitchCatalog',
-}, {
-  urlPath: 'tabs',
-  filePath: './TabsCatalog',
-}, {
-  urlPath: 'text-field',
-  filePath: './TextFieldCatalog',
-}, {
-  urlPath: 'theme',
-  filePath: './ThemeCatalog',
-}, {
-  urlPath: 'top-app-bar',
-  filePath: './TopAppBarCatalog',
-}, {
-  urlPath: 'typography',
-  filePath: './TypographyCatalog',
-}];
 
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
@@ -103,16 +24,7 @@ class ComponentPage extends Component {
         <TransitionGroup ref={this.initDemoContent} onTransitionEnd={this.handleTransitionEnd_} classes='demo-content-transition'>
           <CSSTransition key={this.props.location.pathname} timeout={350} transitionExitTimeout={0} classNames='loadComponent'>
             <Switch>
-              {components.map((component) => {
-                const {filePath, urlPath} = component;
-                const Component = require(`${filePath}`).default;
-                return (
-                  <Route
-                    key={urlPath}
-                    path={`/component/${urlPath}`}
-                    render={(props) => <Component {...props}/>} />
-                );
-              })}
+              <Routes />
             </Switch>
           </CSSTransition>
         </TransitionGroup>
