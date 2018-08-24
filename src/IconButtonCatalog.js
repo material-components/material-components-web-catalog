@@ -34,14 +34,14 @@ class IconButtonToggle extends Component {
   render() {
     return (
       <div>
-        <button className='mdc-icon-button material-icons'
+        <button className='mdc-icon-button'
+          aria-hidden='true'
           aria-pressed='false'
           aria-label='Add to favorites'
-          data-toggle-on-label='Remove from favorites'
-          data-toggle-on-content='favorite'
-          data-toggle-off-label='Add to favorites'
-          data-toggle-off-content='favorite_border'
-          ref={this.initIconButtonToggle}>favorite_border</button>
+          ref={this.initIconButtonToggle}>
+          <i className='material-icons mdc-icon-button__icon mdc-icon-button__icon--on'>favorite</i>
+          <i className='material-icons mdc-icon-button__icon'>favorite_border</i>
+        </button>
       </div>
     );
   }
