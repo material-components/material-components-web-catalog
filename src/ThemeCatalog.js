@@ -201,15 +201,14 @@ class ThemeDemos extends Component {
                   </button>
                 </div>
                 <div className='mdc-card__action-icons'>
-                  <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
+                  <button className='mdc-icon-button mdc-card__action mdc-card__action--icon'
                      ref={this.initIconToggle}
                      aria-pressed='false'
                      aria-label='Add to favorites'
-                     title='Add to favorites'
-                     data-toggle-on-content='favorite'
-                     data-toggle-on-label='Remove from favorites'
-                     data-toggle-off-content='favorite_border'
-                     data-toggle-off-label='Add to favorites'>favorite_border</button>
+                     title='Add to favorites'>
+                    <i className='material-icons mdc-icon-button__icon mdc-icon-button__icon--on'>favorite</i>
+                    <i className='material-icons mdc-icon-button__icon'>favorite_border</i>
+                  </button>
                   <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
                      data-mdc-ripple-is-unbounded
                      title='Share'
@@ -394,28 +393,26 @@ class ThemeDemos extends Component {
             <div className='mdc-elevation--z2 demo-icon-button-tile'>
               <h4 className='mdc-typography--subtitle1'>Enabled</h4>
 
-              <button className='mdc-icon-button material-icons demo-icon-button-toggle'
+              <button className='mdc-icon-button demo-icon-button-toggle'
                  ref={this.initIconToggle}
                  aria-label='Add to favorites'
-                 aria-pressed='false'
-                 data-toggle-on-content='favorite'
-                 data-toggle-on-label='Remove from favorites'
-                 data-toggle-off-content='favorite_border'
-                 data-toggle-off-label='Add to Favorites'>favorite_border</button>
+                 aria-pressed='false'>
+                <i className='material-icons mdc-icon-button__icon mdc-icon-button__icon--on'>favorite</i>
+                <i className='material-icons mdc-icon-button__icon'>favorite_border</i>
+              </button>
             </div>
 
             <div className='mdc-elevation--z2 demo-icon-button-tile'>
               <h4 className='mdc-typography--subtitle1'>Disabled</h4>
 
-              <button className='mdc-icon-button material-icons'
+              <button className='mdc-icon-button'
                  ref={this.initIconToggle}
                  disabled
                  aria-label='Add to favorites'
-                 aria-pressed='false'
-                 data-toggle-on-content='favorite'
-                 data-toggle-on-label='Remove from favorites'
-                 data-toggle-off-content='favorite_border'
-                 data-toggle-off-label='Add to favorites'>favorite_border</button>
+                 aria-pressed='false'>
+                <i className='material-icons mdc-icon-button__icon mdc-icon-button__icon--on'>favorite</i>
+                <i className='material-icons mdc-icon-button__icon'>favorite_border</i>
+              </button>
             </div>
           </div>
         </ThemeDemoSection>
