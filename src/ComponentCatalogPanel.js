@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
 import {MDCRipple} from '@material/ripple';
+import SassDoc from './SassDoc';
 
 // ComponentCatalogPanel is the container for catalog component content,
 // that renders the hero and demo sections.
@@ -25,7 +26,9 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, sourceLink, title} = this.props;
+    const {designLink, description, demos, docsLink, hero, sassDocData, sourceLink, title} = this.props;
+    const sassDocs = sassDocData[title.toLowerCase()];
+    console.log(sassDocs)
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
@@ -40,6 +43,8 @@ class ComponentCatalogPanel extends Component {
 
         <h2 className='demo-title mdc-typography--headline6'>Demos</h2>
         {demos}
+
+        {sassDocs ? <SassDoc data={sassDocs} /> : null}
       </section>
     );
   }
