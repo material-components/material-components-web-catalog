@@ -1,91 +1,117 @@
 import React from 'react';
 import {Route} from 'react-router-dom';
 
-const components = [{
+import ButtonCatalog from './ButtonCatalog';
+import CardCatalog from './CardCatalog';
+import CheckboxCatalog from './CheckboxCatalog';
+import ChipsCatalog from './ChipsCatalog';
+import DialogCatalog from './DialogCatalog';
+import DrawerCatalog from './DrawerCatalog';
+import ElevationCatalog from './ElevationCatalog';
+import FabCatalog from './FabCatalog';
+import IconButtonCatalog from './IconButtonCatalog';
+import ImageListCatalog from './ImageListCatalog';
+import LayoutGridCatalog from './LayoutGridCatalog';
+import ListCatalog from './ListCatalog';
+import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
+import MenuCatalog from './MenuCatalog';
+import RadioButtonCatalog from './RadioButtonCatalog';
+import RippleCatalog from './RippleCatalog';
+import SelectCatalog from './SelectCatalog';
+import ShapeCatalog from './ShapeCatalog';
+import SliderCatalog from './SliderCatalog';
+import SnackbarCatalog from './SnackbarCatalog';
+import SwitchCatalog from './SwitchCatalog';
+import TabsCatalog from './TabsCatalog';
+import TextFieldCatalog from './TextFieldCatalog';
+import ThemeCatalog from './ThemeCatalog';
+import TopAppBarCatalog from './TopAppBarCatalog';
+import TypographyCatalog from './TypographyCatalog';
+
+const routesList = [{
   urlPath: 'button',
-  filePath: './ButtonCatalog',
+  Component: ButtonCatalog,
 }, {
   urlPath: 'card',
-  filePath: './CardCatalog',
+  Component: CardCatalog,
 }, {
   urlPath: 'checkbox',
-  filePath: './CheckboxCatalog',
+  Component: CheckboxCatalog,
 }, {
   urlPath: 'chips',
-  filePath: './ChipsCatalog',
+  Component: ChipsCatalog,
 }, {
   urlPath: 'dialog',
-  filePath: './DialogCatalog',
+  Component: DialogCatalog,
 }, {
   urlPath: 'drawer',
-  filePath: './DrawerCatalog',
+  Component: DrawerCatalog,
 }, {
   urlPath: 'elevation',
-  filePath: './ElevationCatalog',
+  Component: ElevationCatalog,
 }, {
   urlPath: 'fab',
-  filePath: './FabCatalog',
+  Component: FabCatalog,
 }, {
   urlPath: 'icon-button',
-  filePath: './IconButtonCatalog',
+  Component: IconButtonCatalog,
 }, {
   urlPath: 'image-list',
-  filePath: './ImageListCatalog',
+  Component: ImageListCatalog,
 }, {
   urlPath: 'layout-grid',
-  filePath: './LayoutGridCatalog',
+  Component: LayoutGridCatalog,
 }, {
   urlPath: 'list',
-  filePath: './ListCatalog',
+  Component: ListCatalog,
 }, {
   urlPath: 'linear-progress-indicator',
-  filePath: './LinearProgressIndicatorCatalog',
+  Component: LinearProgressIndicatorCatalog,
 }, {
   urlPath: 'menu',
-  filePath: './MenuCatalog',
+  Component: MenuCatalog,
 }, {
   urlPath: 'radio',
-  filePath: './RadioButtonCatalog',
+  Component: RadioButtonCatalog,
 }, {
   urlPath: 'ripple',
-  filePath: './RippleCatalog',
+  Component: RippleCatalog,
 }, {
   urlPath: 'select',
-  filePath: './SelectCatalog',
+  Component: SelectCatalog,
 }, {
   urlPath: 'shape',
-  filePath: './ShapeCatalog',
+  Component: ShapeCatalog,
 }, {
   urlPath: 'slider',
-  filePath: './SliderCatalog',
+  Component: SliderCatalog,
 }, {
   urlPath: 'snackbar',
-  filePath: './SnackbarCatalog',
+  Component: SnackbarCatalog,
 }, {
   urlPath: 'switch',
-  filePath: './SwitchCatalog',
+  Component: SwitchCatalog,
 }, {
   urlPath: 'tabs',
-  filePath: './TabsCatalog',
+  Component: TabsCatalog,
 }, {
   urlPath: 'text-field',
-  filePath: './TextFieldCatalog',
+  Component: TextFieldCatalog,
 }, {
   urlPath: 'theme',
-  filePath: './ThemeCatalog',
+  Component: ThemeCatalog,
 }, {
   urlPath: 'top-app-bar',
-  filePath: './TopAppBarCatalog',
+  Component: TopAppBarCatalog,
 }, {
   urlPath: 'typography',
-  filePath: './TypographyCatalog',
+  Component: TypographyCatalog,
 }];
 
 const Routes = () => {
   return (
-    components.map((component) => {
-      const {filePath, urlPath} = component;
-      const Component = require(`${filePath}`).default;
+    routesList.map((route) => {
+      const {Component, urlPath} = route;
       return (
         <Route
           key={urlPath}
