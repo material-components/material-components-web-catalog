@@ -662,18 +662,23 @@ class ThemeDemos extends Component {
             </p>
           </figure>
           <figure className='demo-text-field-wrapper'>
-            <div className='mdc-text-field mdc-text-field--box demo-text-field'
+            <div className='mdc-text-field mdc-text-field--outlined demo-text-field'
                  ref={this.initTextField}>
               <input type='text' className='mdc-text-field__input'
-                     id='demo-text-field-box'
-                     aria-controls='demo-text-field-box-helper-text'
-                     aria-describedby='demo-text-field-box-helper-text'/>
-              <label htmlFor='demo-text-field-box'
-                     className='mdc-floating-label'>With <code>--box</code> modifier</label>
-              <div className='mdc-line-ripple'/>
+                     id='demo-text-field-outlined'
+                     aria-controls='demo-text-field-outlined-helper-text'
+                     aria-describedby='demo-text-field-outlined-helper-text'/>
+              <label htmlFor='demo-text-field-outlined'
+                     className='mdc-floating-label'>With <code>--outlined</code> modifier</label>
+              <div className='mdc-notched-outline'>
+                <svg>
+                  <path className='mdc-notched-outline__path'></path>
+                </svg>
+              </div>
+              <div className='mdc-notched-outline__idle'></div>
             </div>
             <p className='mdc-text-field-helper-text'
-               id='demo-text-field-box-helper-text'
+               id='demo-text-field-outlined-helper-text'
                aria-hidden='true'>
               Helper text
             </p>
