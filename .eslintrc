@@ -4,8 +4,5 @@
     quotes: [2, 'single'],
     jsx-quotes: [2, 'prefer-single'],
     jsx-a11y/href-no-hash: [0],
-  },
-  globals: {
-    SASSDOC_JSON: true,
-  },
+  }
 }

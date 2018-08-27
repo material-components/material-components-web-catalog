@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple';
+
 import './styles/ButtonCatalog.scss';
 
-const ButtonCatalog = (props) => {
+const ButtonCatalog = () => {
   return (
     <ComponentCatalogPanel
       hero={<ButtonHero />}
@@ -13,7 +14,6 @@ const ButtonCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
-      {...props}
     />
   );
 }

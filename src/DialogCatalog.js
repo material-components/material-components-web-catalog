@@ -4,7 +4,7 @@ import {MDCDialog} from '@material/dialog/dist/mdc.dialog';
 
 import './styles/DialogCatalog.scss';
 
-const DialogCatalog = (props) => {
+const DialogCatalog = () => {
   return (
     <ComponentCatalogPanel
       hero={<DialogHero />}
@@ -14,7 +14,6 @@ const DialogCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/dialogs/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-dialog'
       demos={<DialogDemos />}
-      {...props}
     />
   );
 };

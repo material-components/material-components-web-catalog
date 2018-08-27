@@ -6,7 +6,7 @@ import {imagePath} from './constants';
 
 import './styles/CardCatalog.scss';
 
-const CardCatalog = (props) => {
+const CardCatalog = () => {
   return (
     <ComponentCatalogPanel
       hero={<Card image actions className='demo-card--hero' />}
@@ -16,7 +16,6 @@ const CardCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/cards/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
       demos={<CardDemos />}
-      {...props}
     />
   );
 };

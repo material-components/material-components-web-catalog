@@ -81,7 +81,7 @@ const components = [{
   filePath: './TypographyCatalog',
 }];
 
-const Routes = ({sassDocData}) => {
+const Routes = () => {
   return (
     components.map((component) => {
       const {filePath, urlPath} = component;
@@ -90,8 +90,7 @@ const Routes = ({sassDocData}) => {
         <Route
           key={urlPath}
           path={`/component/${urlPath}`}
-          render={(props) => <Component sassDocData={sassDocData} {...props} />}
-        />
+          render={(props) => <Component {...props}/>} />
       );
     })
   );

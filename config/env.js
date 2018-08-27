@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 const paths = require('./paths');
-const sassDocJson = require('./../public/sassdoc.json');
 
 // Make sure that including paths.js after env.js will read .env variables.
 delete require.cache[require.resolve('./paths')];
@@ -81,14 +80,12 @@ function getClientEnvironment(publicUrl) {
       }
     );
   // Stringify all values so we can feed into Webpack DefinePlugin
-  const stringified = Object.assign({
+  const stringified = {
     'process.env': Object.keys(raw).reduce((env, key) => {
       env[key] = JSON.stringify(raw[key]);
       return env;
     }, {}),
-  }, {
-    SASSDOC_JSON: JSON.stringify(sassDocJson),
-  });
+  };
 
   return { raw, stringified };
 }
