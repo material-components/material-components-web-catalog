@@ -1,5 +1,5 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
-import {MDCPersistentDrawer, MDCTemporaryDrawer} from '@material/drawer';
+import {MDCDismissibleDrawerFoundation, MDCModalDrawerFoundation} from '@material/drawer';
 
 import React, {Component} from 'react';
 
@@ -27,9 +27,9 @@ class DrawerFramePage extends Component {
   initDrawer = drawerEle => {
     const {match} = this.props;
     if(match.params.type === 'temporary') {
-      this.drawer = new MDCTemporaryDrawer(drawerEle);
+      this.drawer = new MDCModalDrawerFoundation(drawerEle);
     } else if (match.params.type === 'persistent') {
-      this.drawer = new MDCPersistentDrawer(drawerEle);
+      this.drawer = new MDCDismissibleDrawerFoundation(drawerEle);
     }
   };
 

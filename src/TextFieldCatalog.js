@@ -19,7 +19,6 @@ const TextField = (props) => {
   } = props;
   const classes = classnames('mdc-text-field', 'text-field', {
     'mdc-text-field--outlined': outlined,
-    'mdc-text-field--outlined': outlined,
     'mdc-text-field--textarea': textarea,
     'mdc-text-field--dense': dense,
     'mdc-text-field--with-leading-icon': leading,

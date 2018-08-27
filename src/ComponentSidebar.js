@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {MDCPersistentDrawer, MDCTemporaryDrawer} from '@material/drawer';
+import {MDCDismissibleDrawerFoundation, MDCModalDrawerFoundation} from '@material/drawer';
 import {MDCRipple} from '@material/ripple';
 
 const SCREEN_WIDTH_BREAKPOINT = 799;
-const PERSISTENT_DRAWER_CLASS = 'mdc-drawer--persistent';
-const TEMPORARY_DRAWER_CLASS = 'mdc-drawer--temporary';
+const PERSISTENT_DRAWER_CLASS = 'mdc-drawer--dismissable';
+const TEMPORARY_DRAWER_CLASS = 'mdc-drawer--modal';
 
 class ComponentSidebar extends Component {
   drawer = null;
@@ -21,10 +21,10 @@ class ComponentSidebar extends Component {
 
     if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT) {
       this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
-      this.drawer = new MDCPersistentDrawer(ele);
+      this.drawer = new MDCDismissibleDrawerFoundation(ele);
     } else {
       this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
-      this.drawer = new MDCTemporaryDrawer(ele);
+      this.drawer = new MDCModalDrawerFoundation(ele);
     }
   };
 
@@ -186,7 +186,7 @@ class ComponentSidebar extends Component {
   }
 
   handleResize_() {
-    if (document.body.offsetWidth <= SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCPersistentDrawer) {
+    if (document.body.offsetWidth <= SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCDismissibleDrawerFoundation) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
@@ -194,10 +194,10 @@ class ComponentSidebar extends Component {
         this.drawer.destroy();
         this.drawerEl.classList.remove(PERSISTENT_DRAWER_CLASS);
         this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
-        this.drawer = new MDCTemporaryDrawer(this.drawerEl);
+        this.drawer = new MDCModalDrawerFoundation(this.drawerEl);
       }, 225)
 
-    } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCTemporaryDrawer) {
+    } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCModalDrawerFoundation) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
@@ -205,7 +205,7 @@ class ComponentSidebar extends Component {
         this.drawer.destroy();
         this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
         this.drawerEl.classList.remove(TEMPORARY_DRAWER_CLASS);
-        this.drawer = new MDCPersistentDrawer(this.drawerEl);
+        this.drawer = new MDCDismissibleDrawerFoundation(this.drawerEl);
       }, 225)
     }
   }
@@ -222,7 +222,7 @@ class ComponentSidebar extends Component {
     history.push(path);
     e.preventDefault();
 
-    if (this.drawer instanceof MDCTemporaryDrawer && this.drawer.open) {
+    if (this.drawer instanceof MDCModalDrawerFoundation && this.drawer.open) {
       this.drawer.open = false;
     }
   };
