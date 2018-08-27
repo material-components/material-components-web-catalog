@@ -142,9 +142,9 @@ class TextFieldDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderVariant('Standard')}
-        {this.renderVariant('Standard With Leading Icon', 'leading')}
-        {this.renderVariant('Standard With Trailing Icon', 'trailing')}
+        {this.renderVariant('Filled')}
+        {this.renderVariant('Filled With Leading Icon', 'leading')}
+        {this.renderVariant('Filled With Trailing Icon', 'trailing')}
         {this.renderVariant('Outlined', 'outlined')}
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
