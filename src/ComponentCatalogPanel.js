@@ -26,6 +26,7 @@ class ComponentCatalogPanel extends Component {
 
   render() {
     const {designLink, description, demos, docsLink, hero, sourceLink, title} = this.props;
+
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
