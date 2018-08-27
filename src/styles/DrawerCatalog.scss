@@ -20,10 +20,3 @@
   width: 100%;
   height: 400px;
 }
-
-.hero-drawer {
-  .mdc-drawer__header {
-    @include mdc-theme-prop(background-color, primary);
-    @include mdc-theme-prop(color, on-primary);
-  }
-}

@@ -34,30 +34,27 @@ class DrawerHero extends Component {
   render() {
     return (
       <div className='hero-drawer'>
-        <aside className='mdc-drawer mdc-drawer--permanent' ref={this.initDrawer}>
-          <nav className='mdc-drawer__drawer'>
-            <header className='mdc-drawer__header'>
-              <div className='mdc-drawer__header-content mdc-theme--on-primary mdc-theme--primary-bg'>
-                Header here
-              </div>
-            </header>
-            <nav className='mdc-drawer__content mdc-list-group'>
-              <div id='icon-with-text-demo' className='mdc-list'>
-                <a className='mdc-list-item mdc-list-item--selected demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
-                </a>
-              </div>
+        <aside id='demo-drawer' class='mdc-drawer demo-drawer' ref={this.initDrawer}>
+          <div class='mdc-drawer__header'>
+            <h3 class='mdc-drawer__title'>Title</h3>
+            <h6 class='mdc-drawer__subtitle'>subtext</h6>
+          </div>
+          <div class='mdc-drawer__content'>
+            <nav class='mdc-list'>
+              <a class='mdc-list-item mdc-list-item--activated' href='#'>
+                <i class='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
+              </a>
+              <a class='mdc-list-item' href='#'>
+                <i class='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
+              </a>
+              <a class='mdc-list-item' href='#'>
+                <i class='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
+              </a>
+              <a class='mdc-list-item' href='#'>
+                <i class='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
+              </a>
             </nav>
-          </nav>
+          </div>
         </aside>
       </div>
     );
