@@ -28,7 +28,7 @@ class ComponentCatalogPanel extends Component {
   render() {
     const {designLink, description, demos, docsLink, hero, sassDocData, sourceLink, title} = this.props;
     const sassDocs = sassDocData[title.toLowerCase()];
-    console.log(sassDocs)
+
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
