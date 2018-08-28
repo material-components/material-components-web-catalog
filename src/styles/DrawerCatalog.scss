@@ -1,4 +1,4 @@
-@import '@material/drawer/mdc-drawer';
+// Don't need to import mdc-drawer since it's already imported in ComponentPage
 @import '@material/theme/mixins';
 
 .drawer-demos-display {
