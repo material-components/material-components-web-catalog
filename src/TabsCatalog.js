@@ -9,7 +9,7 @@ const TabsCatalog = () => {
   return (
     <ComponentCatalogPanel
       hero={<TabsHero />}
-      title='Tabs'
+      title='Tab Bar'
       description='Tabs make it easy to explore and switch between different views.'
       designLink='https://material.io/go/design-tabs'
       docsLink='https://material.io/components/web/catalog/tabs/'

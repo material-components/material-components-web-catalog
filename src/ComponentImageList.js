@@ -63,7 +63,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Slider', sliderImg, 'slider')}
           {this.renderListItem('Snackbar', snackbarImg, 'snackbar')}
           {this.renderListItem('Switch', switchImg, 'switch')}
-          {this.renderListItem('Tabs', tabsImg, 'tabs')}
+          {this.renderListItem('Tab Bar', tabsImg, 'tabs')}
           {this.renderListItem('Text Field', inputImg, 'text-field')}
           {this.renderListItem('Theme', themeImg, 'theme')}
           {this.renderListItem('Top App Bar', topAppBarImg, 'top-app-bar')}
