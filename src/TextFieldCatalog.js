@@ -14,11 +14,10 @@ const getLabel = (dense) => {
 
 const TextField = (props) => {
   const {
-    textFieldId, box, outlined, textarea,
+    textFieldId, outlined, textarea,
     dense, leading, trailing, helperText,
   } = props;
   const classes = classnames('mdc-text-field', 'text-field', {
-    'mdc-text-field--box': box,
     'mdc-text-field--outlined': outlined,
     'mdc-text-field--textarea': textarea,
     'mdc-text-field--dense': dense,
@@ -143,11 +142,10 @@ class TextFieldDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderVariant('Standard')}
-        {this.renderVariant('Box', 'box')}
+        {this.renderVariant('Filled')}
+        {this.renderVariant('Filled With Leading Icon', 'leading')}
+        {this.renderVariant('Filled With Trailing Icon', 'trailing')}
         {this.renderVariant('Outlined', 'outlined')}
-        {this.renderVariant('Box With Leading Icon', 'leading', 'box')}
-        {this.renderVariant('Box With Trailing Icon', 'trailing', 'box')}
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         {this.renderVariant('Textarea', 'textarea')}
