@@ -205,7 +205,7 @@ class ComponentSidebar extends Component {
     return (
       <aside id='demo-drawer' className={classes} ref={this.initDrawer}>
         <div className='mdc-drawer__header demo-drawer-header'>
-          <img src={imageSource} class='resources-icon' alt='Material Design Guidelines icon'></img>
+          <img src={imageSource} className='resources-icon' alt='Material Design Guidelines icon'></img>
         </div>
         <div className='mdc-drawer__content'>
           <nav className='mdc-list'>

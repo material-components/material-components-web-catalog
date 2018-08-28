@@ -55,7 +55,7 @@ class DrawerFramePage extends Component {
   render() {
     const {match} = this.props;
     const variant = propToVariant[match.params.type];
-    const appContentClass = match.params.type === 'dismissible' ? 'mdc-drawer-app-content' : '';
+    const appContentClass = match.params.type === 'dismissible' ? 'mdc-drawer-app-content' : 'drawer-frame-app-content';
     return (
         <div className='drawer-frame-root'>
           {this.getDrawer(variant)}
