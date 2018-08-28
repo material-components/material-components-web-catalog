@@ -258,7 +258,6 @@ class ComponentSidebar extends Component {
     if (this.props.location.pathname === path) return;
     history.push(path);
     e.preventDefault();
-    console.log('clicked', e.target);
     this.setState({activeItemIndex: e.target.getAttribute('key')});
 
     if (this.state.variant === MODAL_DRAWER_CLASS && this.drawer.open) {
