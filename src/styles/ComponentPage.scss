@@ -1,4 +1,6 @@
 @import "@material/list/mdc-list";
+@import "@material/drawer/variables";
+@import "@material/drawer/mdc-drawer";
 @import "@material/typography/mixins";
 @import "./variables";
 
@@ -26,30 +28,55 @@
 
 .demo-panel {
   display: flex;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+// TODO: Remove this once we fix z-index issue.
+.mdc-drawer--dismissible.demo-drawer {
+  z-index: 1;
 }
 
 .demo-drawer {
-  z-index: 1;
+  height: 100%;
 
   .mdc-list-item:not(.sidebar-active) {
     font-weight: 400;
   }
 }
 
-.demo-content--animating-open {
-  transition: 200ms transform cubic-bezier(.4, 0, .2, 1) 50ms;
-}
-
-.demo-content--animating-close {
-  transition: 125ms transform cubic-bezier(.4, 0, .2, 1);
+.demo-drawer-header {
+  position: absolute;
+  top: 18px;
+  opacity: 0.74;
 }
 
 .demo-content {
+  height: 100%;
   box-sizing: border-box;
-  width: 900px;
+  width: 100%;
   max-width: 100%;
-  margin: 0 auto;
   padding: 40px 16px 100px;
+  transition: 200ms transform cubic-bezier(.4, 0, .2, 1) 50ms;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  overflow: auto;
+}
+
+.demo-content-transition {
+  height: 100%;
+  width: 900px;
+}
+
+.mdc-drawer--open + .demo-content {
+  transform: translateX($mdc-drawer-width / 2);
+}
+
+.mdc-drawer--closing + .demo-content {
+  transition: 125ms transform cubic-bezier(.4, 0, .2, 1);
+  transform: none;
 }
 
 .loadComponent-enter {

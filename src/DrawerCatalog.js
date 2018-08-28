@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
 import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
+import {MDCList} from '@material/list/index';
 import './styles/DrawerCatalog.scss';
 
 const DrawerCatalog = (props) => {
@@ -31,33 +32,41 @@ class DrawerHero extends Component {
     this.ripples.forEach(ripple => ripple.destroy());
   }
 
+  initDrawer = drawerEle => {
+    if (!drawerEle) return;
+
+    const list = MDCList.attachTo(drawerEle.querySelector('.mdc-list'));
+    list.wrapFocus = true;
+  };
+
+  handleNavigationItemClick(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div className='hero-drawer'>
-        <aside className='mdc-drawer mdc-drawer--permanent' ref={this.initDrawer}>
-          <nav className='mdc-drawer__drawer'>
-            <header className='mdc-drawer__header'>
-              <div className='mdc-drawer__header-content mdc-theme--on-primary mdc-theme--primary-bg'>
-                Header here
-              </div>
-            </header>
-            <nav className='mdc-drawer__content mdc-list-group'>
-              <div id='icon-with-text-demo' className='mdc-list'>
-                <a className='mdc-list-item mdc-list-item--selected demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
-                </a>
-                <a className='mdc-list-item demo-drawer-list-item' ref={this.initRipple} data-mdc-tabindex-handled='true' tabIndex='-1'>
-                  <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
-                </a>
-              </div>
+        <aside id='demo-drawer' className='mdc-drawer demo-drawer' ref={this.initDrawer}>
+          <div className='mdc-drawer__header'>
+            <h3 className='mdc-drawer__title'>Title</h3>
+            <h6 className='mdc-drawer__subtitle'>subtext</h6>
+          </div>
+          <div className='mdc-drawer__content'>
+            <nav className='mdc-list'>
+              <a className='mdc-list-item mdc-list-item--activated' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
+              </a>
             </nav>
-          </nav>
+          </div>
         </aside>
       </div>
     );
@@ -68,9 +77,9 @@ class DrawerDemos extends Component {
   render() {
     return (
       <div className='demos-display'>
-        {this.getVariant('Temporary', 'temporary')}
-        {this.getVariant('Persistent', 'persistent')}
         {this.getVariant('Permanent', 'permanent')}
+        {this.getVariant('Dismissible', 'dismissible')}
+        {this.getVariant('Modal', 'modal')}
       </div>
     );
   }

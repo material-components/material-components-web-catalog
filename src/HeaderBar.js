@@ -6,7 +6,10 @@ import {imagePath} from './constants';
 
 class HeaderBar extends Component {
   componentDidMount() {
-    MDCTopAppBar.attachTo(this.refs.demoTopAppBar);
+    this.props.scrollTarget((scrollTarget) => {
+      const topAppBar = MDCTopAppBar.attachTo(this.refs.demoTopAppBar);
+      topAppBar.setScrollTarget(scrollTarget);
+    });
   }
 
   render () {

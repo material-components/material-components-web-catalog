@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import {MDCPersistentDrawer, MDCTemporaryDrawer} from '@material/drawer';
+import classnames from 'classnames';
+import {MDCDrawer} from '@material/drawer';
 import {MDCRipple} from '@material/ripple';
+import {imagePath} from './constants';
 
-const SCREEN_WIDTH_BREAKPOINT = 799;
-const PERSISTENT_DRAWER_CLASS = 'mdc-drawer--persistent';
-const TEMPORARY_DRAWER_CLASS = 'mdc-drawer--temporary';
+const SCREEN_WIDTH_BREAKPOINT = 1160;
+const DISMISSIBLE_DRAWER_CLASS = 'mdc-drawer--dismissible';
+const MODAL_DRAWER_CLASS = 'mdc-drawer--modal';
 
 class ComponentSidebar extends Component {
+  state = {
+    variant: DISMISSIBLE_DRAWER_CLASS,
+  };
+
   drawer = null;
   ripples = [];
   debounceTimeout = 0;
@@ -20,25 +26,25 @@ class ComponentSidebar extends Component {
     this.drawerEl = ele;
 
     if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT) {
-      this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
-      this.drawer = new MDCPersistentDrawer(ele);
+
+      this.setState({variant: DISMISSIBLE_DRAWER_CLASS});
     } else {
-      this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
-      this.drawer = new MDCTemporaryDrawer(ele);
+      this.setState({variant: MODAL_DRAWER_CLASS});
     }
+    this.drawer = new MDCDrawer(this.drawerEl);
   };
 
   componentDidMount() {
-    this.drawerEl.addEventListener('MDCPersistentDrawer:open', this.handleDrawerOpen_);
-    this.drawerEl.addEventListener('MDCPersistentDrawer:close', this.handleDrawerClose_);
+    this.drawerEl.addEventListener('MDCDrawer:opened', this.handleDrawerOpen_);
+    this.drawerEl.addEventListener('MDCDrawer:closed', this.handleDrawerClose_);
     window.addEventListener('resize', this.debounceResizeMethod_);
   }
 
   componentWillUnmount() {
     if (this.drawerEl) {
-      this.drawerEl.removeEventListener('MDCPersistentDrawer:open',
+      this.drawerEl.removeEventListener('MDCDrawer:opened',
           this.handleDrawerOpen_);
-      this.drawerEl.removeEventListener('MDCPErsistentDrawer:close',
+      this.drawerEl.removeEventListener('MDCDrawer:closed',
           this.handleDrawerClose_);
     }
     if (this.drawer) {
@@ -57,7 +63,7 @@ class ComponentSidebar extends Component {
   }
 
   computeDrawerWidth() {
-    return this.drawer.drawer.offsetWidth;
+    return this.drawerEl.getBoundingClientRect().width;
   }
 
   handleDrawerOpen() {
@@ -73,24 +79,43 @@ class ComponentSidebar extends Component {
   renderSidebarLink(link, index) {
     const {match, history, location} = this.props;
     const path = link.url === '/' ? link.url : match.url + link.url;
-    const className = path === location.pathname ? 'mdc-list-item' : 'mdc-list-item';
+    const classes = classnames('mdc-list-item', {
+          'mdc-list-item--activated': this.state.activeItemIndex === index || path === location.pathname,
+        });
     return (
       <a
         onClick={(e) => this.handleListItemClick_(history, path, e)}
+        onKeyDown={(e) => this.handleListItemKeyDown_(history, path, e)}
         key={index}
         role='listitem'
-        className={className}
+        className={classes}
         ref={this.initRipple}
-        tabIndex='0'
         >
-        <span className={path === location.pathname ? 'sidebar-active' : ''}>
         {link.content}
-      </span>
-       </a>
+      </a>
+    );
+  }
+
+  renderScrim() {
+    return (
+      <div className='mdc-drawer-scrim'></div>
     );
   }
 
   render() {
+    if (this.state.variant === MODAL_DRAWER_CLASS) {
+      return (
+        <div>
+          {this.renderDrawer()}
+          {this.renderScrim()}
+        </div>
+      );
+    } else {
+      return this.renderDrawer();
+    }
+  }
+
+  renderDrawer() {
     const links = [{
       content: 'Home',
       url: '/',
@@ -174,38 +199,44 @@ class ComponentSidebar extends Component {
       url: '/typography',
     }];
 
-    return(
-      <aside className='mdc-drawer demo-drawer' ref={this.initDrawer}>
-        <nav className='mdc-drawer__drawer'>
-          <nav className='mdc-drawer__content mdc-list-group'>
+    const classes = `mdc-drawer ${this.state.variant} demo-drawer mdc-top-app-bar--fixed-adjust`;
+    const imageSource = `${imagePath}/ic_material_design_24px.svg`;
+
+    return (
+      <aside id='demo-drawer' className={classes} ref={this.initDrawer}>
+        <div className='mdc-drawer__header demo-drawer-header'>
+          <img src={imageSource} class='resources-icon' alt='Material Design Guidelines icon'></img>
+        </div>
+        <div className='mdc-drawer__content'>
+          <nav className='mdc-list'>
             {links.map((link, index) => this.renderSidebarLink(link, index))}
           </nav>
-        </nav>
+        </div>
       </aside>
     );
   }
 
   handleResize_() {
-    if (document.body.offsetWidth <= SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCPersistentDrawer) {
+    if (document.body.offsetWidth <= SCREEN_WIDTH_BREAKPOINT &&
+        this.state.variant === DISMISSIBLE_DRAWER_CLASS) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
       setTimeout(() => {
         this.drawer.destroy();
-        this.drawerEl.classList.remove(PERSISTENT_DRAWER_CLASS);
-        this.drawerEl.classList.add(TEMPORARY_DRAWER_CLASS);
-        this.drawer = new MDCTemporaryDrawer(this.drawerEl);
+        this.setState({variant: MODAL_DRAWER_CLASS});
+        this.drawer = new MDCDrawer(this.drawerEl);
       }, 225)
 
-    } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT && this.drawer instanceof MDCTemporaryDrawer) {
+    } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT &&
+        this.state.variant === MODAL_DRAWER_CLASS) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
       setTimeout(() => {
         this.drawer.destroy();
-        this.drawerEl.classList.add(PERSISTENT_DRAWER_CLASS);
-        this.drawerEl.classList.remove(TEMPORARY_DRAWER_CLASS);
-        this.drawer = new MDCPersistentDrawer(this.drawerEl);
+        this.setState({variant: DISMISSIBLE_DRAWER_CLASS});
+        this.drawer = new MDCDrawer(this.drawerEl);
       }, 225)
     }
   }
@@ -216,13 +247,21 @@ class ComponentSidebar extends Component {
         this.handleResize_(), 50)
   };
 
+  handleListItemKeyDown_ = (history, path, e) => {
+    if (e.keyCode === /** ENTER */ 13 || e.keyCode === /** SPACE */ 32) {
+      this.handleListItemClick_(history, path, e);
+    }
+  };
+
   handleListItemClick_ = (history, path, e) => {
     // Early return if the user clicks the link for the current route.
     if (this.props.location.pathname === path) return;
     history.push(path);
     e.preventDefault();
+    console.log('clicked', e.target);
+    this.setState({activeItemIndex: e.target.getAttribute('key')});
 
-    if (this.drawer instanceof MDCTemporaryDrawer && this.drawer.open) {
+    if (this.state.variant === MODAL_DRAWER_CLASS && this.drawer.open) {
       this.drawer.open = false;
     }
   };
