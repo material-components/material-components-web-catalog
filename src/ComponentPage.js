@@ -41,9 +41,13 @@ class ComponentPage extends Component {
     this.demoContentEl = el;
   };
 
+  componentDidUpdate() {
+    this.props.scrollTargetSetter(this.demoContentEl);
+  }
+
   renderComponentRoutes() {
     return (
-        <TransitionGroup ref={this.initDemoContent} classes='demo-content-transition'>
+        <TransitionGroup ref={this.initDemoContent} className='demo-content-transition'>
           <CSSTransition key={this.props.location.pathname} timeout={350} transitionExitTimeout={0} classNames='loadComponent'>
             <Switch>
               <Route path='/component/button' component={ButtonCatalog} />
@@ -80,13 +84,10 @@ class ComponentPage extends Component {
 
   render() {
     return (
-      <div>
-        <div className='mdc-top-app-bar--fixed-adjust'></div>
-        <div className='demo-panel'>
-          <ComponentSidebar {...this.props} />
-          <div className='demo-content' ref={this.initDemoContent}>
-            {this.renderComponentRoutes()}
-          </div>
+      <div className='demo-panel'>
+        <ComponentSidebar {...this.props} />
+        <div className='demo-content mdc-top-app-bar--fixed-adjust' ref={this.initDemoContent}>
+          {this.renderComponentRoutes()}
         </div>
       </div>
     );

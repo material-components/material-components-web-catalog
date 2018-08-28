@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classnames from 'classnames';
 import {MDCDrawer} from '@material/drawer';
 import {MDCRipple} from '@material/ripple';
+import {imagePath} from './constants';
 
 const SCREEN_WIDTH_BREAKPOINT = 1160;
 const DISMISSIBLE_DRAWER_CLASS = 'mdc-drawer--dismissible';
@@ -198,10 +199,14 @@ class ComponentSidebar extends Component {
       url: '/typography',
     }];
 
-    const classes = `mdc-drawer ${this.state.variant} demo-drawer`;
+    const classes = `mdc-drawer ${this.state.variant} demo-drawer mdc-top-app-bar--fixed-adjust`;
+    const imageSource = `${imagePath}/ic_material_design_24px.svg`;
 
     return (
       <aside id='demo-drawer' className={classes} ref={this.initDrawer}>
+        <div className='mdc-drawer__header demo-drawer-header'>
+          <img src={imageSource} class='resources-icon' alt='Material Design Guidelines icon'></img>
+        </div>
         <div className='mdc-drawer__content'>
           <nav className='mdc-list'>
             {links.map((link, index) => this.renderSidebarLink(link, index))}

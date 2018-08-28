@@ -4,6 +4,8 @@
 
 .catalog-top-app-bar {
   @include mdc-top-app-bar-fill-color($material-color-grey-900);
+
+  position: absolute;
 }
 
 .catalog-top-app-bar__title {
