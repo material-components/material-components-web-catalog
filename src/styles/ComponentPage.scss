@@ -33,13 +33,17 @@
   overflow: hidden;
 }
 
-// TODO: Remove this once we fix z-index issue.
+// TODO: Use mdc-drawer-z-index mixin once we've it.
 .mdc-drawer--dismissible.demo-drawer {
   z-index: 1;
 }
 
 .demo-drawer {
   height: 100%;
+
+  .mdc-list-item {
+    cursor: pointer;
+  }
 }
 
 .demo-drawer-header {
