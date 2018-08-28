@@ -1,14 +1,15 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
-import {MDCDismissibleDrawerFoundation, MDCModalDrawerFoundation} from '@material/drawer';
+import {MDCList} from '@material/list/index';
+import {MDCDrawer} from '@material/drawer';
 
 import React, {Component} from 'react';
 
 import '../styles/DrawerFrameCatalog.scss';
 
 const propToVariant = {
-  temporary: {title: 'Temporary Drawer', variant: 'mdc-drawer--temporary'},
-  persistent: {title: 'Persistent Drawer', variant: 'mdc-drawer--persistent'},
-  permanent: {title: 'Permanent Drawer', variant: 'mdc-drawer--permanent'},
+  permanent: {title: 'Permanent Drawer', variant: ' '},
+  dismissible: {title: 'Dismissible Drawer', variant: 'mdc-drawer--dismissible'},
+  modal: {title: 'Modal Drawer', variant: 'mdc-drawer--modal'},
 };
 
 const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -25,11 +26,15 @@ class DrawerFramePage extends Component {
   drawer = null;
 
   initDrawer = drawerEle => {
+    if (!drawerEle) return;
+
     const {match} = this.props;
-    if(match.params.type === 'temporary') {
-      this.drawer = new MDCModalDrawerFoundation(drawerEle);
-    } else if (match.params.type === 'persistent') {
-      this.drawer = new MDCDismissibleDrawerFoundation(drawerEle);
+    if (match.params.type === 'dismissible' ||
+        match.params.type === 'modal') {
+      this.drawer = new MDCDrawer(drawerEle);
+    } else {
+      const list = MDCList.attachTo(drawerEle.querySelector('.mdc-list'));
+      list.wrapFocus = true;
     }
   };
 
@@ -37,23 +42,28 @@ class DrawerFramePage extends Component {
     const {match} = this.props;
     this.topAppBar = new MDCTopAppBar(topAppBarEle);
 
-    if (match.params.type === 'temporary' || match.params.type === 'persistent') {
+
+    if (match.params.type === 'dismissible' || match.params.type === 'modal') {
       topAppBarEle.addEventListener('MDCTopAppBar:nav', () => this.drawer.open = !this.drawer.open);
     }
   };
 
+  initScrollableMainContent = scrollableMainContentEle => {
+    this.topAppBar.setScrollTarget(scrollableMainContentEle);
+  };
 
   render() {
     const {match} = this.props;
     const variant = propToVariant[match.params.type];
+    const appContentClass = match.params.type === 'dismissible' ? 'mdc-drawer-app-content' : '';
     return (
-        <div className='top-app-bar__frame'>
-          <div className='drawer-container-flex'>
-            {this.getDrawer(variant)}
-            <div className='drawer-header-flex'>
-              {this.getTopAppBar(variant)}
-            </div>
-            <div className='mdc-top-app-bar--fixed-adjust'>
+        <div className='drawer-frame-root'>
+          {this.getDrawer(variant)}
+          {this.getScrim(variant)}
+          <div className={appContentClass}>
+            {this.getTopAppBar(variant)}
+            <div className='drawer-main-content' ref={this.initScrollableMainContent}>
+              <div className='mdc-top-app-bar--fixed-adjust'></div>
               <p>
                 {loremIpsum}
               </p>
@@ -78,53 +88,56 @@ class DrawerFramePage extends Component {
     }
   }
 
-  getDrawer(type = propToVariant.temporary) {
+  getDrawer(type = propToVariant.permanent) {
     return (
         <aside className={`mdc-drawer ${type.variant}`} ref={this.initDrawer}>
-      <nav className='mdc-drawer__drawer'>
-        <header className='mdc-drawer__header'>
-          <div className='mdc-drawer__header-content mdc-theme--on-primary mdc-theme--primary-bg'>
-            Header here
+          <div className='mdc-drawer__header'>
+            <h3 className='mdc-drawer__title'>Mail</h3>
+            <h6 className='mdc-drawer__subtitle'>email@material.io</h6>
           </div>
-        </header>
-        <nav className='mdc-drawer__content mdc-list-group'>
-          <div id='icon-with-text-demo' className='mdc-list'>
-            <a className='mdc-list-item mdc-list-item--selected demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-              <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
-            </a>
-            <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-              <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
-            </a>
-            <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-              <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
-            </a>
-            <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-              <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
-            </a>
+          <div className='mdc-drawer__content'>
+            <nav className='mdc-list'>
+              <a className='mdc-list-item mdc-list-item--activated' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>inbox</i>Inbox
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>star</i>Star
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>send</i>Sent Mail
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>drafts</i>Drafts
+              </a>
+              <hr className='mdc-list-divider' />
+
+              <h6 className='mdc-list-group__subheader'>Labels</h6>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>bookmark</i>Family
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>bookmark</i>Friends
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>bookmark</i>Work
+              </a>
+
+              <hr className='mdc-list-divider' />
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>settings</i>Settings
+              </a>
+              <a className='mdc-list-item' href='#' onClick={this.handleNavigationItemClick}>
+                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>announcement</i>Help & feedback
+              </a>
+            </nav>
           </div>
-
-          <hr className='mdc-list-divider' />
-
-            <div className='mdc-list'>
-              <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>email</i>All Mail
-              </a>
-              <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>delete</i>Trash
-              </a>
-              <a className='mdc-list-item demo-drawer-list-item' data-mdc-tabindex-handled='true' tabIndex='-1'>
-                <i className='material-icons mdc-list-item__graphic' aria-hidden='true'>report</i>Spam
-              </a>
-            </div>
-        </nav>
-      </nav>
-    </aside>
+        </aside>
   );
   }
 
   getTopAppBar(type = propToVariant.temporary) {
     return (
-        <header className='mdc-top-app-bar' ref={this.initTopAppBar}>
+        <header className='mdc-top-app-bar drawer-top-app-bar' ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               {this.getNavigationIcon(type)}
@@ -142,6 +155,18 @@ class DrawerFramePage extends Component {
               className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
       )
     }
+  }
+
+  getScrim(type) {
+    if (type === propToVariant.modal) {
+      return (
+        <div className='mdc-drawer-scrim'></div>
+      );
+    }
+  }
+
+  handleNavigationItemClick(event) {
+    event.preventDefault();
   }
 }
 
