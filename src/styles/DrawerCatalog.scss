@@ -1,4 +1,4 @@
-@import '@material/drawer/mdc-drawer';
+// Don't need to import mdc-drawer since it's already imported in ComponentPage
 @import '@material/theme/mixins';
 
 .drawer-demos-display {
@@ -19,11 +19,4 @@
 .drawer-iframe {
   width: 100%;
   height: 400px;
-}
-
-.hero-drawer {
-  .mdc-drawer__header {
-    @include mdc-theme-prop(background-color, primary);
-    @include mdc-theme-prop(color, on-primary);
-  }
 }

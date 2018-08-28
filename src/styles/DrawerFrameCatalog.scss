@@ -1,17 +1,26 @@
 @import "@material/drawer/mdc-drawer";
 @import '@material/theme/mixins';
 
-.drawer-header-flex {
-  display: inline-flex;
-  flex: 1 1 auto;
-  box-sizing: border-box;
+.drawer-frame-root {
+  display: flex;
+  height: 100vh;
 }
 
-.drawer-container-flex {
-  display: inline-flex;
+.drawer-app-content {
+  flex: auto;
+  overflow: auto;
 }
 
-.mdc-drawer__header {
-  @include mdc-theme-prop(background-color, primary);
-  @include mdc-theme-prop(color, on-primary);
+.drawer-main-content {
+  overflow: auto;
+  height: 100%;
+  padding: 0 18px;
+}
+
+.drawer-top-app-bar {
+  position: absolute;
+}
+
+.drawer-frame-app-content {
+  position: relative;
 }
