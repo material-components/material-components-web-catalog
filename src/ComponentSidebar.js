@@ -183,7 +183,7 @@ class ComponentSidebar extends Component {
       content: 'Switch',
       url: '/switch',
     }, {
-      content: 'Tabs',
+      content: 'Tab Bar',
       url: '/tabs',
     }, {
       content: 'Text Field',
