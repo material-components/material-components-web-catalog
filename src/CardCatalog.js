@@ -101,15 +101,14 @@ class CardActionRow extends Component {
           <CardActionButton text='Bookmark' />
         </div>
         <div className='mdc-card__action-icons'>
-          <button className='mdc-icon-button material-icons mdc-card__action mdc-card__action--icon'
+          <button className='mdc-icon-button mdc-card__action mdc-card__action--icon'
              aria-pressed='false'
              aria-label='Add to favorites'
              title='Add to favorites'
-             data-toggle-on-content='favorite'
-             data-toggle-on-label='Remove from favorites'
-             data-toggle-off-content='favorite_border'
-             data-toggle-off-label='Add to favorites'
-             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconButtonToggle(surfaceEl)}>favorite_border</button>
+             ref={(surfaceEl) => this.iconToggle = surfaceEl && new MDCIconButtonToggle(surfaceEl)}>
+            <i className='material-icons mdc-icon-button__icon mdc-icon-button__icon--on'>favorite</i>
+            <i className='material-icons mdc-icon-button__icon'>favorite_border</i>
+          </button>
           <CardActionIcon title='Share' icon='share' className='mdc-card__action mdc-card__action--icon' />
           <CardActionIcon title='More options' icon='more_vert' className='mdc-card__action mdc-card__action--icon' />
         </div>
