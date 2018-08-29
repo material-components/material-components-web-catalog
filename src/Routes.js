@@ -108,7 +108,7 @@ const routesList = [{
   Component: TypographyCatalog,
 }];
 
-const Routes = () => {
+const Routes = ({sassDocData}) => {
   return (
     routesList.map((route) => {
       const {Component, urlPath} = route;
@@ -116,7 +116,8 @@ const Routes = () => {
         <Route
           key={urlPath}
           path={`/component/${urlPath}`}
-          render={(props) => <Component {...props}/>} />
+          render={(props) => <Component sassDocData={sassDocData} {...props} />}
+        />
       );
     })
   );

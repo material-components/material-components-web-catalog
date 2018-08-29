@@ -4,7 +4,7 @@ import {MDCChipSet} from '@material/chips';
 
 import './styles/ChipsCatalog.scss';
 
-const ChipsCatalog = () => {
+const ChipsCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<ChipsHero />}
@@ -14,6 +14,7 @@ const ChipsCatalog = () => {
       docsLink='https://material.io/components/web/catalog/chips/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-chips'
       demos={<ChipsDemos />}
+      {...props}
     />
   );
 }
