@@ -1,5 +1,7 @@
 @import "@material/theme/color-palette";
 
+$border-color: $material-color-grey-300;
+
 .sassdoc {
   max-width: 1080px;
   padding: 24px;
@@ -11,19 +13,29 @@
 
 .sassdoc__table-row {
   &:not(:last-child) {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid $border-color;
   }
   height: 60px;
 }
 
-.sassdoc__table-row td {
-  padding-right: 8px;
+.sassdoc__table-header {
+  background-color: $material-color-grey-200;
+  text-align: left;
+  th {
+    color: $material-color-grey-600;
+    height: 60px;
+  }
 }
 
-.sassdoc__mixin-name {
-  color: $material-color-grey-700;
+.sassdoc__table {
+  td, th {
+    padding: 0 32px;
+  }
+  td {
+    color: $material-color-grey-800;
+  }
 }
 
 .sassdoc__card {
-  padding: 24px;
+  border: 1px solid $border-color;
 }

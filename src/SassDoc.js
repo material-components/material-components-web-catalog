@@ -7,7 +7,7 @@ const renderEntry = (entry, index) => {
   return (
     <tr key={index} className='sassdoc__table-row'>
       <td>
-        <Highlight className='sass sassdoc__mixin-name'>
+        <Highlight className='sass'>
           ${entry.context.name}
         </Highlight>
       </td>
@@ -37,7 +37,7 @@ const SassDoc = ({location, sassDocData}) => {
   // fetch('http://35.202.31.250/api/compile/scss', {
   //   method: 'post',
   //   body: JSON.stringify({
-  //     data : { code: '.mdc-whatever { color:blue; }' }
+  //     data : { code: '.mdc-whatever { &.mdc-fat { color:blue; } }' }
   //   }),
   //   headers: {
   //     'Content-type': 'application/json',
@@ -55,9 +55,9 @@ const SassDoc = ({location, sassDocData}) => {
       <h4 className='mdc-typography--headline5'>
         Mixins
       </h4>
-      <div className='sassdoc__card mdc-card'>
+      <div className='sassdoc__card'>
         <table className='sassdoc__table'>
-          <thead>
+          <thead className='sassdoc__table-header'>
             <tr>
               <th>Name</th>
               <th>Parameters</th>
