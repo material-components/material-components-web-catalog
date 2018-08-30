@@ -25,8 +25,8 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, history, sourceLink, title} = this.props;
-    debugger
+    const {designLink, description, demos, docsLink, location, hero, history, sourceLink, title} = this.props;
+
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
@@ -45,7 +45,7 @@ class ComponentCatalogPanel extends Component {
         <h2 className='demo-title mdc-typography--headline6'>Documentation</h2>
         {true ? (
           <a
-            onClick={() => history.push('/component/button/documentation/sass')}
+            onClick={() => history.push(`${location.pathname}/documentation/sass`)}
             className='mdc-list-item'
             ref={this.initRipple}
             role='listitem'

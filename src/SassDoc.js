@@ -18,7 +18,7 @@ const renderEntry = (entry, index) => {
               ${parameter.name} {`<${parameter.type}>`}
             </Highlight>
           </div>
-        )) : null}
+        )) : <Highlight>--</Highlight>}
       </td>
       <td>
         <ReactMarkdown source={entry.description} />
