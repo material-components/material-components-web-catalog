@@ -25,9 +25,8 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, sassDocData, sourceLink, title} = this.props;
-    const sassDocs = sassDocData[title.toLowerCase()];
-    console.log(sassDocs)
+    const {designLink, description, demos, docsLink, hero, history, sourceLink, title} = this.props;
+    debugger
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
@@ -43,7 +42,18 @@ class ComponentCatalogPanel extends Component {
         <h2 className='demo-title mdc-typography--headline6'>Demos</h2>
         {demos}
 
-        {sassDocs ? <SassDoc data={sassDocs} /> : null}
+        <h2 className='demo-title mdc-typography--headline6'>Documentation</h2>
+        {true ? (
+          <a
+            onClick={() => history.push('/component/button/documentation/sass')}
+            className='mdc-list-item'
+            ref={this.initRipple}
+            role='listitem'
+          >
+            Sass
+          </a>
+        ): null}
+
       </section>
     );
   }

@@ -1,0 +1,29 @@
+@import "@material/theme/color-palette";
+
+.sassdoc {
+  max-width: 1080px;
+  padding: 24px;
+}
+
+.sassdoc__table {
+  border-collapse: collapse;
+}
+
+.sassdoc__table-row {
+  &:not(:last-child) {
+    border-bottom: 1px solid;
+  }
+  height: 60px;
+}
+
+.sassdoc__table-row td {
+  padding-right: 8px;
+}
+
+.sassdoc__mixin-name {
+  color: $material-color-grey-700;
+}
+
+.sassdoc__card {
+  padding: 24px;
+}

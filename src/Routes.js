@@ -27,6 +27,7 @@ import TextFieldCatalog from './TextFieldCatalog';
 import ThemeCatalog from './ThemeCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 import TypographyCatalog from './TypographyCatalog';
+import DocumentationPage from './DocumentationPage';
 
 const routesList = [{
   urlPath: 'button',
@@ -113,14 +114,23 @@ const Routes = ({sassDocData}) => {
     routesList.map((route) => {
       const {Component, urlPath} = route;
       return (
-        <Route
-          key={urlPath}
-          path={`/component/${urlPath}`}
-          render={(props) => <Component sassDocData={sassDocData} {...props} />}
-        />
+        <React.Fragment key={urlPath}>
+          <Route
+            key={`${urlPath}-component`}
+            path={`/component/${urlPath}`}
+            render={(props) => <Component {...props} />}
+            exact
+          />
+          <Route
+            key={`${urlPath}-documentation`}
+            path={`/component/${urlPath}/documentation`}
+          render={(props) => <DocumentationPage {...props} sassDocData={sassDocData} />}
+          />
+        </React.Fragment>
       );
     })
   );
 }
 
 export default Routes;
+export {routesList};
