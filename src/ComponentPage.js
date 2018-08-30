@@ -35,7 +35,7 @@ class ComponentPage extends Component {
     return (
       <div className='demo-panel'>
         <ComponentSidebar {...this.props} />
-        <div className='demo-content mdc-top-app-bar--fixed-adjust' ref={this.initDemoContent}>
+        <div className='demo-content mdc-drawer-app-content mdc-top-app-bar--fixed-adjust' ref={this.initDemoContent}>
           {this.renderComponentRoutes()}
         </div>
       </div>

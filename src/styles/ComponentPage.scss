@@ -59,24 +59,16 @@
   max-width: 100%;
   padding: 40px 16px 100px;
   transition: 200ms transform cubic-bezier(.4, 0, .2, 1) 50ms;
-  display: flex;
-  justify-content: center;
   width: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .demo-content-transition {
-  height: 100%;
   width: 900px;
-}
-
-.mdc-drawer--open + .demo-content {
-  transform: translateX($mdc-drawer-width / 2);
-}
-
-.mdc-drawer--closing + .demo-content {
-  transition: 125ms transform cubic-bezier(.4, 0, .2, 1);
-  transform: none;
 }
 
 .loadComponent-enter {
