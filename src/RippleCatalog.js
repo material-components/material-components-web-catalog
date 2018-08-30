@@ -4,7 +4,7 @@ import {MDCRipple} from '@material/ripple';
 
 import './styles/RippleCatalog.scss';
 
-const RippleCatalog = () => {
+const RippleCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<RippleHero />}
@@ -14,6 +14,7 @@ const RippleCatalog = () => {
       docsLink='https://material.io/components/web/catalog/ripples/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple'
       demos={<RippleDemos />}
+      {...props}
     />
   );
 }

@@ -5,7 +5,7 @@ import {MDCRipple} from '@material/ripple';
 
 import './styles/ShapeCatalog.scss';
 
-const ShapeCatalog = () => {
+const ShapeCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<ShapeHero />}
@@ -15,6 +15,7 @@ const ShapeCatalog = () => {
       docsLink='https://material.io/components/web/catalog/shape/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-shape'
       demos={<ShapeDemos />}
+      {...props}
     />
   );
 }

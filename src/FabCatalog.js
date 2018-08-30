@@ -70,7 +70,7 @@ const FabDemos = () => (
   </div>
 );
 
-const FabCatalog = () => {
+const FabCatalog = (props) => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
@@ -86,6 +86,7 @@ const FabCatalog = () => {
       docsLink='https://material.io/components/web/catalog/buttons/floating-action-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/blob/master/packages/mdc-fab/'
       demos={<FabDemos/>}
+      {...props}
     />
   );
 }

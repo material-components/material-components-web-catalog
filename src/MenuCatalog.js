@@ -6,7 +6,7 @@ import {MDCRipple} from '@material/ripple';
 
 import './styles/MenuCatalog.scss';
 
-const MenuCatalog = () => {
+const MenuCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<MenuHero />}
@@ -16,6 +16,7 @@ const MenuCatalog = () => {
       docsLink='https://material.io/components/web/catalog/menus/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-menu'
       demos={<MenuDemos />}
+      {...props}
     />
   )
 };

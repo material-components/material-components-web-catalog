@@ -4,7 +4,7 @@ import {MDCSelect} from '@material/select/dist/mdc.select';
 
 import './styles/SelectCatalog.scss';
 
-const SelectCatalog = () => {
+const SelectCatalog = (props) => {
   const description = 'Selects allow users to select from a single-option menu. It functions as a wrapper around the browser\'s native <select> element.';
   return (
     <ComponentCatalogPanel
@@ -15,6 +15,7 @@ const SelectCatalog = () => {
       docsLink='https://material.io/components/web/catalog/input-controls/select-menus/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-select'
       demos={<SelectDemos />}
+      {...props}
     />
   );
 }

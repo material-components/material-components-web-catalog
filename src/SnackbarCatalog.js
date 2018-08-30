@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import './styles/SnackbarCatalog.scss';
 
-const SnackbarCatalog = () => {
+const SnackbarCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<SnackbarHero />}
@@ -15,6 +15,7 @@ const SnackbarCatalog = () => {
       docsLink='https://material.io/components/web/catalog/snackbars/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar'
       demos={<SnackbarDemo />}
+      {...props}
     />
   );
 };

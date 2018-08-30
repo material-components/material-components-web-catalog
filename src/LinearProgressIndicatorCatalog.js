@@ -4,7 +4,7 @@ import {MDCLinearProgress} from '@material/linear-progress/dist/mdc.linearProgre
 
 import './styles/LinearProgressIndicatorCatalog.scss';
 
-const LinearProgressCatalog = () => {
+const LinearProgressCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<LinearProgressHero />}
@@ -14,6 +14,7 @@ const LinearProgressCatalog = () => {
       docsLink='https://material.io/components/web/catalog/linear-progress/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-linear-progress'
       demos={<LinearProgressDemos />}
+      {...props}
     />
   );
 }

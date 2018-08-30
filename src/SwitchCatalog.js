@@ -5,7 +5,7 @@ import {MDCSwitch} from '@material/switch';
 
 import './styles/SwitchCatalog.scss';
 
-const SwitchCatalog = () => {
+const SwitchCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<SwitchHero/>}
@@ -15,6 +15,7 @@ const SwitchCatalog = () => {
       docsLink='https://material.io/components/web/catalog/input-controls/switches/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-switch'
       demos={<SwitchDemos/>}
+      {...props}
     />
   );
 };

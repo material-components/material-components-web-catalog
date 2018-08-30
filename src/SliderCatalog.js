@@ -4,7 +4,7 @@ import {MDCSlider} from '@material/slider';
 
 import './styles/SliderCatalog.scss';
 
-const SliderCatalog = () => (
+const SliderCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<SliderHero/>}
     title='Slider'
@@ -13,6 +13,7 @@ const SliderCatalog = () => (
     docsLink='https://material.io/components/web/catalog/input-controls/sliders/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-slider'
     demos={<SliderDemos/>}
+    {...props}
   />
 );
 

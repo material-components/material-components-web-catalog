@@ -11,7 +11,7 @@ import {imagePath} from './constants';
 
 import './styles/ThemeCatalog.scss';
 
-const ThemeCatalog = () => {
+const ThemeCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<ThemeHero />}
@@ -21,6 +21,7 @@ const ThemeCatalog = () => {
       docsLink='https://material.io/components/web/catalog/theme/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-theme'
       demos={<ThemeDemos />}
+      {...props}
     />
   );
 }

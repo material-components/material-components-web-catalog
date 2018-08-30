@@ -14,7 +14,8 @@ const DrawerCatalog = (props) => {
       designLink='https://material.io/go/design-navigation-drawer'
       docsLink='https://material.io/components/web/catalog/drawers/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-drawer'
-      demos={<DrawerDemos {...props} />}
+      demos={<DrawerDemos {...props}/>}
+      {...props}
     />
   );
 };

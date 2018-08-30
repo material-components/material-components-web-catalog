@@ -4,7 +4,7 @@ import {imagePath} from './constants';
 
 import './styles/ImageListCatalog.scss';
 
-function ImageListCatalog() {
+function ImageListCatalog(props) {
   return (
     <ComponentCatalogPanel
       hero={<ImageListHero />}
@@ -14,6 +14,7 @@ function ImageListCatalog() {
       docsLink='https://material.io/components/web/catalog/image-lists/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-image-list'
       demos={<ImageListDemos />}
+      {...props}
     />
   );
 }

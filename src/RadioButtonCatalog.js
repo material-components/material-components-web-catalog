@@ -6,7 +6,7 @@ import {MDCRadio} from '@material/radio';
 
 import './styles/RadioButtonCatalog.scss';
 
-const RadioButtonCatalog = () => {
+const RadioButtonCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<RadioButtonHero/>}
@@ -16,6 +16,7 @@ const RadioButtonCatalog = () => {
       docsLink='https://material.io/components/web/catalog/input-controls/radio-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-radio'
       demos={<RadioButtonDemos/>}
+      {...props}
     />
   );
 }

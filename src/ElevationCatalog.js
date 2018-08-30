@@ -4,7 +4,7 @@ import './styles/ElevationCatalog.scss';
 
 const MAX_ELEVATION_LEVELS = 24;
 
-const ElevationCatalog = () => {
+const ElevationCatalog = (props) => {
   const description = 'Elevation is the relative depth, or distance, between two surfaces along the z-axis.';
   return (
     <ComponentCatalogPanel
@@ -15,6 +15,7 @@ const ElevationCatalog = () => {
       docsLink='https://material.io/components/web/catalog/elevation/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-elevation'
       demos={<ElevationDemos />}
+      {...props}
     />
   );
 };

@@ -5,7 +5,7 @@ import {MDCRipple} from '@material/ripple';
 
 import './styles/IconButtonCatalog.scss';
 
-const IconButtonCatalog = () => {
+const IconButtonCatalog = (props) => {
   const description = 'Icons are appropriate for buttons that allow a user to take actions or ' +
                       'make a selection, such as adding or removing a star to an item. ';
   return (
@@ -17,6 +17,7 @@ const IconButtonCatalog = () => {
       docsLink='https://material.io/components/web/catalog/buttons/icon-buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-icon-button'
       demos={<IconButtonDemo/>}
+      {...props}
     />
   );
 };

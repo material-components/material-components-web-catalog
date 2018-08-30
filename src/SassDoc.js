@@ -34,19 +34,6 @@ const SassDoc = ({location, sassDocData}) => {
 
   if (!sassDocumentation || !sassDocumentation.length) return null;
 
-  // fetch('http://35.202.31.250/api/compile/scss', {
-  //   method: 'post',
-  //   body: JSON.stringify({
-  //     data : { code: '.mdc-whatever { &.mdc-fat { color:blue; } }' }
-  //   }),
-  //   headers: {
-  //     'Content-type': 'application/json',
-  //   },
-  // }).then((res) => {
-  //   console.log(res)
-  // }).catch((err) => {
-  //   console.log(err);
-  // })
   return (
     <div className='sassdoc mdc-top-app-bar--fixed-adjust'>
       <h3 className='mdc-typography--headline4'>

@@ -118,7 +118,7 @@ const Routes = ({sassDocData}) => {
           <Route
             key={`${urlPath}-component`}
             path={`/component/${urlPath}`}
-            render={(props) => <Component {...props} />}
+            render={(props) => <Component {...props} sassDocData={sassDocData} />}
             exact
           />
           <Route

@@ -4,7 +4,7 @@ import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
 import './styles/LayoutGridCatalog.scss';
 
-const LayoutGridCatalog = () => {
+const LayoutGridCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<LayoutGridHero />}
@@ -13,6 +13,7 @@ const LayoutGridCatalog = () => {
       docsLink='https://material.io/components/web/catalog/layout-grid/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-layout-grid'
       demos={<LayoutGridDemos />}
+      {...props}
     />
   )
 };

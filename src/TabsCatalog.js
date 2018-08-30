@@ -5,7 +5,7 @@ import {MDCTabBar} from '@material/tab-bar';
 
 import './styles/TabsCatalog.scss';
 
-const TabsCatalog = () => {
+const TabsCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<TabsHero />}
@@ -15,6 +15,7 @@ const TabsCatalog = () => {
       docsLink='https://material.io/components/web/catalog/tabs/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-tab-bar'
       demos={<TabsDemos />}
+      {...props}
     />
   );
 };

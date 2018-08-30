@@ -1,7 +1,7 @@
 import React from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
-const TypographyCatalog = () => {
+const TypographyCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<TypographyHero/>}
@@ -11,6 +11,7 @@ const TypographyCatalog = () => {
       docsLink='https://material.io/components/web/catalog/typography/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-typography'
       demos={<TypographyDemos/>}
+      {...props}
     />
   )
 };

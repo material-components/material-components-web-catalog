@@ -4,7 +4,7 @@ import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
 
 import './styles/CheckboxCatalog.scss';
 
-const CheckboxCatalog = () => {
+const CheckboxCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<CheckboxHero/>}
@@ -14,6 +14,7 @@ const CheckboxCatalog = () => {
       docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
       demos={<CheckboxDemos/>}
+      {...props}
     />
   );
 }

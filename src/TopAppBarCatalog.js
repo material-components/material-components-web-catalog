@@ -14,6 +14,7 @@ const TopAppBarCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/top-app-bar/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
       demos={<TopAppBarDemos {...props}/>}
+      {...props}
     />
   );
 };

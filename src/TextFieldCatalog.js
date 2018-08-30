@@ -93,7 +93,7 @@ const HelperText = () => (
   </p>
 );
 
-const TextFieldCatalog = () => (
+const TextFieldCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<TextField textFieldId='hero-text-field-id'/>}
     title='Text Field'
@@ -102,6 +102,7 @@ const TextFieldCatalog = () => (
     docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
     demos={<TextFieldDemos/>}
+    {...props}
   />
 );
 

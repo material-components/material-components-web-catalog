@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import './styles/ListCatalog.scss';
 
-const ListCatalog = () => (
+const ListCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<ListHero/>}
     title='List'
@@ -14,6 +14,7 @@ const ListCatalog = () => (
     docsLink='https://material.io/components/web/catalog/lists/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-list'
     demos={<ListDemos/>}
+    {...props}
   />
 );
 
