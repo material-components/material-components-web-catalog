@@ -21,6 +21,7 @@ const DrawerCatalog = (props) => {
 
 class DrawerHero extends Component {
   ripples = [];
+  list = {};
   initRipple = icon => {
     if (!icon) return;
     const current = new MDCRipple(icon);
@@ -30,13 +31,14 @@ class DrawerHero extends Component {
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
+    this.list.destroy();
   }
 
   initDrawer = drawerEle => {
     if (!drawerEle) return;
 
-    const list = MDCList.attachTo(drawerEle.querySelector('.mdc-list'));
-    list.wrapFocus = true;
+    this.list = MDCList.attachTo(drawerEle.querySelector('.mdc-list'));
+    this.list.wrapFocus = true;
   };
 
   handleNavigationItemClick(event) {
