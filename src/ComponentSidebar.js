@@ -10,7 +10,7 @@ const MODAL_DRAWER_CLASS = 'mdc-drawer--modal';
 
 class ComponentSidebar extends Component {
   state = {
-    variant: DISMISSIBLE_DRAWER_CLASS,
+    variant: document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT ? DISMISSIBLE_DRAWER_CLASS : MODAL_DRAWER_CLASS,
   };
 
   drawer = null;
@@ -22,14 +22,13 @@ class ComponentSidebar extends Component {
   handleDrawerClose_ = () => this.handleDrawerClose();
 
   initDrawer = ele => {
-    if(!ele) return;
+    if (!ele) {
+      return;
+    }
     this.drawerEl = ele;
 
-    if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT) {
-
-      this.setState({variant: DISMISSIBLE_DRAWER_CLASS});
-    } else {
-      this.setState({variant: MODAL_DRAWER_CLASS});
+    if (this.drawer) {
+      this.drawer.destroy();
     }
     this.drawer = new MDCDrawer(this.drawerEl);
   };
@@ -223,28 +222,22 @@ class ComponentSidebar extends Component {
         this.drawer.open = false;
       }
       setTimeout(() => {
-        this.drawer.destroy();
         this.setState({variant: MODAL_DRAWER_CLASS});
-        this.drawer = new MDCDrawer(this.drawerEl);
-      }, 225)
-
+      }, 225);
     } else if(document.body.offsetWidth > SCREEN_WIDTH_BREAKPOINT &&
         this.state.variant === MODAL_DRAWER_CLASS) {
       if (this.drawer.open) {
         this.drawer.open = false;
       }
       setTimeout(() => {
-        this.drawer.destroy();
         this.setState({variant: DISMISSIBLE_DRAWER_CLASS});
-        this.drawer = new MDCDrawer(this.drawerEl);
-      }, 225)
+      }, 225);
     }
   }
 
   debounceResizeMethod_ = () => {
     clearTimeout(this.debounceTimeout);
-    this.debounceTimeout = setTimeout(() =>
-        this.handleResize_(), 50)
+    this.debounceTimeout = setTimeout(() => this.handleResize_(), 50);
   };
 
   handleListItemKeyDown_ = (history, path, e) => {
