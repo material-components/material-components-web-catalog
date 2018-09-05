@@ -36,7 +36,12 @@ class ThemeHero extends Component {
       fetch('asset-manifest.json')
           .then(result => result.json())
           .then(data => this.themeStylesheetFilename = data['theme.css'])
-          .then(() => this.appendThemeStyle());
+          .then(() => {
+            if (document.getElementById(this.themeStylesheetFilename)
+                === null) {
+              this.appendThemeStyle();
+            }
+          });
     } else {
       this.appendThemeStyle();
     }
@@ -61,7 +66,10 @@ class ThemeHero extends Component {
     this.componentInstances.forEach(ripple => ripple.destroy());
 
     // Remove the theme stylesheet if present
-    document.head.removeChild(document.getElementById('themeStylesheet'));
+    const themeStylesheetElement = document.getElementById('themeStyleSheet');
+    if (themeStylesheetElement) {
+      document.head.removeChild(themeStylesheetElement);
+    }
   }
 
   render() {
