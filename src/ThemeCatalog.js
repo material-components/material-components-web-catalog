@@ -57,7 +57,7 @@ class ThemeHero extends Component {
       styles.setAttribute('type', 'text/css');
       styles.setAttribute('id', 'themeStylesheet');
       styles.setAttribute('href', this.themeStylesheetFilename);
-      document.getElementsByTagName('head')[0].appendChild(styles);
+      document.head.appendChild(styles);
     }
   }
 
