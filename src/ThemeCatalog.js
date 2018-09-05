@@ -48,7 +48,7 @@ class ThemeHero extends Component {
    */
   appendThemeStyle() {
     if(this.themeStylesheetFilename
-        && document.getElementById(this.themeStylesheetFilename) === null) {
+        && document.getElementById('themeStylesheet') === null) {
       const styles = document.createElement('link');
       styles.setAttribute('rel', 'stylesheet');
       styles.setAttribute('type', 'text/css');
