@@ -27,10 +27,12 @@ const ThemeCatalog = () => {
 
 class ThemeHero extends Component {
   componentInstances = [];
+  isComponentMounted = false;
   themeStylesheetFilename = null;
   initRipple = ele => ele && this.componentInstances.push(new MDCRipple(ele));
 
   componentWillMount() {
+    this.isComponentMounted = true;
     if(!this.themeStylesheetFilename) {
       // Retrieve the location of the compiled theme.css file
       fetch('asset-manifest.json')
@@ -48,7 +50,8 @@ class ThemeHero extends Component {
    */
   appendThemeStyle() {
     if(this.themeStylesheetFilename
-        && document.getElementById('themeStylesheet') === null) {
+        && document.getElementById('themeStylesheet') === null
+        && this.isComponentMounted) {
       const styles = document.createElement('link');
       styles.setAttribute('rel', 'stylesheet');
       styles.setAttribute('type', 'text/css');
@@ -66,6 +69,8 @@ class ThemeHero extends Component {
     if (themeStylesheetElement) {
       document.head.removeChild(themeStylesheetElement);
     }
+
+    this.isComponentMounted = false;
   }
 
   render() {
