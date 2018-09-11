@@ -66,8 +66,17 @@
   justify-content: flex-start;
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */
+  .demo-content {
+    overflow: scroll; /* Has to be scroll, not auto. */
+    -webkit-overflow-scrolling: touch; /* For momentum scrolling. */
+  }
+}
+
 .demo-content-transition {
-  width: 900px;
+  width: 100%;
+  max-width: 900px;
 }
 
 .loadComponent-enter {
