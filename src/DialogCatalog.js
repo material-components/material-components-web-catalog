@@ -38,7 +38,7 @@ class DialogHero extends Component {
              aria-labelledby='my-mdc-dialog-label'
              aria-describedby='my-mdc-dialog-description'
              ref={this.initDialog}
-             >
+        >
           <div className='mdc-dialog__container'>
             <div className='mdc-dialog__surface'>
               <h2 id='my-mdc-dialog-label' className='mdc-dialog__title'>
@@ -427,7 +427,6 @@ class ScrollableDialog extends Component {
               </footer>
             </div>
           </div>
-          <div className='mdc-dialog__backdrop'></div>
         </div>
       </div>
     );
