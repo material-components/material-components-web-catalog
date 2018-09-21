@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCDialog} from '@material/dialog/dist/mdc.dialog';
+import {MDCList} from '@material/list/dist/mdc.list';
 
 import './styles/DialogCatalog.scss';
 
@@ -159,17 +160,16 @@ class AlertDialog extends Component {
   render() {
     return (
       <div>
-        <div id='mdc-dialog-with-list'
+        <div id='alert-dialog'
           className='mdc-dialog'
           role='alertdialog'
           aria-modal='true'
-          aria-labelledby='mdc-dialog-with-list-label'
-          aria-describedby='mdc-dialog-with-list-description'
+          aria-describedby='alert-dialog-description'
           ref={this.initDialog}>
           <div className='mdc-dialog__scrim'></div>
           <div className='mdc-dialog__container'>
             <div className='mdc-dialog__surface'>
-              <section id='mdc-dialog-with-list-description' className='mdc-dialog__content'>
+              <section id='alert-dialog-description' className='mdc-dialog__content'>
                 <p>Discard draft?</p>
               </section>
               <footer className='mdc-dialog__actions'>
@@ -191,6 +191,12 @@ class SimpleDialog extends Component {
     this.dialogEl = dialogEl;
     this.dialog = new MDCDialog(dialogEl);
   };
+
+  initList = (listEl) => {
+    if (!listEl) return;
+    this.listEl = listEl;
+    this.list = new MDCList(listEl);
+  }
 
   componentDidUpdate(prevProps) {
     if (!prevProps.open && this.props.open) {
@@ -231,7 +237,7 @@ class SimpleDialog extends Component {
                   // Inline `style='list-style-type: none'` needed to prevent rendering bug in Edge and IE 11.
                   // See https://stackoverflow.com/a/23717689/467582
                 }
-                <ul className='mdc-list mdc-list--avatar-list' style={{listStyleType: 'none'}}>
+                <ul ref={this.initList} className='mdc-list mdc-list--avatar-list' style={{listStyleType: 'none'}}>
                   <li className='mdc-list-item' tabIndex='0' data-mdc-dialog-action='user1@example.com'>
                     <i className='material-icons mdc-list-item__graphic'>person</i>
                     <span className='test-list-item__label'>user1@example.com</span>
@@ -262,6 +268,12 @@ class ConfirmationDialog extends Component {
     this.dialog = new MDCDialog(dialogEl);
   };
 
+  initList = (listEl) => {
+    if (!listEl) return;
+    this.listEl = listEl;
+    this.list = new MDCList(listEl);
+  }
+
   componentDidUpdate(prevProps) {
     if (!prevProps.open && this.props.open) {
       // Handle transitioning from closed to open; dialog will handle closing itself
@@ -285,23 +297,23 @@ class ConfirmationDialog extends Component {
   render() {
     return (
       <div>
-        <div id='simple-dialog'
+        <div id='confirmation-dialog'
           className='mdc-dialog'
           role='alertdialog'
           aria-modal='true'
-          aria-labelledby='simple-dialog-label'
-          aria-describedby='simple-dialog-description'
+          aria-labelledby='confirmation-dialog-label'
+          aria-describedby='confirmation-dialog-description'
           ref={this.initDialog}>
           <div className='mdc-dialog__scrim'></div>
           <div className='mdc-dialog__container'>
             <div className='mdc-dialog__surface'>
-              <h2 id='simple-dialog-label' className='mdc-dialog__title'>Phone ringtone</h2>
-              <section id='simple-dialog-description' className='mdc-dialog__content'>
+              <h2 id='confirmation-dialog-label' className='mdc-dialog__title'>Phone ringtone</h2>
+              <section id='confirmation-dialog-description' className='mdc-dialog__content'>
                 {
                   // Inline `style='list-style-type: none'` needed to prevent rendering bug in Edge and IE 11.
                   // See https://stackoverflow.com/a/23717689/467582
                 }
-                <ul className='mdc-list' style={{listStyleType: 'none'}}>
+                <ul ref={this.initList} className='mdc-list' style={{listStyleType: 'none'}}>
                   <li className='mdc-list-item' tabIndex='0'>
                     <span className='mdc-list-item__graphic'>
                       <div className='mdc-radio'>
