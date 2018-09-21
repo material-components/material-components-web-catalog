@@ -37,6 +37,7 @@ class DialogHero extends Component {
           role='alertdialog'
           aria-labelledby='my-mdc-dialog-label'
           aria-describedby='my-mdc-dialog-description'
+          ref={this.initDialog}
           >
           <div className='mdc-dialog__container'>
             <div className='mdc-dialog__surface'>
