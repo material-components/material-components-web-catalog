@@ -297,7 +297,7 @@ class ConfirmationDialog extends Component {
           <div className='mdc-dialog__scrim'></div>
           <div className='mdc-dialog__container'>
             <div className='mdc-dialog__surface'>
-              <h2 id='simple-dialog-label' className='mdc-dialog__title'>Select an account</h2>
+              <h2 id='simple-dialog-label' className='mdc-dialog__title'>Phone ringtone</h2>
               <section id='simple-dialog-description' className='mdc-dialog__content'>
                 {
                   // Inline `style='list-style-type: none'` needed to prevent rendering bug in Edge and IE 11.
@@ -319,7 +319,7 @@ class ConfirmationDialog extends Component {
                         </div>
                       </div>
                     </span>
-                    <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-1'>Option 1</label>
+                    <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-1'>Never Gonna Give You Up</label>
                   </li>
                   <li className='mdc-list-item' tabIndex='0'>
                     <span className='mdc-list-item__graphic'>
@@ -335,7 +335,23 @@ class ConfirmationDialog extends Component {
                         </div>
                       </div>
                     </span>
-                    <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-2'>Option 2</label>
+                    <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-2'>Hot Cross Buns</label>
+                  </li>
+                  <li className='mdc-list-item' tabIndex='0'>
+                    <span className='mdc-list-item__graphic'>
+                      <div className='mdc-radio'>
+                        <input className='mdc-radio__native-control'
+                               type='radio'
+                               id='test-dialog-baseline-confirmation-radio-3'
+                               name='test-dialog-baseline-confirmation-radio-group'
+                               value='3'/>
+                        <div className='mdc-radio__background'>
+                          <div className='mdc-radio__outer-circle'></div>
+                          <div className='mdc-radio__inner-circle'></div>
+                        </div>
+                      </div>
+                    </span>
+                    <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-3'>None</label>
                   </li>
                 </ul>
               </section>
