@@ -242,11 +242,11 @@ class SimpleDialog extends Component {
                     <i className='material-icons mdc-list-item__graphic'>person</i>
                     <span className='test-list-item__label'>user1@example.com</span>
                   </li>
-                  <li className='mdc-list-item' tabIndex='0' data-mdc-dialog-action='user2@example.com'>
+                  <li className='mdc-list-item' data-mdc-dialog-action='user2@example.com'>
                     <i className='material-icons mdc-list-item__graphic'>person</i>
                     <span className='test-list-item__label'>user2@example.com</span>
                   </li>
-                  <li className='mdc-list-item' tabIndex='0' data-mdc-dialog-action='add'>
+                  <li className='mdc-list-item' data-mdc-dialog-action='add'>
                     <i className='material-icons mdc-list-item__graphic'>add</i>
                     <span className='test-list-item__label'>Add account</span>
                   </li>
@@ -331,7 +331,7 @@ class ConfirmationDialog extends Component {
                     </span>
                     <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-1'>Never Gonna Give You Up</label>
                   </li>
-                  <li className='mdc-list-item' tabIndex='0'>
+                  <li className='mdc-list-item'>
                     <span className='mdc-list-item__graphic'>
                       <div className='mdc-radio'>
                         <input className='mdc-radio__native-control'
@@ -347,7 +347,7 @@ class ConfirmationDialog extends Component {
                     </span>
                     <label className='test-list-item__label' htmlFor='test-dialog-baseline-confirmation-radio-2'>Hot Cross Buns</label>
                   </li>
-                  <li className='mdc-list-item' tabIndex='0'>
+                  <li className='mdc-list-item'>
                     <span className='mdc-list-item__graphic'>
                       <div className='mdc-radio'>
                         <input className='mdc-radio__native-control'
