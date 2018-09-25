@@ -1,4 +1,5 @@
 @import "@material/button/mdc-button";
+@import "@material/button/mixins";
 
 .demo-button {
   margin: 8px 16px;
@@ -6,4 +7,8 @@
 
 .hero-button {
   margin: 16px 32px;
+}
+
+.demo-button-shaped {
+  @include mdc-button-shape-radius(50%);
 }

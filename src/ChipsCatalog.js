@@ -85,7 +85,7 @@ class ChipsDemos extends Component {
   renderChip(text, classes, leadingIcon) {
     return (
       <div className={`mdc-chip ${classes}`} tabIndex='0'>
-        {leadingIcon}
+        {leadingIcon ? leadingIcon : ''}
         <div className='mdc-chip__text'>{text}</div>
       </div>
     );
@@ -154,6 +154,16 @@ class ChipsDemos extends Component {
             {this.renderChip('Get directions',
               '' /* classes */,
               this.renderIcon('directions', 'mdc-chip__icon--leading'))}
+          </div>
+        </div>
+
+        <div className='catalog-variant'>
+          <h3 className='mdc-typography--subtitle1'>Shaped Chips</h3>
+          <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
+            {this.renderChip('Bookcase', 'demo-chip-shaped')}
+            {this.renderChip('TV Stand', 'demo-chip-shaped')}
+            {this.renderChip('Sofas', 'demo-chip-shaped')}
+            {this.renderChip('Office chairs', 'demo-chip-shaped')}
           </div>
         </div>
       </div>

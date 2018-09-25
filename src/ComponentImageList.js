@@ -19,7 +19,6 @@ import linearProgressImg from './images/linear_progress_180px.svg';
 import menuImg from './images/menu_180px.svg';
 import radioImg from './images/radio_180px.svg';
 import rippleImg from './images/ripple_180px.svg';
-import shapeImg from './images/shape_180px.svg';
 import sliderImg from './images/slider_180px.svg';
 import snackbarImg from './images/snackbar_180px.svg';
 import switchImg from './images/switch_180px.svg';
@@ -59,7 +58,6 @@ class ComponentImageList extends Component {
           {this.renderListItem('Radio', radioImg, 'radio')}
           {this.renderListItem('Ripple', rippleImg, 'ripple')}
           {this.renderListItem('Select', inputImg, 'select')}
-          {this.renderListItem('Shape', shapeImg, 'shape')}
           {this.renderListItem('Slider', sliderImg, 'slider')}
           {this.renderListItem('Snackbar', snackbarImg, 'snackbar')}
           {this.renderListItem('Switch', switchImg, 'switch')}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import {MDCList} from '@material/list/index';
 import {MDCRipple} from '@material/ripple';
 import classnames from 'classnames';
 
@@ -70,8 +71,11 @@ class ListItem extends Component {
   }
 
   render() {
+    const {className, activated} = this.props;
+    const classes = classnames('mdc-list-item', className, {'mdc-list-item--activated': activated});
+
     return (
-      <li className='mdc-list-item' ref={this.initRipple}>
+      <li className={classes} ref={this.initRipple}>
         {this.renderLeadingIcon()}
         {this.renderLines()}
         {this.renderTrailingIcon()}
@@ -81,14 +85,20 @@ class ListItem extends Component {
 }
 
 class List extends Component {
+  initList = listEl => {
+    if (listEl) {
+      MDCList.attachTo(listEl);
+    }
+  };
+
   render() {
     const classes = classnames('mdc-list demo-list', {
       'mdc-list--dense': this.props.dense,
       'mdc-list--two-line': this.props.twoLines,
       'mdc-list--avatar-list': this.props.avatars,
-    });
+    }, this.props.className);
     return (
-      <ul className={classes}>
+      <ul className={classes} ref={this.initList}>
         {this.props.children}
       </ul>
     );
@@ -120,6 +130,20 @@ const ListDemos = () => (
       <ListItem lineOne='Line item' leadingIcon='wifi' />
       <ListItem lineOne='Line item' leadingIcon='bluetooth' />
       <ListItem lineOne='Line item' leadingIcon='data_usage' />
+    </ListVariant>
+
+    <ListVariant title='List with activated item'>
+      <ListItem lineOne='Inbox' leadingIcon='inbox' />
+      <ListItem activated lineOne='Star' leadingIcon='star' />
+      <ListItem lineOne='Send' leadingIcon='send' />
+      <ListItem lineOne='Drafts' leadingIcon='drafts' />
+    </ListVariant>
+
+    <ListVariant title='List with shaped activated item' className='demo-list-item-shaped'>
+      <ListItem lineOne='Inbox' leadingIcon='inbox' />
+      <ListItem activated lineOne='Star' leadingIcon='star' />
+      <ListItem lineOne='Send' leadingIcon='send' />
+      <ListItem lineOne='Drafts' leadingIcon='drafts' />
     </ListVariant>
 
     <ListVariant title='Trailing Icon'>

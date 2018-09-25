@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import classnames from 'classnames';
 import {MDCIconButtonToggle} from '@material/icon-button';
 import {MDCRipple} from '@material/ripple';
 import {imagePath} from './constants';
@@ -26,10 +27,12 @@ class Card extends Component {
   }
 
   render() {
-    const {actions, className, image} = this.props;
+    const {actions, className, image, shaped} = this.props;
+    const classes = classnames('mdc-card demo-card',
+        {'demo-card-shaped': shaped}, className);
     return (
       <div>
-        <div className={`mdc-card demo-card ${className}`}>
+        <div className={classes}>
           <div
             className='mdc-card__primary-action'
             tabIndex='0'
@@ -122,6 +125,7 @@ const CardDemos = () => {
     <section className='demo-card-collection'>
       <Card image />
       <Card actions />
+      <Card actions shaped />
     </section>
   );
 }

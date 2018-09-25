@@ -1,1 +1,24 @@
 @import "@material/fab/mdc-fab";
+@import "@material/fab/mixins";
+
+.demo-fab-shaped {
+  display: flex;
+}
+
+.demo-fab-shaped--one {
+  @include mdc-fab-shape-radius(50% 0, $rtl-reflexive: true);
+
+  margin-right: 24px;
+}
+
+.demo-fab-shaped--two {
+  @include mdc-fab-shape-radius(8px);
+
+  margin-right: 24px;
+}
+
+.demo-fab-shaped--three {
+  @include mdc-fab-shape-radius(12px);
+
+  margin-right: 24px;
+}

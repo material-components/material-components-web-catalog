@@ -1,1 +1,6 @@
 @import "@material/chips/mdc-chips";
+@import "@material/chips/mixins";
+
+.demo-chip-shaped {
+  @include mdc-chip-shape-radius(4px);
+}
