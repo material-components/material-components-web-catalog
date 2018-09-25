@@ -170,9 +170,6 @@ class ComponentSidebar extends Component {
       content: 'Select',
       url: '/select',
     }, {
-      content: 'Shape',
-      url: '/shape',
-    }, {
       content: 'Slider',
       url: '/slider',
     }, {

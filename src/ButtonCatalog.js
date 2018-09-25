@@ -85,6 +85,7 @@ class ButtonDemos extends Component {
         {this.renderButtonVariant('Raised Button', 'mdc-button--raised')}
         {this.renderButtonVariant('Unelevated Button', 'mdc-button--unelevated')}
         {this.renderButtonVariant('Outlined Button', 'mdc-button--outlined')}
+        {this.renderButtonVariant('Shaped Button', 'mdc-button--unelevated demo-button-shaped')}
       </div>
     );
   }

@@ -18,7 +18,6 @@ import MenuCatalog from './MenuCatalog';
 import RadioButtonCatalog from './RadioButtonCatalog';
 import RippleCatalog from './RippleCatalog';
 import SelectCatalog from './SelectCatalog';
-import ShapeCatalog from './ShapeCatalog';
 import SliderCatalog from './SliderCatalog';
 import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
@@ -79,9 +78,6 @@ const routesList = [{
 }, {
   urlPath: 'select',
   Component: SelectCatalog,
-}, {
-  urlPath: 'shape',
-  Component: ShapeCatalog,
 }, {
   urlPath: 'slider',
   Component: SliderCatalog,

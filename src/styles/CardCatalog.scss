@@ -1,5 +1,5 @@
-@import "@material/button/mdc-button";
 @import "@material/card/mdc-card";
+@import "@material/card/mixins";
 @import "@material/ripple/mdc-ripple";
 @import "@material/theme/mixins";
 
@@ -38,4 +38,8 @@
   @include mdc-theme-prop(color, text-secondary-on-background);
 
   padding: 0 1rem 8px 1rem;
+}
+
+.demo-card-shaped {
+  @include mdc-card-shape-radius(24px 8px, $rtl-reflexive: true);
 }

@@ -91,6 +91,15 @@ class ChipsDemos extends Component {
     );
   }
 
+  renderChipWithCancel(text, classes) {
+    return (
+      <div className={`mdc-chip ${classes}`} tabIndex='0'>
+        <div className='mdc-chip__text'>{text}</div>
+        {this.renderIcon('cancel', 'mdc-chip__icon--trailing')}
+      </div>
+    );
+  }
+
   // For filter chips
   renderFilterChip(text, classes, leadingIcon) {
     return (
@@ -154,6 +163,16 @@ class ChipsDemos extends Component {
             {this.renderChip('Get directions',
               '' /* classes */,
               this.renderIcon('directions', 'mdc-chip__icon--leading'))}
+          </div>
+        </div>
+
+        <div className='catalog-variant'>
+          <h3 className='mdc-typography--subtitle1'>Shaped Chips</h3>
+          <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
+            {this.renderChipWithCancel('Bookcase', 'demo-chip-shaped')}
+            {this.renderChipWithCancel('TV Stand', 'demo-chip-shaped')}
+            {this.renderChipWithCancel('Sofas', 'demo-chip-shaped')}
+            {this.renderChipWithCancel('Office chairs', 'demo-chip-shaped')}
           </div>
         </div>
       </div>
