@@ -145,9 +145,6 @@ class TextFieldDemos extends Component {
         {this.renderVariant('Filled')}
         {this.renderVariant('Filled With Leading Icon', 'leading')}
         {this.renderVariant('Filled With Trailing Icon', 'trailing')}
-        {this.renderVariant('Outlined', 'outlined')}
-        {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
-        {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         <div>
           <h3 className='mdc-typography--subtitle1'>Shaped Filled</h3>
           <div className='text-field-row'>
@@ -156,6 +153,9 @@ class TextFieldDemos extends Component {
             <TextField trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-shaped'} />
           </div>
         </div>
+        {this.renderVariant('Outlined', 'outlined')}
+        {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
+        {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         <div>
           <h3 className='mdc-typography--subtitle1'>Shaped Outlined</h3>
           <div className='text-field-row'>
