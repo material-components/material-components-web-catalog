@@ -15,9 +15,9 @@ const getLabel = (dense) => {
 const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
-    dense, leading, trailing, helperText,
+    dense, leading, trailing, helperText, className
   } = props;
-  const classes = classnames('mdc-text-field', 'text-field', {
+  const classes = classnames('mdc-text-field', 'text-field', className, {
     'mdc-text-field--outlined': outlined,
     'mdc-text-field--textarea': textarea,
     'mdc-text-field--dense': dense,
@@ -148,6 +148,14 @@ class TextFieldDemos extends Component {
         {this.renderVariant('Outlined', 'outlined')}
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
+        <div>
+          <h3 className='mdc-typography--subtitle1'>Shaped</h3>
+          <div className='text-field-row'>
+            <TextField outlined textFieldId={'text-field-shape-one'} className={'demo-text-field-shaped'} />
+            <TextField outlined leading textFieldId={'text-field-shape-two'} className={'demo-text-field-shaped'} />
+            <TextField outlined trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-shaped'} />
+          </div>
+        </div>
         {this.renderVariant('Textarea', 'textarea')}
         {this.renderFullWidthVariant('Full Width')}
         {this.renderFullWidthVariant('Full Width Textarea', 'textarea')}

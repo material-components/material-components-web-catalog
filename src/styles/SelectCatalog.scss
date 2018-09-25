@@ -1,5 +1,14 @@
 @import "@material/select/mdc-select";
+@import "@material/select/mixins";
 
 .demo-select {
   min-width: 300px;
+}
+
+.demo-select-box-shaped {
+  @include mdc-select-shape-radius(32%);
+}
+
+.demo-select-outline-shaped {
+  @include mdc-select-outline-shape-radius(50%);
 }

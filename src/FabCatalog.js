@@ -67,6 +67,20 @@ const FabDemos = () => (
     <Fab extended textLabel='Create'>
       <span className='mdc-fab__label'>Create</span>
     </Fab>
+
+    <h3 className='mdc-typography--subtitle1'>FAB (Shaped)</h3>
+    <div className='demo-fab-shaped'>
+      <Fab ariaLabel='Favorite' className='demo-fab-shaped--one'>
+        <i className='mdc-fab__icon material-icons'>favorite_border</i>
+      </Fab>
+      <Fab mini ariaLabel='Favorite' className='demo-fab-shaped--two'>
+        <i className='mdc-fab__icon material-icons'>favorite_border</i>
+      </Fab>
+      <Fab extended textLabel='Create' className='demo-fab-shaped--three'>
+        <i className='mdc-fab__icon material-icons'>add</i>
+        <span className='mdc-fab__label'>Create</span>
+      </Fab>
+    </div>
   </div>
 );
 

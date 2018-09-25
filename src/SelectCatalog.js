@@ -93,7 +93,7 @@ class SelectDemos extends Component {
   }
 
   getIndicator(variantClass) {
-    if (variantClass === outlinedClass) {
+    if (variantClass.indexOf(outlinedClass) >= 0) {
       return (
         <React.Fragment>
           <div className='mdc-notched-outline'>
@@ -114,6 +114,8 @@ class SelectDemos extends Component {
       <div>
         {this.renderSelectVariant('Box Select', 'mdc-select--box')}
         {this.renderSelectVariant('Outlined Select', outlinedClass)}
+        {this.renderSelectVariant('Shaped Box Select', 'mdc-select--box demo-select-box-shaped')}
+        {this.renderSelectVariant('Shaped Outline Select', `${outlinedClass} demo-select-outline-shaped`)}
       </div>
     );
   }
