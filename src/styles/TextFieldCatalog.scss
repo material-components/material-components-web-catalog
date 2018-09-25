@@ -29,5 +29,9 @@
 }
 
 .demo-text-field-shaped {
+  @include mdc-text-field-shape-radius(16px);
+}
+
+.demo-text-field-outlined-shaped {
   @include mdc-text-field-outline-shape-radius(50%);
 }

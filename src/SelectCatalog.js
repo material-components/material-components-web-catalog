@@ -115,7 +115,7 @@ class SelectDemos extends Component {
         {this.renderSelectVariant('Box Select', 'mdc-select--box')}
         {this.renderSelectVariant('Outlined Select', outlinedClass)}
         {this.renderSelectVariant('Shaped Box Select', 'mdc-select--box demo-select-box-shaped')}
-        {this.renderSelectVariant('Shaped Outline Select', `${outlinedClass} demo-select-outline-shaped`)}
+        {this.renderSelectVariant('Shaped Outlined Select', `${outlinedClass} demo-select-outline-shaped`)}
       </div>
     );
   }

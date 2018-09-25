@@ -85,17 +85,8 @@ class ChipsDemos extends Component {
   renderChip(text, classes, leadingIcon) {
     return (
       <div className={`mdc-chip ${classes}`} tabIndex='0'>
-        {leadingIcon}
+        {leadingIcon ? leadingIcon : ''}
         <div className='mdc-chip__text'>{text}</div>
-      </div>
-    );
-  }
-
-  renderChipWithCancel(text, classes) {
-    return (
-      <div className={`mdc-chip ${classes}`} tabIndex='0'>
-        <div className='mdc-chip__text'>{text}</div>
-        {this.renderIcon('cancel', 'mdc-chip__icon--trailing')}
       </div>
     );
   }
@@ -169,10 +160,10 @@ class ChipsDemos extends Component {
         <div className='catalog-variant'>
           <h3 className='mdc-typography--subtitle1'>Shaped Chips</h3>
           <div className='mdc-chip-set mdc-chip-set--filter' ref={initChipSet}>
-            {this.renderChipWithCancel('Bookcase', 'demo-chip-shaped')}
-            {this.renderChipWithCancel('TV Stand', 'demo-chip-shaped')}
-            {this.renderChipWithCancel('Sofas', 'demo-chip-shaped')}
-            {this.renderChipWithCancel('Office chairs', 'demo-chip-shaped')}
+            {this.renderChip('Bookcase', 'demo-chip-shaped')}
+            {this.renderChip('TV Stand', 'demo-chip-shaped')}
+            {this.renderChip('Sofas', 'demo-chip-shaped')}
+            {this.renderChip('Office chairs', 'demo-chip-shaped')}
           </div>
         </div>
       </div>

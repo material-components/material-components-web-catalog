@@ -15,7 +15,7 @@ const getLabel = (dense) => {
 const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
-    dense, leading, trailing, helperText, className
+    dense, leading, trailing, helperText, className,
   } = props;
   const classes = classnames('mdc-text-field', 'text-field', className, {
     'mdc-text-field--outlined': outlined,
@@ -149,11 +149,19 @@ class TextFieldDemos extends Component {
         {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
         {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
         <div>
-          <h3 className='mdc-typography--subtitle1'>Shaped</h3>
+          <h3 className='mdc-typography--subtitle1'>Shaped Filled</h3>
           <div className='text-field-row'>
-            <TextField outlined textFieldId={'text-field-shape-one'} className={'demo-text-field-shaped'} />
-            <TextField outlined leading textFieldId={'text-field-shape-two'} className={'demo-text-field-shaped'} />
-            <TextField outlined trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-shaped'} />
+            <TextField textFieldId={'text-field-shape-one'} className={'demo-text-field-shaped'} />
+            <TextField leading textFieldId={'text-field-shape-two'} className={'demo-text-field-shaped'} />
+            <TextField trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-shaped'} />
+          </div>
+        </div>
+        <div>
+          <h3 className='mdc-typography--subtitle1'>Shaped Outlined</h3>
+          <div className='text-field-row'>
+            <TextField outlined textFieldId={'text-field-shape-one'} className={'demo-text-field-outlined-shaped'} />
+            <TextField outlined leading textFieldId={'text-field-shape-two'} className={'demo-text-field-outlined-shaped'} />
+            <TextField outlined trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-outlined-shaped'} />
           </div>
         </div>
         {this.renderVariant('Textarea', 'textarea')}
