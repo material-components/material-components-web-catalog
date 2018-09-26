@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCList} from '@material/list/index';
 import {MDCRipple} from '@material/ripple';
+import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
+import {MDCRadio} from '@material/radio';
 import classnames from 'classnames';
 
 import './styles/ListCatalog.scss';
@@ -34,11 +36,11 @@ const ListDivider = () => (
 
 class ListItem extends Component {
 
-  ripple = null;
-  initRipple = (surface) => this.ripple = surface && new MDCRipple(surface);
+  destroyableComponents = [];
+  initRipple = (surface) => surface && this.destroyableComponents.push(new MDCRipple(surface));
 
   componentWillUnmount() {
-    this.ripple.destroy();
+    this.destroyableComponents.forEach((component) => component.destroy());
   }
 
   renderLeadingIcon() {
@@ -70,26 +72,78 @@ class ListItem extends Component {
     }
   }
 
+  renderTrailingCheckbox() {
+    this.initCheckbox = checkboxEl => checkboxEl && this.destroyableComponents.push(new MDCCheckbox(checkboxEl));
+
+    if (this.props.trailingCheckbox) {
+      return (
+          <div className='mdc-checkbox mdc-list-item__meta' ref={this.initCheckbox}>
+            <input type='checkbox'
+                   defaultChecked={true}
+                   className='mdc-checkbox__native-control'/>
+            <div className='mdc-checkbox__background'>
+              <svg className='mdc-checkbox__checkmark'
+                   viewBox='0 0 24 24'>
+                <path className='mdc-checkbox__checkmark-path'
+                      fill='none'
+                      stroke='white'
+                      d='M1.73,12.91 8.1,19.28 22.79,4.59'/>
+              </svg>
+              <div className='mdc-checkbox__mixedmark'></div>
+            </div>
+          </div>
+      )
+    }
+  }
+
+  renderTrailingRadioButton() {
+    this.initRadio = radioEl => radioEl && this.destroyableComponents.push(new MDCRadio(radioEl));
+
+    if (this.props.trailingRadio) {
+      return (
+          <div className='mdc-radio mdc-list-item__meta' ref={this.initRadio}>
+            <input className='mdc-radio__native-control'
+                   type='radio'
+                   name='listDemoRadioGroup'
+                   defaultChecked='false' />
+            <div className='mdc-radio__background'>
+              <div className='mdc-radio__outer-circle'/>
+              <div className='mdc-radio__inner-circle'/>
+            </div>
+          </div>
+      )
+    }
+  }
+
   render() {
     const {className, activated} = this.props;
     const classes = classnames('mdc-list-item', className, {'mdc-list-item--activated': activated});
 
     return (
-      <li className={classes} ref={this.initRipple}>
+      <li className={classes} ref={this.initRipple} tabIndex='-1'>
         {this.renderLeadingIcon()}
         {this.renderLines()}
         {this.renderTrailingIcon()}
+        {this.renderTrailingCheckbox()}
+        {this.renderTrailingRadioButton()}
       </li>
     );
   }
 }
 
 class List extends Component {
+  list;
   initList = listEl => {
     if (listEl) {
-      MDCList.attachTo(listEl);
+      this.list = MDCList.attachTo(listEl);
     }
   };
+
+  componentWillUnmount() {
+    if (this.list) {
+      this.list.destroy();
+    }
+  }
 
   render() {
     const classes = classnames('mdc-list demo-list', {
@@ -158,6 +212,22 @@ const ListDemos = () => (
       <ListDivider />
       <ListItem lineOne='Potatoes' lineTwo='30 Noc 2017' leadingIcon='folder' trailingIcon='info' />
       <ListItem lineOne='Carrots' lineTwo='17 Oct 2017' leadingIcon='folder' trailingIcon='info' />
+    </ListVariant>
+
+    <ListVariant title='List with Trailing Checkbox' avatars>
+      <ListItem lineOne='Dog Photos' trailingCheckbox='true' />
+      <ListItem lineOne='Cat Photos' trailingCheckbox='true' />
+      <ListDivider />
+      <ListItem lineOne='Potatoes' trailingCheckbox='true' />
+      <ListItem lineOne='Carrots'  trailingCheckbox='true' />
+    </ListVariant>
+
+    <ListVariant title='List with Trailing Radio Buttons' avatars>
+      <ListItem lineOne='Dog Photos' trailingRadio='true' />
+      <ListItem lineOne='Cat Photos' trailingRadio='true' />
+      <ListDivider />
+      <ListItem lineOne='Potatoes' trailingRadio='true' />
+      <ListItem lineOne='Carrots'  trailingRadio='true' />
     </ListVariant>
   </div>
 );
