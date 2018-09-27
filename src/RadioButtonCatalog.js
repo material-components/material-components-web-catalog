@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {withFormField} from './FormField';
-import {MDCRadio} from '@material/radio';
+import {MDCRadio} from '@material/radio/index';
 
 import './styles/RadioButtonCatalog.scss';
 

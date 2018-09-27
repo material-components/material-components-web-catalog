@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './styles/HeaderBar.scss';
-import {MDCTopAppBar} from '@material/top-app-bar';
+import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {imagePath} from './constants';
 
 class HeaderBar extends Component {

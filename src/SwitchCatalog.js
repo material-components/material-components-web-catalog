@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import classnames from 'classnames';
-import {MDCSwitch} from '@material/switch';
+import {MDCSwitch} from '@material/switch/index';
 
 import './styles/SwitchCatalog.scss';
 

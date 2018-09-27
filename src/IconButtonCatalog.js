@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCIconButtonToggle} from '@material/icon-button';
-import {MDCRipple} from '@material/ripple';
+import {MDCIconButtonToggle} from '@material/icon-button/index';
+import {MDCRipple} from '@material/ripple/index';
 
 import './styles/IconButtonCatalog.scss';
 

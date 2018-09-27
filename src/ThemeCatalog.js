@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCCheckbox} from '@material/checkbox';
-import {MDCIconButtonToggle} from '@material/icon-button';
-import {MDCLinearProgress} from '@material/linear-progress';
-import {MDCRipple} from '@material/ripple';
-import {MDCSelect} from '@material/select';
-import {MDCSlider} from '@material/slider';
-import {MDCTextField} from '@material/textfield';
+import {MDCCheckbox} from '@material/checkbox/index';
+import {MDCIconButtonToggle} from '@material/icon-button/index';
+import {MDCLinearProgress} from '@material/linear-progress/index';
+import {MDCRipple} from '@material/ripple/index';
+import {MDCSelect} from '@material/select/index';
+import {MDCSlider} from '@material/slider/index';
+import {MDCTextField} from '@material/textfield/index';
 import {imagePath} from './constants';
 
 import './styles/ThemeCatalog.scss';

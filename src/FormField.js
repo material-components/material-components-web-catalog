@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import {MDCFormField} from '@material/form-field';
+import {MDCFormField} from '@material/form-field/index';
 
 import './styles/FormField.scss';
 
