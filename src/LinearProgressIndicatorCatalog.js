@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCLinearProgress} from '@material/linear-progress/dist/mdc.linearProgress';
+import {MDCLinearProgress} from '@material/linear-progress/index';
 
 import './styles/LinearProgressIndicatorCatalog.scss';
 

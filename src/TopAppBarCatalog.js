@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
-import {MDCRipple} from '@material/ripple/dist/mdc.ripple';
+import {MDCRipple} from '@material/ripple/index';
 import './styles/TopAppBarCatalog.scss';
 
 const TopAppBarCatalog = (props) => {

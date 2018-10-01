@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCTextField} from '@material/textfield';
+import {MDCTextField} from '@material/textfield/index';
 import classnames from 'classnames';
 
 import './styles/TextFieldCatalog.scss';

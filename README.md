@@ -16,7 +16,7 @@ Follow these steps to add a new component to the MDC Web demo catalog.
 ```js
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCFoo} from '@material/foo';
+import {MDCFoo} from '@material/foo/index';
 
 import './styles/FooCatalog.scss';
 

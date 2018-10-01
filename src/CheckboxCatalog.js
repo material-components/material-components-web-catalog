@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
+import {MDCCheckbox} from '@material/checkbox/index';
 
 import './styles/CheckboxCatalog.scss';
 
