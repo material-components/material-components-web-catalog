@@ -32,7 +32,7 @@ const TextField = (props) => {
         {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
         <Label textFieldId={textFieldId} dense={dense}/>
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
-        {outlined ? <Outline /> : <div className='mdc-line-ripple'></div>}
+        {outlined ? <Outline /> : (textarea ? null : <div className='mdc-line-ripple'></div>)}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
