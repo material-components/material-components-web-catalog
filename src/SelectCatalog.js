@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCSelect} from '@material/select/dist/mdc.select';
+import {MDCSelect} from '@material/select/index';
 
 import './styles/SelectCatalog.scss';
 

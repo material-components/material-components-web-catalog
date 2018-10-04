@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCList} from '@material/list/index';
-import {MDCRipple} from '@material/ripple';
+import {MDCRipple} from '@material/ripple/index';
 import classnames from 'classnames';
 
 import './styles/ListCatalog.scss';

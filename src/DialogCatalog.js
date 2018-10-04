@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCDialog} from '@material/dialog/dist/mdc.dialog';
-import {MDCList} from '@material/list/dist/mdc.list';
+import {MDCDialog} from '@material/dialog/index';
+import {MDCList} from '@material/list/index';
 
 import './styles/DialogCatalog.scss';
 

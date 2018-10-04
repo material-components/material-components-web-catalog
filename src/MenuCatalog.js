@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCMenu} from '@material/menu';
-import {MDCRipple} from '@material/ripple';
+import {MDCMenu} from '@material/menu/index';
+import {MDCRipple} from '@material/ripple/index';
 
 import './styles/MenuCatalog.scss';
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCSnackbar} from '@material/snackbar/dist/mdc.snackbar';
+import {MDCSnackbar} from '@material/snackbar/index';
 import classnames from 'classnames';
 
 import './styles/SnackbarCatalog.scss';
@@ -61,12 +61,12 @@ class SnackbarDemo extends Component {
         <button className='mdc-button mdc-button--raised snackbar-demo-button' onClick={this.handleShowClick}>
           Show snackbar
         </button>
-        <button className='mdc-button mdc-button--raised snackbar-demo-button' 
+        <button className='mdc-button mdc-button--raised snackbar-demo-button'
                 onClick={this.handleShowStartAlignedClick}>
           Show start aligned
         </button>
         <Snackbar show={this.state.showSnackbar} handleShown={this.handleSnackbarShown}/>
-        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true} 
+        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true}
                   handleShown={this.handleShowStartAlignedSnackbarShown}/>
       </div>
     )
@@ -109,7 +109,7 @@ class Snackbar extends Component {
         <div className='mdc-snackbar__action-wrapper'>
           <button type='button' className='mdc-snackbar__action-button'></button>
         </div>
-      </div>    
+      </div>
     )
   }
 }

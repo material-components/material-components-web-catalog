@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {MDCRipple} from '@material/ripple';
+import {MDCRipple} from '@material/ripple/index';
 import {Link} from 'react-router-dom';
 
 import buttonImg from './images/buttons_180px.svg';
