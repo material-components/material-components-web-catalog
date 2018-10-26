@@ -30,7 +30,7 @@ class SelectHero extends Component {
   }
 
   render() {
-    const heroId = 'select-hero'
+    const heroId = 'select-hero';
     return (
       <div>
         <div className='mdc-select' ref={this.initSelect}>
@@ -47,7 +47,7 @@ class SelectHero extends Component {
               Banana
             </option>
           </select>
-          <label for={heroId} className='mdc-floating-label'>Fruit</label>
+          <label htmlFor={heroId} className='mdc-floating-label'>Fruit</label>
           <div className='mdc-line-ripple'></div>
         </div>
       </div>
@@ -89,7 +89,7 @@ class SelectDemos extends Component {
               Banana
             </option>
           </select>
-          <label for={selectId} className='mdc-floating-label'>Fruit</label>
+          <label htmlFor={selectId} className='mdc-floating-label'>Fruit</label>
           {this.getIndicator(variantClass)}
         </div>
       </div>
