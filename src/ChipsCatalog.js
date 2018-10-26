@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCChipSet} from '@material/chips';
+import {MDCChipSet} from '@material/chips/index';
 
 import './styles/ChipsCatalog.scss';
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCSlider} from '@material/slider';
+import {MDCSlider} from '@material/slider/index';
 
 import './styles/SliderCatalog.scss';
 

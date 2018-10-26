@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCTabBar} from '@material/tab-bar';
+import {MDCTabBar} from '@material/tab-bar/index';
 
 import './styles/TabsCatalog.scss';
 

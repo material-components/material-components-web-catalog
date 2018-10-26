@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
-import {MDCRipple} from '@material/ripple';
+import {MDCRipple} from '@material/ripple/index';
 
 import './styles/ButtonCatalog.scss';
 

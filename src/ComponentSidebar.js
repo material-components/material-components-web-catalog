@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
-import {MDCDrawer} from '@material/drawer';
-import {MDCRipple} from '@material/ripple';
+import {MDCDrawer} from '@material/drawer/index';
+import {MDCRipple} from '@material/ripple/index';
 import {imagePath} from './constants';
 
 const SCREEN_WIDTH_BREAKPOINT = 1160;

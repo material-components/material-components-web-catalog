@@ -1,6 +1,6 @@
 import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCList} from '@material/list/index';
-import {MDCDrawer} from '@material/drawer';
+import {MDCDrawer} from '@material/drawer/index';
 
 import React, {Component} from 'react';
 
