@@ -30,11 +30,12 @@ class SelectHero extends Component {
   }
 
   render() {
+    const heroId = 'select-hero'
     return (
       <div>
         <div className='mdc-select' ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <select className='mdc-select__native-control'  defaultValue=''>
+          <select id={heroId} className='mdc-select__native-control'  defaultValue=''>
             <option value='' disabled></option>
             <option value='apple'>
               Apple
@@ -46,7 +47,7 @@ class SelectHero extends Component {
               Banana
             </option>
           </select>
-          <label className='mdc-floating-label'>Fruit</label>
+          <label for={heroId} className='mdc-floating-label'>Fruit</label>
           <div className='mdc-line-ripple'></div>
         </div>
       </div>
@@ -70,12 +71,13 @@ class SelectDemos extends Component {
   }
 
   renderNativeSelectVariant(title, variantClass) {
+    const selectId = title.split(' ').join('_').toLowerCase();
     return (
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <select className='mdc-select__native-control' defaultValue=''>
+          <select id={selectId} className='mdc-select__native-control' defaultValue=''>
             <option value='' disabled></option>
             <option value='apple'>
               Apple
@@ -87,7 +89,7 @@ class SelectDemos extends Component {
               Banana
             </option>
           </select>
-          <label className='mdc-floating-label'>Fruit</label>
+          <label for={selectId} className='mdc-floating-label'>Fruit</label>
           {this.getIndicator(variantClass)}
         </div>
       </div>
@@ -95,27 +97,28 @@ class SelectDemos extends Component {
   }
 
   renderEnhancedSelectVariant(title, variantClass) {
+    const selectId = title.split(' ').join('_').toLowerCase();
     return (
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className={`mdc-select demo-enhanced-width ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <div className='mdc-select__selected-text'></div>
+          <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
           <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-width'>
             <ul className='mdc-list'>
-              <li className='mdc-list-item' data-value='' disabled></li>
-              <li className='mdc-list-item' data-value='apple'>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='' disabled></li>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='apple'>
                 Apple
               </li>
-              <li className='mdc-list-item' data-value='orange'>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='orange'>
                 Orange
               </li>
-              <li className='mdc-list-item' data-value='banana'>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='banana'>
                 Banana
               </li>
             </ul>
           </div>
-          <label className='mdc-floating-label'>Fruit</label>
+          <span id={`${selectId}-label`} className='mdc-floating-label'>Fruit</span>
           {this.getIndicator(variantClass)}
         </div>
       </div>
@@ -127,7 +130,7 @@ class SelectDemos extends Component {
       return (
         <React.Fragment>
           <div className='mdc-notched-outline'>
-            <svg>
+            <svg focusable='false'>
               <path className='mdc-notched-outline__path'></path>
             </svg>
           </div>
