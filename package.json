@@ -106,5 +106,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2"
   }
 }

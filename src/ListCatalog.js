@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCList} from '@material/list/index';
-import {MDCRipple} from '@material/ripple/index';
+import {MDCRipple} from '@material/ripple';
+import {MDCCheckbox} from '@material/checkbox/dist/mdc.checkbox';
+import {MDCRadio} from '@material/radio';
 import classnames from 'classnames';
+import uuidv4 from 'uuid/v4';
 
 import './styles/ListCatalog.scss';
 
@@ -34,11 +37,12 @@ const ListDivider = () => (
 
 class ListItem extends Component {
 
-  ripple = null;
-  initRipple = (surface) => this.ripple = surface && new MDCRipple(surface);
+  destroyableComponents = [];
+  initRipple = (surface) => surface && this.destroyableComponents.push(new MDCRipple(surface));
+  listItemId = uuidv4();
 
   componentWillUnmount() {
-    this.ripple.destroy();
+    this.destroyableComponents.forEach((component) => component.destroy());
   }
 
   renderLeadingIcon() {
@@ -70,26 +74,80 @@ class ListItem extends Component {
     }
   }
 
+  renderTrailingCheckbox() {
+    this.initCheckbox = checkboxEl => checkboxEl && this.destroyableComponents.push(new MDCCheckbox(checkboxEl));
+
+    if (this.props.trailingCheckbox) {
+      return (
+          <div className='mdc-checkbox mdc-list-item__meta' ref={this.initCheckbox}>
+            <input type='checkbox'
+                   defaultChecked={false}
+                   className='mdc-checkbox__native-control'
+                   aria-labelledby={this.listItemId}/>
+            <div className='mdc-checkbox__background'>
+              <svg className='mdc-checkbox__checkmark'
+                   viewBox='0 0 24 24'>
+                <path className='mdc-checkbox__checkmark-path'
+                      fill='none'
+                      stroke='white'
+                      d='M1.73,12.91 8.1,19.28 22.79,4.59'/>
+              </svg>
+              <div className='mdc-checkbox__mixedmark'></div>
+            </div>
+          </div>
+      )
+    }
+  }
+
+  renderTrailingRadioButton() {
+    this.initRadio = radioEl => radioEl && this.destroyableComponents.push(new MDCRadio(radioEl));
+
+    if (this.props.trailingRadio) {
+      return (
+          <div className='mdc-radio mdc-list-item__meta' ref={this.initRadio}>
+            <input className='mdc-radio__native-control'
+                   type='radio'
+                   name='listDemoRadioGroup'
+                   defaultChecked='false'
+                   aria-labelledby={this.listItemId} />
+            <div className='mdc-radio__background'>
+              <div className='mdc-radio__outer-circle'/>
+              <div className='mdc-radio__inner-circle'/>
+            </div>
+          </div>
+      )
+    }
+  }
+
   render() {
     const {className, activated} = this.props;
     const classes = classnames('mdc-list-item', className, {'mdc-list-item--activated': activated});
 
     return (
-      <li className={classes} ref={this.initRipple}>
+      <li className={classes} ref={this.initRipple} tabIndex={this.props.tabIndex} id={this.listItemId} >
         {this.renderLeadingIcon()}
         {this.renderLines()}
         {this.renderTrailingIcon()}
+        {this.renderTrailingCheckbox()}
+        {this.renderTrailingRadioButton()}
       </li>
     );
   }
 }
 
 class List extends Component {
+  list;
   initList = listEl => {
     if (listEl) {
-      MDCList.attachTo(listEl);
+      this.list = MDCList.attachTo(listEl);
     }
   };
+
+  componentWillUnmount() {
+    if (this.list) {
+      this.list.destroy();
+    }
+  }
 
   render() {
     const classes = classnames('mdc-list demo-list', {
@@ -115,19 +173,19 @@ const ListVariant = (props) => (
 const ListDemos = () => (
   <div>
     <ListVariant title='Single-Line'>
-      <ListItem lineOne='Line item' />
+      <ListItem lineOne='Line item' tabIndex='0'/>
       <ListItem lineOne='Line item' />
       <ListItem lineOne='Line item' />
     </ListVariant>
 
     <ListVariant title='Two-Line' twoLines>
-      <ListItem lineOne='Line item' lineTwo='Secondary text' />
+      <ListItem lineOne='Line item' lineTwo='Secondary text' tabIndex='0'/>
       <ListItem lineOne='Line item' lineTwo='Secondary text' />
       <ListItem lineOne='Line item' lineTwo='Secondary text' />
     </ListVariant>
 
     <ListVariant title='Leading Icon'>
-      <ListItem lineOne='Line item' leadingIcon='wifi' />
+      <ListItem lineOne='Line item' leadingIcon='wifi' tabIndex='0'/>
       <ListItem lineOne='Line item' leadingIcon='bluetooth' />
       <ListItem lineOne='Line item' leadingIcon='data_usage' />
     </ListVariant>
@@ -147,17 +205,33 @@ const ListDemos = () => (
     </ListVariant>
 
     <ListVariant title='Trailing Icon'>
-      <ListItem lineOne='Line item' trailingIcon='info' />
+      <ListItem lineOne='Line item' trailingIcon='info' tabIndex='0'/>
       <ListItem lineOne='Line item' trailingIcon='info' />
       <ListItem lineOne='Line item' trailingIcon='info' />
     </ListVariant>
 
     <ListVariant title='Two-Line with Leading and Trailing Icon and Divider' twoLines avatars>
-      <ListItem lineOne='Dog Photos' lineTwo='9 Jan 2018' leadingIcon='folder' trailingIcon='info' />
+      <ListItem lineOne='Dog Photos' lineTwo='9 Jan 2018' leadingIcon='folder' trailingIcon='info' tabIndex='0'/>
       <ListItem lineOne='Cat Photos' lineTwo='22 Dec 2017' leadingIcon='folder' trailingIcon='info' />
       <ListDivider />
       <ListItem lineOne='Potatoes' lineTwo='30 Noc 2017' leadingIcon='folder' trailingIcon='info' />
       <ListItem lineOne='Carrots' lineTwo='17 Oct 2017' leadingIcon='folder' trailingIcon='info' />
+    </ListVariant>
+
+    <ListVariant title='List with Trailing Checkbox' avatars>
+      <ListItem lineOne='Dog Photos' trailingCheckbox tabIndex='0'/>
+      <ListItem lineOne='Cat Photos' trailingCheckbox />
+      <ListDivider />
+      <ListItem lineOne='Potatoes' trailingCheckbox />
+      <ListItem lineOne='Carrots'  trailingCheckbox />
+    </ListVariant>
+
+    <ListVariant title='List with Trailing Radio Buttons' avatars>
+      <ListItem lineOne='Dog Photos' trailingRadio tabIndex='0'/>
+      <ListItem lineOne='Cat Photos' trailingRadio />
+      <ListDivider />
+      <ListItem lineOne='Potatoes' trailingRadio />
+      <ListItem lineOne='Carrots'  trailingRadio />
     </ListVariant>
   </div>
 );
