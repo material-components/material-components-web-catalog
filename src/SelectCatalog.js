@@ -30,10 +30,12 @@ class SelectHero extends Component {
   }
 
   render() {
+    const heroId = 'select-hero';
     return (
       <div>
-        <div className='mdc-select demo-select' ref={this.initSelect}>
-          <select className='mdc-select__native-control'  defaultValue=''>
+        <div className='mdc-select' ref={this.initSelect}>
+          <i className='mdc-select__dropdown-icon'></i>
+          <select id={heroId} className='mdc-select__native-control'  defaultValue=''>
             <option value='' disabled></option>
             <option value='apple'>
               Apple
@@ -45,7 +47,7 @@ class SelectHero extends Component {
               Banana
             </option>
           </select>
-          <label className='mdc-floating-label'>Fruit</label>
+          <label htmlFor={heroId} className='mdc-floating-label'>Fruit</label>
           <div className='mdc-line-ripple'></div>
         </div>
       </div>
@@ -68,12 +70,14 @@ class SelectDemos extends Component {
     this.selects.forEach(select => select.destroy());
   }
 
-  renderSelectVariant(title, variantClass) {
+  renderNativeSelectVariant(title, variantClass) {
+    const selectId = title.split(' ').join('_').toLowerCase();
     return (
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
-        <div className={`mdc-select demo-select ${variantClass}`} ref={this.initSelect}>
-          <select className='mdc-select__native-control' defaultValue=''>
+        <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
+          <i className='mdc-select__dropdown-icon'></i>
+          <select id={selectId} className='mdc-select__native-control' defaultValue=''>
             <option value='' disabled></option>
             <option value='apple'>
               Apple
@@ -85,7 +89,36 @@ class SelectDemos extends Component {
               Banana
             </option>
           </select>
-          <label className='mdc-floating-label'>Fruit</label>
+          <label htmlFor={selectId} className='mdc-floating-label'>Fruit</label>
+          {this.getIndicator(variantClass)}
+        </div>
+      </div>
+    );
+  }
+
+  renderEnhancedSelectVariant(title, variantClass) {
+    const selectId = title.split(' ').join('_').toLowerCase();
+    return (
+      <div>
+        <h3 className='mdc-typography--subtitle1'>{title}</h3>
+        <div className={`mdc-select demo-enhanced-width ${variantClass}`} ref={this.initSelect}>
+          <i className='mdc-select__dropdown-icon'></i>
+          <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
+          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-width'>
+            <ul className='mdc-list'>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='' disabled></li>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='apple'>
+                Apple
+              </li>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='orange'>
+                Orange
+              </li>
+              <li className='mdc-list-item' role='option' aria-selected='false' data-value='banana'>
+                Banana
+              </li>
+            </ul>
+          </div>
+          <span id={`${selectId}-label`} className='mdc-floating-label'>Fruit</span>
           {this.getIndicator(variantClass)}
         </div>
       </div>
@@ -97,7 +130,7 @@ class SelectDemos extends Component {
       return (
         <React.Fragment>
           <div className='mdc-notched-outline'>
-            <svg>
+            <svg focusable='false'>
               <path className='mdc-notched-outline__path'></path>
             </svg>
           </div>
@@ -112,10 +145,22 @@ class SelectDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderSelectVariant('Filled Select', '')}
-        {this.renderSelectVariant('Outlined Select', outlinedClass)}
-        {this.renderSelectVariant('Shaped Filled Select', 'demo-select-box-shaped')}
-        {this.renderSelectVariant('Shaped Outlined Select', `${outlinedClass} demo-select-outline-shaped`)}
+        <div className='select-row'>
+          {this.renderNativeSelectVariant('Filled', '')}
+          {this.renderEnhancedSelectVariant('Filled Enhanced', '')}
+        </div>
+        <div className='select-row'>
+          {this.renderNativeSelectVariant('Outlined', outlinedClass)}
+          {this.renderEnhancedSelectVariant('Outlined Enhanced', outlinedClass)}
+        </div>
+        <div className='select-row'>
+          {this.renderNativeSelectVariant('Shaped Filled', 'demo-select-box-shaped')}
+          {this.renderEnhancedSelectVariant('Shaped Filled Enhanced', 'demo-select-box-shaped')}
+        </div>
+        <div className='select-row'>
+          {this.renderNativeSelectVariant('Shaped Outlined', `${outlinedClass} demo-select-outline-shaped`)}
+          {this.renderEnhancedSelectVariant('Shaped Outlined Enhanced', `${outlinedClass} demo-select-outline-shaped`)}
+        </div>
       </div>
     );
   }
