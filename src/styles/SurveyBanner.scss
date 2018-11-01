@@ -1,0 +1,26 @@
+@import "@material/theme/variables";
+
+.survey-banner {
+  background-color: $mdc-theme-primary;
+  color: $mdc-theme-on-primary;
+  padding: 16px;
+  width: 100%;
+}
+
+.survey-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-icon {
+  margin-right: 12px;
+}
+
+.survey-link {
+  color: $mdc-theme-on-primary;
+}
+
+.survey-text {
+  margin: 0;
+}
