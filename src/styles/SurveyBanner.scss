@@ -3,8 +3,12 @@
 .survey-banner {
   background-color: $mdc-theme-primary;
   color: $mdc-theme-on-primary;
-  padding: 16px;
+  padding: 16px 0;
   width: 100%;
+}
+
+.demo-content .survey-banner {
+  padding: 16px; // Overflow over demo-content padding
 }
 
 .survey-banner__content {
@@ -15,6 +19,7 @@
 
 .survey-icon {
   margin-right: 12px;
+  width: 24px; // Avoid displacement / jumping before/after icon font loads
 }
 
 .survey-link {
