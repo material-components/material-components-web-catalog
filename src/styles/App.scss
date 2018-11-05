@@ -20,7 +20,7 @@ body {
   @include mdc-image-list-standard-columns(4, $component-list-gutter-size);
 
   max-width: 900px;
-  padding-top: 128px;
+  padding-top: 64px;
   padding-bottom: 100px;
 }
 
