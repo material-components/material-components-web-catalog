@@ -8,9 +8,9 @@ const SurveyBanner = () => {
         <div className='survey-banner__content'>
           <i className='material-icons survey-icon'>info_outline</i>
           <p className='survey-text'>
-            Are you a part of the Material Design web community? Help us improve by filling out &nbsp;
+            Are you a part of the Material Design web community? Help us improve by filling out this &nbsp;
             <a href='https://bit.ly/materialwebsurvey' target='_blank' rel='noopener noreferrer' className='survey-link'>
-              this 10 minute survey
+              10 minute survey
             </a>.
           </p>
         </div>
