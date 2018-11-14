@@ -6,7 +6,6 @@ import Routes from './Routes';
 import {TransitionGroup, CSSTransition} from 'react-transition-group';
 
 import './styles/ComponentPage.scss';
-import SurveyBanner from './SurveyBanner';
 
 // ComponentPage renders the <Sidebar> and the <ComponentCatalogPanels>
 // for each component based on the URL.
@@ -37,7 +36,6 @@ class ComponentPage extends Component {
       <div className='demo-panel'>
         <ComponentSidebar {...this.props} />
         <div className='demo-content mdc-drawer-app-content mdc-top-app-bar--fixed-adjust' ref={this.initDemoContent}>
-          <SurveyBanner />
           {this.renderComponentRoutes()}
         </div>
       </div>
