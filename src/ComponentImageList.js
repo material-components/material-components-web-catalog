@@ -26,7 +26,6 @@ import tabsImg from './images/tabs_180px.svg';
 import themeImg from './images/ic_theme_24px.svg';
 import topAppBarImg from './images/top_app_bar_180px.svg';
 import typographyImg from './images/fonts_180px.svg';
-import SurveyBanner from './SurveyBanner';
 
 // ComponentImageList renders the home page with a link to each component.
 class ComponentImageList extends Component {
@@ -40,9 +39,8 @@ class ComponentImageList extends Component {
 
   render() {
     return (
-      <div className='mdc-top-app-bar--fixed-adjust'>
-        <SurveyBanner />
-        <ul id='catalog-image-list' className='mdc-image-list standard-image-list'>
+      <div>
+        <ul id='catalog-image-list' className='mdc-image-list standard-image-list mdc-top-app-bar--fixed-adjust'>
           {this.renderListItem('Button', buttonImg, 'button')}
           {this.renderListItem('Card', cardsImg, 'card')}
           {this.renderListItem('Checkbox', checkboxImg, 'checkbox')}
