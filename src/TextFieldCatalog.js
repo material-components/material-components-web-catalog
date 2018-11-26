@@ -30,9 +30,9 @@ const TextField = (props) => {
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
-        <Label textFieldId={textFieldId} dense={dense}/>
+        {outlined ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
-        {outlined ? <Outline /> : (textarea ? null : <div className='mdc-line-ripple'></div>)}
+        {outlined ? <Outline textFieldId={textFieldId}/> : (textarea ? null : <div className='mdc-line-ripple'></div>)}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
@@ -57,14 +57,15 @@ const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
   );
 }
 
-const Outline = () => [
+const Outline = ({dense, textFieldId}) => (
   <div className='mdc-notched-outline' key='outline'>
-    <svg>
-      <path className='mdc-notched-outline__path'/>
-    </svg>
-  </div>,
-  <div className='mdc-notched-outline__idle' key='outline-idle'></div>
-];
+    <div className='mdc-notched-outline__leading'></div>
+    <div className='mdc-notched-outline__notch'>
+      <Label textFieldId={textFieldId} dense={dense}/>
+    </div>
+    <div className='mdc-notched-outline__trailing'></div>
+  </div>
+);
 
 const Label = ({dense, textFieldId}) => (
   <label className='mdc-floating-label' htmlFor={textFieldId}>

@@ -47,8 +47,8 @@ class SelectHero extends Component {
               Banana
             </option>
           </select>
-          <label htmlFor={heroId} className='mdc-floating-label'>Fruit</label>
-          <div className='mdc-line-ripple'></div>
+          <Label text='Fruit' selectId={heroId}/>
+          <LineRipple/>
         </div>
       </div>
     );
@@ -56,6 +56,9 @@ class SelectHero extends Component {
 }
 
 const outlinedClass = 'mdc-select--outlined';
+function isOutlinedVariant(variantClass) {
+  return variantClass.indexOf(outlinedClass) >= 0;
+}
 
 class SelectDemos extends Component {
   selects = [];
@@ -89,8 +92,7 @@ class SelectDemos extends Component {
               Banana
             </option>
           </select>
-          <label htmlFor={selectId} className='mdc-floating-label'>Fruit</label>
-          {this.getIndicator(variantClass)}
+          <Indicator selectId={selectId} text='Fruit' variantClass={variantClass}/>
         </div>
       </div>
     );
@@ -118,28 +120,10 @@ class SelectDemos extends Component {
               </li>
             </ul>
           </div>
-          <span id={`${selectId}-label`} className='mdc-floating-label'>Fruit</span>
-          {this.getIndicator(variantClass)}
+          <Indicator isEnhanced selectId={selectId} text='Fruit' variantClass={variantClass}/>
         </div>
       </div>
     );
-  }
-
-  getIndicator(variantClass) {
-    if (variantClass.indexOf(outlinedClass) >= 0) {
-      return (
-        <React.Fragment>
-          <div className='mdc-notched-outline'>
-            <svg focusable='false'>
-              <path className='mdc-notched-outline__path'></path>
-            </svg>
-          </div>
-          <div className='mdc-notched-outline__idle'></div>
-        </React.Fragment>
-      );
-    }
-
-    return (<div className='mdc-line-ripple'></div>);
   }
 
   render() {
@@ -165,5 +149,35 @@ class SelectDemos extends Component {
     );
   }
 }
+
+const Indicator = ({variantClass, isEnhanced, text, selectId}) => {
+  if (isOutlinedVariant(variantClass)) {
+    return (<Outline isEnhanced text='Fruit' selectId={selectId}/>);
+  }
+  return (
+    <React.Fragment>
+      <Label isEnhanced text='Fruit' selectId={selectId}/>
+      <LineRipple/>
+    </React.Fragment>
+  );
+};
+
+const LineRipple = () => (<div className='mdc-line-ripple'></div>);
+
+const Outline = ({text, selectId, isEnhanced}) => (
+  <div className='mdc-notched-outline' key='outline'>
+    <div className='mdc-notched-outline__leading'></div>
+    <div className='mdc-notched-outline__notch'>
+      <Label selectId={selectId} text={text} isEnhanced={isEnhanced} />
+    </div>
+    <div className='mdc-notched-outline__trailing'></div>
+  </div>
+);
+
+const Label = ({text, selectId, isEnhanced}) => isEnhanced ? (
+  <span id={`${selectId}-label`} className='mdc-floating-label'>{text}</span>
+) : (
+  <label htmlFor={selectId} className='mdc-floating-label'>{text}</label>
+);
 
 export default SelectCatalog;
