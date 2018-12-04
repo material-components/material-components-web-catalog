@@ -5,13 +5,6 @@ import classnames from 'classnames';
 
 import './styles/TextFieldCatalog.scss';
 
-const getLabel = (dense) => {
-  if (dense) {
-    return 'Dense';
-  }
-  return 'Standard';
-}
-
 const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
@@ -30,18 +23,17 @@ const TextField = (props) => {
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
-        <Label textFieldId={textFieldId} dense={dense}/>
+        {outlined || textarea ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
-        {outlined ? <Outline /> : (textarea ? null : <div className='mdc-line-ripple'></div>)}
+        {outlined || textarea ? <Outline textFieldId={textFieldId}/> : <div className='mdc-line-ripple'></div>}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
   );
 }
 
-const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
+const FullWidthTextField = ({textarea, textFieldId, helperText}) => {
   const classes = classnames('mdc-text-field', 'text-field', 'mdc-text-field--fullwidth', {
-    'mdc-text-field--dense': dense,
     'mdc-text-field--textarea': textarea,
   });
   return (
@@ -49,26 +41,27 @@ const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {textarea ?
           <TextArea textFieldId={textFieldId}/> :
-          <Input placeholder={getLabel(dense)} textFieldId={textFieldId}/>}
-        {textarea ? <Label textFieldId={textFieldId} dense={dense}/> : null}
+          <Input placeholder='Standard' textFieldId={textFieldId}/>}
+        {textarea ? <Outline textFieldId={textFieldId}/> : null}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
   );
 }
 
-const Outline = () => [
+const Outline = ({textFieldId}) => (
   <div className='mdc-notched-outline' key='outline'>
-    <svg>
-      <path className='mdc-notched-outline__path'/>
-    </svg>
-  </div>,
-  <div className='mdc-notched-outline__idle' key='outline-idle'></div>
-];
+    <div className='mdc-notched-outline__leading'></div>
+    <div className='mdc-notched-outline__notch'>
+      <Label textFieldId={textFieldId}/>
+    </div>
+    <div className='mdc-notched-outline__trailing'></div>
+  </div>
+);
 
-const Label = ({dense, textFieldId}) => (
+const Label = ({textFieldId}) => (
   <label className='mdc-floating-label' htmlFor={textFieldId}>
-    {getLabel(dense)}
+    Standard
   </label>
 );
 
@@ -107,22 +100,6 @@ const TextFieldCatalog = () => (
 
 
 class TextFieldDemos extends Component {
-  renderVariant(title, ...args) {
-    const variants = {};
-    args.forEach(arg => variants[arg] = true);
-    const variantId = args.reduce((allArgs, arg) => `${allArgs}-${arg}`, '');
-    return (
-      <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
-        <div className='text-field-row'>
-          <TextField {...variants} textFieldId={`text-field-${variantId}`} />
-          <TextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
-          <TextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
-        </div>
-      </div>
-    );
-  }
-
   renderFullWidthVariant(title, ...args) {
     const variants = {};
     args.forEach(arg => variants[arg] = true);
@@ -131,8 +108,6 @@ class TextFieldDemos extends Component {
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='text-field-row text-field-row-fullwidth'>
-          <FullWidthTextField {...variants} textFieldId={`text-field-${variantId}`} />
-          <FullWidthTextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
           <FullWidthTextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
         </div>
       </div>
@@ -142,29 +117,40 @@ class TextFieldDemos extends Component {
   render() {
     return (
       <div>
-        {this.renderVariant('Filled')}
-        {this.renderVariant('Filled With Leading Icon', 'leading')}
-        {this.renderVariant('Filled With Trailing Icon', 'trailing')}
+        <div>
+          <h3 className='mdc-typography--subtitle1'>Filled</h3>
+          <div className='text-field-row'>
+            <TextField helperText textFieldId='text-field-filled' />
+            <TextField leading helperText textFieldId='text-field-filled-leading' />
+            <TextField trailing helperText textFieldId='text-field-filled-trailing' />
+          </div>
+        </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Shaped Filled</h3>
           <div className='text-field-row'>
-            <TextField textFieldId={'text-field-shape-one'} className={'demo-text-field-shaped'} />
-            <TextField leading textFieldId={'text-field-shape-two'} className={'demo-text-field-shaped'} />
-            <TextField trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-shaped'} />
+            <TextField helperText textFieldId='text-field-shape-one' className='demo-text-field-shaped' />
+            <TextField leading helperText textFieldId='text-field-shape-two' className='demo-text-field-shaped' />
+            <TextField trailing helperText textFieldId='text-field-shape-three' className='demo-text-field-shaped' />
           </div>
         </div>
-        {this.renderVariant('Outlined', 'outlined')}
-        {this.renderVariant('Outlined With Leading Icon', 'leading', 'outlined')}
-        {this.renderVariant('Outlined With Trailing Icon', 'trailing', 'outlined')}
+        <div>
+          <h3 className='mdc-typography--subtitle1'>Outlined</h3>
+          <div className='text-field-row'>
+            <TextField outlined helperText textFieldId='text-field-outlined' />
+            <TextField outlined leading helperText textFieldId='text-field-outlined-leading' />
+            <TextField outlined trailing helperText textFieldId='text-field-outlined-trailing' />
+          </div>
+        </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Shaped Outlined</h3>
           <div className='text-field-row'>
-            <TextField outlined textFieldId={'text-field-shape-one'} className={'demo-text-field-outlined-shaped'} />
-            <TextField outlined leading textFieldId={'text-field-shape-two'} className={'demo-text-field-outlined-shaped'} />
-            <TextField outlined trailing helperText textFieldId={'text-field-shape-three'} className={'demo-text-field-outlined-shaped'} />
+            <TextField outlined helperText textFieldId='text-field-shape-one' className='demo-text-field-outlined-shaped' />
+            <TextField outlined leading helperText textFieldId='text-field-shape-two' className='demo-text-field-outlined-shaped' />
+            <TextField outlined trailing helperText textFieldId='text-field-shape-three' className='demo-text-field-outlined-shaped' />
           </div>
         </div>
-        {this.renderVariant('Textarea', 'textarea')}
+        <h3 className='mdc-typography--subtitle1'>Textarea</h3>
+        <TextField textarea textFieldId='textarea' />
         {this.renderFullWidthVariant('Full Width')}
         {this.renderFullWidthVariant('Full Width Textarea', 'textarea')}
       </div>

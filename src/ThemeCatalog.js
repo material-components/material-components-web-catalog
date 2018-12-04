@@ -542,6 +542,7 @@ class ThemeDemos extends Component {
     return (
         <ThemeDemoSection title='Select'>
           <div className='mdc-select' ref={this.initSelect}>
+            <i className='mdc-select__dropdown-icon' />
             <select className='mdc-select__native-control'
                     id='basic-select'>
               <option value='grains' defaultValue aria-selected='true'>
@@ -677,14 +678,13 @@ class ThemeDemos extends Component {
                      id='demo-text-field-outlined'
                      aria-controls='demo-text-field-outlined-helper-text'
                      aria-describedby='demo-text-field-outlined-helper-text'/>
-              <label htmlFor='demo-text-field-outlined'
-                     className='mdc-floating-label'>With <code>--outlined</code> modifier</label>
               <div className='mdc-notched-outline'>
-                <svg>
-                  <path className='mdc-notched-outline__path'></path>
-                </svg>
+                <div className='mdc-notched-outline__leading'></div>
+                <div className='mdc-notched-outline__notch'>
+                  <label htmlFor='demo-text-field-outlined' className='mdc-floating-label'>Outlined</label>
+                </div>
+                <div className='mdc-notched-outline__trailing'></div>
               </div>
-              <div className='mdc-notched-outline__idle'></div>
             </div>
             <p className='mdc-text-field-helper-text'
                id='demo-text-field-outlined-helper-text'
