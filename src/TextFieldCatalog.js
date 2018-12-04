@@ -5,13 +5,6 @@ import classnames from 'classnames';
 
 import './styles/TextFieldCatalog.scss';
 
-const getLabel = (dense) => {
-  if (dense) {
-    return 'Dense';
-  }
-  return 'Standard';
-}
-
 const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
@@ -39,9 +32,8 @@ const TextField = (props) => {
   );
 }
 
-const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
+const FullWidthTextField = ({textarea, textFieldId, helperText}) => {
   const classes = classnames('mdc-text-field', 'text-field', 'mdc-text-field--fullwidth', {
-    'mdc-text-field--dense': dense,
     'mdc-text-field--textarea': textarea,
   });
   return (
@@ -49,27 +41,27 @@ const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {textarea ?
           <TextArea textFieldId={textFieldId}/> :
-          <Input placeholder={getLabel(dense)} textFieldId={textFieldId}/>}
-        {textarea ? <Outline textFieldId={textFieldId} dense={dense}/> : null}
+          <Input placeholder='Standard' textFieldId={textFieldId}/>}
+        {textarea ? <Outline textFieldId={textFieldId}/> : null}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
   );
 }
 
-const Outline = ({dense, textFieldId}) => (
+const Outline = ({textFieldId}) => (
   <div className='mdc-notched-outline' key='outline'>
     <div className='mdc-notched-outline__leading'></div>
     <div className='mdc-notched-outline__notch'>
-      <Label textFieldId={textFieldId} dense={dense}/>
+      <Label textFieldId={textFieldId}/>
     </div>
     <div className='mdc-notched-outline__trailing'></div>
   </div>
 );
 
-const Label = ({dense, textFieldId}) => (
+const Label = ({textFieldId}) => (
   <label className='mdc-floating-label' htmlFor={textFieldId}>
-    {getLabel(dense)}
+    Standard
   </label>
 );
 
@@ -117,7 +109,6 @@ class TextFieldDemos extends Component {
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='text-field-row'>
           <TextField {...variants} textFieldId={`text-field-${variantId}`} />
-          <TextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
           <TextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
         </div>
       </div>
@@ -133,7 +124,6 @@ class TextFieldDemos extends Component {
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <div className='text-field-row text-field-row-fullwidth'>
           <FullWidthTextField {...variants} textFieldId={`text-field-${variantId}`} />
-          <FullWidthTextField {...variants} dense textFieldId={`text-field-${variantId}-dense`} />
           <FullWidthTextField {...variants} helperText textFieldId={`text-field-${variantId}-helper`} />
         </div>
       </div>
