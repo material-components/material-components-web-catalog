@@ -542,6 +542,7 @@ class ThemeDemos extends Component {
     return (
         <ThemeDemoSection title='Select'>
           <div className='mdc-select' ref={this.initSelect}>
+            <i className='mdc-select__dropdown-icon' />
             <select className='mdc-select__native-control'
                     id='basic-select'>
               <option value='grains' defaultValue aria-selected='true'>
