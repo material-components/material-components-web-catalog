@@ -30,9 +30,9 @@ const TextField = (props) => {
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
-        {outlined ? null : <Label textFieldId={textFieldId} dense={dense}/>}
+        {outlined || textarea ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
-        {outlined ? <Outline textFieldId={textFieldId}/> : (textarea ? null : <div className='mdc-line-ripple'></div>)}
+        {outlined || textarea ? <Outline textFieldId={textFieldId}/> : <div className='mdc-line-ripple'></div>}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
@@ -50,7 +50,7 @@ const FullWidthTextField = ({dense, textarea, textFieldId, helperText}) => {
         {textarea ?
           <TextArea textFieldId={textFieldId}/> :
           <Input placeholder={getLabel(dense)} textFieldId={textFieldId}/>}
-        {textarea ? <Label textFieldId={textFieldId} dense={dense}/> : null}
+        {textarea ? <Outline textFieldId={textFieldId} dense={dense}/> : null}
       </div>
       {helperText ? <HelperText /> : null}
     </div>
