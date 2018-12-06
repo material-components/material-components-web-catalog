@@ -15,7 +15,7 @@ const TypographyCatalog = () => {
   )
 };
 
-export const TypographyHero = () => {
+const TypographyHero = () => {
   return (
     <div>
       <h1 className='mdc-typography--headline1'>Typography</h1>

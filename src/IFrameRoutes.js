@@ -11,6 +11,7 @@ import {FabHero} from './FabCatalog';
 import {IconButtonHero} from './IconButtonCatalog';
 import {ImageListHero} from './ImageListCatalog';
 import {LayoutGridHero} from './LayoutGridCatalog';
+import {LinearProgressHero} from './LinearProgressIndicatorCatalog';
 import {ListHero} from './ListCatalog';
 import {MenuHero} from './MenuCatalog';
 import {RadioButtonHero} from './RadioButtonCatalog';
@@ -22,8 +23,6 @@ import {SwitchHero} from './SwitchCatalog';
 import {TabsHero} from './TabsCatalog';
 import {TextFieldHero} from './TextFieldCatalog';
 import {TopAppBarHero} from './TopAppBarCatalog';
-import {TypographyHero} from './TypographyCatalog';
-import {LinearProgressHero} from './LinearProgressIndicatorCatalog';
 
 const routesList = [{
   urlPath: 'button',
@@ -59,11 +58,11 @@ const routesList = [{
   urlPath: 'layout-grid',
   Component: LayoutGridHero,
 }, {
-  urlPath: 'list',
-  Component: ListHero,
-}, {
   urlPath: 'linear-progress-indicator',
   Component: LinearProgressHero,
+}, {
+  urlPath: 'list',
+  Component: ListHero,
 }, {
   urlPath: 'menu',
   Component: MenuHero,
@@ -94,9 +93,6 @@ const routesList = [{
 }, {
   urlPath: 'top-app-bar',
   Component: TopAppBarHero,
-}, {
-  urlPath: 'typography',
-  Component: TypographyHero,
 }];
 
 const IFrameRoutes = (props) => {
