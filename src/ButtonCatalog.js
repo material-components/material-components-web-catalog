@@ -14,6 +14,7 @@ const ButtonCatalog = () => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
+      config={[{type: 'label', content: 'Hello World'}]}
     />
   );
 }
@@ -22,7 +23,8 @@ export class ButtonHero extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
-    this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
+    this.initRipple =
+        buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
   componentWillUnmount() {
@@ -31,23 +33,28 @@ export class ButtonHero extends Component {
 
   render() {
     return (
-      <div>
-        <button className='hero-button mdc-button' ref={this.initRipple}>
-          Text
-        </button>
-        <button className='hero-button mdc-button mdc-button--raised' ref={this.initRipple}>
-          Raised
-        </button>
-        <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple}>
-          Unelevated
-        </button>
-        <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple}>
-          Outlined
-        </button>
-      </div>
+        <div>
+          <button className='hero-button mdc-button' ref={this.initRipple}>
+            Text
+          </button>
+          <button className='hero-button mdc-button mdc-button--raised'
+                  ref={this.initRipple}>
+            Raised
+          </button>
+          <button className='hero-button mdc-button mdc-button--unelevated'
+                  ref={this.initRipple}>
+            Unelevated
+          </button>
+          <button className='hero-button mdc-button mdc-button--outlined'
+                  ref={this.initRipple}>
+            Outlined
+          </button>
+        </div>
     );
   }
+
 }
+
 
 class ButtonDemos extends Component {
   constructor(props) {
@@ -92,3 +99,4 @@ class ButtonDemos extends Component {
 }
 
 export default ButtonCatalog;
+export {ButtonHero};

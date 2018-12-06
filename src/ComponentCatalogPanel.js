@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
 import {MDCRipple} from '@material/ripple/index';
+import HeroComponent from './HeroComponent';
 
 // ComponentCatalogPanel is the container for catalog component content,
 // that renders the hero and demo sections.
@@ -25,15 +26,20 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, sourceLink, title} = this.props;
+    const {designLink, description, demos, docsLink, hero, sourceLink, title, config} = this.props;
+    let heroComponent;
+
+    if (config) {
+      heroComponent = <HeroComponent config={config}>{hero}</HeroComponent>;
+    } else {
+      heroComponent = <div className='hero'>{hero}</div>;
+    }
 
     return(
       <section>
         <h1 className='mdc-typography--headline5'>{title}</h1>
         <p className='mdc-typography--body1'>{description}</p>
-        <div className='hero'>
-          {hero}
-        </div>
+          {heroComponent}
         <h2 className='demo-title mdc-typography--headline6'>Resources</h2>
         {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, designLink)}
         {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, docsLink)}
