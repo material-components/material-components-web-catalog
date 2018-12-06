@@ -21,11 +21,9 @@ const CardCatalog = () => {
   );
 };
 
-export class CardHero extends Component {
-  render() {
-    return (<Card image actions className='demo-card--hero' />);
-  }
-}
+export const CardHero = () => {
+  return (<Card image actions className='demo-card--hero' />);
+};
 
 class Card extends Component {
   componentWillUnmount() {

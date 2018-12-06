@@ -21,13 +21,11 @@ const IconButtonCatalog = () => {
   );
 };
 
-export class IconButtonHero extends Component {
-  render() {
+export const IconButtonHero = () => {
     return (
         <IconButtonToggle />
     );
-  }
-}
+};
 
 class IconButtonToggle extends Component {
   initIconButtonToggle = (ele) => {

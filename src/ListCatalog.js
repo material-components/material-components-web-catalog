@@ -21,19 +21,15 @@ const ListCatalog = () => (
   />
 );
 
-export class ListHero extends Component {
-  render() {
-    return (
-        <div className='hero-list'>
-          <List>
-            <ListItem lineOne='Line item'/>
-            <ListItem lineOne='Line item'/>
-            <ListItem lineOne='Line item'/>
-          </List>
-        </div>
-    )
-  }
-}
+export const ListHero = () => (
+  <div className='hero-list'>
+    <List>
+      <ListItem lineOne='Line item' />
+      <ListItem lineOne='Line item' />
+      <ListItem lineOne='Line item' />
+    </List>
+  </div>
+);
 
 const ListDivider = () => (
   <li className='mdc-list-divider' role='separator'></li>

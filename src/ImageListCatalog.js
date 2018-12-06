@@ -18,21 +18,19 @@ function ImageListCatalog() {
   );
 }
 
-export class ImageListHero extends Component {
-  render() {
-    const items = [];
-    for (let i = 0; i < 15; i++) {
-      items.push('');
-    }
-
-    return (
-        <div>
-          <ImageList className='hero-image-list' items={items}
-                     includeAspectContainer/>
-        </div>
-    );
+export const ImageListHero = () => {
+  const items = [];
+  for (let i = 0; i < 15; i++) {
+    items.push('');
   }
-}
+
+  return (
+      <div>
+        <ImageList className='hero-image-list' items={items}
+                   includeAspectContainer/>
+      </div>
+  );
+};
 
 function ImageListDemos() {
   const standardImageListItems = [];

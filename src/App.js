@@ -21,7 +21,7 @@ class App extends Component {
       <Switch>
         <Route path='/component/drawer/:type' component={DrawerFramePage} />
         <Route path='/component/top-app-bar/:type' component={TopAppBarFramePage} />
-        <Route path='/component/iframe/:type' component={withRouter(props => <IFrameRoutes {...props} />)} />
+        <Route path='/component/iframe/:type' component={IFrameRoutes} />
         <Route path='/' component={CatalogPage} />
       </Switch>
     );

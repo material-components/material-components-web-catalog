@@ -20,16 +20,14 @@ const RadioButtonCatalog = () => {
   );
 }
 
-export class RadioButtonHero extends Component {
-  render() {
-    return (
-        <div>
-          <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-1' defaultChecked />
-          <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-2' />
-        </div>
-    );
-  }
-}
+export const RadioButtonHero = () => {
+  return (
+      <div>
+        <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-1' defaultChecked />
+        <Radio className='demo-radio' name='hero-radio-set' id='hero-radio-2' />
+      </div>
+  );
+};
 
 const RadioButtonDemos = () => {
   return (

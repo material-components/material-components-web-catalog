@@ -98,13 +98,11 @@ const TextFieldCatalog = () => (
   />
 );
 
-export class TextFieldHero extends Component {
-  render() {
-    return (
-        <TextField textFieldId='hero-text-field-id'/>
-    )
-  }
-}
+export const TextFieldHero = () => {
+  return (
+      <TextField textFieldId='hero-text-field-id'/>
+  )
+};
 
 class TextFieldDemos extends Component {
   renderFullWidthVariant(title, ...args) {

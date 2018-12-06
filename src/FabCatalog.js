@@ -84,15 +84,13 @@ const FabDemos = () => (
   </div>
 );
 
-export class FabHero extends Component {
-  render() {
-    return (
-        <Fab ariaLabel='Favorite'>
-          <i className='mdc-fab__icon material-icons'>favorite_border</i>
-        </Fab>
-    );
-  }
-}
+export const FabHero = () => {
+  return (
+      <Fab ariaLabel='Favorite'>
+        <i className='mdc-fab__icon material-icons'>favorite_border</i>
+      </Fab>
+  );
+};
 
 const FabCatalog = () => {
   const description = 'Floating action buttons represents the primary action in an application. '

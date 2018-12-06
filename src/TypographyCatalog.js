@@ -15,15 +15,13 @@ const TypographyCatalog = () => {
   )
 };
 
-export class TypographyHero extends Component {
-  render() {
-    return (
-        <div>
-          <h1 className='mdc-typography--headline1'>Typography</h1>
-        </div>
-    )
-  }
-}
+export const TypographyHero = () => {
+  return (
+    <div>
+      <h1 className='mdc-typography--headline1'>Typography</h1>
+    </div>
+  )
+};
 
 const TypographyDemos = () => {
   return (

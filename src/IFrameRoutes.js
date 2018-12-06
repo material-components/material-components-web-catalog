@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 import {ButtonHero} from './ButtonCatalog';
 import {CardHero} from './CardCatalog';
 import {CheckboxHero} from './CheckboxCatalog';
@@ -24,7 +24,6 @@ import {TextFieldHero} from './TextFieldCatalog';
 import {TopAppBarHero} from './TopAppBarCatalog';
 import {TypographyHero} from './TypographyCatalog';
 import {LinearProgressHero} from './LinearProgressIndicatorCatalog';
-import { matchPath } from 'react-router';
 
 const routesList = [{
   urlPath: 'button',
@@ -104,17 +103,19 @@ const IFrameRoutes = (props) => {
   return (
     routesList.map((route) => {
       const {Component, urlPath} = route;
-      if (!matchPath(props.location.pathname, `/component/iframe/${urlPath}`)) return;
       return (
-          <div className='hero'
-               key={urlPath}>
             <Route
+                exact
+                key={urlPath}
                 path={`/component/iframe/${urlPath}`}
-                render={(props) => <Component {...props}/>} />
-          </div>
+                render={(props) => (
+                    <div className='hero'>
+                      <Component {...props}/>
+                    </div>)
+                } />
       );
     })
   );
 };
 
-export default IFrameRoutes;
+export default withRouter(IFrameRoutes);

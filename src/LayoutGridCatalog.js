@@ -17,19 +17,17 @@ const LayoutGridCatalog = () => {
   )
 };
 
-export class LayoutGridHero extends Component {
-  render() {
-    return (
-        <LayoutGrid className='demo-grid'>
-          <LayoutGridInner>
-            <LayoutGridCell className='demo-cell'></LayoutGridCell>
-            <LayoutGridCell className='demo-cell'></LayoutGridCell>
-            <LayoutGridCell className='demo-cell'></LayoutGridCell>
-          </LayoutGridInner>
-        </LayoutGrid>
-    )
-  }
-}
+export const LayoutGridHero = () => {
+  return (
+      <LayoutGrid className='demo-grid'>
+        <LayoutGridInner>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+        </LayoutGridInner>
+      </LayoutGrid>
+  )
+};
 
 const LayoutGridDemos = () => {
   return (
