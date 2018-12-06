@@ -18,7 +18,7 @@ const ButtonCatalog = () => {
   );
 }
 
-class ButtonHero extends Component {
+export class ButtonHero extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];

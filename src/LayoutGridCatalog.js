@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 
@@ -17,17 +17,19 @@ const LayoutGridCatalog = () => {
   )
 };
 
-const LayoutGridHero = () => {
-  return (
-    <LayoutGrid className='demo-grid'>
-      <LayoutGridInner>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-      </LayoutGridInner>
-    </LayoutGrid>
-  )
-};
+export class LayoutGridHero extends Component {
+  render() {
+    return (
+        <LayoutGrid className='demo-grid'>
+          <LayoutGridInner>
+            <LayoutGridCell className='demo-cell'></LayoutGridCell>
+            <LayoutGridCell className='demo-cell'></LayoutGridCell>
+            <LayoutGridCell className='demo-cell'></LayoutGridCell>
+          </LayoutGridInner>
+        </LayoutGrid>
+    )
+  }
+}
 
 const LayoutGridDemos = () => {
   return (

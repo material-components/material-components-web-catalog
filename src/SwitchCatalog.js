@@ -51,7 +51,7 @@ class Switch extends Component {
   }
 }
 
-class SwitchHero extends Component {
+export class SwitchHero extends Component {
   render() {
     return (
       <Switch inputId='hero-switch' label='off/on' defaultChecked />

@@ -19,15 +19,17 @@ const TabsCatalog = () => {
   );
 };
 
-const TabsHero = () => {
-  return (
-    <TabBar>
-      <Tab active label='Home' />
-      <Tab label='Merchandise' />
-      <Tab label='About Us' />
-    </TabBar>
-  )
-};
+export class TabsHero extends Component {
+  render() {
+    return (
+        <TabBar>
+          <Tab active label='Home'/>
+          <Tab label='Merchandise'/>
+          <Tab label='About Us'/>
+        </TabBar>
+    )
+  }
+}
 
 const TabsDemos = () => {
   return (

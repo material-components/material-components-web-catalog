@@ -7,6 +7,7 @@ import TopAppBarFramePage from './frame/TopAppBarFramePage';
 import DrawerFramePage from './frame/DrawerFramePage';
 
 import './styles/App.scss';
+import IFrameRoutes from './IFrameRoutes';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
@@ -20,6 +21,7 @@ class App extends Component {
       <Switch>
         <Route path='/component/drawer/:type' component={DrawerFramePage} />
         <Route path='/component/top-app-bar/:type' component={TopAppBarFramePage} />
+        <Route path='/component/iframe/:type' component={withRouter(props => <IFrameRoutes {...props} />)} />
         <Route path='/' component={CatalogPage} />
       </Switch>
     );

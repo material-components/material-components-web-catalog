@@ -18,7 +18,7 @@ const CheckboxCatalog = () => {
   );
 }
 
-class CheckboxHero extends Component {
+export class CheckboxHero extends Component {
   constructor(props) {
     super(props);
     this.checkboxes = [];

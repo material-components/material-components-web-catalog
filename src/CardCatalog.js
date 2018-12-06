@@ -10,7 +10,7 @@ import './styles/CardCatalog.scss';
 const CardCatalog = () => {
   return (
     <ComponentCatalogPanel
-      hero={<Card image actions className='demo-card--hero' />}
+      hero={<CardHero/>}
       title='Card'
       description='Cards contain content and actions about a single subject.'
       designLink='https://material.io/go/design-cards'
@@ -20,6 +20,12 @@ const CardCatalog = () => {
     />
   );
 };
+
+export class CardHero extends Component {
+  render() {
+    return (<Card image actions className='demo-card--hero' />);
+  }
+}
 
 class Card extends Component {
   componentWillUnmount() {

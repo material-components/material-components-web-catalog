@@ -18,7 +18,8 @@ const ElevationCatalog = () => {
     />
   );
 };
-class ElevationHero extends Component {
+
+export class ElevationHero extends Component {
   render() {
     return (
         <div className='elevation-hero'>

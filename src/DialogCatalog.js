@@ -19,7 +19,7 @@ const DialogCatalog = () => {
   );
 };
 
-class DialogHero extends Component {
+export class DialogHero extends Component {
   initDialog = (dialogEl) => {
     if (!dialogEl) return;
     this.dialogEl = dialogEl;

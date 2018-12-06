@@ -20,14 +20,16 @@ const MenuCatalog = () => {
   )
 };
 
-const MenuHero = () => {
-  return (
-    <MenuDOM defaultOpen className='hero-menu'>
-      <MenuItem name='A Menu Item' />
-      <MenuItem name='Another Menu Item' />
-    </MenuDOM>
-  );
-};
+export class MenuHero extends Component {
+  render() {
+    return (
+        <MenuDOM defaultOpen className='hero-menu'>
+          <MenuItem name='A Menu Item'/>
+          <MenuItem name='Another Menu Item'/>
+        </MenuDOM>
+    );
+  }
+}
 
 class MenuDemos extends Component {
   state = {open: false, focusIndex: undefined};

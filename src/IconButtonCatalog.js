@@ -10,7 +10,7 @@ const IconButtonCatalog = () => {
                       'make a selection, such as adding or removing a star to an item. ';
   return (
     <ComponentCatalogPanel
-      hero={<IconButtonToggle/>}
+      hero={<IconButtonHero/>}
       title='Icon Button'
       description={description}
       designLink='https://material.io/design/components/buttons.html#toggle-button'
@@ -20,6 +20,14 @@ const IconButtonCatalog = () => {
     />
   );
 };
+
+export class IconButtonHero extends Component {
+  render() {
+    return (
+        <IconButtonToggle />
+    );
+  }
+}
 
 class IconButtonToggle extends Component {
   initIconButtonToggle = (ele) => {

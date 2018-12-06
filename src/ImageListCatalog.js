@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {imagePath} from './constants';
 
@@ -18,17 +18,20 @@ function ImageListCatalog() {
   );
 }
 
-function ImageListHero() {
-  const items = [];
-  for (let i = 0; i < 15; i++) {
-    items.push('');
-  }
+export class ImageListHero extends Component {
+  render() {
+    const items = [];
+    for (let i = 0; i < 15; i++) {
+      items.push('');
+    }
 
-  return (
-    <div>
-      <ImageList className='hero-image-list' items={items} includeAspectContainer />
-    </div>
-  );
+    return (
+        <div>
+          <ImageList className='hero-image-list' items={items}
+                     includeAspectContainer/>
+        </div>
+    );
+  }
 }
 
 function ImageListDemos() {
