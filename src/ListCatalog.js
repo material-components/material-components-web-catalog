@@ -21,7 +21,7 @@ const ListCatalog = () => (
   />
 );
 
-const ListHero = () => (
+export const ListHero = () => (
   <div className='hero-list'>
     <List>
       <ListItem lineOne='Line item' />

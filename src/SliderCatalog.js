@@ -16,7 +16,7 @@ const SliderCatalog = () => (
   />
 );
 
-class SliderHero extends Component {
+export class SliderHero extends Component {
   initSlider = (sliderEl) => {
     if (!sliderEl) return;
     this.slider = new MDCSlider(sliderEl);

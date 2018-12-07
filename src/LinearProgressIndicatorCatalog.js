@@ -18,7 +18,7 @@ const LinearProgressCatalog = () => {
   );
 }
 
-class LinearProgressHero extends Component {
+export class LinearProgressHero extends Component {
   initIndicator = (indicatorEl) => {
     if (!indicatorEl) return;
     this.indicator = new MDCLinearProgress(indicatorEl);

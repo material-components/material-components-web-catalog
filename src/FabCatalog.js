@@ -84,16 +84,20 @@ const FabDemos = () => (
   </div>
 );
 
+export const FabHero = () => {
+  return (
+      <Fab ariaLabel='Favorite'>
+        <i className='mdc-fab__icon material-icons'>favorite_border</i>
+      </Fab>
+  );
+};
+
 const FabCatalog = () => {
   const description = 'Floating action buttons represents the primary action in an application. '
     + 'Only one floating action button is recommended per screen to represent the most common action.';
   return (
     <ComponentCatalogPanel
-      hero={
-        <Fab ariaLabel='Favorite'>
-          <i className='mdc-fab__icon material-icons'>favorite_border</i>
-        </Fab>
-      }
+      hero={<FabHero/>}
       title='Floating Action Button'
       description={description}
       designLink='https://material.io/go/design-fab'

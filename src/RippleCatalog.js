@@ -16,9 +16,9 @@ const RippleCatalog = () => {
       demos={<RippleDemos />}
     />
   );
-}
+};
 
-class RippleHero extends Component {
+export class RippleHero extends Component {
   ripples = [];
   initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
 

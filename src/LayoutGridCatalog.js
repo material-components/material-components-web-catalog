@@ -17,15 +17,15 @@ const LayoutGridCatalog = () => {
   )
 };
 
-const LayoutGridHero = () => {
+export const LayoutGridHero = () => {
   return (
-    <LayoutGrid className='demo-grid'>
-      <LayoutGridInner>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-        <LayoutGridCell className='demo-cell'></LayoutGridCell>
-      </LayoutGridInner>
-    </LayoutGrid>
+      <LayoutGrid className='demo-grid'>
+        <LayoutGridInner>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+          <LayoutGridCell className='demo-cell'></LayoutGridCell>
+        </LayoutGridInner>
+      </LayoutGrid>
   )
 };
 

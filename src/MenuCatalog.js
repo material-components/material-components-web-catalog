@@ -20,12 +20,12 @@ const MenuCatalog = () => {
   )
 };
 
-const MenuHero = () => {
+export const MenuHero = () => {
   return (
-    <MenuDOM defaultOpen className='hero-menu'>
-      <MenuItem name='A Menu Item' />
-      <MenuItem name='Another Menu Item' />
-    </MenuDOM>
+      <MenuDOM defaultOpen className='hero-menu'>
+        <MenuItem name='A Menu Item'/>
+        <MenuItem name='Another Menu Item'/>
+      </MenuDOM>
   );
 };
 

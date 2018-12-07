@@ -19,7 +19,7 @@ const DrawerCatalog = (props) => {
   );
 };
 
-class DrawerHero extends Component {
+export class DrawerHero extends Component {
   ripples = [];
   list = {};
   initRipple = icon => {

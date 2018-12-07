@@ -19,21 +19,23 @@ const SnackbarCatalog = () => {
   );
 };
 
-const SnackbarHero = () => {
+export const SnackbarHero = () => {
   return (
-    <div className='snackbar-hero'>
-      <div className='mdc-snackbar mdc-snackbar--active'
-          aria-live='assertive'
-          aria-atomic='true'
-          aria-hidden='true'>
-        <div className='mdc-snackbar__text'>Message Sent</div>
-        <div className='mdc-snackbar__action-wrapper'>
-          <button type='button' className='mdc-snackbar__action-button'>Undo</button>
+      <div className='snackbar-hero'>
+        <div className='mdc-snackbar mdc-snackbar--active'
+             aria-live='assertive'
+             aria-atomic='true'
+             aria-hidden='true'>
+          <div className='mdc-snackbar__text'>Message Sent</div>
+          <div className='mdc-snackbar__action-wrapper'>
+            <button type='button'
+                    className='mdc-snackbar__action-button'>Undo
+            </button>
+          </div>
         </div>
       </div>
-    </div>
   )
-}
+};
 
 class SnackbarDemo extends Component {
   state = {showSnackbar: false, showStartAlignedSnackbar: false};

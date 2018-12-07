@@ -19,7 +19,7 @@ const SelectCatalog = () => {
   );
 }
 
-class SelectHero extends Component {
+export class SelectHero extends Component {
   initSelect = (selectEl) => {
     if (!selectEl) return;
     this.select = new MDCSelect(selectEl);

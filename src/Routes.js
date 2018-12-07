@@ -12,8 +12,8 @@ import FabCatalog from './FabCatalog';
 import IconButtonCatalog from './IconButtonCatalog';
 import ImageListCatalog from './ImageListCatalog';
 import LayoutGridCatalog from './LayoutGridCatalog';
-import ListCatalog from './ListCatalog';
 import LinearProgressIndicatorCatalog from './LinearProgressIndicatorCatalog';
+import ListCatalog from './ListCatalog';
 import MenuCatalog from './MenuCatalog';
 import RadioButtonCatalog from './RadioButtonCatalog';
 import RippleCatalog from './RippleCatalog';
@@ -61,11 +61,11 @@ const routesList = [{
   urlPath: 'layout-grid',
   Component: LayoutGridCatalog,
 }, {
-  urlPath: 'list',
-  Component: ListCatalog,
-}, {
   urlPath: 'linear-progress-indicator',
   Component: LinearProgressIndicatorCatalog,
+}, {
+  urlPath: 'list',
+  Component: ListCatalog,
 }, {
   urlPath: 'menu',
   Component: MenuCatalog,

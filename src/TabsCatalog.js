@@ -19,13 +19,13 @@ const TabsCatalog = () => {
   );
 };
 
-const TabsHero = () => {
+export const TabsHero = () => {
   return (
-    <TabBar>
-      <Tab active label='Home' />
-      <Tab label='Merchandise' />
-      <Tab label='About Us' />
-    </TabBar>
+      <TabBar>
+        <Tab active label='Home'/>
+        <Tab label='Merchandise'/>
+        <Tab label='About Us'/>
+      </TabBar>
   )
 };
 

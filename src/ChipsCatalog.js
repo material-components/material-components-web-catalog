@@ -18,7 +18,7 @@ const ChipsCatalog = () => {
   );
 }
 
-class ChipsHero extends Component {
+export class ChipsHero extends Component {
   constructor(props) {
     super(props);
     this.chipSet = null;

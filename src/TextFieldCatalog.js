@@ -88,7 +88,7 @@ const HelperText = () => (
 
 const TextFieldCatalog = () => (
   <ComponentCatalogPanel
-    hero={<TextField textFieldId='hero-text-field-id'/>}
+    hero={<TextFieldHero />}
     title='Text Field'
     description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
     designLink='https://material.io/go/design-text-fields'
@@ -98,6 +98,11 @@ const TextFieldCatalog = () => (
   />
 );
 
+export const TextFieldHero = () => {
+  return (
+      <TextField textFieldId='hero-text-field-id'/>
+  )
+};
 
 class TextFieldDemos extends Component {
   renderFullWidthVariant(title, ...args) {

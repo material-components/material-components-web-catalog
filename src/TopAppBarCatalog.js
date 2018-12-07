@@ -18,7 +18,7 @@ const TopAppBarCatalog = (props) => {
   );
 };
 
-class TopAppBarHero extends Component {
+export class TopAppBarHero extends Component {
 
   ripples = [];
 
