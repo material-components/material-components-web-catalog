@@ -14,6 +14,7 @@ const CheckboxCatalog = () => {
       docsLink='https://material.io/components/web/catalog/input-controls/checkboxes/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox'
       demos={<CheckboxDemos/>}
+      config={{}}
     />
   );
 }

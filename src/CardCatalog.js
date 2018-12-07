@@ -17,6 +17,7 @@ const CardCatalog = () => {
       docsLink='https://material.io/components/web/catalog/cards/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
       demos={<CardDemos />}
+      config={{}}
     />
   );
 };

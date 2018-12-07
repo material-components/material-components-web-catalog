@@ -4,9 +4,9 @@ import TabBar from '@material/react-tab-bar';
 import './styles/HeroComponent.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
+import {ReactTemplates} from './CodeTemplates';
 
 import html from 'html';
-import {ButtonHero} from './ButtonCatalog';
 
 class HeroComponent extends Component {
 
@@ -37,13 +37,13 @@ class HeroTabs extends Component {
             activeIndex={this.state.activeIndex}
             handleActiveIndexUpdate={(activeIndex) => this.setState({activeIndex})}
             className='catalog-hero-tab-bar'>
-          <Tab>
+          <Tab className={'hero-tab'}>
             <span className='mdc-tab__text-label'>Demo</span>
           </Tab>
-          <Tab>
+          <Tab className={'hero-tab'}>
             <span className='mdc-tab__text-label'>Web</span>
           </Tab>
-          <Tab>
+          <Tab className={'hero-tab'}>
             <span className='mdc-tab__text-label'>React</span>
           </Tab>
         </TabBar>
@@ -60,11 +60,21 @@ class HeroTabs extends Component {
   }
 }
 
+const classesToRemove = [
+    ' mdc-ripple-upgraded--unbounded',
+    ' mdc-notched-outline--upgraded',
+];
+
 class WebTab extends Component {
   state = {codeString: ''};
 
   initRef = (ref) => {
-    const codeString = ref ? html.prettyPrint(ref.innerHTML) : '';
+    let codeString = '';
+    if (ref) {
+      codeString = html.prettyPrint(ref.innerHTML);
+      classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
+    }
+
     this.setState({codeString});
   };
 
@@ -85,26 +95,12 @@ class WebTab extends Component {
   }
 }
 
-const ReactTemplateGenerator = {
-  'ButtonHero': ({label, icon, dense, type, state}) => {
-    return `<Button
-  ${type ? type + '\n' : ''}
-  ${dense ? 'dense\n' : ''}
-  ${state ? state + '\n' : ''}
-  ${icon !== '' ? 'icon={<i className=\'material-icons\'>' + icon + '</i>}\n'
-        : ''}>
-  ${label}
-</Button>`;
-  }
-};
-
-
 class ReactTab extends Component {
   state = {codeString: ''};
 
   initCodeString = (children) => {
     const config = { label: 'Label', type: 'outlined', icon: 'code'};
-    const val = ReactTemplateGenerator[children.type.name](config);
+    const val = ReactTemplates[children.type.name](config);
     const codeString = val ? val.replace(/\n\s*\n/g, '\n') : '';
     this.setState({codeString});
   };

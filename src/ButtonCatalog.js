@@ -99,4 +99,3 @@ class ButtonDemos extends Component {
 }
 
 export default ButtonCatalog;
-export {ButtonHero};

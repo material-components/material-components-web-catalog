@@ -1,5 +1,6 @@
-@import '@material/react-tab-bar/index.scss';
-@import '@material/react-tab-scroller/index.scss';
+@import '@material/tab/mixins';
+@import '@material/tab-indicator/mixins';
+@import '@material/ripple/mixins';
 @import './ComponentPage';
 
 .catalog-hero-tab-bar {
@@ -31,4 +32,16 @@
 
 .highlight-html {
   width: 100%;
+}
+
+.hero-tab {
+  .mdc-tab-indicator {
+    @include mdc-tab-indicator-underline-color(black);
+  }
+  &.mdc-tab--active {
+    @include mdc-tab-text-label-color(black);
+  }
+  .mdc-tab__ripple {
+    @include mdc-states(black);
+  }
 }
