@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {imagePath} from './constants';
 
