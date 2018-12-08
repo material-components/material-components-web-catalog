@@ -30,7 +30,7 @@ class ComponentCatalogPanel extends Component {
     let heroComponent;
 
     if (config) {
-      heroComponent = <HeroComponent config={config}>{hero}</HeroComponent>;
+      heroComponent = <HeroComponent {...this.props}>{hero}</HeroComponent>;
     } else {
       heroComponent = <div className='hero'>{hero}</div>;
     }

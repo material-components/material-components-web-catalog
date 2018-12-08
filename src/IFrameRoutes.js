@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, withRouter} from 'react-router-dom';
-import {ButtonHero} from './ButtonCatalog';
+import {ButtonHeroLegacy} from './ButtonCatalog';
 import {CardHero} from './CardCatalog';
 import {CheckboxHero} from './CheckboxCatalog';
 import {ChipsHero} from './ChipsCatalog';
@@ -26,7 +26,7 @@ import {TopAppBarHero} from './TopAppBarCatalog';
 
 const routesList = [{
   urlPath: 'button',
-  Component: ButtonHero,
+  Component: ButtonHeroLegacy,
 }, {
   urlPath: 'card',
   Component: CardHero,

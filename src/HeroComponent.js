@@ -5,16 +5,17 @@ import './styles/HeroComponent.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {ReactTemplates} from './CodeTemplates';
-
 import html from 'html';
+import queryString from 'query-string';
 
 class HeroComponent extends Component {
 
   render() {
+    const urlParams = queryString.parse(this.props.location.search);
     return (
         <div className='heroComponent'>
-            <HeroTabs>
-              {this.props.children}
+            <HeroTabs config={urlParams}>
+              {React.cloneElement(this.props.children, {...this.props.children.props, urlParams})}
             </HeroTabs>
           {/*<OptionsPanel config={config}></OptionsPanel>*/}
         </div>
@@ -79,6 +80,7 @@ class WebTab extends Component {
   };
 
   render() {
+    debugger;
     return (
         <React.Fragment>
           <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>

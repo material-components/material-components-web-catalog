@@ -115,5 +115,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "dependencies": {}
+  "dependencies": {
+    "query-string": "^6.2.0"
+  }
 }

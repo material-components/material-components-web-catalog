@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple/index';
 
 import './styles/ButtonCatalog.scss';
 
-const ButtonCatalog = () => {
+const ButtonCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<ButtonHero />}
@@ -15,11 +15,15 @@ const ButtonCatalog = () => {
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
       config={[{type: 'label', content: 'Hello World'}]}
+      {...props}
     />
   );
-}
+};
 
-export class ButtonHero extends Component {
+
+// This is retained for the material experiment and will be dead code that we can remove when
+// experiment is completed.
+export class ButtonHeroLegacy extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
@@ -55,6 +59,41 @@ export class ButtonHero extends Component {
 
 }
 
+export class ButtonHero extends PureComponent {
+  type = {
+    raised: 'mdc-button--raised',
+    unelevated: 'mdc-button--unelevated',
+    outlined: 'mdc-button--outlined',
+  };
+
+  label = 'Button Text';
+
+  constructor(props) {
+    super(props);
+    this.ripples = [];
+    this.initRipple =
+        buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
+  }
+
+  componentWillUnmount() {
+    this.ripples.forEach(ripple => ripple.destroy());
+  }
+
+  render() {
+    if (this.props.urlParams.label) {
+      this.label = this.props.urlParams.label;
+    }
+
+    return (
+        <div>
+          <button className={`hero-button mdc-button ${this.props.urlParams.type ? this.type[this.props.urlParams.type] : ''}`} ref={this.initRipple}>
+            {this.label}
+          </button>
+        </div>
+    );
+  }
+
+}
 
 class ButtonDemos extends Component {
   constructor(props) {
