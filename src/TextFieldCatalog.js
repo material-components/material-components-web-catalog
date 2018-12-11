@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import ReactGA from 'react-ga';
 
 import './styles/TextFieldCatalog.scss';
+import {gtagCategory, gtagTextFieldAction} from './constants';
 
 const TextField = (props) => {
   const {
@@ -101,13 +102,13 @@ const TextFieldCatalog = () => (
   />
 );
 
-export const TextFieldHero = () => {
-  this.clickEvent = (label) => ReactGA.event({category: 'Component Interaction', action: 'Text Field Click', label: label});
+this.clickEvent = (label) => () => ReactGA.event({category: gtagCategory, action: gtagTextFieldAction, label: label});
 
+export const TextFieldHero = () => {
   return (
       <div className={'hero-text-field-container'}>
-        <TextField textFieldId='hero-text-field-id' onClick={this.clickEvent.bind(this, 'Filled')}/>
-        <TextField outlined textFieldId='hero-text-field-id--outlined' onClick={this.clickEvent.bind(this, 'Outlined')}/>
+        <TextField textFieldId='hero-text-field-id' onClick={this.clickEvent('Filled')}/>
+        <TextField outlined textFieldId='hero-text-field-id--outlined' onClick={this.clickEvent('Outlined')}/>
       </div>
   )
 };

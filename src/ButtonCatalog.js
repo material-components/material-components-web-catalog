@@ -4,6 +4,7 @@ import {MDCRipple} from '@material/ripple/index';
 import ReactGA from 'react-ga';
 
 import './styles/ButtonCatalog.scss';
+import {gtagButtonAction, gtagCategory} from './constants';
 
 const ButtonCatalog = () => {
   return (
@@ -23,7 +24,7 @@ export class ButtonHero extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
-    this.clickEvent = (el) => ReactGA.event({category: 'Component Interaction', action: 'button_click', label: el.target.textContent.trim()});
+    this.clickEvent = (el) => ReactGA.event({category: gtagCategory, action: gtagButtonAction, label: el.target.textContent.trim()});
     this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
