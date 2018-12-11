@@ -35,3 +35,14 @@
 .demo-text-field-outlined-shaped {
   @include mdc-text-field-outline-shape-radius(50%);
 }
+
+.hero-text-field-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  .text-field-container {
+    padding: 20px;
+  }
+}

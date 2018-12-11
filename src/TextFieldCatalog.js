@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCTextField} from '@material/textfield/index';
 import classnames from 'classnames';
+import ReactGA from 'react-ga';
 
 import './styles/TextFieldCatalog.scss';
 
 const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
-    dense, leading, trailing, helperText, className,
+    dense, leading, trailing, helperText, className, onClick
   } = props;
   const classes = classnames('mdc-text-field', 'text-field', className, {
     'mdc-text-field--outlined': outlined,
@@ -22,7 +23,7 @@ const TextField = (props) => {
     <div className='text-field-container'>
       <div className={classes} ref={textFieldEl => textFieldEl && new MDCTextField(textFieldEl)}>
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
-        {textarea ? <TextArea textFieldId={textFieldId}/> : <Input textFieldId={textFieldId}/>}
+        {textarea ? <TextArea textFieldId={textFieldId} onClick={onClick} /> : <Input textFieldId={textFieldId} onClick={onClick}/>}
         {outlined || textarea ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
         {outlined || textarea ? <Outline textFieldId={textFieldId}/> : <div className='mdc-line-ripple'></div>}
@@ -65,18 +66,20 @@ const Label = ({textFieldId}) => (
   </label>
 );
 
-const Input = ({placeholder, textFieldId}) => (
+const Input = ({placeholder, textFieldId, onClick}) => (
   <input type='text'
     id={textFieldId}
     placeholder={placeholder}
-    className='mdc-text-field__input' />
+    className='mdc-text-field__input'
+    onClick={onClick} />
 );
 
-const TextArea = ({placeholder, textFieldId}) => (
+const TextArea = ({placeholder, textFieldId, onClick}) => (
   <textarea
     id={textFieldId}
     placeholder={placeholder}
-    className='mdc-text-field__input' />
+    className='mdc-text-field__input'
+    onClick={onClick} />
 );
 
 const HelperText = () => (
@@ -99,8 +102,13 @@ const TextFieldCatalog = () => (
 );
 
 export const TextFieldHero = () => {
+  this.clickEvent = (label) => ReactGA.event({category: 'Component Interaction', action: 'Text Field Click', label: label});
+
   return (
-      <TextField textFieldId='hero-text-field-id'/>
+      <div className={'hero-text-field-container'}>
+        <TextField textFieldId='hero-text-field-id' onClick={this.clickEvent.bind(this, 'Filled')}/>
+        <TextField outlined textFieldId='hero-text-field-id--outlined' onClick={this.clickEvent.bind(this, 'Outlined')}/>
+      </div>
   )
 };
 
