@@ -24,9 +24,7 @@ export class ButtonHero extends Component {
     super(props);
     this.ripples = [];
     this.clickEvent = (el) => ReactGA.event({category: 'Component Interaction', action: 'button_click', label: el.target.textContent.trim()});
-    this.initRipple = buttonEl => {
-      if (buttonEl) this.ripples.push(new MDCRipple(buttonEl));
-    }
+    this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
   componentWillUnmount() {
