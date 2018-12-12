@@ -14,7 +14,7 @@ const ButtonCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
-      config={}
+      config={{}}
       {...props}
     />
   );
