@@ -1,4 +1,4 @@
-import React, {Component, PureComponent} from 'react';
+import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple/index';
 
@@ -146,7 +146,6 @@ const ButtonConfig = {
   afterUpdate: () => {
     // Function that will be executed after the update. Make any adjustments
     // such as disabling a field, and return the object.
-    console.log('After Update');
   },
   options: [
     {

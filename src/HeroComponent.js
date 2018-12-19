@@ -80,7 +80,7 @@ class HeroTabs extends Component {
         </TabBar>
         <div className={'tab-container'}>
           {tabContents.map((content, index) => {
-            if (this.state.activeIndex !== index) return;
+            if (this.state.activeIndex !== index) return null;
             return (
               <div className='tab-content' key={index}>
                 {content}
@@ -114,7 +114,6 @@ class WebTab extends Component {
   };
 
   render() {
-    debugger;
     return (
         <React.Fragment>
           <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>

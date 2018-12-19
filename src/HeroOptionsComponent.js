@@ -21,26 +21,21 @@ export class HeroOptionsComponent extends Component {
 const Option = (props) => {
   return (
       <React.Fragment>
-        {getOptionCompponent(props.option, props)}
+        {getOptionComponent(props.option, props)}
       </React.Fragment>
   )
 };
 
-const getOptionCompponent = (option, props) => {
+const getOptionComponent = (option, props) => {
   if (option.type === 'label') {
-    return <li className={'mdc-list-item'}><Label>{option.name}</Label></li>;
+    return <li className={'mdc-list-item'}><LabelOption>{option.name}</LabelOption></li>;
   } else if (option.type === 'radiogroup') {
-    return <RadioGroup {...option} {...props}/>;
+    return <RadioGroupOption {...option} {...props}/>;
   } else if (option.type === 'textfield') {
     return <TextFieldOption {...option} {...props}/>;
   }
 };
 
-const Label = ({children}) => {
-  return (
-      <span className={'mdc-typography--subtitle2'}>{children}</span>
-  )
-};
 
 const RadioFormField = withFormField(Radio);
 
@@ -53,7 +48,13 @@ const updateUrl = (history, urlParams = {}, key, newValue) => {
   });
 };
 
-const RadioGroup = ({name, options, value, history, urlParams}) => {
+const LabelOption = ({children}) => {
+  return (
+      <span className={'mdc-typography--subtitle2'}>{children}</span>
+  )
+};
+
+const RadioGroupOption = ({name, options, value, history, urlParams}) => {
   return (
       <React.Fragment>
         <li className={'mdc-list-item'}> <span className={'mdc-typography--subtitle1'}>{name}</span></li>
