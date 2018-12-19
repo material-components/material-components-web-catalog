@@ -33,12 +33,13 @@ class HeroComponent extends Component {
       }
     });
 
-    return localConfig;
+    return localConfig
   }
 
   render() {
     const urlParams = queryString.parse(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
+    this.localConfig.afterUpdate();
 
     return (
         <React.Fragment>

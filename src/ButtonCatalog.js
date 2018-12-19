@@ -142,18 +142,16 @@ class ButtonDemos extends Component {
   }
 }
 
-export const ButtonConfig = {
-  afterUpdate: (config) => {
-    // Function that will be executed after the update that receives the current
-    // instances of this object as an input parameter. Make any adjustments
+const ButtonConfig = {
+  afterUpdate: () => {
+    // Function that will be executed after the update. Make any adjustments
     // such as disabling a field, and return the object.
     console.log('After Update');
-    return config;
   },
   options: [
     {
       type: 'label',
-      name: 'Button Options',
+      name: 'Options',
     },
     {
       type: 'radiogroup',
@@ -182,7 +180,7 @@ export const ButtonConfig = {
     {
       type: 'textfield',
       name: 'Label',
-      label: 'Button Text Label',
+      label: 'Label',
       urlParam: 'label',
       value: 'Button Text'
     }
