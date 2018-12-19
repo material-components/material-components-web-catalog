@@ -20,31 +20,31 @@ class HeroComponent extends Component {
   copyUrlParamsToLocalConfig(localConfig, urlParams) {
 
     // For each url param, copy it over to the local config in the appropriate place.
-    for(const key in urlParams) {
-      if(urlParams[key]) {
-        for(let x = 0; x < localConfig.options.length; x++) {
-          if (key === localConfig.options[x].urlParam) {
-            const tempConfig = localConfig.options[x];
+    Object.keys(urlParams).forEach((key) => {
+      for (let x = 0; x < localConfig.options.length; x++) {
+        if (key === localConfig.options[x].urlParam) {
+          const tempConfig = localConfig.options[x];
 
-            // To be cleaned up with a standardized model when all option types are defined.
-            if (tempConfig.type === 'radiogroup') {
-              tempConfig.selected = urlParams[key];
-            } else if (tempConfig.type === 'textfield') {
-              tempConfig.value = urlParams[key];
-            }
+          // To be cleaned up with a standardized model when all option types are defined.
+          if (tempConfig.type === 'radiogroup' || tempConfig.type === 'textfield') {
+            tempConfig.value = urlParams[key];
           }
         }
       }
-    }
+    });
+
+    return localConfig;
   }
 
   render() {
     const urlParams = queryString.parse(this.props.location.search);
+    this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
+
     return (
         <React.Fragment>
           <div className='heroComponent'>
             <HeroTabs urlParams={urlParams} config={this.localConfig} {...this.props}>
-              {React.cloneElement(this.props.children, {...this.props.children.props, urlParams})}
+              {React.cloneElement(this.props.children, {...this.props.children.props, ...{config: this.localConfig}})}
             </HeroTabs>
           </div>
         </React.Fragment>

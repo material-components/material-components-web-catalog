@@ -59,7 +59,7 @@ export class ButtonHeroLegacy extends Component {
 
 }
 
-export class ButtonHero extends PureComponent {
+export class ButtonHero extends Component {
   type = {
     raised: 'mdc-button--raised',
     unelevated: 'mdc-button--unelevated',
@@ -84,13 +84,14 @@ export class ButtonHero extends PureComponent {
   }
 
   render() {
-    if (this.props.urlParams.label) {
-      this.label = this.props.urlParams.label;
+    if (this.props.config) {
+      this.label = this.props.config.options[2].value;
+      this.selectedType = this.props.config.options[1].value;
     }
 
     return (
         <div>
-          <button className={`hero-button mdc-button ${this.props.urlParams.type ? this.type[this.props.urlParams.type] : ''}`} ref={this.buttonRef}>
+          <button className={`hero-button mdc-button ${this.selectedType ? this.type[this.selectedType] : ''}`} ref={this.buttonRef}>
             {this.label}
           </button>
         </div>
@@ -158,7 +159,7 @@ export const ButtonConfig = {
       type: 'radiogroup',
       name: 'Type',
       urlParam: 'type',
-      selected: 0, // default select first option
+      value: 'text', // default select first option
       options: [
         {
           label: 'Text',

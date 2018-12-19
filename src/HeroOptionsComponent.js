@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Radio} from './RadioButtonCatalog';
 import {withFormField} from './FormField';
 import queryString from 'query-string';
-import * as classnames from 'classnames';
 import {MDCTextField} from '@material/textfield/index';
 
 export class HeroOptionsComponent extends Component {
@@ -54,14 +53,14 @@ const updateUrl = (history, urlParams = {}, key, newValue) => {
   });
 };
 
-const RadioGroup = ({name, options, selected, history, urlParams}) => {
+const RadioGroup = ({name, options, value, history, urlParams}) => {
   return (
       <React.Fragment>
         <li className={'mdc-list-item'}> <span className={'mdc-typography--subtitle1'}>{name}</span></li>
         {options.map((opt, index) => {
           return (
               <li key={opt.value} className={'mdc-list-item'}>
-                <RadioFormField name='demo-radio-set' label={opt.label} defaultChecked={selected === opt.value} onChange={() => updateUrl(history, urlParams, 'type', opt.value)}/>
+                <RadioFormField name='demo-radio-set' label={opt.label} defaultChecked={value === opt.value} onChange={() => updateUrl(history, urlParams, 'type', opt.value)}/>
               </li>
           )
         })}
@@ -85,6 +84,10 @@ class TextFieldOption extends Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({value: this.props.value});
+  }
+
   componentWillUnmount() {
     if (this.textField) this.textField.destroy();
   }
@@ -103,7 +106,7 @@ class TextFieldOption extends Component {
                        this.setState({value: val});
                        updateUrl(this.props.history, this.props.urlParams, 'label', val)
                      }} />
-              <label className={classnames('mdc-floating-label', {'mdc-floating-label--float-above': this.props.value.length > 0})} htmlFor='my-text-field'>{this.props.label}</label>
+              <label className={'mdc-floating-label'} htmlFor='my-text-field'>{this.props.label}</label>
               <div className='mdc-line-ripple' />
             </div>
           </li>
