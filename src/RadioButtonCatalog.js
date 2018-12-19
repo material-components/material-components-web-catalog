@@ -37,9 +37,9 @@ const RadioButtonDemos = () => {
       <RadioFormField className='demo-radio-form-field' name='demo-radio-set' label='Radio 2' />
     </div>
   );
-}
+};
 
-class Radio extends Component {
+export class Radio extends Component {
   initRadio = (radioEl) => this.radio = radioEl && new MDCRadio(radioEl);
 
   componentWillUnmount() {
@@ -60,7 +60,8 @@ class Radio extends Component {
                 type='radio'
                 id={this.props.id}
                 name={this.props.name}
-                defaultChecked={this.props.defaultChecked} />
+                defaultChecked={this.props.defaultChecked}
+                onChange={() => this.props.onChange()}/>
         <div className='mdc-radio__background'>
           <div className='mdc-radio__outer-circle'/>
           <div className='mdc-radio__inner-circle'/>

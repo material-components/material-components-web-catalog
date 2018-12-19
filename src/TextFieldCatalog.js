@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import './styles/TextFieldCatalog.scss';
 
-const TextField = (props) => {
+export const TextField = (props) => {
   const {
     textFieldId, outlined, textarea,
     dense, leading, trailing, helperText, className,

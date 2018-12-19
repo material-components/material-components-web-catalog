@@ -5,21 +5,42 @@ import './styles/HeroComponent.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {ReactTemplates} from './CodeTemplates';
+import {HeroOptionsComponent} from './HeroOptionsComponent';
 import html from 'html';
 import queryString from 'query-string';
 
 class HeroComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.localConfig = {...this.props.config};
+    const urlParams = queryString.parse(this.props.location.search);
+    for(const key in urlParams) {
+      if(urlParams[key]) {
+        for(let x = 0; x < this.localConfig.options.length; x++) {
+          if (key === this.localConfig.options[x].urlParam) {
+            const tempConfig = this.localConfig.options[x];
+            if (tempConfig.type === 'radiogroup') {
+              tempConfig.selected = urlParams[key];
+            } else if (tempConfig.type === 'textfield') {
+              tempConfig.value = urlParams[key];
+            }
+          }
+        }
+      }
+    }
+  }
 
   render() {
     const urlParams = queryString.parse(this.props.location.search);
     return (
-        <div className='heroComponent'>
-            <HeroTabs config={urlParams}>
+        <React.Fragment>
+          <div className='heroComponent'>
+            <HeroTabs urlParams={urlParams} config={this.localConfig} {...this.props}>
               {React.cloneElement(this.props.children, {...this.props.children.props, urlParams})}
             </HeroTabs>
-          {/*<OptionsPanel config={config}></OptionsPanel>*/}
-        </div>
-    )
+          </div>
+        </React.Fragment>
+  )
   }
 }
 
@@ -48,14 +69,18 @@ class HeroTabs extends Component {
             <span className='mdc-tab__text-label'>React</span>
           </Tab>
         </TabBar>
+        <div className={'tab-container'}>
           {tabContents.map((content, index) => {
             if (this.state.activeIndex !== index) return;
             return (
-              <div className='tabContent' key={index}>
+              <div className='tab-content' key={index}>
                 {content}
               </div>
             );
           })}
+        <HeroOptionsComponent {...this.props} />
+        </div>
+
       </React.Fragment>
     )
   }

@@ -14,7 +14,7 @@ const ButtonCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
-      config={{}}
+      config={ButtonConfig}
       {...props}
     />
   );
@@ -70,13 +70,17 @@ export class ButtonHero extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.ripples = [];
-    this.initRipple =
-        buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
+    this.ripple = null;
+    this.buttonRef = React.createRef();
   }
 
   componentWillUnmount() {
-    this.ripples.forEach(ripple => ripple.destroy());
+    if (this.ripple) this.ripple.destroy();
+  }
+
+  componentDidUpdate() {
+    if (this.ripple) this.ripple.destroy();
+    this.ripple = new MDCRipple(this.buttonRef.current);
   }
 
   render() {
@@ -86,7 +90,7 @@ export class ButtonHero extends PureComponent {
 
     return (
         <div>
-          <button className={`hero-button mdc-button ${this.props.urlParams.type ? this.type[this.props.urlParams.type] : ''}`} ref={this.initRipple}>
+          <button className={`hero-button mdc-button ${this.props.urlParams.type ? this.type[this.props.urlParams.type] : ''}`} ref={this.buttonRef}>
             {this.label}
           </button>
         </div>
@@ -136,5 +140,54 @@ class ButtonDemos extends Component {
     );
   }
 }
+
+export const ButtonConfig = {
+  afterUpdate: (config) => {
+    // Function that will be executed after the update that receives the current
+    // instances of this object as an input parameter. Make any adjustments
+    // such as disabling a field, and return the object.
+    console.log('After Update');
+    return config;
+  },
+  options: [
+    {
+      type: 'label',
+      name: 'Button Options',
+    },
+    {
+      type: 'radiogroup',
+      name: 'Type',
+      urlParam: 'type',
+      selected: 0, // default select first option
+      options: [
+        {
+          label: 'Text',
+          value: 'text',
+        },
+        {
+          label: 'Outlined',
+          value: 'outlined',
+        },
+        {
+          label: 'Raised',
+          value: 'raised',
+        },
+        {
+          label: 'Unelevated',
+          value: 'unelevated',
+        },
+      ],
+    },
+    {
+      type: 'textfield',
+      name: 'Label',
+      label: 'Button Text Label',
+      urlParam: 'label',
+      value: 'Button Text'
+    }
+  ],
+};
+
+
 
 export default ButtonCatalog;
