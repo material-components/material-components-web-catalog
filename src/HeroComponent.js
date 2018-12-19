@@ -14,11 +14,19 @@ class HeroComponent extends Component {
     super(props);
     this.localConfig = {...this.props.config};
     const urlParams = queryString.parse(this.props.location.search);
+    this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
+  }
+
+  copyUrlParamsToLocalConfig(localConfig, urlParams) {
+
+    // For each url param, copy it over to the local config in the appropriate place.
     for(const key in urlParams) {
       if(urlParams[key]) {
-        for(let x = 0; x < this.localConfig.options.length; x++) {
-          if (key === this.localConfig.options[x].urlParam) {
-            const tempConfig = this.localConfig.options[x];
+        for(let x = 0; x < localConfig.options.length; x++) {
+          if (key === localConfig.options[x].urlParam) {
+            const tempConfig = localConfig.options[x];
+
+            // To be cleaned up with a standardized model when all option types are defined.
             if (tempConfig.type === 'radiogroup') {
               tempConfig.selected = urlParams[key];
             } else if (tempConfig.type === 'textfield') {
