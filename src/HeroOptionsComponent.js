@@ -58,7 +58,7 @@ const RadioGroupOption = ({name, options, value, history, urlParams}) => {
   return (
       <React.Fragment>
         <li className={'mdc-list-item'}> <span className={'mdc-typography--subtitle1'}>{name}</span></li>
-        {options.map((opt, index) => {
+        {options.map((opt) => {
           return (
               <li key={opt.value} className={'mdc-list-item'}>
                 <RadioFormField name='demo-radio-set' label={opt.label} defaultChecked={value === opt.value} onChange={() => updateUrl(history, urlParams, 'type', opt.value)}/>

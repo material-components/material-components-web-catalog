@@ -12,7 +12,8 @@ import queryString from 'query-string';
 class HeroComponent extends Component {
   constructor(props) {
     super(props);
-    this.localConfig = {...this.props.config};
+    // Deep copy for local object
+    this.localConfig = JSON.parse(JSON.stringify(this.props.config));
     const urlParams = queryString.parse(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
   }
@@ -39,7 +40,7 @@ class HeroComponent extends Component {
   render() {
     const urlParams = queryString.parse(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
-    this.localConfig.afterUpdate();
+    if (this.localConfig.afterUpdate) this.localConfig.afterUpdate();
 
     return (
         <React.Fragment>
