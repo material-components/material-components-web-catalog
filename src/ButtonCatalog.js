@@ -61,6 +61,7 @@ export class ButtonHeroLegacy extends Component {
 
 export class ButtonHero extends Component {
   type = {
+    text: '',
     raised: 'mdc-button--raised',
     unelevated: 'mdc-button--unelevated',
     outlined: 'mdc-button--outlined',
