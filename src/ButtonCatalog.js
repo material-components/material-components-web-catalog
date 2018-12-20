@@ -146,7 +146,7 @@ class ButtonDemos extends Component {
 const ButtonConfig = {
   afterUpdate: () => {
     // Function that will be executed after the update. Make any adjustments
-    // such as disabling a field, and return the object.
+    // such as disabling a field.
   },
   options: [
     {
