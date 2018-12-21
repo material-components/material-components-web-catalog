@@ -86,7 +86,6 @@ export class ButtonHero extends Component {
       </button>
     );
   }
-
 }
 
 class ButtonDemos extends Component {
