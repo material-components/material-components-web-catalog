@@ -62,7 +62,7 @@ export class ButtonHeroLegacy extends Component {
 export class ButtonHero extends Component {
   label = 'Button Text';
   ripple = null;
-  buttonRef = (el) => {
+  initRipple = (el) => {
     if (el) this.ripple = new MDCRipple(el);
   };
 
@@ -81,7 +81,7 @@ export class ButtonHero extends Component {
     });
 
     return (
-      <button className={className} ref={this.buttonRef}>
+      <button className={className} ref={this.initRipple}>
         {this.props.config.options[2].value}
       </button>
     );
