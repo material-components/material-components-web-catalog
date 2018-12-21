@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple/index';
 import * as classnames from 'classnames';
+import ReactGA from 'react-ga';
 
 import './styles/ButtonCatalog.scss';
+import {gtagButtonAction, gtagCategory} from './constants';
 
 const ButtonCatalog = (props) => {
   return (
@@ -28,8 +30,8 @@ export class ButtonHeroLegacy extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
-    this.initRipple =
-        buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
+    this.clickEvent = (el) => ReactGA.event({category: gtagCategory, action: gtagButtonAction, label: el.target.textContent.trim()});
+    this.initRipple = buttonEl => buttonEl && this.ripples.push(new MDCRipple(buttonEl));
   }
 
   componentWillUnmount() {
@@ -39,19 +41,16 @@ export class ButtonHeroLegacy extends Component {
   render() {
     return (
       <div>
-        <button className='hero-button mdc-button' ref={this.initRipple}>
+        <button className='hero-button mdc-button' ref={this.initRipple} onClick={this.clickEvent}>
           Text
         </button>
-        <button className='hero-button mdc-button mdc-button--raised'
-                ref={this.initRipple}>
+        <button className='hero-button mdc-button mdc-button--raised' ref={this.initRipple} onClick={this.clickEvent}>
           Raised
         </button>
-        <button className='hero-button mdc-button mdc-button--unelevated'
-                ref={this.initRipple}>
+        <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple} onClick={this.clickEvent}>
           Unelevated
         </button>
-        <button className='hero-button mdc-button mdc-button--outlined'
-                ref={this.initRipple}>
+        <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple} onClick={this.clickEvent}>
           Outlined
         </button>
       </div>

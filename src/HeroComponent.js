@@ -123,7 +123,7 @@ class WebTab extends Component {
           <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>
           <SyntaxHighlighter
               lineProps={{style: {paddingBottom: 8}}}
-              wrapLine
+              wrapLines
               showLineNumbers
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
