@@ -74,20 +74,18 @@ const RadioGroupOption = ({name, options, value, history, urlParams}) => {
 
 //TODO: debounce the input onChange method.
 class TextFieldOption extends Component {
-  state = {value: ''};
   textField = null;
-  tfRef = React.createRef();
+  tfRef = (el) => el && new MDCTextField(el);
+
+  constructor(props) {
+    super(props);
+    this.state = {value: this.props.value};
+  }
 
   componentDidUpdate() {
     if (this.textField) {
       this.textField.layout();
-    } else {
-      this.textField = new MDCTextField(this.tfRef.current);
     }
-  }
-
-  componentDidMount() {
-    this.setState({value: this.props.value});
   }
 
   componentWillUnmount() {
