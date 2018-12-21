@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple/index';
+import * as classnames from 'classnames';
 
 import './styles/ButtonCatalog.scss';
 
@@ -14,7 +15,7 @@ const ButtonCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
-      config={ButtonConfig}
+      initialConfig={ButtonConfig}
       {...props}
     />
   );
@@ -37,23 +38,23 @@ export class ButtonHeroLegacy extends Component {
 
   render() {
     return (
-        <div>
-          <button className='hero-button mdc-button' ref={this.initRipple}>
-            Text
-          </button>
-          <button className='hero-button mdc-button mdc-button--raised'
-                  ref={this.initRipple}>
-            Raised
-          </button>
-          <button className='hero-button mdc-button mdc-button--unelevated'
-                  ref={this.initRipple}>
-            Unelevated
-          </button>
-          <button className='hero-button mdc-button mdc-button--outlined'
-                  ref={this.initRipple}>
-            Outlined
-          </button>
-        </div>
+      <div>
+        <button className='hero-button mdc-button' ref={this.initRipple}>
+          Text
+        </button>
+        <button className='hero-button mdc-button mdc-button--raised'
+                ref={this.initRipple}>
+          Raised
+        </button>
+        <button className='hero-button mdc-button mdc-button--unelevated'
+                ref={this.initRipple}>
+          Unelevated
+        </button>
+        <button className='hero-button mdc-button mdc-button--outlined'
+                ref={this.initRipple}>
+          Outlined
+        </button>
+      </div>
     );
   }
 
@@ -68,12 +69,8 @@ export class ButtonHero extends Component {
   };
 
   label = 'Button Text';
-
-  constructor(props) {
-    super(props);
-    this.ripple = null;
-    this.buttonRef = React.createRef();
-  }
+  ripple = null;
+  buttonRef = React.createRef();
 
   componentWillUnmount() {
     if (this.ripple) this.ripple.destroy();
@@ -86,20 +83,23 @@ export class ButtonHero extends Component {
 
   render() {
     if (this.props.config) {
-      this.label = this.props.config.options[2].value;
       this.selectedType = this.props.config.options[1].value;
     }
 
+    const className = classnames('hero-button mdc-button', {
+      [this.type[this.selectedType]]: this.selectedType,
+    });
+
     return (
-        <div>
-          <button className={`hero-button mdc-button ${this.selectedType ? this.type[this.selectedType] : ''}`} ref={this.buttonRef}>
-            {this.label}
-          </button>
-        </div>
+      <button className={className} ref={this.buttonRef}>
+        {this.props.config.options[2].value}
+      </button>
     );
   }
 
 }
+
+
 
 class ButtonDemos extends Component {
   constructor(props) {
@@ -143,10 +143,18 @@ class ButtonDemos extends Component {
   }
 }
 
+/**
+ * This is the object that configures how the options panel looks and
+ * and what types of options the user can change. This object also contains
+ * information about what urlParam the option will use to ensure the user
+ * can share links of their configured component. A copy of this object will be
+ * made and used to manage the current state of the hero component and used to
+ * generate the code snippet.
+ */
 const ButtonConfig = {
   afterUpdate: () => {
-    // Function that will be executed after the update. Make any adjustments
-    // such as disabling a field.
+    // Function that will be executed after every update. Make any adjustments
+    // to this object here such as enabling/disabling fields.
   },
   options: [
     {
@@ -187,6 +195,15 @@ const ButtonConfig = {
   ],
 };
 
-
+// TODO: Convert this method signature to use the ButtonConfig object above.
+export const ButtonReactTemplate = ({label, icon, dense, type, state}) => {
+  return `<Button
+  ${type ? type + '\n' : ''}
+  ${dense ? 'dense\n' : ''}
+  ${state ? state + '\n' : ''}
+  ${icon !== '' ? 'icon={<i className=\'material-icons\'>' + icon + '</i>}\n' : ''}>
+  ${label}
+</Button>`;
+};
 
 export default ButtonCatalog;

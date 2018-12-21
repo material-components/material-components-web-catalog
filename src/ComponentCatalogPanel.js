@@ -26,10 +26,11 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, sourceLink, title, config} = this.props;
+    const {designLink, description, demos, docsLink, hero, sourceLink, title, initialConfig} = this.props;
     let heroComponent;
 
-    if (config) {
+    // TODO: Remove this check when all components have been updated.
+    if (initialConfig) {
       heroComponent = <HeroComponent {...this.props}>{hero}</HeroComponent>;
     } else {
       heroComponent = <div className='hero'>{hero}</div>;

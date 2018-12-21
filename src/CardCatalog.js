@@ -17,7 +17,7 @@ const CardCatalog = (props) => {
       docsLink='https://material.io/components/web/catalog/cards/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-card'
       demos={<CardDemos />}
-      config={{}}
+      initialConfig={{}}
       {...props}
     />
   );
@@ -134,6 +134,14 @@ const CardDemos = () => {
       <Card actions shaped />
     </section>
   );
-}
+};
+
+export const CardReactTemplate = () => {
+  return `<Card>
+  <CardPrimaryContent>
+    <CardMedia imageUrl={imageUrl} />
+  </CardPrimaryContent>
+</Card>`;
+};
 
 export default CardCatalog;

@@ -4,7 +4,7 @@ import TabBar from '@material/react-tab-bar';
 import './styles/HeroComponent.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
-import {ReactTemplates} from './CodeTemplates';
+import ReactTemplates from './CodeTemplates';
 import {HeroOptionsComponent} from './HeroOptionsComponent';
 import html from 'html';
 import queryString from 'query-string';
@@ -13,7 +13,8 @@ class HeroComponent extends Component {
   constructor(props) {
     super(props);
     // Deep copy for local object
-    this.localConfig = JSON.parse(JSON.stringify(this.props.config));
+    this.localConfig = JSON.parse(JSON.stringify(this.props.initialConfig));
+    this.localConfig.afterUpdate = this.props.initialConfig.afterUpdate;
     const urlParams = queryString.parse(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
   }
@@ -22,19 +23,17 @@ class HeroComponent extends Component {
 
     // For each url param, copy it over to the local config in the appropriate place.
     Object.keys(urlParams).forEach((key) => {
-      for (let x = 0; x < localConfig.options.length; x++) {
-        if (key === localConfig.options[x].urlParam) {
-          const tempConfig = localConfig.options[x];
-
+      localConfig.options.forEach((opt) => {
+        if (key === opt.urlParam) {
           // To be cleaned up with a standardized model when all option types are defined.
-          if (tempConfig.type === 'radiogroup' || tempConfig.type === 'textfield') {
-            tempConfig.value = urlParams[key];
+          if (opt.type === 'radiogroup' || opt.type === 'textfield') {
+            opt.value = urlParams[key];
           }
         }
-      }
+      });
     });
 
-    return localConfig
+    return localConfig;
   }
 
   render() {
@@ -57,6 +56,10 @@ class HeroComponent extends Component {
 class HeroTabs extends Component {
   state = {activeIndex: 0, codeString: ''};
 
+  handleActiveIndexUpdate = (activeIndex) => {
+    this.setState({activeIndex});
+  };
+
   render() {
     const tabContents = [
       this.props.children,
@@ -67,17 +70,14 @@ class HeroTabs extends Component {
       <React.Fragment>
         <TabBar
             activeIndex={this.state.activeIndex}
-            handleActiveIndexUpdate={(activeIndex) => this.setState({activeIndex})}
+            handleActiveIndexUpdate={this.handleActiveIndexUpdate}
             className='catalog-hero-tab-bar'>
-          <Tab className={'hero-tab'}>
-            <span className='mdc-tab__text-label'>Demo</span>
-          </Tab>
-          <Tab className={'hero-tab'}>
-            <span className='mdc-tab__text-label'>Web</span>
-          </Tab>
-          <Tab className={'hero-tab'}>
-            <span className='mdc-tab__text-label'>React</span>
-          </Tab>
+          {['Demo', 'Web', 'React'].map((tabName, index) => {
+            return (
+              <Tab className='hero-tab' key={index}>
+                <span>{tabName}</span>
+              </Tab>
+            )})}
         </TabBar>
         <div className={'tab-container'}>
           {tabContents.map((content, index) => {
@@ -120,8 +120,8 @@ class WebTab extends Component {
           <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>
           <SyntaxHighlighter
               lineProps={{style: {paddingBottom: 8}}}
-              wrapLines={true}
-              showLineNumbers={true}
+              wrapLines
+              showLineNumbers
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
               language='html'
@@ -141,6 +141,7 @@ class ReactTab extends Component {
     this.setState({codeString});
   };
 
+  // TODO: Convert this to pass the config object and work for componentDidUpdate
   componentDidMount() {
     this.initCodeString(this.props.children);
   }
@@ -150,8 +151,8 @@ class ReactTab extends Component {
         <React.Fragment>
           <SyntaxHighlighter
               lineProps={{style: {paddingBottom: 8}}}
-              wrapLines={true}
-              showLineNumbers={true}
+              wrapLines
+              showLineNumbers
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
               language='jsx'
