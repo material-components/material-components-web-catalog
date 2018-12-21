@@ -66,16 +66,11 @@ export class ButtonHero extends Component {
   ripple = null;
   buttonRef = (el) => {
     if (el) this.ripple = new MDCRipple(el);
-  }
+  };
 
   componentWillUnmount() {
     if (this.ripple) this.ripple.destroy();
   }
-
-  // componentDidUpdate() {
-  //   if (this.ripple) this.ripple.destroy();
-  //   this.ripple = new MDCRipple(this.buttonRef.current);
-  // }
 
   render() {
     if (this.props.config) {
@@ -84,7 +79,7 @@ export class ButtonHero extends Component {
 
     const className = classnames('hero-button mdc-button', {
       [ButtonTypes[this.selectedType]]: this.selectedType,
-      'mdc-ripple--upgraded': this.ripple,
+      'mdc-ripple-upgraded': this.ripple,
     });
 
     return (
