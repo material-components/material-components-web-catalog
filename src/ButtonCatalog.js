@@ -61,12 +61,7 @@ export class ButtonHeroLegacy extends Component {
 }
 
 export class ButtonHero extends Component {
-  type = {
-    text: '',
-    raised: 'mdc-button--raised',
-    unelevated: 'mdc-button--unelevated',
-    outlined: 'mdc-button--outlined',
-  };
+
 
   label = 'Button Text';
   ripple = null;
@@ -87,7 +82,7 @@ export class ButtonHero extends Component {
     }
 
     const className = classnames('hero-button mdc-button', {
-      [this.type[this.selectedType]]: this.selectedType,
+      [ButtonTypes[this.selectedType]]: this.selectedType,
     });
 
     return (
@@ -98,8 +93,6 @@ export class ButtonHero extends Component {
   }
 
 }
-
-
 
 class ButtonDemos extends Component {
   constructor(props) {
@@ -195,8 +188,21 @@ const ButtonConfig = {
   ],
 };
 
-// TODO: Convert this method signature to use the ButtonConfig object above.
-export const ButtonReactTemplate = ({label, icon, dense, type, state}) => {
+const ButtonTypes = {
+  text: '',
+  raised: 'mdc-button--raised',
+  unelevated: 'mdc-button--unelevated',
+  outlined: 'mdc-button--outlined',
+};
+
+export const ButtonReactTemplate = (config) => {
+  const label = config.options[2].value;
+  const type = config.options[1].value;
+  // TODO: Wire these up when the Config is complete
+  const dense = '';
+  const icon = '';
+  const state = '';
+
   return `<Button
   ${type ? type + '\n' : ''}
   ${dense ? 'dense\n' : ''}

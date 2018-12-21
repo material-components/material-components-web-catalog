@@ -61,11 +61,14 @@ class HeroTabs extends Component {
   };
 
   render() {
+    const children = this.props.children;
+
     const tabContents = [
-      this.props.children,
-      <WebTab>{this.props.children}</WebTab>,
-      <ReactTab>{this.props.children}</ReactTab>,
+      children,
+      <WebTab>{children}</WebTab>,
+      <ReactTab>{children}</ReactTab>,
     ];
+
     return (
       <React.Fragment>
         <TabBar
@@ -120,7 +123,7 @@ class WebTab extends Component {
           <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>
           <SyntaxHighlighter
               lineProps={{style: {paddingBottom: 8}}}
-              wrapLines
+              wrapLine
               showLineNumbers
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
@@ -135,8 +138,7 @@ class ReactTab extends Component {
   state = {codeString: ''};
 
   initCodeString = (children) => {
-    const config = { label: 'Label', type: 'outlined', icon: 'code'};
-    const val = ReactTemplates[children.type.name](config);
+    const val = ReactTemplates[children.type.name](children.props.config);
     const codeString = val ? val.replace(/\n\s*\n/g, '\n') : '';
     this.setState({codeString});
   };

@@ -72,6 +72,7 @@ const RadioGroupOption = ({name, options, value, history, urlParams}) => {
   )
 };
 
+//TODO: debounce the input onChange method.
 class TextFieldOption extends Component {
   state = {value: ''};
   textField = null;
