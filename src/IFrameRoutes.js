@@ -21,7 +21,7 @@ import {SliderHero} from './SliderCatalog';
 import {SnackbarHero} from './SnackbarCatalog';
 import {SwitchHero} from './SwitchCatalog';
 import {TabsHero} from './TabsCatalog';
-import {TextFieldHero} from './TextFieldCatalog';
+import {TextFieldHeroLegacy} from './TextFieldCatalog';
 import {TopAppBarHero} from './TopAppBarCatalog';
 
 const routesList = [{
@@ -89,7 +89,7 @@ const routesList = [{
   Component: TabsHero,
 }, {
   urlPath: 'text-field',
-  Component: TextFieldHero,
+  Component: TextFieldHeroLegacy,
 }, {
   urlPath: 'top-app-bar',
   Component: TopAppBarHero,

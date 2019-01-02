@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 
 import './styles/TextFieldCatalog.scss';
 import {gtagCategory, gtagTextFieldAction} from './constants';
+import { throws } from 'assert';
 
 export const TextField = (props) => {
   const {
@@ -90,7 +91,7 @@ const HelperText = () => (
   </p>
 );
 
-const TextFieldCatalog = () => (
+const TextFieldCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<TextFieldHero />}
     title='Text Field'
@@ -99,12 +100,15 @@ const TextFieldCatalog = () => (
     docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
     demos={<TextFieldDemos/>}
+    initialConfig={TextFieldConfig}
+    {...props}
   />
 );
 
 this.clickEvent = (label) => () => ReactGA.event({category: gtagCategory, action: gtagTextFieldAction, label: label});
 
-export const TextFieldHero = () => {
+// Keep this until the material io experiment is complete.
+export const TextFieldHeroLegacy = () => {
   return (
       <div className={'hero-text-field-container'}>
         <TextField textFieldId='hero-text-field-id' onClick={this.clickEvent('Filled')}/>
@@ -112,6 +116,65 @@ export const TextFieldHero = () => {
       </div>
   )
 };
+
+class TextFieldHero extends Component {
+  textField;
+  tfEl;
+  initRef = (el) => {
+    if (el) {
+      this.tfEl = el;
+    }
+  }
+
+  componentDidUpdate() {
+    if (this.textField) {
+      this.textField.destroy();
+      this.textField = null;
+    }
+    if (this.tfEl) {
+      this.textField = new MDCTextField(this.tfEl);
+    }
+  }
+
+  render() {
+    let label;
+    let leadingIcon;
+    let trailingIcon;
+    let type;
+
+    if (this.props.config) {
+      type = this.props.config.options[1].value;
+      label = this.props.config.options[2].value;
+      leadingIcon = this.props.config.options[3].value;
+      trailingIcon = this.props.config.options[4].value;
+    }
+
+    return (
+    <div className={classnames('mdc-text-field', {
+      'mdc-text-field--outlined': type === 'outlined',
+      'mdc-text-field--with-leading-icon': leadingIcon !== '',
+      'mdc-text-field--with-trailing-icon': trailingIcon !== '',
+
+    })} ref={this.initRef}>
+      {leadingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{leadingIcon}</i>) : ''}
+      {trailingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{trailingIcon}</i>) : ''}
+      <input className='mdc-text-field__input'></input>
+      {type === 'outlined' ? (
+      <div className='mdc-notched-outline'>
+          <div className='mdc-notched-outline__leading'></div>
+          <div className='mdc-notched-outline__notch'>
+            <label className='mdc-floating-label'>{label}</label>
+            </div>
+          <div className='mdc-notched-outline__trailing'></div>
+      </div>) : (
+      <React.Fragment>
+        <div className='mdc-line-ripple'></div>
+        <label className='mdc-floating-label'>{label}</label>
+      </React.Fragment>)}
+    </div>
+    )
+  }
+}
 
 class TextFieldDemos extends Component {
   renderFullWidthVariant(title, ...args) {
@@ -171,5 +234,76 @@ class TextFieldDemos extends Component {
     );
   }
 }
+
+
+const TextFieldConfig = {
+  afterUpdate: () => {
+    // Function that will be executed after every update. Make any adjustments
+    // to this object here such as enabling/disabling fields.
+  },
+  options: [
+    {
+      type: 'label',
+      name: 'Options',
+    },
+    {
+      type: 'radiogroup',
+      name: 'Type',
+      urlParam: 'type',
+      value: 'filled', // default select first option
+      options: [
+        {
+          label: 'Filled',
+          value: 'filled',
+        },
+        {
+          label: 'Outlined',
+          value: 'outlined',
+        },
+      ],
+    },
+    {
+      type: 'textfield',
+      name: 'Label',
+      label: 'Label',
+      urlParam: 'label',
+      value: 'Button Text'
+    },
+    {
+      type: 'textfield',
+      name: 'Leading Icon',
+      label: 'Leading Icon',
+      urlParam: 'leadingIcon',
+      value: ''
+    },
+    {
+      type: 'textfield',
+      name: 'Trailing Icon',
+      label: 'Trailing Icon',
+      urlParam: 'trailingIcon',
+      value: ''
+    }
+  ],
+};
+
+export const TextFieldReactTemplate = (config) => {
+  const label = config.options[2].value;
+  const type = config.options[1].value;
+  const leadingIcon = config.options[3].value;
+  const trailingIcon = config.options[4].value;
+  // TODO: Wire these up when the Config is complete
+  const dense = '';
+  const state = '';
+
+  return `<TextField
+  ${type ? type + '\n' : ''}
+  ${dense ? 'dense\n' : ''}
+  ${state ? state + '\n' : ''}
+  ${state ? `label='${label}'\n` : ''}
+  ${leadingIcon !== '' ? `leadingIcon={<i className='material-icons'>${leadingIcon}</i>}\n` : ''}>
+  ${trailingIcon !== '' ? `leadingIcon={<i className='material-icons'>${trailingIcon}</i>}\n` : ''}>
+</Button>`;
+};
+
 
 export default TextFieldCatalog;

@@ -27,7 +27,7 @@ const getOptionComponent = (option, props) => {
     case 'label':
       return <li className='mdc-list-item'><LabelOption>{option.name}</LabelOption></li>;
     case 'radiogroup':
-      return <RadioGroupOption {...option} {...props}/>;
+      return <RadioGroupOption urlKey={option.urlParam} {...option} {...props}/>;
     default: // Text field
       return <TextFieldOption {...option} {...props}/>;
   }
@@ -52,7 +52,7 @@ const LabelOption = ({children}) => {
 };
 
 //TODO: Refactor to remove anon function from onChange.
-const RadioGroupOption = ({name, options, value, history, urlParams}) => {
+const RadioGroupOption = ({name, options, value, urlKey, history, urlParams}) => {
   return (
       <React.Fragment>
         <li className='mdc-list-item'><span
@@ -64,7 +64,7 @@ const RadioGroupOption = ({name, options, value, history, urlParams}) => {
                     name='demo-radio-set'
                     label={opt.label}
                     defaultChecked={value === opt.value}
-                    onChange={() => updateUrl(history, urlParams, 'type', opt.value)}/>
+                    onChange={() => updateUrl(history, urlParams, urlKey, opt.value)}/>
               </li>
           )
         })}
@@ -95,7 +95,7 @@ class TextFieldOption extends Component {
   onChange = (event) => {
     const value = event.target.value;
     this.setState({value});
-    updateUrl(this.props.history, this.props.urlParams, 'label', value);
+    updateUrl(this.props.history, this.props.urlParams, this.props.option.urlParam, value);
   };
 
   render() {
