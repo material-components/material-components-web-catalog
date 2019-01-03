@@ -43,3 +43,19 @@
 .demo-card-shaped {
   @include mdc-card-shape-radius(24px 8px, $rtl-reflexive: true);
 }
+
+.demo-card__media.mdc-card__media--square {
+  width: 110px;
+}
+
+.demo-basic-with-header,
+.demo-basic-with-text-over-media {
+  .demo-card__secondary {
+    padding-top: 1rem;
+  }
+}
+
+.demo-ui-control .demo-card__primary-action {
+  display: flex;
+  flex-direction: row;
+}
