@@ -8,10 +8,13 @@ import ReactTemplates from './CodeTemplates';
 import {HeroOptionsComponent} from './HeroOptionsComponent';
 import html from 'html';
 import queryString from 'query-string';
+import equal from 'deep-equal';
+
 
 const getUrlParamsFromSearch = function(search) {
   return queryString.parse(search);
 }
+
 class HeroComponent extends Component {
   constructor(props) {
     super(props);
@@ -113,19 +116,19 @@ class WebTab extends Component {
   state = {codeString: ''};
 
   componentDidMount() {
-    this.populateInnerHTML();
+    this.initCodeString();
   }
 
   componentDidUpdate(prevProps) {
     const urlParams = getUrlParamsFromSearch(prevProps.location.search);
     const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
 
-    if (urlParams.type !== prevUrlParams.type) {
-      this.populateInnerHTML();
+    if (!equal(urlParams, prevUrlParams)) {
+      this.initCodeString();
     }
   }
 
-  populateInnerHTML = () => {
+  initCodeString = () => {
     let codeString = '';
     if (this.htmlRef.current) {
       codeString = html.prettyPrint(this.htmlRef.current.innerHTML);
@@ -153,7 +156,6 @@ class WebTab extends Component {
 }
 
 class ReactTab extends Component {
-  htmlRef = React.createRef();
   state = {codeString: ''};
 
   initCodeString = () => {
@@ -169,13 +171,12 @@ class ReactTab extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    // const urlParams = getUrlParamsFromSearch(prevProps.location.search);
-    // const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
+    const urlParams = getUrlParamsFromSearch(prevProps.location.search);
+    const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
 
-    // I think we want it to trigger on every update
-    // if (urlParams.type !== prevUrlParams.type) {
+    if (!equal(urlParams, prevUrlParams)) {
       this.initCodeString();
-    // }
+    }
   }
 
   render() {
