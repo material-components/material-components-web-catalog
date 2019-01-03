@@ -14,7 +14,6 @@ const CardTypes = {
   basicButtons: 'basicButtons',
   basicIcons: 'basicIcons',
   uiControl: 'uiControl',
-
 }
 
 const CardCatalog = (props) => {
