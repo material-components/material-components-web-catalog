@@ -43,30 +43,34 @@ export const CardHero = (props) => {
   />);
 };
 
+const classes = ({className, shaped, type}) => {
+  const {basicHeader, basicMediaText, uiControl} = CardTypes;
+  return classnames('mdc-card demo-card',
+  {
+    'demo-card-shaped': shaped,
+    'demo-basic-with-header': type === basicHeader,
+    'demo-basic-with-text-over-media': type === basicMediaText,
+    'demo-ui-control': type === uiControl,
+  }, className);
+}
+
 class Card extends Component {
   componentWillUnmount() {
     this.ripple.destroy();
   }
 
   render() {
-    const {actions, className, image, shaped, type} = this.props;
+    const {actions, image, type} = this.props;
     const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
-    const classes = classnames('mdc-card demo-card',
-      {
-        'demo-card-shaped': shaped,
-        'demo-basic-with-header': type === basicHeader,
-        'demo-basic-with-text-over-media': type === basicMediaText,
-        'demo-ui-control': type === uiControl,
-      }, className);
 
     return (
-      <div className={classes}>
+      <div className={classes(this.props)}>
         {type === basicHeader ? <CardHeader /> : null}
         <div
           className='mdc-card__primary-action demo-card__primary-action'
           tabIndex='0'
           ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}>
-          {image ? <CardImage
+          {image ? <CardMedia
             showText={type === basicMediaText}
             square={type === uiControl}
             /> : null}
@@ -88,21 +92,21 @@ class Card extends Component {
 const CardHeader = () => {
   return (
     <div className='demo-card__primary'>
-      <h2 className='demo-card__title mdc-typography--headline6'>Our Changing Planet</h2>
-      <h3 className='demo-card__subtitle mdc-typography--subtitle2'>by Kurt Wagner</h3>
+      <h2 className='demo-card__title mdc-typography mdc-typography--headline6'>Our Changing Planet</h2>
+      <h3 className='demo-card__subtitle mdc-typography mdc-typography--subtitle2'>by Kurt Wagner</h3>
     </div>
   );
 }
 
 const CardSecondary = () => {
   return (
-    <div className='demo-card__secondary mdc-typography--body2'>
+    <div className='demo-card__secondary mdc-typography mdc-typography--body2'>
       Visit ten places on our planet that are undergoing the biggest changes today.
     </div>
   );
 }
 
-const CardImage = ({square = false, showText = false}) => {
+const CardMedia = ({square = false, showText = false}) => {
   return (
     <div className={`mdc-card__media mdc-card__media--${square ? 'square' : '16-9'} demo-card__media`}
        style={{backgroundImage: `url('${imagePath}/photos/3x2/2.jpg')`}}>
@@ -195,36 +199,27 @@ const CardDemos = () => {
 
 const CardHeaderTemplate = () => {
   return `
-  <Headline6 className='demo-card__title'>
-    Our Changing Planet
-  </Headline6>
-  <Subtitle2 className='demo-card__subtitle'>
-    by Kurt Wagner
-  </Subtitle2>
+  <div className='demo-card__primary'>
+    <Headline6 className='demo-card__title'>
+      Our Changing Planet
+    </Headline6>
+    <Subtitle2 className='demo-card__subtitle'>
+      by Kurt Wagner
+    </Subtitle2>
+  </div>
   `;
 }
-export const CardReactTemplate = (props) => {
-  const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
-  const type = props.options[1].value;
 
-  return `<Card className='demo-card demo-card--hero'>
-  ${type === basicHeader ? CardHeaderTemplate() : ''}
-  <CardPrimaryContent>
-    <CardMedia wide imageUrl={image} />
-    <div className='demo-card__primary'>
-    ${type !== basicHeader && type !== basicMediaText ? CardHeaderTemplate() : ''}
-    </div>
-    <Body2 className='demo-card__secondary'>
-      Visit ten places on our planet that are undergoing the biggest changes today.
-    </Body2>
-  </CardPrimaryContent>
+const CardSecondaryTemplate = () => {
+  return `
+  <Body2 className='demo-card__secondary'>
+    Visit ten places on our planet that are undergoing the biggest changes today.
+  </Body2>
+  `;
+}
 
-  <CardActions>
-    <CardActionButtons>
-      <Button>Read</Button>
-      <Button>Bookmark</Button>
-    </CardActionButtons>
-
+const CardIconsTemplate = () => {
+  return `
     <CardActionIcons>
       <IconButton>
         <MaterialIcon icon='favorite_border' />
@@ -236,6 +231,57 @@ export const CardReactTemplate = (props) => {
         <MaterialIcon icon='more_vert' />
       </IconButton>
     </CardActionIcons>
+  `;
+}
+
+const CardButtonsTemplate = () => {
+  return `
+    <CardActionButtons>
+      <Button>Read</Button>
+      <Button>Bookmark</Button>
+    </CardActionButtons>
+  `;
+}
+
+const CardMediaTemplate = (showText = false, square) => {
+  if (showText) {
+    return `
+      <CardMedia
+        wide
+        className='demo-card__media'
+        imageUrl={image}
+        contentClassName='demo-card__media-content'
+      >
+        ${CardHeaderTemplate()}
+      </CardMedia>
+    `;
+  }
+  if (square) {
+    return `
+      <CardMedia square imageUrl={image} className='demo-card__media' />
+    `;  
+  }
+  return `
+    <CardMedia wide imageUrl={image} className='demo-card__media' />
+  `;
+}
+
+export const CardReactTemplate = (props) => {
+  const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
+  const type = props.options[1].value;
+  const className = classes({className:'demo-card--hero', type});
+
+  return `<Card className='${className}'>
+  ${type === basicHeader ? CardHeaderTemplate() : ''}
+  <CardPrimaryContent className='demo-card__primary-action'>
+    ${CardMediaTemplate(type === basicMediaText, type === uiControl)}
+    ${type !== basicHeader && type !== basicMediaText ? CardHeaderTemplate() : ''}
+    ${type !== uiControl ? CardSecondaryTemplate() : ''}
+  </CardPrimaryContent>
+
+  <CardActions>
+    ${type !== basicIcons ? CardButtonsTemplate() : ''}
+    ${type !== basicButtons ? CardIconsTemplate() : ''}
   </CardActions>
 </Card>`;
 };
