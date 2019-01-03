@@ -61,4 +61,12 @@
   border-radius: 4px;
   height: 100%;
   min-height: 312px;
+
+  .mdc-list-item {
+    height: 40px
+  }
+
+  .catalog-tf-list-item {
+    min-height: 60px;
+  }
 }

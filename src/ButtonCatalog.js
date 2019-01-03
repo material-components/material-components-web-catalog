@@ -139,10 +139,6 @@ class ButtonDemos extends Component {
  * generate the code snippet.
  */
 const ButtonConfig = {
-  afterUpdate: () => {
-    // Function that will be executed after every update. Make any adjustments
-    // to this object here such as enabling/disabling fields.
-  },
   options: [
     {
       type: 'label',

@@ -33,10 +33,11 @@ const getOptionComponent = (option, props) => {
   }
 };
 
-
 const RadioFormField = withFormField(Radio);
 
-const updateUrl = (history, urlParams = {}, key, newValue) => {
+const updateUrl = (history, key, newValue, search) => {
+  const urlParams = queryString.parse(search);
+
   urlParams[key] = newValue;
 
   history.push({
@@ -52,7 +53,7 @@ const LabelOption = ({children}) => {
 };
 
 //TODO: Refactor to remove anon function from onChange.
-const RadioGroupOption = ({name, options, value, urlKey, history, urlParams}) => {
+const RadioGroupOption = ({name, options, value, urlKey, history, location}) => {
   return (
       <React.Fragment>
         <li className='mdc-list-item'><span
@@ -64,7 +65,7 @@ const RadioGroupOption = ({name, options, value, urlKey, history, urlParams}) =>
                     name='demo-radio-set'
                     label={opt.label}
                     defaultChecked={value === opt.value}
-                    onChange={() => updateUrl(history, urlParams, urlKey, opt.value)}/>
+                    onChange={() => updateUrl(history, urlKey, opt.value, location.search)}/>
               </li>
           )
         })}
@@ -95,13 +96,13 @@ class TextFieldOption extends Component {
   onChange = (event) => {
     const value = event.target.value;
     this.setState({value});
-    updateUrl(this.props.history, this.props.urlParams, this.props.option.urlParam, value);
+    updateUrl(this.props.history, this.props.option.urlParam, value, this.props.location.search);
   };
 
   render() {
     return (
         <React.Fragment>
-          <li key={this.props.name} className='mdc-list-item'>
+          <li key={this.props.name} className='mdc-list-item catalog-tf-list-item'>
             <div className='mdc-text-field' ref={this.tfRef}>
               <input type='text' id='my-text-field'
                      className='mdc-text-field__input' value={this.state.value}

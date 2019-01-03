@@ -237,10 +237,6 @@ class TextFieldDemos extends Component {
 
 
 const TextFieldConfig = {
-  afterUpdate: () => {
-    // Function that will be executed after every update. Make any adjustments
-    // to this object here such as enabling/disabling fields.
-  },
   options: [
     {
       type: 'label',
