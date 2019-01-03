@@ -20,7 +20,6 @@ class HeroComponent extends Component {
     super(props);
     // Deep copy for local object
     this.localConfig = JSON.parse(JSON.stringify(this.props.initialConfig));
-    this.localConfig.afterUpdate = this.props.initialConfig.afterUpdate;
     const urlParams = getUrlParamsFromSearch(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
   }
@@ -29,14 +28,16 @@ class HeroComponent extends Component {
 
     // For each url param, copy it over to the local config in the appropriate place.
     Object.keys(urlParams).forEach((key) => {
-      localConfig.options.forEach((opt) => {
-        if (key === opt.urlParam) {
-          // To be cleaned up with a standardized model when all option types are defined.
-          if (opt.type === 'radiogroup' || opt.type === 'textfield') {
-            opt.value = urlParams[key];
+      if (localConfig.options) {
+        localConfig.options.forEach((opt) => {
+          if (key === opt.urlParam) {
+            // To be cleaned up with a standardized model when all option types are defined.
+            if (opt.type === 'radiogroup' || opt.type === 'textfield') {
+              opt.value = urlParams[key];
+            }
           }
-        }
-      });
+        });
+      } 
     });
 
     return localConfig;
@@ -45,7 +46,6 @@ class HeroComponent extends Component {
   render() {
     const urlParams = getUrlParamsFromSearch(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
-    if (this.localConfig.afterUpdate) this.localConfig.afterUpdate();
 
     return (
       <React.Fragment>
@@ -114,6 +114,7 @@ class WebTab extends Component {
   htmlRef = React.createRef();
 
   state = {codeString: ''};
+  el = null;
 
   componentDidMount() {
     this.initCodeString();
@@ -133,6 +134,7 @@ class WebTab extends Component {
     if (this.htmlRef.current) {
       codeString = html.prettyPrint(this.htmlRef.current.innerHTML);
       classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
+      this.setState({codeString});
     }
     
     this.setState({codeString});

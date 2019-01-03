@@ -101,7 +101,7 @@ class TextFieldOption extends Component {
   render() {
     return (
         <React.Fragment>
-          <li key={this.props.name} className='mdc-list-item'>
+          <li key={this.props.name} className='mdc-list-item catalog-tf-list-item'>
             <div className='mdc-text-field' ref={this.tfRef}>
               <input type='text' id='my-text-field'
                      className='mdc-text-field__input' value={this.state.value}
