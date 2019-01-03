@@ -9,13 +9,16 @@ import {HeroOptionsComponent} from './HeroOptionsComponent';
 import html from 'html';
 import queryString from 'query-string';
 
+const getUrlParamsFromSearch = function(search) {
+  return queryString.parse(search);
+}
 class HeroComponent extends Component {
   constructor(props) {
     super(props);
     // Deep copy for local object
     this.localConfig = JSON.parse(JSON.stringify(this.props.initialConfig));
     this.localConfig.afterUpdate = this.props.initialConfig.afterUpdate;
-    const urlParams = queryString.parse(this.props.location.search);
+    const urlParams = getUrlParamsFromSearch(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
   }
 
@@ -37,19 +40,19 @@ class HeroComponent extends Component {
   }
 
   render() {
-    const urlParams = queryString.parse(this.props.location.search);
+    const urlParams = getUrlParamsFromSearch(this.props.location.search);
     this.localConfig = this.copyUrlParamsToLocalConfig(this.localConfig, urlParams);
     if (this.localConfig.afterUpdate) this.localConfig.afterUpdate();
 
     return (
-        <React.Fragment>
-          <div className='heroComponent'>
-            <HeroTabs urlParams={urlParams} config={this.localConfig} {...this.props}>
-              {React.cloneElement(this.props.children, {...this.props.children.props, ...{config: this.localConfig}})}
-            </HeroTabs>
-          </div>
-        </React.Fragment>
-  )
+      <React.Fragment>
+        <div className='heroComponent'>
+          <HeroTabs config={this.localConfig} {...this.props}>
+            {React.cloneElement(this.props.children, {...this.props.children.props, ...{config: this.localConfig}})}
+          </HeroTabs>
+        </div>
+      </React.Fragment>
+    )
   }
 }
 
@@ -61,11 +64,11 @@ class HeroTabs extends Component {
   };
 
   render() {
-    const children = this.props.children;
+    const {children, location} = this.props;
 
     const tabContents = [
       children,
-      <WebTab>{children}</WebTab>,
+      <WebTab location={location}>{children}</WebTab>,
       <ReactTab>{children}</ReactTab>,
     ];
 
@@ -105,32 +108,47 @@ const classesToRemove = [
 ];
 
 class WebTab extends Component {
+  htmlRef = React.createRef();
+
   state = {codeString: ''};
 
-  initRef = (ref) => {
+  componentDidMount() {
+    this.populateInnerHTML();
+  }
+
+  componentDidUpdate(prevProps) {
+    const urlParams = getUrlParamsFromSearch(prevProps.location.search);
+    const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
+
+    if (urlParams.type !== prevUrlParams.type) {
+      this.populateInnerHTML();
+    }
+  }
+
+  populateInnerHTML = () => {
     let codeString = '';
-    if (ref) {
-      codeString = html.prettyPrint(ref.innerHTML);
+    if (this.htmlRef.current) {
+      codeString = html.prettyPrint(this.htmlRef.current.innerHTML);
       classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
     }
-
+    
     this.setState({codeString});
   };
 
   render() {
     return (
-        <React.Fragment>
-          <div style={{display: 'none'}} ref={this.initRef}>{this.props.children}</div>
-          <SyntaxHighlighter
-              lineProps={{style: {paddingBottom: 8}}}
-              wrapLines
-              showLineNumbers
-              lineNumberStyle={{color: '#bab6b6'}}
-              className='highlight-html'
-              language='html'
-              style={prism}>{this.state.codeString}</SyntaxHighlighter>
-        </React.Fragment>
-    )
+      <React.Fragment>
+        <div style={{display: 'none'}} ref={this.htmlRef}>{this.props.children}</div>
+        <SyntaxHighlighter
+            lineProps={{style: {paddingBottom: 8}}}
+            wrapLines
+            showLineNumbers
+            lineNumberStyle={{color: '#bab6b6'}}
+            className='highlight-html'
+            language='html'
+            style={prism}>{this.state.codeString}</SyntaxHighlighter>
+      </React.Fragment>
+    );
   }
 }
 
