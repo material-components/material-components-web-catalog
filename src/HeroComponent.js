@@ -69,7 +69,7 @@ class HeroTabs extends Component {
     const tabContents = [
       children,
       <WebTab location={location}>{children}</WebTab>,
-      <ReactTab>{children}</ReactTab>,
+      <ReactTab location={location}>{children}</ReactTab>,
     ];
 
     return (
@@ -153,9 +153,11 @@ class WebTab extends Component {
 }
 
 class ReactTab extends Component {
+  htmlRef = React.createRef();
   state = {codeString: ''};
 
-  initCodeString = (children) => {
+  initCodeString = () => {
+    const {children} = this.props;
     const val = ReactTemplates[children.type.name](children.props.config);
     const codeString = val ? val.replace(/\n\s*\n/g, '\n') : '';
     this.setState({codeString});
@@ -163,22 +165,32 @@ class ReactTab extends Component {
 
   // TODO: Convert this to pass the config object and work for componentDidUpdate
   componentDidMount() {
-    this.initCodeString(this.props.children);
+    this.initCodeString();
+  }
+
+  componentDidUpdate(prevProps) {
+    // const urlParams = getUrlParamsFromSearch(prevProps.location.search);
+    // const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
+
+    // I think we want it to trigger on every update
+    // if (urlParams.type !== prevUrlParams.type) {
+      this.initCodeString();
+    // }
   }
 
   render() {
     return (
-        <React.Fragment>
-          <SyntaxHighlighter
-              lineProps={{style: {paddingBottom: 8}}}
-              wrapLines
-              showLineNumbers
-              lineNumberStyle={{color: '#bab6b6'}}
-              className='highlight-html'
-              language='jsx'
-              style={prism}>{this.state.codeString}</SyntaxHighlighter>
-        </React.Fragment>
-    )
+      <React.Fragment>
+        <SyntaxHighlighter
+            lineProps={{style: {paddingBottom: 8}}}
+            wrapLines
+            showLineNumbers
+            lineNumberStyle={{color: '#bab6b6'}}
+            className='highlight-html'
+            language='jsx'
+            style={prism}>{this.state.codeString}</SyntaxHighlighter>
+      </React.Fragment>
+    );
   }
 
 }
