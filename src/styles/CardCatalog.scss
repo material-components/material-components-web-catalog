@@ -55,6 +55,18 @@
   }
 }
 
+.demo-basic-with-text-over-media {
+  .demo-card__media-content {
+    display: flex;
+    align-items: flex-end;
+
+    .demo-card__title,
+    .demo-card__subtitle {
+      @include mdc-theme-prop(color, white);
+    }
+  }
+}
+
 .demo-ui-control .demo-card__primary-action {
   display: flex;
   flex-direction: row;

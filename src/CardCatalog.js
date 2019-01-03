@@ -61,7 +61,7 @@ class Card extends Component {
 
     return (
       <div className={classes}>
-        {type === 'basicHeader' ? <CardHeader /> : null}
+        {type === basicHeader ? <CardHeader /> : null}
         <div
           className='mdc-card__primary-action demo-card__primary-action'
           tabIndex='0'
@@ -106,7 +106,7 @@ const CardImage = ({square = false, showText = false}) => {
   return (
     <div className={`mdc-card__media mdc-card__media--${square ? 'square' : '16-9'} demo-card__media`}
        style={{backgroundImage: `url('${imagePath}/photos/3x2/2.jpg')`}}>
-      {showText ? <div className='mdc-card__media-content'>
+      {showText ? <div className='mdc-card__media-content demo-card__media-content'>
         <CardHeader />
       </div> : null}   
     </div>
@@ -192,17 +192,56 @@ const CardDemos = () => {
   );
 };
 
-export const CardReactTemplate = () => {
-  return `<Card>
-    <CardPrimaryContent>
-      <CardMedia imageUrl={imageUrl} />
-    </CardPrimaryContent>
-  </Card>`;
+
+const CardHeaderTemplate = () => {
+  return `
+  <Headline6 className='demo-card__title'>
+    Our Changing Planet
+  </Headline6>
+  <Subtitle2 className='demo-card__subtitle'>
+    by Kurt Wagner
+  </Subtitle2>
+  `;
+}
+export const CardReactTemplate = (props) => {
+  const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
+  const type = props.options[1].value;
+
+  return `<Card className='demo-card demo-card--hero'>
+  ${type === basicHeader ? CardHeaderTemplate() : ''}
+  <CardPrimaryContent>
+    <CardMedia wide imageUrl={image} />
+    <div className='demo-card__primary'>
+    ${type !== basicHeader && type !== basicMediaText ? CardHeaderTemplate() : ''}
+    </div>
+    <Body2 className='demo-card__secondary'>
+      Visit ten places on our planet that are undergoing the biggest changes today.
+    </Body2>
+  </CardPrimaryContent>
+
+  <CardActions>
+    <CardActionButtons>
+      <Button>Read</Button>
+      <Button>Bookmark</Button>
+    </CardActionButtons>
+
+    <CardActionIcons>
+      <IconButton>
+        <MaterialIcon icon='favorite_border' />
+      </IconButton>
+      <IconButton>
+        <MaterialIcon icon='share' />
+      </IconButton>
+      <IconButton>
+        <MaterialIcon icon='more_vert' />
+      </IconButton>
+    </CardActionIcons>
+  </CardActions>
+</Card>`;
 };
 
 
 const CardConfig = {
-
   options: [
     {
       type: 'label',
