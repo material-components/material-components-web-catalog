@@ -10,7 +10,6 @@ import html from 'html';
 import queryString from 'query-string';
 import equal from 'deep-equal';
 
-
 const getUrlParamsFromSearch = function(search) {
   return queryString.parse(search);
 }
@@ -68,11 +67,12 @@ class HeroTabs extends Component {
 
   render() {
     const {children, location} = this.props;
-
+    const updatedProps = Object.assign({location}, children.props);
+    let child = React.cloneElement(children, updatedProps);
     const tabContents = [
-      children,
-      <WebTab location={location}>{children}</WebTab>,
-      <ReactTab location={location}>{children}</ReactTab>,
+      child,
+      <WebTab location={location}>{child}</WebTab>,
+      <ReactTab location={location}>{child}</ReactTab>,
     ];
 
     return (
@@ -97,7 +97,7 @@ class HeroTabs extends Component {
               </div>
             );
           })}
-        <HeroOptionsComponent {...this.props} />
+          <HeroOptionsComponent {...this.props} />
         </div>
 
       </React.Fragment>

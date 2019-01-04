@@ -4,16 +4,21 @@ import {MDCTopAppBar} from '@material/top-app-bar/index';
 
 import {MDCRipple} from '@material/ripple/index';
 import classnames from 'classnames';
+import queryString from 'query-string';
 
 import './styles/TopAppBarCatalog.scss';
 
-const TopAppBarTypes = {
-  standard: 'Standard',
-  short: 'Short',
-  shortCollapsed: 'ShortCollapsed',
-  prominent: 'Prominent',
-  fixed: 'Fixed',
-  dense: 'Dense',
+const TopAppBarVariants = {
+  standard: 'standard',
+  short: 'short',
+  shortCollapsed: 'shortCollapsed',
+  prominent: 'prominent',
+  fixed: 'fixed',
+  dense: 'dense',
+}
+
+const getUrlParamsFromSearch = function(search) {
+  return queryString.parse(search);
 }
 
 const TopAppBarCatalog = (props) => {
@@ -32,23 +37,21 @@ const TopAppBarCatalog = (props) => {
   );
 };
 
-const classes = (type) => {
-  const {standard, short, shortCollapsed, prominent, fixed, dense} = TopAppBarTypes;
-
+const classes = (variant) => {
+  const {short, shortCollapsed, prominent, fixed, dense} = TopAppBarVariants;
   return classnames('hero-top-app-bar', {
-    'mdc-top-app-bar--short': type === short,
-    'mdc-top-app-bar--short-collapsed': type === shortCollapsed,
-    'mdc-top-app-bar--fixed': type === fixed,
-    'mdc-top-app-bar--prominent': type === prominent,
-    'mdc-top-app-bar--dense': type === dense,
-    '': type === standard,
+    'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
+    'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
+    'mdc-top-app-bar--fixed': variant === fixed,
+    'mdc-top-app-bar--prominent': variant === prominent,
+    'mdc-top-app-bar--dense': variant === dense,
   });
 }
 
 export class TopAppBarHero extends Component {
 
+  state = {topAppBar: undefined};
   topAppBarRef = React.createRef();
-  topAppBar;
   ripples = [];
 
   initRipple = icon => {
@@ -63,36 +66,34 @@ export class TopAppBarHero extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const type = this.props.config.options[1].value;
-    const prevType = prevProps.config.options[1].value;
-console.log(type, prevType)
-    if (type !== prevType) {
+    const {variant} = getUrlParamsFromSearch(this.props.location.search);
+    const {variant: prevVariant} = getUrlParamsFromSearch(prevProps.location.search);
+
+    if (variant !== prevVariant) {
       this.initTopAppBar();
     }
   }
 
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
-    if (this.topAppBar) {
-      this.topAppBar.destroy();
+    if (this.state.topAppBar) {
+      this.state.topAppBar.destroy();
     }
   }
 
   initTopAppBar = () => {
-    if (this.topAppBar) {
-      this.topAppBar.destroy();
+    if (this.state.topAppBar) {
+      this.state.topAppBar.destroy();
     }
-    this.topAppBar = new MDCTopAppBar(this.topAppBarRef.current);
+    this.setState({topAppBar: new MDCTopAppBar(this.topAppBarRef.current)});
   }
 
   render() {
-    const type = this.props.config.options[1].value;
-    const title = this.props.config.options[2].value;
-
+    const {variant, title} = getUrlParamsFromSearch(this.props.location.search);
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
 
     return (
-      <div className={classes(type)}>
+      <div className={classes(variant)}>
         <header className='mdc-top-app-bar' ref={this.topAppBarRef}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
@@ -105,6 +106,7 @@ console.log(type, prevType)
       </div>
     );
   }
+
   renderActionItems(topAppBarIconsClasses) {
     return (
       <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
