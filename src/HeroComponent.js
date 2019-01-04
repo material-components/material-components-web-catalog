@@ -37,7 +37,7 @@ class HeroComponent extends Component {
             }
           }
         });
-      } 
+      }
     });
 
     return localConfig;
@@ -97,9 +97,9 @@ class HeroTabs extends Component {
               </div>
             );
           })}
-        <HeroOptionsComponent {...this.props} />
-        </div>
 
+        </div>
+          <HeroOptionsComponent {...this.props} />
       </React.Fragment>
     )
   }
@@ -136,7 +136,7 @@ class WebTab extends Component {
       classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
       this.setState({codeString});
     }
-    
+
     this.setState({codeString});
   };
 

@@ -146,7 +146,7 @@ const ButtonConfig = {
     },
     {
       type: 'radiogroup',
-      name: 'Type',
+      name: 'Variants',
       urlParam: 'type',
       value: 'text', // default select first option
       options: [

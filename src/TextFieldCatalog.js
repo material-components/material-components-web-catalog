@@ -244,7 +244,7 @@ const TextFieldConfig = {
     },
     {
       type: 'radiogroup',
-      name: 'Type',
+      name: 'Variants',
       urlParam: 'type',
       value: 'filled', // default select first option
       options: [
