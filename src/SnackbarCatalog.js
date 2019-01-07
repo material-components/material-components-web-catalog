@@ -10,7 +10,7 @@ const SnackbarCatalog = () => {
     <ComponentCatalogPanel
       hero={<SnackbarHero />}
       title='Snackbar'
-      description='Snackbars provide brief feedback about an operation through a message at the bottom of the screen.'
+      description='Snackbars provide brief messages about app processes at the bottom of the screen.'
       designLink='https://material.io/go/design-snackbar'
       docsLink='https://material.io/components/web/catalog/snackbars/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-snackbar'
@@ -22,15 +22,15 @@ const SnackbarCatalog = () => {
 export const SnackbarHero = () => {
   return (
       <div className='snackbar-hero'>
-        <div className='mdc-snackbar mdc-snackbar--active'
-             aria-live='assertive'
-             aria-atomic='true'
-             aria-hidden='true'>
-          <div className='mdc-snackbar__text'>Message Sent</div>
-          <div className='mdc-snackbar__action-wrapper'>
-            <button type='button'
-                    className='mdc-snackbar__action-button'>Undo
-            </button>
+        <div className='mdc-snackbar mdc-snackbar--open'>
+          <div className='mdc-snackbar__surface'>
+            <div className='mdc-snackbar__label'
+                 role='status'
+                 aria-live='polite'>Can't send photo. Retry in 5 seconds.</div>
+            <div className='mdc-snackbar__actions'>
+              <button type='button' className='mdc-button mdc-snackbar__action'>Retry</button>
+              <button className='mdc-icon-button mdc-snackbar__dismiss material-icons' title='Dismiss'>close</button>
+            </div>
           </div>
         </div>
       </div>
@@ -38,57 +38,94 @@ export const SnackbarHero = () => {
 };
 
 class SnackbarDemo extends Component {
-  state = {showSnackbar: false, showStartAlignedSnackbar: false};
+  state = {isBaselineOpen: false, isLeadingOpen: false, isStackedOpen: false};
 
-  handleShowClick = () => {
-    this.setState({showSnackbar: true});
+  queue = [];
+
+  handleClick = (newState) => {
+    this.queue.push(() => this.setState(newState));
+    if (this.queue.length === 1) {
+      this.queue[0]();
+    }
   }
 
-  handleSnackbarShown = () => {
-    this.setState({showSnackbar: false});
+  handleClosed = (newState) => {
+    this.setState(newState);
+    this.queue.shift();
+    if (this.queue.length > 0) {
+      this.queue[0]();
+    }
   }
 
-  handleShowStartAlignedClick = () => {
-    this.setState({showStartAlignedSnackbar: true});
+  handleBaselineClick = () => {
+    this.handleClick({isBaselineOpen: true});
   }
 
-  handleShowStartAlignedSnackbarShown = () => {
-    this.setState({showStartAlignedSnackbar: false});
+  handleBaselineClosed = () => {
+    this.handleClosed({isBaselineOpen: false});
+  }
+
+  handleLeadingClick = () => {
+    this.handleClick({isLeadingOpen: true});
+  }
+
+  handleLeadingClosed = () => {
+    this.handleClosed({isLeadingOpen: false});
+  }
+
+  handleStackedClick = () => {
+    this.handleClick({isStackedOpen: true});
+  }
+
+  handleStackedClosed = () => {
+    this.handleClosed({isStackedOpen: false});
   }
 
   render() {
     return (
       <div>
-        <h3 className='mdc-typography--subtitle1'>Snackbars</h3>
-        <button className='mdc-button mdc-button--raised snackbar-demo-button' onClick={this.handleShowClick}>
-          Show snackbar
+        <button className='mdc-button mdc-button--raised snackbar-demo-button' onClick={this.handleBaselineClick}>
+          Baseline
         </button>
         <button className='mdc-button mdc-button--raised snackbar-demo-button'
-                onClick={this.handleShowStartAlignedClick}>
-          Show start aligned
+                onClick={this.handleLeadingClick}>
+          Leading
         </button>
-        <Snackbar show={this.state.showSnackbar} handleShown={this.handleSnackbarShown}/>
-        <Snackbar show={this.state.showStartAlignedSnackbar} startAligned={true}
-                  handleShown={this.handleShowStartAlignedSnackbarShown}/>
+        <button className='mdc-button mdc-button--raised snackbar-demo-button'
+                onClick={this.handleStackedClick}>
+          Stacked
+        </button>
+        <Snackbar isOpen={this.state.isBaselineOpen}
+                  handleClosed={this.handleBaselineClosed}
+                  labelText={'Can\'t send photo. Retry in 5 seconds.'}
+                  actionText='Retry'/>
+        <Snackbar isOpen={this.state.isLeadingOpen}
+                  isLeading={true}
+                  handleClosed={this.handleLeadingClosed}
+                  labelText='Your photo has been archived.'
+                  actionText='Undo'/>
+        <Snackbar isOpen={this.state.isStackedOpen}
+                  isStacked={true}
+                  handleClosed={this.handleStackedClosed}
+                  labelText='This item already has the label "travel". You can add a new label.'
+                  actionText='Add a new label'/>
       </div>
     )
   }
 }
 
 class Snackbar extends Component {
-  snackbarData = {message: 'Message Sent', actionHandler: () => {}, actionText: 'Undo'};
-
   initSnackbar = (snackbarEl) => {
     if (!snackbarEl) {
       return;
     }
     this.snackbar = new MDCSnackbar(snackbarEl);
+    this.snackbar.listen('MDCSnackbar:closed', () => this.props.handleClosed());
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.show) {
-      this.snackbar.show(this.snackbarData);
-      this.props.handleShown();
+    if (this.props.isOpen) {
+      this.snackbar.open();
     }
   }
 
@@ -98,18 +135,21 @@ class Snackbar extends Component {
 
   render() {
     const classes = classnames('mdc-snackbar', {
-      'mdc-snackbar--align-start': this.props.startAligned,
+      'mdc-snackbar--leading': this.props.isLeading,
+      'mdc-snackbar--stacked': this.props.isStacked,
     });
 
     return (
       <div className={classes}
-        aria-live='assertive'
-        aria-atomic='true'
-        aria-hidden='true'
-        ref={this.initSnackbar}>
-        <div className='mdc-snackbar__text'></div>
-        <div className='mdc-snackbar__action-wrapper'>
-          <button type='button' className='mdc-snackbar__action-button'></button>
+           ref={this.initSnackbar}>
+        <div className='mdc-snackbar__surface'>
+          <div className='mdc-snackbar__label'
+               role='status'
+               aria-live='polite'>{this.props.labelText}</div>
+          <div className='mdc-snackbar__actions'>
+            <button type='button' className='mdc-button mdc-snackbar__action'>{this.props.actionText}</button>
+            <button className='mdc-icon-button mdc-snackbar__dismiss material-icons' title='Dismiss'>close</button>
+          </div>
         </div>
       </div>
     )
