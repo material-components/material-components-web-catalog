@@ -123,7 +123,7 @@ class Snackbar extends Component {
     this.snackbar.listen('MDCSnackbar:closed', () => this.props.handleClosed());
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     if (this.props.isOpen) {
       this.snackbar.open();
     }
