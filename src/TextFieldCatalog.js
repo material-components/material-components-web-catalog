@@ -296,9 +296,9 @@ export const TextFieldReactTemplate = (config) => {
   ${dense ? 'dense\n' : ''}
   ${state ? state + '\n' : ''}
   ${state ? `label='${label}'\n` : ''}
-  ${leadingIcon !== '' ? `leadingIcon={<i className='material-icons'>${leadingIcon}</i>}\n` : ''}>
+  ${leadingIcon !== '' ? `leadingIcon={<i className='material-icons'>${leadingIcon}</i>}\n` : ''}
   ${trailingIcon !== '' ? `leadingIcon={<i className='material-icons'>${trailingIcon}</i>}\n` : ''}>
-</Button>`;
+</TextField>`;
 };
 
 
