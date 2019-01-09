@@ -9,6 +9,16 @@
   margin: 16px 32px;
 }
 
+.hero-button-container {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    flex-flow: column nowrap;
+  }
+}
+
 .demo-button-shaped {
   @include mdc-button-shape-radius(50%);
 }

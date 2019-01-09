@@ -34,7 +34,7 @@ export class ButtonHero extends Component {
 
   render() {
     return (
-      <div>
+      <div className='hero-button-container'>
         <button className='hero-button mdc-button' ref={this.initRipple} onClick={this.clickEvent}>
           <span className='mdc-button__label'>Text</span>
         </button>
