@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
 import Tab from '@material/react-tab';
 import TabBar from '@material/react-tab-bar';
-import './styles/HeroComponent.scss';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
-import ReactTemplates from './CodeTemplates';
+import '../styles/HeroComponent.scss';
 import {HeroOptionsComponent} from './HeroOptionsComponent';
-import html from 'html';
 import queryString from 'query-string';
-import equal from 'deep-equal';
+import ReactGA from 'react-ga';
+import {gtagTabCategory} from '../constants';
+import WebTab from './WebTab';
+import ReactTab from './ReactTab';
 
-
-const getUrlParamsFromSearch = function(search) {
+export const getUrlParamsFromSearch = function(search) {
   return queryString.parse(search);
-}
+};
 
 class HeroComponent extends Component {
   constructor(props) {
@@ -61,6 +59,7 @@ class HeroComponent extends Component {
 
 class HeroTabs extends Component {
   state = {activeIndex: 0, codeString: ''};
+  tabNames = ['Demo', 'Web', 'React'];
 
   handleActiveIndexUpdate = (activeIndex) => {
     this.setState({activeIndex});
@@ -81,7 +80,7 @@ class HeroTabs extends Component {
             activeIndex={this.state.activeIndex}
             handleActiveIndexUpdate={this.handleActiveIndexUpdate}
             className='catalog-hero-tab-bar'>
-          {['Demo', 'Web', 'React'].map((tabName, index) => {
+          {this.tabNames.map((tabName, index) => {
             return (
               <Tab className='hero-tab' key={index}>
                 <span>{tabName}</span>
@@ -91,6 +90,9 @@ class HeroTabs extends Component {
         <div className={'tab-container'}>
           {tabContents.map((content, index) => {
             if (this.state.activeIndex !== index) return null;
+
+            ReactGA.event({category: gtagTabCategory, action: 'tab_clicked', label: 'tab_clicked_' + this.tabNames[this.state.activeIndex] });
+
             return (
               <div className='tab-content' key={index}>
                 {content}
@@ -103,99 +105,6 @@ class HeroTabs extends Component {
       </React.Fragment>
     )
   }
-}
-
-const classesToRemove = [
-    ' mdc-ripple-upgraded--unbounded',
-    ' mdc-notched-outline--upgraded',
-];
-
-class WebTab extends Component {
-  htmlRef = React.createRef();
-
-  state = {codeString: ''};
-  el = null;
-
-  componentDidMount() {
-    this.initCodeString();
-  }
-
-  componentDidUpdate(prevProps) {
-    const urlParams = getUrlParamsFromSearch(prevProps.location.search);
-    const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
-
-    if (!equal(urlParams, prevUrlParams)) {
-      this.initCodeString();
-    }
-  }
-
-  initCodeString = () => {
-    let codeString = '';
-    if (this.htmlRef.current) {
-      codeString = html.prettyPrint(this.htmlRef.current.innerHTML);
-      classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
-      this.setState({codeString});
-    }
-
-    this.setState({codeString});
-  };
-
-  render() {
-    return (
-      <React.Fragment>
-        <div style={{display: 'none'}} ref={this.htmlRef}>{this.props.children}</div>
-        <SyntaxHighlighter
-            lineProps={{style: {paddingBottom: 8}}}
-            wrapLines
-            showLineNumbers
-            lineNumberStyle={{color: '#bab6b6'}}
-            className='highlight-html'
-            language='html'
-            style={prism}>{this.state.codeString}</SyntaxHighlighter>
-      </React.Fragment>
-    );
-  }
-}
-
-class ReactTab extends Component {
-  state = {codeString: ''};
-
-  initCodeString = () => {
-    const {children} = this.props;
-    const val = ReactTemplates[children.type.name](children.props.config);
-    const codeString = val ? val.replace(/\n\s*\n/g, '\n') : '';
-    this.setState({codeString});
-  };
-
-  // TODO: Convert this to pass the config object and work for componentDidUpdate
-  componentDidMount() {
-    this.initCodeString();
-  }
-
-  componentDidUpdate(prevProps) {
-    const urlParams = getUrlParamsFromSearch(prevProps.location.search);
-    const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
-
-    if (!equal(urlParams, prevUrlParams)) {
-      this.initCodeString();
-    }
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <SyntaxHighlighter
-            lineProps={{style: {paddingBottom: 8}}}
-            wrapLines
-            showLineNumbers
-            lineNumberStyle={{color: '#bab6b6'}}
-            className='highlight-html'
-            language='jsx'
-            style={prism}>{this.state.codeString}</SyntaxHighlighter>
-      </React.Fragment>
-    );
-  }
-
 }
 
 export default HeroComponent;

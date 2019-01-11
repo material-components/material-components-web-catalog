@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {imagePath} from './constants';
 import {MDCRipple} from '@material/ripple/index';
-import HeroComponent from './HeroComponent';
+import HeroComponent from './hero/HeroComponent';
 
 // ComponentCatalogPanel is the container for catalog component content,
 // that renders the hero and demo sections.
