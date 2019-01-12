@@ -6,13 +6,13 @@ import RadioGroupOption from './options/RadioGroupOption'
 export class HeroOptionsComponent extends Component {
   render() {
     return (
-        <div className='hero-options'>
-          <ul className='mdc-list mdc-list--non-interactive'>
-            {this.props.config.options && this.props.config.options.map((option, index) => {
-              return <Option key={option.name + index} option={option} {...this.props}/>
-            })}
-          </ul>
-        </div>
+      <div className={`hero-options ${this.props.className}`}>
+        <ul className='mdc-list mdc-list--non-interactive'>
+          {this.props.config.options && this.props.config.options.map((option, index) => {
+            return <Option key={option.name + index} option={option} {...this.props}/>
+          })}
+        </ul>
+      </div>
     );
   }
 }

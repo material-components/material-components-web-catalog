@@ -4,11 +4,11 @@ import equal from 'deep-equal';
 import html from 'html';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
-import {getUrlParamsFromSearch} from './HeroComponent';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {MDCRipple} from '@material/ripple/index';
-import ReactGA from 'react-ga';
 import {gtagCopyCode} from '../constants';
+
+import ReactGA from 'react-ga';
 
 const classesToRemove = [
   ' mdc-ripple-upgraded--unbounded',
@@ -30,7 +30,6 @@ export default class WebTab extends Component {
     }
   };
 
-
   componentDidMount() {
     this.initCodeString();
   }
@@ -40,10 +39,7 @@ export default class WebTab extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const urlParams = getUrlParamsFromSearch(prevProps.location.search);
-    const prevUrlParams = getUrlParamsFromSearch(this.props.location.search);
-
-    if (!equal(urlParams, prevUrlParams)) {
+    if (!equal(prevProps.config.options, this.props.config.options)) {
       this.initCodeString();
     }
   }

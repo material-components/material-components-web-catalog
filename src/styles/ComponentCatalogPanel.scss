@@ -1,0 +1,28 @@
+.component-catalog-panel {
+  margin-top: 24px;
+
+  .component-catalog-panel__hero-area {
+    display: flex;
+  }
+
+  .component-catalog-panel__hero-area__hero-options {
+    display: none;
+  }
+
+  @media (max-width: 1100px) {
+    .component-catalog-panel__hero-area {
+      display: block;
+
+    }
+    .component-catalog-panel__hero-area__hero-options {
+      display: block;
+    }
+
+    .component-catalog-panel__header__hero-options {
+      display: none;
+    }
+
+  }
+}
+
+

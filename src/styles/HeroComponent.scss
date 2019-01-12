@@ -9,12 +9,13 @@
   background-color: white;
 }
 
-.heroComponent {
+.hero-component {
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  // min-width: 800px;
   display: flex;
   flex-direction: column;
 }
@@ -29,6 +30,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+  background-color: #f7f7f7;
 }
 
 .tab-container {
