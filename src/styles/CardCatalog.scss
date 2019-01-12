@@ -43,3 +43,31 @@
 .demo-card-shaped {
   @include mdc-card-shape-radius(24px 8px, $rtl-reflexive: true);
 }
+
+.demo-card__media.mdc-card__media--square {
+  width: 110px;
+}
+
+.demo-basic-with-header,
+.demo-basic-with-text-over-media {
+  .demo-card__secondary {
+    padding-top: 1rem;
+  }
+}
+
+.demo-basic-with-text-over-media {
+  .demo-card__media-content {
+    display: flex;
+    align-items: flex-end;
+
+    .demo-card__title,
+    .demo-card__subtitle {
+      @include mdc-theme-prop(color, white);
+    }
+  }
+}
+
+.demo-ui-control .demo-card__primary-action {
+  display: flex;
+  flex-direction: row;
+}
