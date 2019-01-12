@@ -13,12 +13,9 @@ const TopAppBarVariants = {
   short: 'short',
   shortCollapsed: 'shortCollapsed',
   prominent: 'prominent',
+  prominentDense: 'prominentDense',
   fixed: 'fixed',
   dense: 'dense',
-}
-
-const getUrlParamsFromSearch = function(search) {
-  return queryString.parse(search);
 }
 
 const TopAppBarCatalog = (props) => {
@@ -38,13 +35,13 @@ const TopAppBarCatalog = (props) => {
 };
 
 const classes = (variant) => {
-  const {short, shortCollapsed, prominent, fixed, dense} = TopAppBarVariants;
+  const {short, shortCollapsed, prominent, prominentDense, fixed, dense} = TopAppBarVariants;
   return classnames('hero-top-app-bar', {
     'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
     'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
     'mdc-top-app-bar--fixed': variant === fixed,
-    'mdc-top-app-bar--prominent': variant === prominent,
-    'mdc-top-app-bar--dense': variant === dense,
+    'mdc-top-app-bar--prominent': variant === prominent || variant === prominentDense,
+    'mdc-top-app-bar--dense': variant === dense || variant === prominentDense,
   });
 }
 
@@ -65,15 +62,6 @@ export class TopAppBarHero extends Component {
     this.initTopAppBar();
   }
 
-  componentDidUpdate(prevProps) {
-    const {variant} = getUrlParamsFromSearch(this.props.location.search);
-    const {variant: prevVariant} = getUrlParamsFromSearch(prevProps.location.search);
-
-    if (variant !== prevVariant) {
-      this.initTopAppBar();
-    }
-  }
-
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
     if (this.state.topAppBar) {
@@ -89,7 +77,9 @@ export class TopAppBarHero extends Component {
   }
 
   render() {
-    const {variant, title} = getUrlParamsFromSearch(this.props.location.search);
+    const variant = this.props.config.options[1].value;
+    const title = this.props.config.options[2].value;
+
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
 
     return (
@@ -152,6 +142,33 @@ class TopAppBarDemos extends Component {
   }
 }
 
+export const TopAppBarReactTemplate = (config) => {
+  const {prominentDense, standard} = TopAppBarVariants;
+  const variant = config.options[1].value;
+  const title = config.options[2].value;
+  let variantStr = variant;
+  if (variantStr === standard) {
+    variantStr = '';
+  } else if (variantStr === prominentDense) {
+    variantStr = 'prominent dense';
+  }
+
+  return `
+    <TopAppBar
+      title=${title}
+      ${variantStr}
+      navigationIcon={<MaterialIcon
+        icon='menu'
+        onClick={() => console.log('click')}
+      />}
+      actionItems={[
+        <MaterialIcon icon='file_download' />,
+        <MaterialIcon icon='print' />,
+        <MaterialIcon icon='bookmark' />,
+      ]}
+    />
+  `;
+}
 
 const TopAppBarConfig = {
   options: [
@@ -180,6 +197,10 @@ const TopAppBarConfig = {
         {
           label: 'Prominent',
           value: 'prominent',
+        },
+        {
+          label: 'Prominent Dense',
+          value: 'prominentDense',
         },
         {
           label: 'Fixed',
