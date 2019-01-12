@@ -94,9 +94,12 @@ class HeroTabs extends Component {
             ReactGA.event({category: gtagTabCategory, action: 'tab_clicked', label: 'tab_clicked_' + this.tabNames[this.state.activeIndex] });
 
             return (
-              <div className='tab-content' key={index}>
-                {content}
-              </div>
+                <React.Fragment>
+                  <div className='tab-content' key={index}>
+                    {content}
+                  </div>
+                </React.Fragment>
+
             );
           })}
 

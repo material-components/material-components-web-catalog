@@ -14,7 +14,7 @@ const CardTypes = {
   basicButtons: 'basicButtons',
   basicIcons: 'basicIcons',
   uiControl: 'uiControl',
-}
+};
 
 const CardCatalog = (props) => {
   return (
@@ -51,7 +51,7 @@ const classes = ({className, shaped, type}) => {
     'demo-basic-with-text-over-media': type === basicMediaText,
     'demo-ui-control': type === uiControl,
   }, className);
-}
+};
 
 class Card extends Component {
   componentWillUnmount() {
@@ -95,7 +95,7 @@ const CardHeader = () => {
       <h3 className='demo-card__subtitle mdc-typography mdc-typography--subtitle2'>by Kurt Wagner</h3>
     </div>
   );
-}
+};
 
 const CardSecondary = () => {
   return (
@@ -103,7 +103,7 @@ const CardSecondary = () => {
       Visit ten places on our planet that are undergoing the biggest changes today.
     </div>
   );
-}
+};
 
 const CardMedia = ({square = false, showText = false}) => {
   return (
@@ -114,7 +114,7 @@ const CardMedia = ({square = false, showText = false}) => {
       </div> : null}   
     </div>
   );
-}
+};
 
 class CardActionIcon extends Component {
   componentWillUnmount() {

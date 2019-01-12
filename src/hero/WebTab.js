@@ -5,6 +5,10 @@ import html from 'html';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {getUrlParamsFromSearch} from './HeroComponent';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {MDCRipple} from '@material/ripple/index';
+import ReactGA from 'react-ga';
+import {gtagCopyCode} from '../constants';
 
 const classesToRemove = [
   ' mdc-ripple-upgraded--unbounded',
@@ -16,9 +20,23 @@ export default class WebTab extends Component {
 
   state = {codeString: ''};
   el = null;
+  ripples = [];
+
+  initRipple = (el) => {
+    if (el) {
+      const ripple = MDCRipple.attachTo(el);
+      ripple.unbounded = true;
+      this.ripples.push(ripple);
+    }
+  };
+
 
   componentDidMount() {
     this.initCodeString();
+  }
+
+  componentWillUnmount() {
+    this.ripples.map((ripple) => ripple.destroy());
   }
 
   componentDidUpdate(prevProps) {
@@ -53,6 +71,13 @@ export default class WebTab extends Component {
               className='highlight-html'
               language='html'
               style={prism}>{this.state.codeString}</SyntaxHighlighter>
+          <CopyToClipboard text={this.state.codeString}
+                           onCopy={() => {
+                             ReactGA.event({category: gtagCopyCode, action: 'web_code_copied', label: 'web_code_copied' });
+                             this.setState({copied: true})
+                           }}>
+            <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>file_copy</button>
+          </CopyToClipboard>
         </React.Fragment>
     );
   }

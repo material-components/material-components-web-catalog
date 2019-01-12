@@ -5,9 +5,22 @@ import React from 'react';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {getUrlParamsFromSearch} from './HeroComponent';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {MDCRipple} from '@material/ripple/index';
+import ReactGA from 'react-ga';
+import {gtagCopyCode} from '../constants';
 
 export default class ReactTab extends Component {
   state = {codeString: ''};
+  ripples = [];
+
+  initRipple = (el) => {
+    if (el) {
+      const ripple = MDCRipple.attachTo(el);
+      ripple.unbounded = true;
+      this.ripples.push(ripple);
+    }
+  };
 
   initCodeString = () => {
     const {children} = this.props;
@@ -41,6 +54,13 @@ export default class ReactTab extends Component {
               className='highlight-html'
               language='jsx'
               style={prism}>{this.state.codeString}</SyntaxHighlighter>
+          <CopyToClipboard text={this.state.codeString}
+                           onCopy={() => {
+                             ReactGA.event({category: gtagCopyCode, action: 'react_code_copied', label: 'react_code_copied' });
+                             this.setState({copied: true})
+                           }}>
+            <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>file_copy</button>
+          </CopyToClipboard>
         </React.Fragment>
     );
   }

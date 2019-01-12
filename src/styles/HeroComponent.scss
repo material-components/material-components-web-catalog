@@ -19,9 +19,12 @@
   flex-direction: column;
 }
 
-.tab-content {
+.tab-content,
+.tab-container {
   display: flex;
   height: 100%;
+  width: 100%;
+  max-width: 100%;
   flex: 1 1 auto;
   flex-flow: row nowrap;
   align-items: center;
@@ -29,13 +32,8 @@
 }
 
 .tab-container {
-  display: flex;
-  width: 100%;
-  flex: 1 1 auto;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
   min-height: 360px;
+  position: relative;
 };
 
 .highlight-html {
@@ -68,4 +66,10 @@
   .catalog-tf-list-item {
     min-height: 60px;
   }
+}
+
+.copy-all-button.copy-all-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }

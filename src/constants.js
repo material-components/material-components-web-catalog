@@ -2,7 +2,8 @@ const imagePath = `${window.location.origin}${window.location.pathname}static/me
 
 const gtagCategory = 'Component Interaction';
 const gtagTabCategory = 'Demo Tab Interaction';
+const gtagCopyCode = 'Copy Code Interaction';
 const gtagButtonAction = 'button_click';
 const gtagTextFieldAction = 'text_field_click';
 
-export {imagePath, gtagButtonAction, gtagCategory, gtagTabCategory, gtagTextFieldAction};
+export {imagePath, gtagButtonAction, gtagCategory, gtagTabCategory, gtagCopyCode, gtagTextFieldAction};
