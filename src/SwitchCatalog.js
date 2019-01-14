@@ -41,7 +41,8 @@ class Switch extends Component {
           <div className='mdc-switch__thumb-underlay'>
             <div className='mdc-switch__thumb'>
                 <input type='checkbox' id={this.props.inputId} className='mdc-switch__native-control' role='switch'
-                       defaultChecked={this.props.defaultChecked} disabled={this.props.disabled} />
+                       aria-checked={this.props.defaultChecked} defaultChecked={this.props.defaultChecked}
+                       disabled={this.props.disabled} />
             </div>
           </div>
         </div>

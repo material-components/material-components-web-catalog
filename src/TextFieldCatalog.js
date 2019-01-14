@@ -6,7 +6,6 @@ import ReactGA from 'react-ga';
 
 import './styles/TextFieldCatalog.scss';
 import {gtagCategory, gtagTextFieldAction} from './constants';
-import { throws } from 'assert';
 
 export const TextField = (props) => {
   const {

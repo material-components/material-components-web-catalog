@@ -4,7 +4,6 @@ import {MDCTopAppBar} from '@material/top-app-bar/index';
 
 import {MDCRipple} from '@material/ripple/index';
 import classnames from 'classnames';
-import queryString from 'query-string';
 
 import './styles/TopAppBarCatalog.scss';
 
@@ -16,7 +15,7 @@ const TopAppBarVariants = {
   prominentDense: 'prominentDense',
   fixed: 'fixed',
   dense: 'dense',
-}
+};
 
 const TopAppBarCatalog = (props) => {
   return (
