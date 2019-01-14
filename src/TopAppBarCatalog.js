@@ -1,8 +1,22 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
+import {MDCTopAppBar} from '@material/top-app-bar/index';
 
 import {MDCRipple} from '@material/ripple/index';
+import classnames from 'classnames';
+import queryString from 'query-string';
+
 import './styles/TopAppBarCatalog.scss';
+
+const TopAppBarVariants = {
+  standard: 'standard',
+  short: 'short',
+  shortCollapsed: 'shortCollapsed',
+  prominent: 'prominent',
+  prominentDense: 'prominentDense',
+  fixed: 'fixed',
+  dense: 'dense',
+}
 
 const TopAppBarCatalog = (props) => {
   return (
@@ -13,13 +27,28 @@ const TopAppBarCatalog = (props) => {
       designLink='https://material.io/go/design-app-bar-top'
       docsLink='https://material.io/components/web/catalog/top-app-bar/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-top-app-bar'
+      initialConfig={TopAppBarConfig}
       demos={<TopAppBarDemos {...props}/>}
+      {...props}
     />
   );
 };
 
+const classes = (variant) => {
+  const {short, shortCollapsed, prominent, prominentDense, fixed, dense} = TopAppBarVariants;
+  return classnames('hero-top-app-bar', {
+    'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
+    'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
+    'mdc-top-app-bar--fixed': variant === fixed,
+    'mdc-top-app-bar--prominent': variant === prominent || variant === prominentDense,
+    'mdc-top-app-bar--dense': variant === dense || variant === prominentDense,
+  });
+}
+
 export class TopAppBarHero extends Component {
 
+  state = {topAppBar: undefined};
+  topAppBarRef = React.createRef();
   ripples = [];
 
   initRipple = icon => {
@@ -29,29 +58,52 @@ export class TopAppBarHero extends Component {
     this.ripples.push(current);
   }
 
+  componentDidMount() {
+    this.initTopAppBar();
+  }
+
   componentWillUnmount() {
     this.ripples.forEach(ripple => ripple.destroy());
+    if (this.state.topAppBar) {
+      this.state.topAppBar.destroy();
+    }
+  }
+
+  initTopAppBar = () => {
+    if (this.state.topAppBar) {
+      this.state.topAppBar.destroy();
+    }
+    this.setState({topAppBar: new MDCTopAppBar(this.topAppBarRef.current)});
   }
 
   render() {
+    const variant = this.props.config.options[1].value;
+    const title = this.props.config.options[2].value;
+
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
 
     return (
-      <div className='hero-top-app-bar'>
-        <header className='mdc-top-app-bar'>
+      <div className={classes(variant)}>
+        <header className='mdc-top-app-bar' ref={this.topAppBarRef}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
               <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
-              <span className='mdc-top-app-bar__title'>San Francisco</span>
+              <span className='mdc-top-app-bar__title'>{title}</span>
             </section>
-            <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-              <button className={topAppBarIconsClasses} aria-label='Download' ref={this.initRipple}>file_download</button>
-              <button className={topAppBarIconsClasses} aria-label='Print this page' ref={this.initRipple}>print</button>
-              <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
-            </section>
+            {this.renderActionItems(topAppBarIconsClasses)}
           </div>
         </header>
       </div>
+    );
+  }
+
+  renderActionItems(topAppBarIconsClasses) {
+    return (
+      <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
+        <button className={topAppBarIconsClasses} aria-label='Download' ref={this.initRipple}>file_download</button>
+        <button className={topAppBarIconsClasses} aria-label='Print this page' ref={this.initRipple}>print</button>
+        <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
+      </section>
     );
   }
 }
@@ -89,5 +141,86 @@ class TopAppBarDemos extends Component {
     );
   }
 }
+
+export const TopAppBarReactTemplate = (config) => {
+  const {prominentDense, standard} = TopAppBarVariants;
+  const variant = config.options[1].value;
+  const title = config.options[2].value;
+  let variantStr = variant;
+  if (variantStr === standard) {
+    variantStr = '';
+  } else if (variantStr === prominentDense) {
+    variantStr = 'prominent dense';
+  }
+
+  return `
+    <TopAppBar
+      title=${title}
+      ${variantStr}
+      navigationIcon={<MaterialIcon
+        icon='menu'
+        onClick={() => console.log('click')}
+      />}
+      actionItems={[
+        <MaterialIcon icon='file_download' />,
+        <MaterialIcon icon='print' />,
+        <MaterialIcon icon='bookmark' />,
+      ]}
+    />
+  `;
+}
+
+const TopAppBarConfig = {
+  options: [
+    {
+      type: 'label',
+      name: 'Options',
+    },
+    {
+      type: 'radiogroup',
+      name: 'Variants',
+      urlParam: 'variant',
+      value: 'standard',
+      options: [
+        {
+          label: 'Standard',
+          value: 'standard',
+        },
+        {
+          label: 'Short',
+          value: 'short',
+        },
+        {
+          label: 'ShortCollapsed',
+          value: 'shortCollapsed',
+        },
+        {
+          label: 'Prominent',
+          value: 'prominent',
+        },
+        {
+          label: 'Prominent Dense',
+          value: 'prominentDense',
+        },
+        {
+          label: 'Fixed',
+          value: 'fixed',
+        },
+        {
+          label: 'Dense',
+          value: 'dense',
+        },
+      ],
+    },
+    {
+      type: 'textfield',
+      name: 'Title',
+      label: 'Title',
+      urlParam: 'title',
+      value: 'San Francisco, CA'
+    }
+  ],
+};
+
 
 export default TopAppBarCatalog;

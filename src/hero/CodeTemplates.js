@@ -1,4 +1,5 @@
 import {CardReactTemplate} from '../CardCatalog';
+import {TopAppBarReactTemplate} from '../TopAppBarCatalog';
 import {ButtonReactTemplate} from '../ButtonCatalog';
 import {TextFieldReactTemplate} from '../TextFieldCatalog';
 
@@ -7,6 +8,7 @@ const ReactTemplates = {
   'CardHero': (config) => CardReactTemplate(config),
   'CheckboxHero': () => {},
   'TextFieldHero': (config) => TextFieldReactTemplate(config),
+  'TopAppBarHero': (config) => TopAppBarReactTemplate(config),
 };
 
 export default ReactTemplates;
