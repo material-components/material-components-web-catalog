@@ -98,4 +98,12 @@
 
 .loadComponent-exit {
   display: none;
+
+  &-active {
+    display: none;
+  }
+
+  &-done {
+    display: none;
+  }
 }
