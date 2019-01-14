@@ -1,6 +1,10 @@
 .component-catalog-panel {
   margin-top: 24px;
 
+  &__header {
+    flex: 1 2 auto;
+  }
+
   .component-catalog-panel__hero-area {
     display: flex;
   }

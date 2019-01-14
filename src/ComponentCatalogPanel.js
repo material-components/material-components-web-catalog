@@ -69,7 +69,7 @@ class ComponentCatalogPanel extends Component {
   }
 
   render() {
-    const {designLink, description, demos, docsLink, hero, sourceLink, title, initialConfig, config} = this.props;
+    const {designLink, description, demos, docsLink, hero, sourceLink, title, initialConfig} = this.props;
     const {localConfig} = this.state;
     let heroComponent;
 
