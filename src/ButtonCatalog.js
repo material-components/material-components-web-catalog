@@ -40,18 +40,18 @@ export class ButtonHeroLegacy extends Component {
 
   render() {
     return (
-      <div>
+      <div className='hero-button-container'>
         <button className='hero-button mdc-button' ref={this.initRipple} onClick={this.clickEvent}>
-          Text
+          <span className='mdc-button__label'>Text</span>
         </button>
         <button className='hero-button mdc-button mdc-button--raised' ref={this.initRipple} onClick={this.clickEvent}>
-          Raised
+          <span className='mdc-button__label'>Raised</span>
         </button>
         <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple} onClick={this.clickEvent}>
-          Unelevated
+          <span className='mdc-button__label'>Unelevated</span>
         </button>
         <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple} onClick={this.clickEvent}>
-          Outlined
+          <span className='mdc-button__label'>Outlined</span>
         </button>
       </div>
     );
@@ -104,14 +104,14 @@ class ButtonDemos extends Component {
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
-          Default
+          <span className='mdc-button__label'>Default</span>
         </button>
         <button className={`demo-button mdc-button mdc-button--dense ${variantClass}`} ref={this.initRipple}>
-          Dense
+          <span className='mdc-button__label'>Dense</span>
         </button>
         <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
           <i className='material-icons mdc-button__icon'>favorite</i>
-          Icon
+          <span className='mdc-button__label'>Icon</span>
         </button>
       </div>
     );

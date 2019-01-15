@@ -17,8 +17,8 @@ class ComponentCatalogPanel extends Component {
     if (!url) return;
     return (
       <a href={url} role='listitem' className='mdc-list-item' target='_blank' ref={this.initRipple}>
-        <span className='mdc-list-item__graphic'>
-          <img src={imageSource} className='resources-icon' alt={`${title} icon`}/>
+        <span className='mdc-list-item__graphic resources-graphic'>
+          <img src={imageSource} className='resources-graphic' alt={`${title} icon`}/>
         </span>
         {title}
       </a>
