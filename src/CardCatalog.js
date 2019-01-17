@@ -293,7 +293,7 @@ const CardConfig = {
       name: 'Options',
     },
     {
-      type: 'radiogroup',
+      type: 'select',
       name: 'Type',
       urlParam: 'type',
       value: 'basic', // default select first option

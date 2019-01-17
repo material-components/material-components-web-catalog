@@ -1,12 +1,21 @@
 .component-catalog-panel {
   margin-top: 24px;
 
+  &.component-catalog-panel--v2-hero &__header {
+    flex: 1 1 40%;
+  }
+
   &__header {
-    flex: 1 2 auto;
+    flex: 1 1 10%;
   }
 
   .component-catalog-panel__hero-area {
     display: flex;
+  }
+
+  .hero {
+    margin-left: 24px;
+    flex: 2 2 auto;
   }
 
   .component-catalog-panel__hero-area__hero-options {
@@ -18,6 +27,11 @@
       display: block;
 
     }
+
+    .hero {
+      margin-left: 0;
+    }
+
     .component-catalog-panel__hero-area__hero-options {
       display: block;
     }

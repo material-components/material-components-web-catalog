@@ -17,14 +17,20 @@ class ComponentCatalogPanel extends Component {
   constructor(props) {
     super(props);
     // Deep copy for local object
-    const localConfig = JSON.parse(JSON.stringify(this.props.initialConfig));
-    const urlParams = getUrlParamsFromSearch(this.props.location.search);
+    let localConfig;
+    if (this.props.initialConfig) {
+      localConfig = JSON.parse(JSON.stringify(this.props.initialConfig));
+      const urlParams = getUrlParamsFromSearch(this.props.location.search);
+      localConfig = this.copyUrlParamsToLocalConfig(localConfig, urlParams);
+    }
     this.state = {
-      localConfig: this.copyUrlParamsToLocalConfig(localConfig, urlParams),
+      localConfig,
     };
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (!this.props.location) return;
+
     const search = getUrlParamsFromSearch(this.props.location.search);
     const prevSearch = getUrlParamsFromSearch(prevProps.location.search);
     if (!equal(search, prevSearch)) {
@@ -81,7 +87,7 @@ class ComponentCatalogPanel extends Component {
     }
 
     return(
-      <section className='component-catalog-panel'>
+      <section className={`component-catalog-panel ${initialConfig ? 'component-catalog-panel--v2-hero' : ''}`}>
         <div className='component-catalog-panel__hero-area'>
           <div className='component-catalog-panel__header'>
             <h1 className='mdc-typography--headline3'>{title}</h1>
