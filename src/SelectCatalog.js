@@ -98,7 +98,7 @@ class Select extends Component {
       <React.Fragment>
         <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <select 
+          <select
             id={selectId} className='mdc-select__native-control' defaultValue={defaultValue}>
             {
               options.map((opt, index) => (
@@ -140,7 +140,7 @@ class Select extends Component {
                     key={index}
                     aria-selected='false'
                     role='option'
-                    className='mdc-list-item' 
+                    className='mdc-list-item'
                   >
                     {opt.label}
                   </li>
@@ -166,8 +166,8 @@ class Select extends Component {
       hasHeader = true,
     } = this.props;
 
-    const select = native ? 
-      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) : 
+    const select = native ?
+      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) :
       this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
 
     return (

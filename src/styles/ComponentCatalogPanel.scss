@@ -4,6 +4,10 @@ $hero-section-max-width: 1200px;
 .component-catalog-panel {
   margin-top: 24px;
 
+  &.component-catalog-panel--v2-hero &__header {
+    flex: 1 1 40%;
+  }
+
   &__header {
     display: flex;
     flex-flow: column wrap;
