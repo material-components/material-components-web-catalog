@@ -126,7 +126,6 @@ class Select extends Component {
   }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <React.Fragment>
         <div className={`mdc-select ${variantClass} demo-enhanced-select`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
@@ -150,7 +149,6 @@ class Select extends Component {
           </div>
           <Indicator isEnhanced selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </React.Fragment>
     );
   }
 
