@@ -91,20 +91,15 @@ class ComponentCatalogPanel extends Component {
       <section className={`component-catalog-panel ${initialConfig ? 'component-catalog-panel--v2-hero' : ''}`}>
         <div className='component-catalog-panel__hero-area'>
           <div className='component-catalog-panel__header'>
-            <h1 className='mdc-typography--headline3'>{title}</h1>
-            <p className='mdc-typography--body1'>{description}</p>
+            <h1 className='component-catalog-panel__header-elements mdc-typography--headline3'>{title}</h1>
+            <p className='component-catalog-panel__header-elements mdc-typography--body1'>{description}</p>
+            {heroComponent}
             <HeroOptionsComponent
-              className='component-catalog-panel__header__hero-options'
+              className=' component-catalog-panel__header-elements component-catalog-panel__header__hero-options'
               config={localConfig}
               {...this.props}
             />
           </div>
-          {heroComponent}
-          <HeroOptionsComponent
-            className='component-catalog-panel__hero-area__hero-options'
-            config={localConfig}
-            {...this.props}
-          />
         </div>
 
         <h2 className='demo-title mdc-typography--headline6'>Resources</h2>

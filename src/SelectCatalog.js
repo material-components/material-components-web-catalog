@@ -67,7 +67,7 @@ class Select extends Component {
     if (!selectEl) return;
     const select = new MDCSelect(selectEl);
     this.select = select;
-  }
+  };
 
   componentDidMount() {
     if (this.props.native) return;
