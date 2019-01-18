@@ -18,13 +18,17 @@ export default class SelectOption extends Component {
   render() {
     const {name, options, value: defaultValue} = this.props;
     return (
-      <Select
-        options={options}
-        title={name}
-        defaultValue={defaultValue}
-        indicatorText={name}
-        onChange={this.onChange}
-      />
+      <li className='mdc-list-item catalog-tf-list-item'>
+        <Select
+          variantClass='mdc-select--outlined'
+          hasHeader={false}
+          options={options}
+          title={name}
+          defaultValue={defaultValue}
+          indicatorText={name}
+          onChange={this.onChange}
+        />
+      </li>
     );
   }
 }

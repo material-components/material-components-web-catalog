@@ -86,11 +86,16 @@ class Select extends Component {
     this.select.destroy();
   }
 
-  renderNativeSelectVariant({title, defaultValue, variantClass, options, indicatorText = 'Fruit'}) {
+  renderNativeSelectVariant({
+    title,
+    defaultValue,
+    variantClass,
+    options,
+    indicatorText = 'Fruit',
+  }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
+      <React.Fragment>
         <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <select 
@@ -109,16 +114,20 @@ class Select extends Component {
           </select>
           <Indicator selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 
-  renderEnhancedSelectVariant({title, variantClass, options, indicatorText = 'Fruit'}) {
+  renderEnhancedSelectVariant({
+    title,
+    variantClass,
+    options,
+    indicatorText = 'Fruit',
+  }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
-        <div className={`mdc-select demo-enhanced-width ${variantClass}`} ref={this.initSelect}>
+      <React.Fragment>
+        <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
           <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-width'>
@@ -141,16 +150,33 @@ class Select extends Component {
           </div>
           <Indicator isEnhanced selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 
   render() {
-    const {native, title, variantClass = '', defaultValue, options, onChange, indicatorText} = this.props;
-    if (native) {
-      return this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
-    }
-    return this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
+    const {
+      native,
+      title,
+      variantClass = '',
+      defaultValue,
+      options,
+      onChange,
+      indicatorText,
+      hasHeader = true,
+    } = this.props;
+
+    const select = native ? 
+      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) : 
+      this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
+
+    return (
+      <div>
+        {hasHeader ? <h3 className='mdc-typography--subtitle1'>{title}</h3> : null}
+        {select}
+      </div>
+    )
+
   }
 }
 
@@ -175,19 +201,19 @@ class SelectDemos extends Component {
       <div>
         <div className='select-row'>
           <Select native options={options} title='Filled' />
-          <Select options={options} title='Filled Enhanced' />
+          <Select options={options} title='Filled Enhanced' variantClass='demo-enhanced-width' />
         </div>
         <div className='select-row'>
           <Select native options={options} title='Outlined' variantClass={outlinedClass} />
-          <Select options={options} title='Outlined Enhanced' variantClass={outlinedClass} />
+          <Select options={options} title='Outlined Enhanced' variantClass={`${outlinedClass} demo-enhanced-width`} />
         </div>
         <div className='select-row'>
           <Select native options={options} title='Shaped Filled' variantClass='demo-select-box-shaped' />
-          <Select options={options} title='Shaped Filled Enhanced' variantClass='demo-select-box-shaped' />
+          <Select options={options} title='Shaped Filled Enhanced' variantClass='demo-enhanced-width demo-select-box-shaped' />
         </div>
         <div className='select-row'>
           <Select native options={options} title='Shaped Outlined' variantClass={`${outlinedClass} demo-select-outline-shaped`} />
-          <Select options={options} title='Shaped Outlined Enhanced' variantClass={`${outlinedClass} demo-select-outline-shaped`} />
+          <Select options={options} title='Shaped Outlined Enhanced' variantClass={`${outlinedClass} demo-enhanced-width demo-select-outline-shaped`} />
         </div>
       </div>
     );
@@ -196,11 +222,11 @@ class SelectDemos extends Component {
 
 const Indicator = ({variantClass, isEnhanced, text, selectId}) => {
   if (isOutlinedVariant(variantClass)) {
-    return (<Outline isEnhanced text='Fruit' selectId={selectId}/>);
+    return (<Outline isEnhanced={isEnhanced} text={text} selectId={selectId}/>);
   }
   return (
     <React.Fragment>
-      <Label isEnhanced text='Fruit' selectId={selectId}/>
+      <Label isEnhanced={isEnhanced} text={text} selectId={selectId}/>
       <LineRipple/>
     </React.Fragment>
   );

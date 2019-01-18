@@ -10,13 +10,11 @@ import ReactTab from './ReactTab';
 class HeroComponent extends Component {
   render() {
     return (
-      <React.Fragment>
-        <div className='hero-component'>
-          <HeroTabs {...this.props}>
-            {React.cloneElement(this.props.children, {...this.props.children.props, ...{config: this.props.config}})}
-          </HeroTabs>
-        </div>
-      </React.Fragment>
+      <div className='hero-component'>
+        <HeroTabs {...this.props}>
+          {React.cloneElement(this.props.children, {...this.props.children.props, ...{config: this.props.config}})}
+        </HeroTabs>
+      </div>
     )
   }
 }

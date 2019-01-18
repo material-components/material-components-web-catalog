@@ -34,7 +34,8 @@ class ComponentCatalogPanel extends Component {
     const search = getUrlParamsFromSearch(this.props.location.search);
     const prevSearch = getUrlParamsFromSearch(prevProps.location.search);
     if (!equal(search, prevSearch)) {
-      this.setState({localConfig: this.copyUrlParamsToLocalConfig(this.state.localConfig, search)});
+      const localConfig = this.copyUrlParamsToLocalConfig(this.state.localConfig, search);
+      this.setState({localConfig});
     }
   }
 
@@ -51,7 +52,7 @@ class ComponentCatalogPanel extends Component {
         config.options.forEach((opt) => {
           if (key === opt.urlParam) {
             // To be cleaned up with a standardized model when all option types are defined.
-            if (opt.type === 'radiogroup' || opt.type === 'textfield') {
+            if (opt.type === 'select' || opt.type === 'radiogroup' || opt.type === 'textfield') {
               opt.value = urlParams[key];
             }
           }
