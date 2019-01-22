@@ -1,11 +1,14 @@
+$hero-section-height: 600px;
+$hero-section-max-width: 1200px;
+
 .component-catalog-panel {
   margin-top: 24px;
 
   &__header {
     display: flex;
     flex-flow: column wrap;
-    max-width: 1200px;
-    max-height: 600px;
+    max-width: $hero-section-max-width;
+    max-height: $hero-section-height;
     align-items: start;
 
     &.component-catalog-panel--v2-hero {
@@ -25,8 +28,8 @@
     order: 4;
     flex: 1 1 100%;
     width: 100%;
-    max-width: 900px;
-    height: 600px;
+    max-width: $hero-section-max-width;
+    height: $hero-section-height;
   }
 
   .hero-options {
@@ -36,12 +39,11 @@
   .hero-component {
     order: 4;
     flex: 1 1 100%;
-    height: 600px;
+    height: $hero-section-height;
   }
-
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: $hero-section-max-width) {
   .component-catalog-panel {
     &.component-catalog-panel--v2-hero .hero-component {
       order: 0;
@@ -50,7 +52,7 @@
     }
 
     &__header-elements {
-      max-width: 1200px;
+      max-width: none;
     }
 
     &__header {
@@ -59,4 +61,3 @@
     }
   }
 }
-

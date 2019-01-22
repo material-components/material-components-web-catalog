@@ -28,7 +28,7 @@ class ComponentCatalogPanel extends Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (!this.props.location) return;
 
     const search = getUrlParamsFromSearch(this.props.location.search);
@@ -51,17 +51,14 @@ class ComponentCatalogPanel extends Component {
       if (config.options) {
         config.options.forEach((opt) => {
           if (key === opt.urlParam) {
-            // To be cleaned up with a standardized model when all option types are defined.
-            if (opt.type === 'select' || opt.type === 'radiogroup' || opt.type === 'textfield') {
-              opt.value = urlParams[key];
-            }
+            opt.value = urlParams[key];
           }
         });
       }
     });
 
     return config;
-  }
+  };
 
   renderResource(title, imageSource, url) {
     if (!url) return;
