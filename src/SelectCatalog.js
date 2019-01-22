@@ -60,90 +60,160 @@ function isOutlinedVariant(variantClass) {
   return variantClass.indexOf(outlinedClass) >= 0;
 }
 
-class SelectDemos extends Component {
-  selects = [];
+class Select extends Component {
+  select;
 
   initSelect = (selectEl) => {
     if (!selectEl) return;
     const select = new MDCSelect(selectEl);
-    this.selects.push(select);
+    this.select = select;
+  };
+
+  componentDidMount() {
+    if (this.props.native) return;
+    if (this.props.onChange) {
+      this.select.listen('MDCSelect:change', (event) => {
+        this.props.onChange(event.detail.value);
+      });
+    }
+
+    if (this.props.defaultValue) {
+      this.select.value = this.props.defaultValue;
+    }
   }
 
   componentWillUnmount() {
-    this.selects.forEach(select => select.destroy());
+    this.select.destroy();
   }
 
-  renderNativeSelectVariant(title, variantClass) {
+  renderNativeSelectVariant({
+    title,
+    defaultValue,
+    variantClass,
+    options,
+    indicatorText = 'Fruit',
+  }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
+      <React.Fragment>
         <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <select id={selectId} className='mdc-select__native-control' defaultValue=''>
-            <option value='' disabled></option>
-            <option value='apple'>
-              Apple
-            </option>
-            <option value='orange'>
-              Orange
-            </option>
-            <option value='banana'>
-              Banana
-            </option>
+          <select 
+            id={selectId} className='mdc-select__native-control' defaultValue={defaultValue}>
+            {
+              options.map((opt, index) => (
+                <option
+                  value={opt.value}
+                  disabled={opt.disabled}
+                  key={index}
+                >
+                  {opt.label}
+                </option>
+              ))
+            }
           </select>
-          <Indicator selectId={selectId} text='Fruit' variantClass={variantClass}/>
+          <Indicator selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 
-  renderEnhancedSelectVariant(title, variantClass) {
+  renderEnhancedSelectVariant({
+    title,
+    variantClass,
+    options,
+    indicatorText = 'Fruit',
+  }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <div>
-        <h3 className='mdc-typography--subtitle1'>{title}</h3>
-        <div className={`mdc-select demo-enhanced-width ${variantClass}`} ref={this.initSelect}>
+      <React.Fragment>
+        <div className={`mdc-select ${variantClass} demo-enhanced-select`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
-          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-width'>
+          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-select'>
             <ul className='mdc-list'>
-              <li className='mdc-list-item' role='option' aria-selected='false' data-value='' disabled></li>
-              <li className='mdc-list-item' role='option' aria-selected='false' data-value='apple'>
-                Apple
-              </li>
-              <li className='mdc-list-item' role='option' aria-selected='false' data-value='orange'>
-                Orange
-              </li>
-              <li className='mdc-list-item' role='option' aria-selected='false' data-value='banana'>
-                Banana
-              </li>
+              {
+                options.map((opt, index) => (
+                  <li
+                    data-value={opt.value}
+                    disabled={opt.disabled}
+                    key={index}
+                    aria-selected='false'
+                    role='option'
+                    className='mdc-list-item' 
+                  >
+                    {opt.label}
+                  </li>
+                ))
+              }
             </ul>
           </div>
-          <Indicator isEnhanced selectId={selectId} text='Fruit' variantClass={variantClass}/>
+          <Indicator isEnhanced selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 
   render() {
+    const {
+      native,
+      title,
+      variantClass = '',
+      defaultValue,
+      options,
+      onChange,
+      indicatorText,
+      hasHeader = true,
+    } = this.props;
+
+    const select = native ? 
+      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) : 
+      this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
+
+    return (
+      <div>
+        {hasHeader ? <h3 className='mdc-typography--subtitle1'>{title}</h3> : null}
+        {select}
+      </div>
+    )
+
+  }
+}
+
+class SelectDemos extends Component {
+  render() {
+    const options = [{
+      value: '',
+      label: '',
+      disabled: true
+    }, {
+      value: 'apple',
+      label: 'Apple'
+    }, {
+      value: 'orange',
+      label: 'Orange'
+    }, {
+      value: 'Banana',
+      label: 'banana'
+    }];
+
     return (
       <div>
         <div className='select-row'>
-          {this.renderNativeSelectVariant('Filled', '')}
-          {this.renderEnhancedSelectVariant('Filled Enhanced', '')}
+          <Select native options={options} title='Filled' />
+          <Select options={options} title='Filled Enhanced' variantClass='demo-enhanced-width' />
         </div>
         <div className='select-row'>
-          {this.renderNativeSelectVariant('Outlined', outlinedClass)}
-          {this.renderEnhancedSelectVariant('Outlined Enhanced', outlinedClass)}
+          <Select native options={options} title='Outlined' variantClass={outlinedClass} />
+          <Select options={options} title='Outlined Enhanced' variantClass={`${outlinedClass} demo-enhanced-width`} />
         </div>
         <div className='select-row'>
-          {this.renderNativeSelectVariant('Shaped Filled', 'demo-select-box-shaped')}
-          {this.renderEnhancedSelectVariant('Shaped Filled Enhanced', 'demo-select-box-shaped')}
+          <Select native options={options} title='Shaped Filled' variantClass='demo-select-box-shaped' />
+          <Select options={options} title='Shaped Filled Enhanced' variantClass='demo-enhanced-width demo-select-box-shaped' />
         </div>
         <div className='select-row'>
-          {this.renderNativeSelectVariant('Shaped Outlined', `${outlinedClass} demo-select-outline-shaped`)}
-          {this.renderEnhancedSelectVariant('Shaped Outlined Enhanced', `${outlinedClass} demo-select-outline-shaped`)}
+          <Select native options={options} title='Shaped Outlined' variantClass={`${outlinedClass} demo-select-outline-shaped`} />
+          <Select options={options} title='Shaped Outlined Enhanced' variantClass={`${outlinedClass} demo-enhanced-width demo-select-outline-shaped`} />
         </div>
       </div>
     );
@@ -152,11 +222,11 @@ class SelectDemos extends Component {
 
 const Indicator = ({variantClass, isEnhanced, text, selectId}) => {
   if (isOutlinedVariant(variantClass)) {
-    return (<Outline isEnhanced text='Fruit' selectId={selectId}/>);
+    return (<Outline isEnhanced={isEnhanced} text={text} selectId={selectId}/>);
   }
   return (
     <React.Fragment>
-      <Label isEnhanced text='Fruit' selectId={selectId}/>
+      <Label isEnhanced={isEnhanced} text={text} selectId={selectId}/>
       <LineRipple/>
     </React.Fragment>
   );
@@ -181,3 +251,4 @@ const Label = ({text, selectId, isEnhanced}) => isEnhanced ? (
 );
 
 export default SelectCatalog;
+export {Select};

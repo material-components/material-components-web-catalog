@@ -94,7 +94,7 @@ const TextFieldCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<TextFieldHero />}
     title='Text Field'
-    description='Text fields allow users to input, edit, and select text. Text fields typically reside in forms but can appear in other places, like dialog boxes and search.'
+    description='Text fields allow users to input, edit, and select text.'
     designLink='https://material.io/go/design-text-fields'
     docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
@@ -122,8 +122,9 @@ class TextFieldHero extends Component {
   initRef = (el) => {
     if (el) {
       this.tfEl = el;
+      this.textField = new MDCTextField(el);
     }
-  }
+  };
 
   componentDidUpdate() {
     if (this.textField) {

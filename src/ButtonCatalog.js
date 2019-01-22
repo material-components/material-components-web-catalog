@@ -145,7 +145,7 @@ const ButtonConfig = {
       name: 'Options',
     },
     {
-      type: 'radiogroup',
+      type: 'select',
       name: 'Variants',
       urlParam: 'type',
       value: 'text', // default select first option
@@ -194,7 +194,7 @@ export const ButtonReactTemplate = (config) => {
   const state = '';
 
   return `<Button
-  ${type ? type + '\n' : ''}
+  ${type && type !== 'text' ? type + '\n' : ''}
   ${dense ? 'dense\n' : ''}
   ${state ? state + '\n' : ''}
   ${icon !== '' ? 'icon={<i className=\'material-icons\'>' + icon + '</i>}\n' : ''}>
