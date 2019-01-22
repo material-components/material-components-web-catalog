@@ -127,10 +127,10 @@ class Select extends Component {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
       <React.Fragment>
-        <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
+        <div className={`mdc-select ${variantClass} demo-enhanced-select`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
-          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-width'>
+          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-select'>
             <ul className='mdc-list'>
               {
                 options.map((opt, index) => (

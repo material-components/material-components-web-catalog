@@ -1,12 +1,16 @@
 .component-catalog-panel {
   margin-top: 24px;
 
-  &.component-catalog-panel--v2-hero &__header {
-    flex: 1 1 auto;
+  &__header {
     display: flex;
     flex-flow: column wrap;
     max-width: 1200px;
-    max-height: 600px
+    max-height: 600px;
+    align-items: start;
+
+    &.component-catalog-panel--v2-hero {
+      flex: 1 1 auto;
+    }
   }
 
   &__hero-area {
@@ -18,7 +22,11 @@
   }
 
   .hero {
-    margin-left: 24px;
+    order: 4;
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 900px;
+    height: 600px;
   }
 
   .hero-options {
