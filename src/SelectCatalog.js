@@ -98,7 +98,7 @@ class Select extends Component {
       <React.Fragment>
         <div className={`mdc-select ${variantClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
-          <select 
+          <select
             id={selectId} className='mdc-select__native-control' defaultValue={defaultValue}>
             {
               options.map((opt, index) => (
@@ -126,7 +126,6 @@ class Select extends Component {
   }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-      <React.Fragment>
         <div className={`mdc-select ${variantClass} demo-enhanced-select`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
@@ -140,7 +139,7 @@ class Select extends Component {
                     key={index}
                     aria-selected='false'
                     role='option'
-                    className='mdc-list-item' 
+                    className='mdc-list-item'
                   >
                     {opt.label}
                   </li>
@@ -150,7 +149,6 @@ class Select extends Component {
           </div>
           <Indicator isEnhanced selectId={selectId} text={indicatorText} variantClass={variantClass}/>
         </div>
-      </React.Fragment>
     );
   }
 
@@ -166,8 +164,8 @@ class Select extends Component {
       hasHeader = true,
     } = this.props;
 
-    const select = native ? 
-      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) : 
+    const select = native ?
+      this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) :
       this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
 
     return (
