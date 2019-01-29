@@ -1,30 +1,28 @@
 import React, {Component} from 'react';
 import {updateUrl} from '../HeroOptionsComponent';
 import {ChipSet, Chip} from '@material/react-chips';
-import equal from 'deep-equal';
 
 import '@material/react-chips/index.scss';
 
 export default class FilterChipOption extends Component {
-  state = {selectedChipIds: []};
+  state = {selectedChipIds: this.props.value ? this.props.value : []};
+  chips = new Set([this.props.value]);
 
-  componentDidUpdate(prevProps, prevState) {
-    const {history, urlParam, location, options} = this.props;
-    const {selectedChipIds} = this.state;
-    debugger
-    console.log(selectedChipIds, prevState.selectedChipIds)
-    if (
-      !options
-      || !options.length
-      || selectedChipIds === prevState.selectedChipIds
-    ) {
-      return;
+  // TODO: replace with a handleSelect method and componentDidUpdate
+  // Can do refactor once rc0.10.0 is released
+  // https://github.com/material-components/material-components-web-react/pull/645
+  onChipClick = (e) => {
+    const {history, urlParam, location} = this.props;
+    const chip = e.target.closest('.mdc-chip');
+    const chipId = chip.getAttribute('data-id');
+    const isChipSelected = this.chips.has(chipId);
+    if (isChipSelected) {
+      this.chips.delete(chipId);
+    } else {
+      this.chips.add(chipId);
     }
-      
-    updateUrl(history, urlParam, selectedChipIds, location.search);
+    updateUrl(history, urlParam, Array.from(this.chips).toString(), location.search);
   }
-
-  handleSelect = (selectedChipIds) => this.setState({selectedChipIds});
 
   render() {
     const {
@@ -34,33 +32,34 @@ export default class FilterChipOption extends Component {
     } = this.props;
     
     return (
-        <React.Fragment>
-          <li className='mdc-list-item'>
-            <span className='mdc-typography--overline'>
-              {name}
-            </span>
-          </li>
-          <li className='mdc-list-item'>
-            <span className='mdc-typography--body2'>
-              {optionDescription}
-            </span>
-          </li>
-          <li key={'test'} className='mdc-list-item'>
-            <ChipSet
-              filter
-              selectedChipIds={this.state.selectedChipIds}
-              handleSelect={this.handleSelect}
-            >
-              {options.map((opt) => (
-                <Chip
-                  key={opt.value}
-                  id={opt.value}
-                  label={opt.label}
-                />
-              ))}
-            </ChipSet>
-          </li>
-        </React.Fragment>
-    )
+      <React.Fragment>
+        <li className='mdc-list-item'>
+          <span className='mdc-typography--overline'>
+            {name}
+          </span>
+        </li>
+        <li className='mdc-list-item'>
+          <span className='mdc-typography--body2'>
+            {optionDescription}
+          </span>
+        </li>
+        <li className='mdc-list-item'>
+          <ChipSet
+            filter
+            selectedChipIds={this.state.selectedChipIds}
+          >
+            {options.map((opt) => (
+              <Chip
+                onClick={this.onChipClick}
+                key={opt.value}
+                id={opt.value}
+                data-id={opt.value}
+                label={opt.label}
+              />
+            ))}
+          </ChipSet>
+        </li>
+      </React.Fragment>
+    );
   }
 }

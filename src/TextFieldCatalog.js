@@ -3,9 +3,13 @@ import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCTextField} from '@material/textfield/index';
 import classnames from 'classnames';
 import ReactGA from 'react-ga';
+import queryString from 'query-string';
 
 import './styles/TextFieldCatalog.scss';
 import {gtagCategory, gtagTextFieldAction} from './constants';
+
+const leadingIconCode = 'favorite';
+const trailingIconCode = 'remove_red_eye';
 
 export const TextField = (props) => {
   const {
@@ -90,6 +94,55 @@ const HelperText = () => (
   </p>
 );
 
+const getTextFieldConfig = (props) => {
+  const iconsValue = props.location && queryString.parse(props.location.search).icons.split(',');
+  const TextFieldConfig = {
+    options: [
+      {
+        type: 'label',
+        name: 'Options',
+      },
+      {
+        type: 'select',
+        name: 'Variants',
+        urlParam: 'type',
+        value: 'filled', // default select first option
+        options: [
+          {
+            label: 'Filled',
+            value: 'filled',
+          },
+          {
+            label: 'Outlined',
+            value: 'outlined',
+          },
+        ],
+      },
+      {
+        type: 'textfield',
+        name: 'Properties',
+        label: 'Label',
+        urlParam: 'label',
+        value: 'Text Field Demo'
+      },
+      {
+        type: 'filterchips',
+        name: 'Icons',
+        urlParam: 'icons',
+        value: iconsValue,
+        optionDescription: 'Follow the instructions to embed the icon font in your site and learn how to style your icons using CSS.',
+        options: [{
+          label: 'Leading Icon',
+          value: 'leadingIcon'
+        }, {
+          label: 'Trailing Icon',
+          value: 'trailingIcon'
+        }]
+      }
+    ],
+  };
+  return TextFieldConfig;
+}
 const TextFieldCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<TextFieldHero />}
@@ -99,7 +152,7 @@ const TextFieldCatalog = (props) => (
     docsLink='https://material.io/components/web/catalog/input-controls/text-field/'
     sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-textfield'
     demos={<TextFieldDemos/>}
-    initialConfig={TextFieldConfig}
+    initialConfig={getTextFieldConfig(props)}
     {...props}
   />
 );
@@ -137,18 +190,24 @@ class TextFieldHero extends Component {
   }
 
   render() {
+    const {config} = this.props;
     let label;
-    let leadingIcon;
-    let trailingIcon;
+    let leadingIcon = '';
+    let trailingIcon = '';
     let type;
-
-    if (this.props.config) {
-      type = this.props.config.options[1].value;
-      label = this.props.config.options[2].value;
-      leadingIcon = 'test'
-      trailingIcon = 'test'
-      // leadingIcon = this.props.config.options[3].value;
-      // trailingIcon = this.props.config.options[4].value;
+    
+    if (config) {
+      type = config.options[1].value;
+      label = config.options[2].value;
+      const icons = config.options[3].value;
+      const hasLeadingIcon = icons && icons.includes('leadingIcon');
+      const hasTrailingIcon = icons && icons.includes('trailingIcon');
+      if (hasLeadingIcon) {
+        leadingIcon = leadingIconCode;
+      }
+      if (hasTrailingIcon) {
+        trailingIcon = trailingIconCode;
+      }
     }
 
     return (
@@ -237,59 +296,13 @@ class TextFieldDemos extends Component {
   }
 }
 
-
-const TextFieldConfig = {
-  options: [
-    {
-      type: 'label',
-      name: 'Options',
-    },
-    {
-      type: 'select',
-      name: 'Variants',
-      urlParam: 'type',
-      value: 'filled', // default select first option
-      options: [
-        {
-          label: 'Filled',
-          value: 'filled',
-        },
-        {
-          label: 'Outlined',
-          value: 'outlined',
-        },
-      ],
-    },
-    {
-      type: 'textfield',
-      name: 'Properties',
-      label: 'Label',
-      urlParam: 'label',
-      value: 'Text Field Demo'
-    },
-    {
-      type: 'filterchips',
-      name: 'Icons',
-      urlParam: 'icons',
-      optionDescription: 'Follow the instructions to embed the icon font in your site and learn how to style your icons using CSS.',
-      options: [{
-        label: 'Leading Icon',
-        value: 'leadingIcon'
-      }, {
-        label: 'Trailing Icon',
-        value: 'trailingIcon'
-      }]
-    }
-  ],
-};
-
 export const TextFieldReactTemplate = (config) => {
   const label = config.options[2].value;
   const type = config.options[1].value;
-  // const leadingIcon = config.options[3].value;
-  // const trailingIcon = config.options[4].value;
-  const leadingIcon = 'test'
-  const trailingIcon = 'test'
+  const icons = config.options[3].value;
+  const hasLeadingIcon = icons && icons.includes('leadingIcon');
+  const hasTrailingIcon = icons && icons.includes('hasTrailingIcon');
+
   // TODO: Wire these up when the Config is complete
   const dense = '';
   const state = '';
@@ -299,8 +312,8 @@ export const TextFieldReactTemplate = (config) => {
   ${dense ? 'dense\n' : ''}
   ${state ? state + '\n' : ''}
   ${state ? `label='${label}'\n` : ''}
-  ${leadingIcon !== '' ? `leadingIcon={<i className='material-icons'>${leadingIcon}</i>}\n` : ''}
-  ${trailingIcon !== '' ? `leadingIcon={<i className='material-icons'>${trailingIcon}</i>}\n` : ''}>
+  ${hasLeadingIcon ? `leadingIcon={<i className='material-icons'>${leadingIconCode}</i>}\n` : ''}
+  ${hasTrailingIcon ? `trailingIcon={<i className='material-icons'>${trailingIconCode}</i>}\n` : ''}>
 </TextField>`;
 };
 
