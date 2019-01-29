@@ -145,8 +145,10 @@ class TextFieldHero extends Component {
     if (this.props.config) {
       type = this.props.config.options[1].value;
       label = this.props.config.options[2].value;
-      leadingIcon = this.props.config.options[3].value;
-      trailingIcon = this.props.config.options[4].value;
+      leadingIcon = 'test'
+      trailingIcon = 'test'
+      // leadingIcon = this.props.config.options[3].value;
+      // trailingIcon = this.props.config.options[4].value;
     }
 
     return (
@@ -260,24 +262,23 @@ const TextFieldConfig = {
     },
     {
       type: 'textfield',
-      name: 'Label',
+      name: 'Properties',
       label: 'Label',
       urlParam: 'label',
-      value: 'Button Text'
+      value: 'Text Field Demo'
     },
     {
-      type: 'textfield',
-      name: 'Leading Icon',
-      label: 'Leading Icon',
-      urlParam: 'leadingIcon',
-      value: ''
-    },
-    {
-      type: 'textfield',
-      name: 'Trailing Icon',
-      label: 'Trailing Icon',
-      urlParam: 'trailingIcon',
-      value: ''
+      type: 'filterchips',
+      name: 'Icons',
+      urlParam: 'icons',
+      optionDescription: 'Follow the instructions to embed the icon font in your site and learn how to style your icons using CSS.',
+      options: [{
+        label: 'Leading Icon',
+        value: 'leadingIcon'
+      }, {
+        label: 'Trailing Icon',
+        value: 'trailingIcon'
+      }]
     }
   ],
 };
@@ -285,8 +286,10 @@ const TextFieldConfig = {
 export const TextFieldReactTemplate = (config) => {
   const label = config.options[2].value;
   const type = config.options[1].value;
-  const leadingIcon = config.options[3].value;
-  const trailingIcon = config.options[4].value;
+  // const leadingIcon = config.options[3].value;
+  // const trailingIcon = config.options[4].value;
+  const leadingIcon = 'test'
+  const trailingIcon = 'test'
   // TODO: Wire these up when the Config is complete
   const dense = '';
   const state = '';

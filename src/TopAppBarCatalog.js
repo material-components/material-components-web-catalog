@@ -176,7 +176,7 @@ const TopAppBarConfig = {
       name: 'Options',
     },
     {
-      type: 'radiogroup',
+      type: 'select',
       name: 'Variants',
       urlParam: 'variant',
       value: 'standard',

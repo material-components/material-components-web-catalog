@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import TextFieldOption from './options/TextFieldOption';
 import RadioGroupOption from './options/RadioGroupOption';
 import SelectOption from './options/SelectOption';
+import FilterChipOption from './options/FilterChipOption';
 
 export class HeroOptionsComponent extends Component {
   render() {
@@ -27,10 +28,12 @@ const getOptionComponent = (option, props) => {
   switch(option.type) {
     case 'label':
       return <li className='mdc-list-item'><LabelOption>{option.name}</LabelOption></li>;
+    case 'filterchips':
+      return <FilterChipOption {...option} {...props}/>;
     case 'radiogroup':
-      return <RadioGroupOption urlKey={option.urlParam} {...option} {...props}/>;
+      return <RadioGroupOption {...option} {...props}/>;
     case 'select':
-      return <SelectOption urlKey={option.urlParam} {...option} {...props}/>;
+      return <SelectOption {...option} {...props}/>;
     default: // Text field
       return <TextFieldOption {...option} {...props}/>;
   }
