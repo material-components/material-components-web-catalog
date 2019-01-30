@@ -227,7 +227,7 @@ class TextFieldHero extends Component {
     })} ref={this.initRef}>
       {leadingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{leadingIcon}</i>) : ''}
       {trailingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{trailingIcon}</i>) : ''}
-      <input className='mdc-text-field__input'></input>
+      <input className='mdc-text-field__input' />
       {type === 'outlined' ? (
       <div className='mdc-notched-outline'>
           <div className='mdc-notched-outline__leading'></div>

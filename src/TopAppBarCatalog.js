@@ -83,7 +83,7 @@ export class TopAppBarHero extends Component {
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
 
     const actionItems = variant === shortCollapsed || variant === short ?
-        this.renderSingleActionItem(topAppBarIconsClasses) : this.renderActionItems(topAppBarIconsClasses)
+        this.renderSingleActionItem(topAppBarIconsClasses) : this.renderActionItems(topAppBarIconsClasses);
 
     return (
       <div className={classes(variant)}>
