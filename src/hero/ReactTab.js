@@ -9,6 +9,7 @@ import {MDCRipple} from '@material/ripple/index';
 import {gtagCopyCode} from '../constants';
 
 import ReactGA from 'react-ga';
+const customStyle = {background: 'transparent'};
 
 export default class ReactTab extends Component {
   state = {codeString: ''};
@@ -47,6 +48,7 @@ export default class ReactTab extends Component {
               lineProps={{style: {paddingBottom: 8}}}
               wrapLines
               showLineNumbers
+              customStyle={customStyle}
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
               language='jsx'
