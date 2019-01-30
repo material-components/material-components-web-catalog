@@ -4,6 +4,8 @@
 @import '@material/chips/mixins';
 @import './ComponentPage';
 
+$heroBackgroundColor: #f7f7f7;
+
 .catalog-hero-tab-bar {
   width: 100%;
   background-color: white;
@@ -29,7 +31,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  background-color: #f7f7f7;
+  background-color: $heroBackgroundColor;
 }
 
 .tab-container {
@@ -86,9 +88,9 @@
 .hero-component__filter-chip-set-option .mdc-chip {
   @include mdc-chip-shape-radius(4px);
   @include mdc-chip-fill-color(white);
-  @include mdc-chip-outline(1px, solid, #f7f7f7)
+  @include mdc-chip-outline(1px, solid, $heroBackgroundColor);
 
   &.mdc-chip--selected {
-    @include mdc-chip-fill-color(#f7f7f7);
+    @include mdc-chip-fill-color($heroBackgroundColor);
   }
 }
