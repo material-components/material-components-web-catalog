@@ -1,6 +1,7 @@
 @import '@material/tab/mixins';
 @import '@material/tab-indicator/mixins';
 @import '@material/ripple/mixins';
+@import '@material/chips/mixins';
 @import './ComponentPage';
 
 .catalog-hero-tab-bar {
@@ -73,4 +74,14 @@
   position: absolute;
   right: 12px;
   bottom: 12px;
+}
+
+.hero-component__filter-chip-set-option .mdc-chip {
+  @include mdc-chip-shape-radius(4px);
+  @include mdc-chip-fill-color(white);
+  @include mdc-chip-outline(1px, solid, #f7f7f7)
+
+  &.mdc-chip--selected {
+    @include mdc-chip-fill-color(#f7f7f7);
+  }
 }

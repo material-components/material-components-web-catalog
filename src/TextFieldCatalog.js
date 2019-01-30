@@ -95,7 +95,7 @@ const HelperText = () => (
 );
 
 const getTextFieldConfig = (props) => {
-  const iconsValue = props.location && queryString.parse(props.location.search).icons.split(',');
+  const iconsValue = props.location.search && queryString.parse(props.location.search).icons.split(',');
   const TextFieldConfig = {
     options: [
       {

@@ -46,6 +46,7 @@ export default class FilterChipOption extends Component {
         <li className='mdc-list-item'>
           <ChipSet
             filter
+            className='hero-component__filter-chip-set-option'
             selectedChipIds={this.state.selectedChipIds}
           >
             {options.map((opt) => (
