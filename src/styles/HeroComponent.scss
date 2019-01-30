@@ -1,7 +1,10 @@
 @import '@material/tab/mixins';
 @import '@material/tab-indicator/mixins';
 @import '@material/ripple/mixins';
+@import '@material/chips/mixins';
 @import './ComponentPage';
+
+$heroBackgroundColor: #f7f7f7;
 
 .catalog-hero-tab-bar {
   width: 100%;
@@ -28,7 +31,7 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  background-color: #f7f7f7;
+  background-color: $heroBackgroundColor;
 }
 
 .tab-container {
@@ -55,17 +58,24 @@
 
 .hero-options {
   border-radius: 4px;
-  height: 100%;
-  min-height: 312px;
+  max-height: 312px;
   width: 100%;
 
   .mdc-list-item {
-    height: 40px
+    height: auto;
   }
 
   .catalog-tf-list-item {
     min-height: 65px;
     overflow: visible;
+  }
+
+  .mdc-chip-set {
+    padding: 4px 0 4px 0;
+
+    .mdc-chip {
+      margin: 0 4px 0 0;
+    }
   }
 }
 
@@ -73,4 +83,14 @@
   position: absolute;
   right: 12px;
   bottom: 12px;
+}
+
+.hero-component__filter-chip-set-option .mdc-chip {
+  @include mdc-chip-shape-radius(4px);
+  @include mdc-chip-fill-color(white);
+  @include mdc-chip-outline(1px, solid, $heroBackgroundColor);
+
+  &.mdc-chip--selected {
+    @include mdc-chip-fill-color($heroBackgroundColor);
+  }
 }

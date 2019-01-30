@@ -76,10 +76,14 @@ export class TopAppBarHero extends Component {
   }
 
   render() {
+    const {short, shortCollapsed} = TopAppBarVariants;
     const variant = this.props.config.options[1].value;
     const title = this.props.config.options[2].value;
 
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
+
+    const actionItems = variant === shortCollapsed || variant === short ?
+        this.renderSingleActionItem(topAppBarIconsClasses) : this.renderActionItems(topAppBarIconsClasses);
 
     return (
       <div className={classes(variant)}>
@@ -89,7 +93,7 @@ export class TopAppBarHero extends Component {
               <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
               <span className='mdc-top-app-bar__title'>{title}</span>
             </section>
-            {this.renderActionItems(topAppBarIconsClasses)}
+            {actionItems}
           </div>
         </header>
       </div>
@@ -98,11 +102,19 @@ export class TopAppBarHero extends Component {
 
   renderActionItems(topAppBarIconsClasses) {
     return (
-      <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
-        <button className={topAppBarIconsClasses} aria-label='Download' ref={this.initRipple}>file_download</button>
-        <button className={topAppBarIconsClasses} aria-label='Print this page' ref={this.initRipple}>print</button>
-        <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
-      </section>
+        <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
+          <button className={topAppBarIconsClasses} aria-label='Download' ref={this.initRipple}>file_download</button>
+          <button className={topAppBarIconsClasses} aria-label='Print this page' ref={this.initRipple}>print</button>
+          <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
+        </section>
+    );
+  }
+
+  renderSingleActionItem(topAppBarIconsClasses) {
+    return (
+        <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-end'>
+          <button className={topAppBarIconsClasses} aria-label='Bookmark this page' ref={this.initRipple}>bookmark</button>
+        </section>
     );
   }
 }
@@ -176,7 +188,7 @@ const TopAppBarConfig = {
       name: 'Options',
     },
     {
-      type: 'radiogroup',
+      type: 'select',
       name: 'Variants',
       urlParam: 'variant',
       value: 'standard',

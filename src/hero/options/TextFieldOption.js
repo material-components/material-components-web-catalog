@@ -32,6 +32,11 @@ export default class TextFieldOption extends Component {
   render() {
     return (
         <React.Fragment>
+          <li className='mdc-list-item'>
+            <span className='mdc-typography--overline'>
+              {this.props.name}
+            </span>
+          </li>
           <li key={this.props.name} className='mdc-list-item catalog-tf-list-item'>
             <div className='mdc-text-field mdc-text-field--outlined' ref={this.tfRef}>
               <input type='text' id='my-text-field'

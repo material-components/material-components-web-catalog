@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import React from 'react';
 import equal from 'deep-equal';
-import html from 'html';
+import pretty from 'pretty';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {prism} from 'react-syntax-highlighter/dist/esm/styles/prism';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
@@ -13,6 +13,7 @@ import ReactGA from 'react-ga';
 const classesToRemove = [
   ' mdc-ripple-upgraded--unbounded',
   ' mdc-notched-outline--upgraded',
+  ' style="transition-duration: 0s;"'
 ];
 
 export default class WebTab extends Component {
@@ -47,7 +48,7 @@ export default class WebTab extends Component {
   initCodeString = () => {
     let codeString = '';
     if (this.htmlRef.current) {
-      codeString = html.prettyPrint(this.htmlRef.current.innerHTML);
+      codeString = pretty(this.htmlRef.current.innerHTML);
       classesToRemove.forEach((str) => codeString = codeString.replace(new RegExp(str, 'g'), ''));
       this.setState({codeString});
     }
@@ -65,7 +66,7 @@ export default class WebTab extends Component {
               showLineNumbers
               lineNumberStyle={{color: '#bab6b6'}}
               className='highlight-html'
-              language='html'
+              language='markup'
               style={prism}>{this.state.codeString}</SyntaxHighlighter>
           <CopyToClipboard text={this.state.codeString}
                            onCopy={() => {
