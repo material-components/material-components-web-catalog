@@ -95,7 +95,15 @@ const HelperText = () => (
 );
 
 const getTextFieldConfig = (props) => {
-  const iconsValue = props.location.search && queryString.parse(props.location.search).icons.split(',');
+  let iconsValue = [];
+  const {search} = props.location;
+  if (search) {
+    const searchObject = queryString.parse(search);
+    if (searchObject && searchObject.icons) {
+      iconsValue = searchObject.icons.split(',');
+    }
+  }
+
   const TextFieldConfig = {
     options: [
       {
