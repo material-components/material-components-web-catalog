@@ -43,25 +43,24 @@ export default class ReactTab extends Component {
 
   render() {
     return (
-        <React.Fragment>
-          <SyntaxHighlighter
-              lineProps={{style: {paddingBottom: 8}}}
-              wrapLines
-              showLineNumbers
-              customStyle={customStyle}
-              lineNumberStyle={{color: '#bab6b6'}}
-              className='highlight-html'
-              language='jsx'
-              style={prism}>{this.state.codeString}</SyntaxHighlighter>
-          <CopyToClipboard text={this.state.codeString}
-                           onCopy={() => {
-                             ReactGA.event({category: gtagCopyCode, action: 'react_code_copied', label: 'react_code_copied' });
-                             this.setState({copied: true})
-                           }}>
-            <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>file_copy</button>
-          </CopyToClipboard>
-        </React.Fragment>
+      <React.Fragment>
+        <SyntaxHighlighter
+            lineProps={{style: {paddingBottom: 8}}}
+            wrapLines
+            showLineNumbers
+            customStyle={customStyle}
+            lineNumberStyle={{color: '#bab6b6'}}
+            className='highlight-html'
+            language='jsx'
+            style={prism}>{this.state.codeString}</SyntaxHighlighter>
+        <CopyToClipboard text={this.state.codeString}
+                          onCopy={() => {
+                            ReactGA.event({category: gtagCopyCode, action: 'react_code_copied', label: 'react_code_copied' });
+                            this.setState({copied: true})
+                          }}>
+          <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>file_copy</button>
+        </CopyToClipboard>
+      </React.Fragment>
     );
   }
-
 }

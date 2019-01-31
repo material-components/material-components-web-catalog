@@ -3,7 +3,7 @@ import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCTextField} from '@material/textfield/index';
 import classnames from 'classnames';
 import ReactGA from 'react-ga';
-import queryString from 'query-string';
+import {getUrlParamsFromSearch} from './hero/urlHelper';
 
 import './styles/TextFieldCatalog.scss';
 import {gtagCategory, gtagTextFieldAction} from './constants';
@@ -98,7 +98,7 @@ const getTextFieldConfig = (props) => {
   let iconsValue = [];
   const {search} = props.location;
   if (search) {
-    const searchObject = queryString.parse(search);
+    const searchObject = getUrlParamsFromSearch(search);
     if (searchObject && searchObject.icons) {
       iconsValue = searchObject.icons.split(',');
     }
@@ -218,15 +218,17 @@ class TextFieldHero extends Component {
       }
     }
 
-    return (
-    <div className={classnames('mdc-text-field', {
+    const classes = classnames('mdc-text-field', {
       'mdc-text-field--outlined': type === 'outlined',
       'mdc-text-field--with-leading-icon': leadingIcon !== '',
       'mdc-text-field--with-trailing-icon': trailingIcon !== '',
+    });
+    const iconClasses = 'material-icons mdc-text-field__icon';
 
-    })} ref={this.initRef}>
-      {leadingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{leadingIcon}</i>) : ''}
-      {trailingIcon !== '' ? (<i className='material-icons mdc-text-field__icon'>{trailingIcon}</i>) : ''}
+    return (
+    <div className={classes} ref={this.initRef}>
+      {leadingIcon !== '' ? (<i className={iconClasses}>{leadingIcon}</i>) : ''}
+      {trailingIcon !== '' ? (<i className={iconClasses}>{trailingIcon}</i>) : ''}
       <input className='mdc-text-field__input' />
       {type === 'outlined' ? (
       <div className='mdc-notched-outline'>
@@ -304,10 +306,10 @@ class TextFieldDemos extends Component {
   }
 }
 
-export const TextFieldReactTemplate = (config) => {
-  const label = config.options[2].value;
-  const type = config.options[1].value;
-  const icons = config.options[3].value;
+export const TextFieldReactTemplate = ({options}) => {
+  const type = options[1].value;
+  const label = options[2].value;
+  const icons = options[3].value;
   const hasLeadingIcon = icons && icons.includes('leadingIcon');
   const hasTrailingIcon = icons && icons.includes('hasTrailingIcon');
 

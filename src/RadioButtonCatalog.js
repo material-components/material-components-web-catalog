@@ -42,10 +42,7 @@ const RadioButtonDemos = () => {
 export class Radio extends Component {
   initRadio = (radioEl) => this.radio = radioEl && new MDCRadio(radioEl);
 
-  constructor(props) {
-    super(props);
-    this.onChange = () => this.props.onChange();
-  }
+  onChange = () => this.props.onChange();
 
   componentWillUnmount() {
     this.radio.destroy();

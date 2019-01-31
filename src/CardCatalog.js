@@ -255,13 +255,9 @@ const CardMediaTemplate = (showText = false, square) => {
       </CardMedia>
     `;
   }
-  if (square) {
-    return `
-      <CardMedia square imageUrl={image} className='demo-card__media' />
-    `;  
-  }
+  
   return `
-    <CardMedia wide imageUrl={image} className='demo-card__media' />
+    <CardMedia ${square ? 'square' : 'wide'} imageUrl={image} className='demo-card__media' />
   `;
 }
 

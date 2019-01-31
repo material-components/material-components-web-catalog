@@ -7,10 +7,17 @@ import '@material/react-chips/index.scss';
 export default class FilterChipOption extends Component {
   state = {selectedChipIds: this.props.value ? this.props.value : []};
   chips = new Set([this.props.value]);
+  isMounted_ = true;
 
   // TODO: replace with a handleSelect method and componentDidUpdate
   // Can do refactor once rc0.10.0 is released
   // https://github.com/material-components/material-components-web-react/pull/645
+
+  componentWillUnmount() {
+    // bug with react chips. can remove once fixed.
+    this.isMounted_ = false;
+  }
+
   onChipClick = (e) => {
     const {history, urlParam, location} = this.props;
     const chip = e.target.closest('.mdc-chip');
@@ -30,6 +37,8 @@ export default class FilterChipOption extends Component {
       options,
       optionDescription,
     } = this.props;
+
+    if (!this.isMounted_) return null;
     
     return (
       <React.Fragment>

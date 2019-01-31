@@ -58,27 +58,37 @@ export default class WebTab extends Component {
     this.setState({codeString});
   };
 
+  onCopy = () => {
+    const webCopiedCode = 'web_code_copied';
+    ReactGA.event({category: gtagCopyCode, action: webCopiedCode, label: webCopiedCode});
+    this.setState({copied: true});
+  }
+
   render() {
     return (
-        <React.Fragment>
-          <div style={{display: 'none'}} ref={this.htmlRef}>{this.props.children}</div>
-          <SyntaxHighlighter
-              lineProps={{style: {paddingBottom: 8}}}
-              wrapLines
-              showLineNumbers
-              customStyle={customStyle}
-              lineNumberStyle={{color: '#bab6b6'}}
-              className='highlight-html'
-              language='markup'
-              style={prism}>{this.state.codeString}</SyntaxHighlighter>
-          <CopyToClipboard text={this.state.codeString}
-                           onCopy={() => {
-                             ReactGA.event({category: gtagCopyCode, action: 'web_code_copied', label: 'web_code_copied' });
-                             this.setState({copied: true})
-                           }}>
-            <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>file_copy</button>
-          </CopyToClipboard>
-        </React.Fragment>
+      <React.Fragment>
+        <div style={{display: 'none'}} ref={this.htmlRef}>{this.props.children}</div>
+        <SyntaxHighlighter
+          lineProps={{style: {paddingBottom: 8}}}
+          wrapLines
+          showLineNumbers
+          customStyle={customStyle}
+          lineNumberStyle={{color: '#bab6b6'}}
+          className='highlight-html'
+          language='markup'
+          style={prism}
+        >
+          {this.state.codeString}
+        </SyntaxHighlighter>
+        <CopyToClipboard
+          text={this.state.codeString}
+          onCopy={this.onCopy}
+        >
+          <button className='mdc-icon-button material-icons copy-all-button' ref={this.initRipple}>
+            file_copy
+          </button>
+        </CopyToClipboard>
+      </React.Fragment>
     );
   }
 }

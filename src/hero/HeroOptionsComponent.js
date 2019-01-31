@@ -4,6 +4,7 @@ import TextFieldOption from './options/TextFieldOption';
 import RadioGroupOption from './options/RadioGroupOption';
 import SelectOption from './options/SelectOption';
 import FilterChipOption from './options/FilterChipOption';
+import {getUrlParamsFromSearch} from './urlHelper';
 
 export class HeroOptionsComponent extends Component {
   render() {
@@ -34,13 +35,13 @@ const getOptionComponent = (option, props) => {
       return <RadioGroupOption {...option} {...props}/>;
     case 'select':
       return <SelectOption {...option} {...props}/>;
-    default: // Text field
+    default:
       return <TextFieldOption {...option} {...props}/>;
   }
 };
 
 export const updateUrl = (history, key, newValue, search) => {
-  const urlParams = queryString.parse(search);
+  const urlParams = getUrlParamsFromSearch(search);
 
   urlParams[key] = newValue;
   history.push({
@@ -51,6 +52,6 @@ export const updateUrl = (history, key, newValue, search) => {
 
 const LabelOption = ({children}) => {
   return (
-      <span className='mdc-typography--subtitle2'>{children}</span>
+    <span className='mdc-typography--subtitle2'>{children}</span>
   )
 };
