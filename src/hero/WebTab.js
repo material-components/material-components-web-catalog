@@ -16,6 +16,8 @@ const classesToRemove = [
   ' style="transition-duration: 0s;"'
 ];
 
+const customStyle = {background: 'transparent'};
+
 export default class WebTab extends Component {
   htmlRef = React.createRef();
 
@@ -70,6 +72,7 @@ export default class WebTab extends Component {
           lineProps={{style: {paddingBottom: 8}}}
           wrapLines
           showLineNumbers
+          customStyle={customStyle}
           lineNumberStyle={{color: '#bab6b6'}}
           className='highlight-html'
           language='markup'
