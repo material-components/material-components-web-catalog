@@ -16,7 +16,7 @@ $heroBackgroundColor: #f7f7f7;
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 760px;
+  max-width: 860px;
   display: flex;
   flex-direction: column;
 }
@@ -63,6 +63,7 @@ $heroBackgroundColor: #f7f7f7;
 
   .mdc-list-item {
     height: auto;
+    padding: 0;
   }
 
   .catalog-tf-list-item {
@@ -71,7 +72,7 @@ $heroBackgroundColor: #f7f7f7;
   }
 
   .mdc-chip-set {
-    padding: 4px 0 4px 0;
+    padding:16px 0;
 
     .mdc-chip {
       margin: 0 4px 0 0;
@@ -88,7 +89,7 @@ $heroBackgroundColor: #f7f7f7;
 .hero-component__filter-chip-set-option .mdc-chip {
   @include mdc-chip-shape-radius(4px);
   @include mdc-chip-fill-color(white);
-  @include mdc-chip-outline(1px, solid, $heroBackgroundColor);
+  @include mdc-chip-outline(1px, solid, rgba(25, 25, 25, 0.32));
 
   &.mdc-chip--selected {
     @include mdc-chip-fill-color($heroBackgroundColor);
@@ -96,5 +97,9 @@ $heroBackgroundColor: #f7f7f7;
 }
 
 .mdc-typography--overline {
-  padding: 24px 0 8px;
+  padding: 16px 0 8px 0;
+}
+
+.react-syntax-highlighter-line-number {
+  user-select: none;
 }

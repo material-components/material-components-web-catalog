@@ -170,10 +170,10 @@ const ButtonConfig = {
     },
     {
       type: 'textfield',
-      name: 'Label',
-      label: 'Label',
+      name: 'Properties',
+      label: 'Button Text',
       urlParam: 'label',
-      value: 'Button Text'
+      value: 'Learn More'
     }
   ],
 };

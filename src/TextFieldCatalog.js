@@ -131,7 +131,7 @@ const getTextFieldConfig = (props) => {
         name: 'Properties',
         label: 'Label',
         urlParam: 'label',
-        value: 'Text Field Demo'
+        value: 'Name'
       },
       {
         type: 'filterchips',

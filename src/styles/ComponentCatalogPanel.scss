@@ -1,5 +1,5 @@
-$hero-section-height: 600px;
-$hero-section-max-width: 1200px;
+$hero-section-height: 664px;
+$hero-section-max-width: 848px;
 
 .component-catalog-panel {
   margin-top: 24px;
@@ -22,10 +22,12 @@ $hero-section-max-width: 1200px;
 
   &__hero-area {
     height: 100%;
+    margin-bottom: 48px;
   }
 
   &__header-elements {
     max-width: 300px;
+    padding-right: 48px;
   }
 
   .hero {
@@ -38,12 +40,14 @@ $hero-section-max-width: 1200px;
 
   .hero-options {
     flex: 1 1 auto;
+    margin-top: 24px;
   }
 
   .hero-component {
     order: 4;
     flex: 1 1 100%;
     height: $hero-section-height;
+    margin-top: 32px;
   }
 }
 
