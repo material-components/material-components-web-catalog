@@ -131,14 +131,14 @@ const getTextFieldConfig = (props) => {
         name: 'Properties',
         label: 'Label',
         urlParam: 'label',
-        value: 'Text Field Demo'
+        value: 'Name'
       },
       {
         type: 'filterchips',
         name: 'Icons',
         urlParam: 'icons',
         value: iconsValue,
-        optionDescription: 'Follow the instructions to embed the icon font in your site and learn how to style your icons using CSS.',
+        optionDescription: 'We recommend using Material Icons. ',
         options: [{
           label: 'Leading Icon',
           value: 'leadingIcon'
@@ -203,7 +203,7 @@ class TextFieldHero extends Component {
     let leadingIcon = '';
     let trailingIcon = '';
     let type;
-    
+
     if (config) {
       type = config.options[1].value;
       label = config.options[2].value;

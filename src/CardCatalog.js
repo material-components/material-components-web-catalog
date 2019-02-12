@@ -111,7 +111,7 @@ const CardMedia = ({square = false, showText = false}) => {
        style={{backgroundImage: `url('${imagePath}/photos/3x2/2.jpg')`}}>
       {showText ? <div className='mdc-card__media-content demo-card__media-content'>
         <CardHeader />
-      </div> : null}   
+      </div> : null}
     </div>
   );
 };
@@ -157,7 +157,7 @@ class CardActionRow extends Component {
     return (
       <div className='mdc-card__actions'>
         {
-          showButtons ? 
+          showButtons ?
           <div className='mdc-card__action-buttons'>
             <CardActionButton text='Read' />
             <CardActionButton text='Bookmark' />
@@ -255,7 +255,7 @@ const CardMediaTemplate = (showText = false, square) => {
       </CardMedia>
     `;
   }
-  
+
   return `
     <CardMedia ${square ? 'square' : 'wide'} imageUrl={image} className='demo-card__media' />
   `;
@@ -290,7 +290,7 @@ const CardConfig = {
     },
     {
       type: 'select',
-      name: 'Type',
+      name: 'Variants',
       urlParam: 'type',
       value: 'basic', // default select first option
       options: [

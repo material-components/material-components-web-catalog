@@ -39,7 +39,7 @@ export default class FilterChipOption extends Component {
     } = this.props;
 
     if (!this.isMounted_) return null;
-    
+
     return (
       <React.Fragment>
         <li className='mdc-list-item'>
@@ -48,8 +48,9 @@ export default class FilterChipOption extends Component {
           </span>
         </li>
         <li className='mdc-list-item'>
-          <span className='mdc-typography--body2'>
+          <span className='mdc-typography--caption'>
             {optionDescription}
+            Follow the <a href={'http://google.github.io/material-design-icons/'}>instructions</a> to embed the icon font in your site.
           </span>
         </li>
         <li className='mdc-list-item'>
