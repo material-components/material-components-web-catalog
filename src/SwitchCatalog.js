@@ -20,6 +20,8 @@ const SwitchCatalog = () => {
 };
 
 class Switch extends Component {
+  state = {isChecked: this.props.defaultChecked ? true : false };
+
   initSwitch = (el) => {
     if (!el) return;
     this.switchControl = new MDCSwitch(el);
@@ -27,6 +29,12 @@ class Switch extends Component {
 
   componentWillUnmount() {
     this.switchControl && this.switchControl.destroy();
+  }
+
+  handleChange(e) {
+    this.setState({
+      isChecked: e.target.checked,
+    });
   }
 
   render() {
@@ -41,7 +49,10 @@ class Switch extends Component {
           <div className='mdc-switch__thumb-underlay'>
             <div className='mdc-switch__thumb'>
                 <input type='checkbox' id={this.props.inputId} className='mdc-switch__native-control' role='switch'
-                       defaultChecked={this.props.defaultChecked} disabled={this.props.disabled} />
+                       defaultChecked={this.props.defaultChecked}
+                       aria-checked={this.state.isChecked}
+                       onChange={(e) => this.handleChange(e)}
+                       disabled={this.props.disabled} />
             </div>
           </div>
         </div>
