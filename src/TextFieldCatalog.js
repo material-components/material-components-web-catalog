@@ -95,24 +95,24 @@ const Label = ({textFieldId}) => (
   </label>
 );
 
-const Input = ({placeholder, textFieldId, onClick, noLabel, ...props}) => (
+const Input = ({placeholder, textFieldId, onClick, noLabel, maxLength}) => (
   <input type='text'
     id={textFieldId}
     placeholder={placeholder}
     className='mdc-text-field__input'
     onClick={onClick}
-    aria-label={noLabel ? 'Text field aria label' : null}
-    {...props} />
+    maxLength={maxLength}
+    aria-label={noLabel ? 'Text field aria label' : null} />
 );
 
-const TextArea = ({placeholder, textFieldId, onClick, noLabel, ...props}) => (
+const TextArea = ({placeholder, textFieldId, onClick, noLabel, maxLength}) => (
   <textarea
     id={textFieldId}
     placeholder={placeholder}
     className='mdc-text-field__input'
     onClick={onClick}
-    aria-label={noLabel ? 'Text field aria label' : null}
-    {...props} />
+    maxLength={maxLength}
+    aria-label={noLabel ? 'Text field aria label' : null} />
 );
 
 const HelperText = () => (
