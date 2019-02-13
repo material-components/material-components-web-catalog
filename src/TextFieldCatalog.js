@@ -32,8 +32,8 @@ const TextField = (props) => {
         {characterCounter && textarea ? <CharacterCounter /> : null}
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ?
-          <TextArea textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} /> :
-          <Input textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} />}
+          <TextArea textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} noLabel={noLabel} /> :
+          <Input textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} noLabel={noLabel} />}
         {outlined || textarea || noLabel ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
         {outlined || textarea ? <Outline noLabel={noLabel} textFieldId={textFieldId}/> : <div className='mdc-line-ripple'></div>}
@@ -95,21 +95,23 @@ const Label = ({textFieldId}) => (
   </label>
 );
 
-const Input = ({placeholder, textFieldId, onClick, ...props}) => (
+const Input = ({placeholder, textFieldId, onClick, noLabel, ...props}) => (
   <input type='text'
     id={textFieldId}
     placeholder={placeholder}
     className='mdc-text-field__input'
     onClick={onClick}
+    aria-label={noLabel ? 'Text field aria label' : null}
     {...props} />
 );
 
-const TextArea = ({placeholder, textFieldId, onClick, ...props}) => (
+const TextArea = ({placeholder, textFieldId, onClick, noLabel, ...props}) => (
   <textarea
     id={textFieldId}
     placeholder={placeholder}
     className='mdc-text-field__input'
     onClick={onClick}
+    aria-label={noLabel ? 'Text field aria label' : null}
     {...props} />
 );
 
@@ -121,7 +123,7 @@ const HelperText = () => (
 );
 
 const CharacterCounter = () => (
-  <div className='mdc-text-field-character-counter'>0 / 12</div>
+  <div className='mdc-text-field-character-counter'>0 / {TEXT_FIELD_MAX_LENGTH}</div>
 );
 
 const TextFieldCatalog = () => (
