@@ -74,7 +74,6 @@ const scssLoaders = Object.assign(
         {
           loader: 'sass-loader',
           options: {
-            sourceMap: true,
             implementation: require('dart-sass'),
             fiber: require('fibers'),
             importer: require('./material-sass-importer')
