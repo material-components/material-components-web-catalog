@@ -67,5 +67,9 @@ $hero-section-max-width: 848px;
       flex-flow: column nowrap;
       max-height: none;
     }
+
+    .hero-options {
+      max-height: none;
+    }
   }
 }
