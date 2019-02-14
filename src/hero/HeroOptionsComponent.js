@@ -54,6 +54,6 @@ export const updateUrl = (history, key, newValue, search) => {
 
 const LabelOption = ({children}) => {
   return (
-    <span className='mdc-typography--subtitle2'>{children}</span>
+    <span className='mdc-typography--overline'>{children}</span>
   )
 };
