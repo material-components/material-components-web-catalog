@@ -315,7 +315,7 @@ const CardConfig = {
           value: CardTypes.basicIcons,
         },
         {
-          label: 'UI Control',
+          label: 'Horizontal Image and Text',
           value: CardTypes.uiControl,
         },
       ],
