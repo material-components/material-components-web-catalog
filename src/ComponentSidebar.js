@@ -4,7 +4,7 @@ import {MDCDrawer} from '@material/drawer/index';
 import {MDCRipple} from '@material/ripple/index';
 import {imagePath} from './constants';
 
-const SCREEN_WIDTH_BREAKPOINT = 1160;
+const SCREEN_WIDTH_BREAKPOINT = 1490;
 const DISMISSIBLE_DRAWER_CLASS = 'mdc-drawer--dismissible';
 const MODAL_DRAWER_CLASS = 'mdc-drawer--modal';
 
