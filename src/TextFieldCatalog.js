@@ -128,7 +128,7 @@ const getTextFieldConfig = (props) => {
       },
       {
         type: 'textfield',
-        name: 'Properties',
+        header: 'Properties',
         label: 'Label',
         urlParam: 'label',
         value: 'Name'

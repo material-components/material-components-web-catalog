@@ -28,7 +28,9 @@ const Option = (props) => {
 const getOptionComponent = (option, props) => {
   switch(option.type) {
     case 'label':
-      return <li className='mdc-list-item'><LabelOption>{option.name}</LabelOption></li>;
+      return (<li className='mdc-list-item'>
+        <LabelOption>{option.name}</LabelOption>
+      </li>);
     case 'filterchips':
       return <FilterChipOption {...option} {...props}/>;
     case 'radiogroup':

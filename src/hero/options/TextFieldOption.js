@@ -30,14 +30,15 @@ export default class TextFieldOption extends Component {
   };
 
   render() {
+    const {label, header} = this.props;
     return (
         <React.Fragment>
           <li className='mdc-list-item'>
             <span className='mdc-typography--overline'>
-              {this.props.name}
+              {header}
             </span>
           </li>
-          <li key={this.props.name} className='mdc-list-item catalog-tf-list-item'>
+          <li key={header} className='mdc-list-item catalog-tf-list-item'>
             <div className='mdc-text-field mdc-text-field--outlined' ref={this.tfRef}>
               <input type='text' id='my-text-field'
                      className='mdc-text-field__input' value={this.state.value}
@@ -45,7 +46,7 @@ export default class TextFieldOption extends Component {
               <div className='mdc-notched-outline'>
                 <div className='mdc-notched-outline__leading'></div>
                 <div className='mdc-notched-outline__notch'>
-                  <label className='mdc-floating-label' htmlFor='my-text-field'>{this.props.label}</label>
+                  <label className='mdc-floating-label' htmlFor='my-text-field'>{label}</label>
                 </div>
                 <div className='mdc-notched-outline__trailing'></div>
               </div>

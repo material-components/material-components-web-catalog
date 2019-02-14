@@ -16,12 +16,12 @@ export default class SelectOption extends Component {
   }
 
   render() {
-    const {name, options, value: defaultValue} = this.props;
+    const {name, header, options, value: defaultValue} = this.props;
     return (
       <React.Fragment>
         <li className='mdc-list-item'>
           <span className='mdc-typography--overline'>
-            {name}
+            {header}
           </span>
         </li>
         <li className='mdc-list-item catalog-tf-list-item'>
