@@ -1,6 +1,10 @@
 $hero-section-height: 664px;
 $hero-section-max-width: 848px;
 
+.demo-content {
+  padding: 64px 16px 0 16px;
+}
+
 .component-catalog-panel {
   margin-top: 24px;
 
@@ -36,11 +40,14 @@ $hero-section-max-width: 848px;
     width: 100%;
     max-width: $hero-section-max-width;
     height: $hero-section-height;
+    padding: 24px;
+    box-sizing: border-box;
   }
 
   .hero-options {
     flex: 1 1 auto;
     margin-top: 24px;
+
   }
 
   .hero-component {
@@ -72,4 +79,8 @@ $hero-section-max-width: 848px;
       max-height: none;
     }
   }
+}
+
+.hero-select {
+  width: 250px;
 }

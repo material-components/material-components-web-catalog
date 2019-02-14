@@ -123,13 +123,14 @@ class Select extends Component {
     variantClass,
     options,
     indicatorText = 'Fruit',
+    widthClass,
   }) {
     const selectId = title.split(' ').join('_').toLowerCase();
     return (
-        <div className={`mdc-select ${variantClass} demo-enhanced-select`} ref={this.initSelect}>
+        <div className={`mdc-select ${variantClass} demo-enhanced-select ${widthClass}`} ref={this.initSelect}>
           <i className='mdc-select__dropdown-icon'></i>
           <div id={selectId} role='button' aria-haspopup='listbox' aria-labelledby={`${selectId} ${selectId}-label`} className='mdc-select__selected-text'></div>
-          <div className='mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-select'>
+          <div className={`mdc-select__menu mdc-menu mdc-menu-surface demo-enhanced-select ${widthClass}`}>
             <ul className='mdc-list'>
               {
                 options.map((opt, index) => (
@@ -162,11 +163,12 @@ class Select extends Component {
       onChange,
       indicatorText,
       hasHeader = true,
+      widthClass = '',
     } = this.props;
 
     const select = native ?
       this.renderNativeSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText}) :
-      this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText});
+      this.renderEnhancedSelectVariant({title, defaultValue, variantClass, onChange, options, indicatorText, widthClass});
 
     return (
       <div>

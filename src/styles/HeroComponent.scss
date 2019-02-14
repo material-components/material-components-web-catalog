@@ -41,7 +41,8 @@ $heroBackgroundColor: #f7f7f7;
 
 .highlight-html {
   width: 100%;
-  max-height: 500px;
+  max-height: 100%;
+  box-sizing: border-box;
 }
 
 .hero-tab {
@@ -82,8 +83,8 @@ $heroBackgroundColor: #f7f7f7;
 
 .copy-all-button.copy-all-button {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
+  right: 16px;
+  bottom: 16px;
 }
 
 .hero-component__filter-chip-set-option .mdc-chip {
