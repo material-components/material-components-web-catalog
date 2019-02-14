@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@babel/runtime": "^7.2.0",
-    "@material/react-chips": "^0.9.0",
+    "@material/react-chips": "^0.9.3",
     "@material/react-tab": "^0.7.1",
     "@material/react-tab-bar": "^0.7.1",
     "ajv": "^6.4.0",
