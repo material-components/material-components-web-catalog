@@ -41,6 +41,7 @@ $hero-section-max-width: 848px;
   .hero-options {
     flex: 1 1 auto;
     margin-top: 24px;
+
   }
 
   .hero-component {
@@ -72,4 +73,8 @@ $hero-section-max-width: 848px;
       max-height: none;
     }
   }
+}
+
+.hero-select {
+  width: 250px;
 }
