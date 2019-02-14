@@ -202,7 +202,7 @@ const TopAppBarConfig = {
           value: 'short',
         },
         {
-          label: 'ShortCollapsed',
+          label: 'Short, Always Collapsed',
           value: 'shortCollapsed',
         },
         {
@@ -210,7 +210,7 @@ const TopAppBarConfig = {
           value: 'prominent',
         },
         {
-          label: 'Prominent Dense',
+          label: 'Prominent and Dense',
           value: 'prominentDense',
         },
         {
