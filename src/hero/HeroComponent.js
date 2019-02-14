@@ -39,9 +39,10 @@ class HeroTabs extends Component {
     return (
       <React.Fragment>
         <TabBar
-            activeIndex={this.state.activeIndex}
-            handleActiveIndexUpdate={this.handleActiveIndexUpdate}
-            className='catalog-hero-tab-bar'>
+          activeIndex={this.state.activeIndex}
+          handleActiveIndexUpdate={this.handleActiveIndexUpdate}
+          className='catalog-hero-tab-bar'
+        >
           {this.tabNames.map((tabName, index) => {
             return (
               <Tab className='hero-tab' key={index}>
