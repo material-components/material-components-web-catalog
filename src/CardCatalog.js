@@ -307,11 +307,11 @@ const CardConfig = {
           value: CardTypes.basicHeader,
         },
         {
-          label: 'Basic w/ Buttons',
+          label: 'Basic w/ Only Buttons',
           value: CardTypes.basicButtons,
         },
         {
-          label: 'Basic w/ Icons',
+          label: 'Basic w/ Only Icons',
           value: CardTypes.basicIcons,
         },
         {
