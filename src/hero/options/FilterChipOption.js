@@ -14,7 +14,7 @@ export default class FilterChipOption extends Component {
 
   componentDidUpdate(prevProps) {
     const searchParams = getUrlParamsFromSearch(this.props.location.search);
-    const icons = searchParams.icons && searchParams.icons.split(',').filter((icon) => !!icon) || [];
+    const icons = (searchParams.icons && searchParams.icons.split(',').filter((icon) => !!icon)) || [];
     if (icons.length !== this.state.selectedChipIds.length) {
       this.setState({selectedChipIds: icons});
     }
@@ -23,7 +23,7 @@ export default class FilterChipOption extends Component {
   updateSelectedChipIds = (selectedChipIds) => {
     const {history, urlParam, location} = this.props;
     updateUrl(history, urlParam, selectedChipIds.toString(), location.search);
-  }
+  };
 
   render() {
     const {
