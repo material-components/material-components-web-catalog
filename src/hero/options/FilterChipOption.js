@@ -1,27 +1,28 @@
 import React, {Component} from 'react';
 import {updateUrl} from '../HeroOptionsComponent';
 import {ChipSet, Chip} from '@material/react-chips';
+import {getUrlParamsFromSearch} from '../urlHelper';
 
 import '@material/react-chips/index.scss';
 
 export default class FilterChipOption extends Component {
-  state = {selectedChipIds: this.props.value ? this.props.value : []};
-  chips = new Set([this.props.value]);
+  constructor(props) {
+    super(props);
+    const {value} = props;
+    this.state = {selectedChipIds: value ? value : []};
+  }
 
-  // TODO: replace with a handleSelect method and componentDidUpdate
-  // Can do refactor once rc0.10.0 is released
-  // https://github.com/material-components/material-components-web-react/pull/645
-  onChipClick = (e) => {
-    const {history, urlParam, location} = this.props;
-    const chip = e.target.closest('.mdc-chip');
-    const chipId = chip.getAttribute('data-id');
-    const isChipSelected = this.chips.has(chipId);
-    if (isChipSelected) {
-      this.chips.delete(chipId);
-    } else {
-      this.chips.add(chipId);
+  componentDidUpdate(prevProps) {
+    const searchParams = getUrlParamsFromSearch(this.props.location.search);
+    const icons = searchParams.icons && searchParams.icons.split(',').filter((icon) => !!icon) || [];
+    if (icons.length !== this.state.selectedChipIds.length) {
+      this.setState({selectedChipIds: icons});
     }
-    updateUrl(history, urlParam, Array.from(this.chips).toString(), location.search);
+  }
+
+  updateSelectedChipIds = (selectedChipIds) => {
+    const {history, urlParam, location} = this.props;
+    updateUrl(history, urlParam, selectedChipIds.toString(), location.search);
   }
 
   render() {
@@ -49,10 +50,10 @@ export default class FilterChipOption extends Component {
             filter
             className='hero-component__filter-chip-set-option'
             selectedChipIds={this.state.selectedChipIds}
+            handleSelect={this.updateSelectedChipIds}
           >
             {options.map((opt) => (
               <Chip
-                onClick={this.onChipClick}
                 key={opt.value}
                 id={opt.value}
                 data-id={opt.value}
