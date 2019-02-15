@@ -70,6 +70,7 @@ $heroBackgroundColor: #f7f7f7;
   .catalog-tf-list-item {
     min-height: 65px;
     overflow: visible;
+    padding-bottom: 24px;
   }
 
   .mdc-chip-set {
@@ -98,7 +99,7 @@ $heroBackgroundColor: #f7f7f7;
 }
 
 .mdc-typography--overline {
-  padding: 16px 0 8px 0;
+  padding: 0 0 16px;
 }
 
 .react-syntax-highlighter-line-number {
