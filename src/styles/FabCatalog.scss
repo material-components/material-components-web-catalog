@@ -18,7 +18,7 @@
 }
 
 .demo-fab-shaped--three {
-  @include mdc-fab-shape-radius(12px);
+  @include mdc-fab-extended-shape-radius(12px);
 
   margin-right: 24px;
 }
