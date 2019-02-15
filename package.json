@@ -48,6 +48,7 @@
     "query-string": "^6.2.0",
     "raf": "3.4.0",
     "react": "^16.7.0",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dev-utils": "^5.0.2",
     "react-dom": "^16.4.2",
     "react-ga": "^2.5.0",
@@ -114,8 +115,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "dependencies": {
-    "react-copy-to-clipboard": "^5.0.1"
   }
 }

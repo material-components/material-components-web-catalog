@@ -30,7 +30,6 @@ export default class ReactTab extends Component {
     this.setState({codeString});
   };
 
-  // TODO: Convert this to pass the config object and work for componentDidUpdate
   componentDidMount() {
     this.initCodeString();
   }

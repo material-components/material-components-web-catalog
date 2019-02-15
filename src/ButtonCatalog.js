@@ -188,7 +188,7 @@ const ButtonTypes = {
 export const ButtonReactTemplate = (config) => {
   const label = config.options[2].value;
   const type = config.options[1].value;
-  // TODO: Wire these up when the Config is complete
+
   const dense = '';
   const icon = '';
   const state = '';
