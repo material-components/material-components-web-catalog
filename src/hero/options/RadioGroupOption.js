@@ -9,7 +9,7 @@ export default class RadioGroupOption extends Component {
   onChange = (opt) => {
     const {urlKey, history, location} = this.props;
     updateUrl(history, urlKey, opt.value, location.search);
-  }
+  };
 
   render() {
     const {name, options, value} = this.props;

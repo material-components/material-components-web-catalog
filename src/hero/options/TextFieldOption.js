@@ -44,11 +44,11 @@ export default class TextFieldOption extends Component {
                      className='mdc-text-field__input' value={this.state.value}
                      onChange={this.onChange} />
               <div className='mdc-notched-outline'>
-                <div className='mdc-notched-outline__leading'></div>
+                <div className='mdc-notched-outline__leading'/>
                 <div className='mdc-notched-outline__notch'>
                   <label className='mdc-floating-label' htmlFor='my-text-field'>{label}</label>
                 </div>
-                <div className='mdc-notched-outline__trailing'></div>
+                <div className='mdc-notched-outline__trailing'/>
               </div>
             </div>
           </li>

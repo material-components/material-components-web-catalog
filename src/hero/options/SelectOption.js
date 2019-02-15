@@ -13,7 +13,7 @@ export default class SelectOption extends Component {
     if (!this._isMounted) return;
     const {urlParam, history, location} = this.props;
     updateUrl(history, urlParam, value, location.search);
-  }
+  };
 
   render() {
     const {name, header, options, value: defaultValue} = this.props;
