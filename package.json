@@ -34,7 +34,7 @@
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "material-components-web": "^0.44.0",
+    "material-components-web": "^0.44.1",
     "fibers": "^3.0.0",
     "dart-sass": "^1.15.2",
     "object-assign": "4.1.1",
