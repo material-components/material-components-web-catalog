@@ -42,7 +42,7 @@ export default class FilterChipOption extends Component {
         <li className='mdc-list-item'>
           <span className='mdc-typography--caption'>
             {optionDescription}
-            Follow the <a href={'http://google.github.io/material-design-icons/'}>instructions</a> to embed the icon font in your site.
+            Follow the <a href='http://google.github.io/material-design-icons/'>instructions</a> to embed the icon font in your site.
           </span>
         </li>
         <li className='mdc-list-item'>

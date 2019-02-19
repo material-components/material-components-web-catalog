@@ -205,7 +205,7 @@ this.clickEvent = (label) => () => ReactGA.event({category: gtagCategory, action
 // Keep this until the material io experiment is complete.
 export const TextFieldHeroLegacy = () => {
   return (
-      <div className={'hero-text-field-container'}>
+      <div className='hero-text-field-container'>
         <TextField textFieldId='hero-text-field-id' onClick={this.clickEvent('Filled')}/>
         <TextField outlined textFieldId='hero-text-field-id--outlined' onClick={this.clickEvent('Outlined')}/>
       </div>
