@@ -166,7 +166,7 @@ export const TopAppBarReactTemplate = (config) => {
 
   return `
     <TopAppBar
-      title=${title}
+      title='${title}'
       ${variantStr}
       navigationIcon={<MaterialIcon
         icon='menu'

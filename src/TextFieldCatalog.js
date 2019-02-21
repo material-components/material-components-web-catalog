@@ -368,20 +368,24 @@ export const TextFieldReactTemplate = ({options}) => {
   const label = options[2].value;
   const icons = options[3].value;
   const hasLeadingIcon = icons && icons.includes('leadingIcon');
-  const hasTrailingIcon = icons && icons.includes('hasTrailingIcon');
+  const hasTrailingIcon = icons && icons.includes('trailingIcon');
 
   // TODO: Wire these up when the Config is complete
   const dense = '';
   const state = '';
 
   return `<TextField
-  ${type ? type + '\n' : ''}
+  ${type !== 'filled' ? type + '\n' : ''}
   ${dense ? 'dense\n' : ''}
   ${state ? state + '\n' : ''}
-  ${state ? `label='${label}'\n` : ''}
+  ${label ? `label='${label}'\n` : ''}
   ${hasLeadingIcon ? `leadingIcon={<i className='material-icons'>${leadingIconCode}</i>}\n` : ''}
   ${hasTrailingIcon ? `trailingIcon={<i className='material-icons'>${trailingIconCode}</i>}\n` : ''}>
-</TextField>`;
+  <Input
+    value={this.state.value}
+    onChange={(e) => this.setState({value: e.currentTarget.value})} />
+</TextField>
+// NOTE: this.state.value will vary based on your setup in your component`;
 };
 
 

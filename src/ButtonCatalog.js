@@ -194,6 +194,7 @@ export const ButtonReactTemplate = (config) => {
   const state = '';
 
   return `<Button
+  className='hero-button'
   ${type && type !== 'text' ? type + '\n' : ''}
   ${dense ? 'dense\n' : ''}
   ${state ? state + '\n' : ''}
