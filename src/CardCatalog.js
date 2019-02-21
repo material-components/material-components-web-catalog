@@ -290,7 +290,7 @@ const CardConfig = {
     },
     {
       type: 'select',
-      name: 'Variants',
+      name: 'Variant',
       urlParam: 'type',
       value: 'basic', // default select first option
       options: [

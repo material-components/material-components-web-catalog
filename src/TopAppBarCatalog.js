@@ -189,7 +189,7 @@ const TopAppBarConfig = {
     },
     {
       type: 'select',
-      name: 'Variants',
+      name: 'Variant',
       urlParam: 'variant',
       value: 'standard',
       options: [

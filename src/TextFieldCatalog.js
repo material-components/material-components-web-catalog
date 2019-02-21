@@ -148,7 +148,7 @@ const getTextFieldConfig = (props) => {
       },
       {
         type: 'select',
-        name: 'Variants',
+        name: 'Variant',
         urlParam: 'type',
         value: 'filled', // default select first option
         options: [

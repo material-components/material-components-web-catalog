@@ -146,7 +146,7 @@ const ButtonConfig = {
     },
     {
       type: 'select',
-      name: 'Variants',
+      name: 'Variant',
       urlParam: 'type',
       value: 'text', // default select first option
       options: [
