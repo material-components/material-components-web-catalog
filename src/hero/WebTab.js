@@ -13,7 +13,11 @@ import ReactGA from 'react-ga';
 const classesToRemove = [
   ' mdc-ripple-upgraded--unbounded',
   ' mdc-notched-outline--upgraded',
-  ' style="transition-duration: 0s;"'
+  'hero-button ',
+  ' demo-card--hero',
+  'hero-top-app-bar',
+  ' style="transition-duration: 0s;"',
+  ' class=""'
 ];
 
 const customStyle = {background: 'transparent'};
