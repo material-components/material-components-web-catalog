@@ -60,7 +60,7 @@ function isOutlinedVariant(variantClass) {
   return variantClass.indexOf(outlinedClass) >= 0;
 }
 
-class Select extends Component {
+export class Select extends Component {
   select;
 
   initSelect = (selectEl) => {
@@ -251,4 +251,3 @@ const Label = ({text, selectId, isEnhanced}) => isEnhanced ? (
 );
 
 export default SelectCatalog;
-export {Select};
