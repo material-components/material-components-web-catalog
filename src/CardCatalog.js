@@ -33,7 +33,7 @@ const CardCatalog = (props) => {
 };
 
 export const CardHero = (props) => {
-  const type = props.config.options[1].value;
+  const type = props.config.options.type.value;
   return (<Card
     image
     actions
@@ -263,7 +263,7 @@ const CardMediaTemplate = (showText = false, square) => {
 
 export const CardReactTemplate = (props) => {
   const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
-  const type = props.options[1].value;
+  const type = props.options.type.value;
   const className = classes({className:'demo-card--hero', type});
 
   return `<Card className='${className}'>
@@ -283,12 +283,12 @@ export const CardReactTemplate = (props) => {
 
 
 const CardConfig = {
-  options: [
-    {
+  options: {
+    header: {
       type: 'label',
       name: 'Options',
     },
-    {
+    type: {
       type: 'select',
       name: 'Variant',
       urlParam: 'type',
@@ -320,6 +320,9 @@ const CardConfig = {
         },
       ],
     },
+  },
+  order: [
+    'header', 'type',
   ],
 };
 

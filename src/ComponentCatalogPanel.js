@@ -48,10 +48,12 @@ class ComponentCatalogPanel extends Component {
 
     // For each url param, copy it over to the local config in the appropriate place.
     Object.keys(urlParams).forEach((key) => {
-      if (config.options) {
-        config.options.forEach((opt) => {
-          if (key === opt.urlParam) {
-            opt.value = urlParams[key];
+      if (config.order) {
+        config.order.forEach((optionKey) => {
+          const {options} = config;
+          const option = options[optionKey];
+          if (key === option.urlParam) {
+            option.value = urlParams[key];
           }
         });
       }

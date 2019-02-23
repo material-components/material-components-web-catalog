@@ -77,8 +77,8 @@ export class TopAppBarHero extends Component {
 
   render() {
     const {short, shortCollapsed} = TopAppBarVariants;
-    const variant = this.props.config.options[1].value;
-    const title = this.props.config.options[2].value;
+    const variant = this.props.config.options.type.value;
+    const title = this.props.config.options.title.value;
 
     const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
 
@@ -155,8 +155,8 @@ class TopAppBarDemos extends Component {
 
 export const TopAppBarReactTemplate = (config) => {
   const {prominentDense, standard} = TopAppBarVariants;
-  const variant = config.options[1].value;
-  const title = config.options[2].value;
+  const variant = config.options.type.value;
+  const title = config.options.title.value;
   let variantStr = variant;
   if (variantStr === standard) {
     variantStr = '';
@@ -182,12 +182,12 @@ export const TopAppBarReactTemplate = (config) => {
 }
 
 const TopAppBarConfig = {
-  options: [
-    {
+  options: {
+    header: {
       type: 'label',
       name: 'Options',
     },
-    {
+    type: {
       type: 'select',
       name: 'Variant',
       urlParam: 'variant',
@@ -223,13 +223,16 @@ const TopAppBarConfig = {
         },
       ],
     },
-    {
+    title: {
       type: 'textfield',
       name: 'Title',
       label: 'Title',
       urlParam: 'title',
       value: 'San Francisco, CA'
     }
+  },
+  order: [
+    'header', 'type', 'title',
   ],
 };
 

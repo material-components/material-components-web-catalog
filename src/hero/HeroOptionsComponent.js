@@ -8,11 +8,15 @@ import {getUrlParamsFromSearch} from './urlHelper';
 
 export class HeroOptionsComponent extends Component {
   render() {
-    if (!this.props.config) return null;
+    const {config, className} = this.props;
+    if (!(config && config.options && config.order)) return null;
+
     return (
-      <div className={`hero-options ${this.props.className}`}>
+      <div className={`hero-options ${className}`}>
         <ul className='mdc-list mdc-list--non-interactive'>
-          {this.props.config.options && this.props.config.options.map((option, index) => {
+          {config.order.map((optionKey, index) => {
+            const {options} = config;
+            const option = options[optionKey];
             return <Option key={option.name + index} option={option} {...this.props}/>
           })}
         </ul>

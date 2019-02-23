@@ -72,7 +72,7 @@ export class ButtonHero extends Component {
 
   render() {
     if (this.props.config) {
-      this.selectedType = this.props.config.options[1].value;
+      this.selectedType = this.props.config.options.type.value;
     }
 
     const className = classnames('hero-button mdc-button', {
@@ -82,7 +82,7 @@ export class ButtonHero extends Component {
 
     return (
       <button className={className} ref={this.initRipple}>
-        {this.props.config.options[2].value}
+        {this.props.config.options.label.value}
       </button>
     );
   }
@@ -139,12 +139,12 @@ class ButtonDemos extends Component {
  * generate the code snippet.
  */
 const ButtonConfig = {
-  options: [
-    {
+  options: {
+    header: {
       type: 'label',
       name: 'Options',
     },
-    {
+    type: {
       type: 'select',
       name: 'Variant',
       urlParam: 'type',
@@ -168,13 +168,16 @@ const ButtonConfig = {
         },
       ],
     },
-    {
+    label: {
       type: 'textfield',
       name: 'Properties',
       label: 'Button Text',
       urlParam: 'label',
       value: 'Learn More'
     }
+  },
+  order: [
+    'header', 'type', 'label',
   ],
 };
 
@@ -186,8 +189,8 @@ const ButtonTypes = {
 };
 
 export const ButtonReactTemplate = (config) => {
-  const label = config.options[2].value;
-  const type = config.options[1].value;
+  const label = config.options.label.value;
+  const type = config.options.type.value;
 
   const dense = '';
   const icon = '';

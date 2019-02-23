@@ -141,12 +141,12 @@ const getTextFieldConfig = (props) => {
   }
 
   const TextFieldConfig = {
-    options: [
-      {
+    options: {
+      header: {
         type: 'label',
         name: 'Options',
       },
-      {
+      type: {
         type: 'select',
         name: 'Variant',
         urlParam: 'type',
@@ -162,13 +162,13 @@ const getTextFieldConfig = (props) => {
           },
         ],
       },
-      {
+      label: {
         type: 'textfield',
         label: 'Label',
         urlParam: 'label',
         value: 'Name'
       },
-      {
+      icons: {
         type: 'filterchips',
         name: 'Icons',
         urlParam: 'icons',
@@ -182,6 +182,9 @@ const getTextFieldConfig = (props) => {
           value: 'trailingIcon'
         }]
       }
+    },
+    order: [
+      'header', 'type', 'label', 'icons',
     ],
   };
   return TextFieldConfig;
@@ -240,9 +243,9 @@ class TextFieldHero extends Component {
     let type;
 
     if (config) {
-      type = config.options[1].value;
-      label = config.options[2].value;
-      const icons = config.options[3].value;
+      type = config.options.type.value;
+      label = config.options.label.value;
+      const icons = config.options.icons.value;
       const hasLeadingIcon = icons && icons.includes('leadingIcon');
       const hasTrailingIcon = icons && icons.includes('trailingIcon');
       if (hasLeadingIcon) {
@@ -364,9 +367,9 @@ class TextFieldDemos extends Component {
 }
 
 export const TextFieldReactTemplate = ({options}) => {
-  const type = options[1].value;
-  const label = options[2].value;
-  const icons = options[3].value;
+  const type = options.type.value;
+  const label = options.label.value;
+  const icons = options.icons.value;
   const hasLeadingIcon = icons && icons.includes('leadingIcon');
   const hasTrailingIcon = icons && icons.includes('trailingIcon');
 
