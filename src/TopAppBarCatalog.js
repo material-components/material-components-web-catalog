@@ -35,7 +35,7 @@ const TopAppBarCatalog = (props) => {
 
 const classes = (variant) => {
   const {short, shortCollapsed, prominent, prominentDense, fixed, dense} = TopAppBarVariants;
-  return classnames('hero-top-app-bar', {
+  return classnames('hero-top-app-bar', 'mdc-top-app-bar', {
     'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
     'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
     'mdc-top-app-bar--fixed': variant === fixed,
@@ -86,17 +86,15 @@ export class TopAppBarHero extends Component {
         this.renderSingleActionItem(topAppBarIconsClasses) : this.renderActionItems(topAppBarIconsClasses);
 
     return (
-      <div className={classes(variant)}>
-        <header className='mdc-top-app-bar' ref={this.topAppBarRef}>
-          <div className='mdc-top-app-bar__row'>
-            <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
-              <span className='mdc-top-app-bar__title'>{title}</span>
-            </section>
-            {actionItems}
-          </div>
-        </header>
-      </div>
+      <header className={classes(variant)} ref={this.topAppBarRef}>
+        <div className='mdc-top-app-bar__row'>
+          <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
+            <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
+            <span className='mdc-top-app-bar__title'>{title}</span>
+          </section>
+          {actionItems}
+        </div>
+      </header>
     );
   }
 

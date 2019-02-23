@@ -21,13 +21,6 @@ class ComponentPage extends Component {
     this.props.scrollTargetSetter(this.demoContentEl);
   }
 
-  scrollTop = () => {
-    // TODO: when React Tab issue is fixed, this can be removed.
-    // https://github.com/material-components/material-components-web-react/issues/676
-    const contentEl = document.querySelector('.demo-content.mdc-drawer-app-content');
-    contentEl.scrollTop = 0;
-  }
-
   renderComponentRoutes() {
     return (
       <TransitionGroup
@@ -38,7 +31,6 @@ class ComponentPage extends Component {
           timeout={350}
           transitionExitTimeout={0}
           classNames='loadComponent'
-          onEntered={this.scrollTop}
         >
           <Switch>
             <Routes />
