@@ -17,7 +17,8 @@ const classesToRemove = [
   ' demo-card--hero',
   'hero-top-app-bar',
   ' style="transition-duration: 0s;"',
-  ' class=""'
+  ' class=""',
+  ' mdc-ripple-upgraded'
 ];
 
 const customStyle = {background: 'transparent'};
@@ -66,7 +67,7 @@ export default class WebTab extends Component {
     const webCopiedCode = 'web_code_copied';
     ReactGA.event({category: gtagCopyCode, action: webCopiedCode, label: webCopiedCode});
     this.setState({copied: true});
-  }
+  };
 
   render() {
     return (
