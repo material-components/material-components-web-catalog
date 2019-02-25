@@ -11,6 +11,8 @@ import {gtagCopyCode} from '../constants';
 import ReactGA from 'react-ga';
 
 const classesToRemove = [
+  '(--mdc-ripple-).*?(;)\\s?',
+  ' mdc-ripple-upgraded',
   ' mdc-ripple-upgraded--unbounded',
   ' mdc-notched-outline--upgraded',
   'hero-button ',
@@ -18,7 +20,7 @@ const classesToRemove = [
   'hero-top-app-bar',
   ' style="transition-duration: 0s;"',
   ' class=""',
-  ' mdc-ripple-upgraded'
+  ' style=""',
 ];
 
 const customStyle = {background: 'transparent'};
