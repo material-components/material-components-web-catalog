@@ -207,7 +207,7 @@ const CardHeaderTemplate = () => {
     </Subtitle2>
   </div>
   `;
-}
+};
 
 const CardSecondaryTemplate = () => {
   return `
@@ -215,7 +215,7 @@ const CardSecondaryTemplate = () => {
     Visit ten places on our planet that are undergoing the biggest changes today.
   </Body2>
   `;
-}
+};
 
 const CardIconsTemplate = () => {
   return `
@@ -231,7 +231,7 @@ const CardIconsTemplate = () => {
       </IconButton>
     </CardActionIcons>
   `;
-}
+};
 
 const CardButtonsTemplate = () => {
   return `
@@ -240,7 +240,7 @@ const CardButtonsTemplate = () => {
       <Button>Bookmark</Button>
     </CardActionButtons>
   `;
-}
+};
 
 const CardMediaTemplate = (showText = false, square) => {
   if (showText) {
@@ -259,7 +259,7 @@ const CardMediaTemplate = (showText = false, square) => {
   return `
     <CardMedia ${square ? 'square' : 'wide'} imageUrl={image} className='demo-card__media' />
   `;
-}
+};
 
 export const CardReactTemplate = (props) => {
   const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;

@@ -59,7 +59,7 @@ export class ButtonHeroLegacy extends Component {
 
 }
 
-export class ButtonHero extends Component {
+class ButtonHero extends Component {
   label = 'Button Text';
   ripple = null;
   initRipple = (el) => {

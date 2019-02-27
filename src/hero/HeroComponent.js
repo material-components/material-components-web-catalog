@@ -108,7 +108,7 @@ class Tab extends Component {
       action: 'tab_clicked',
       label: `tab_clicked_${tabNames[this.props.tabPosition]}`
     });
-  }
+  };
 
   render() {
     const {isActive, children} = this.props;

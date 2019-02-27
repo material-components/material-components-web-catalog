@@ -37,7 +37,7 @@ const classes = (variant) => {
   const {short, shortCollapsed, prominent, prominentDense, fixed, dense} = TopAppBarVariants;
   return classnames('hero-top-app-bar', 'mdc-top-app-bar', {
     'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
-    'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
+    'mdc-top-app-bar--short-collapsed': variant === shortCollapsed,
     'mdc-top-app-bar--fixed': variant === fixed,
     'mdc-top-app-bar--prominent': variant === prominent || variant === prominentDense,
     'mdc-top-app-bar--dense': variant === dense || variant === prominentDense,

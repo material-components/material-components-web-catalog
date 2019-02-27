@@ -11,7 +11,7 @@ import {gtagCategory, gtagTextFieldAction} from './constants';
 const TEXT_FIELD_MAX_LENGTH = 18;
 
 const leadingIconCode = 'favorite';
-const trailingIconCode = 'remove_red_eye';
+const trailingIconCode = 'visibility';
 
 export const TextField = (props) => {
   const {
@@ -188,7 +188,8 @@ const getTextFieldConfig = (props) => {
     ],
   };
   return TextFieldConfig;
-}
+};
+
 const TextFieldCatalog = (props) => (
   <ComponentCatalogPanel
     hero={<TextFieldHero />}
@@ -373,7 +374,6 @@ export const TextFieldReactTemplate = ({options}) => {
   const hasLeadingIcon = icons && icons.includes('leadingIcon');
   const hasTrailingIcon = icons && icons.includes('trailingIcon');
 
-  // TODO: Wire these up when the Config is complete
   const dense = '';
   const state = '';
 

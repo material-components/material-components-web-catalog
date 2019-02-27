@@ -1,7 +1,7 @@
-import {CardReactTemplate} from '../CardCatalog';
-import {TopAppBarReactTemplate} from '../TopAppBarCatalog';
 import {ButtonReactTemplate} from '../ButtonCatalog';
+import {CardReactTemplate} from '../CardCatalog';
 import {TextFieldReactTemplate} from '../TextFieldCatalog';
+import {TopAppBarReactTemplate} from '../TopAppBarCatalog';
 
 const ReactTemplates = {
   'ButtonHero': (config) => ButtonReactTemplate(config),
