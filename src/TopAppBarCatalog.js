@@ -36,10 +36,10 @@ const TopAppBarCatalog = (props) => {
 const classes = (variant) => {
   const {short, shortCollapsed, prominent, prominentDense, fixed, dense} = TopAppBarVariants;
   return classnames('hero-top-app-bar', 'mdc-top-app-bar', {
-    'mdc-top-app-bar--short': variant === short || variant === shortCollapsed,
-    // The short-collapsed variant includes the has-action-item class because the top app bar is not destroyed/recreated every
-    // time the props change.
-    'mdc-top-app-bar--short-collapsed mdc-top-app-bar--short-has-action-item': variant === shortCollapsed,
+    // The short variant includes the has-action-item class because the top app bar is not destroyed/recreated every
+    // time the props change so this class should persist for every short instance.
+    'mdc-top-app-bar--short mdc-top-app-bar--short-has-action-item': variant === short || variant === shortCollapsed,
+    'mdc-top-app-bar--short-collapsed': variant === shortCollapsed,
     'mdc-top-app-bar--fixed': variant === fixed,
     'mdc-top-app-bar--prominent': variant === prominent || variant === prominentDense,
     'mdc-top-app-bar--dense': variant === dense || variant === prominentDense,
