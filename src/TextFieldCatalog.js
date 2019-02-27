@@ -265,24 +265,24 @@ class TextFieldHero extends Component {
     const iconClasses = 'material-icons mdc-text-field__icon';
 
     return (
-    <div className={classes} ref={this.initRef}>
-      {leadingIcon !== '' ? (<i className={iconClasses}>{leadingIcon}</i>) : ''}
-      {trailingIcon !== '' ? (<i className={iconClasses}>{trailingIcon}</i>) : ''}
-      <input className='mdc-text-field__input' />
-      {type === 'outlined' ? (
-      <div className='mdc-notched-outline'>
-          <div className='mdc-notched-outline__leading'></div>
-          <div className='mdc-notched-outline__notch'>
-            <label className='mdc-floating-label'>{label}</label>
-            </div>
-          <div className='mdc-notched-outline__trailing'></div>
-      </div>) : (
-      <React.Fragment>
-        <div className='mdc-line-ripple'></div>
-        <label className='mdc-floating-label'>{label}</label>
-      </React.Fragment>)}
-    </div>
-    )
+      <div className={classes} ref={this.initRef}>
+        {leadingIcon !== '' ? (<i className={iconClasses}>{leadingIcon}</i>) : ''}
+        {trailingIcon !== '' ? (<i className={iconClasses}>{trailingIcon}</i>) : ''}
+        <input className='mdc-text-field__input' />
+        {type === 'outlined' ? (
+        <div className='mdc-notched-outline'>
+            <div className='mdc-notched-outline__leading'></div>
+            <div className='mdc-notched-outline__notch'>
+              <label className='mdc-floating-label'>{label}</label>
+              </div>
+            <div className='mdc-notched-outline__trailing'></div>
+        </div>) : (
+        <React.Fragment>
+          <div className='mdc-line-ripple'></div>
+          <label className='mdc-floating-label'>{label}</label>
+        </React.Fragment>)}
+      </div>
+    );
   }
 }
 
