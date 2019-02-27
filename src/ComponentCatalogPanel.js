@@ -79,7 +79,7 @@ class ComponentCatalogPanel extends Component {
     const {localConfig} = this.state;
     let heroComponent = <div className='hero'>{hero}</div>;
 
-    // TODO: Remove this check when all components have been updated.
+    // TODO: Remove this check when all components have been updated to new hero.
     if (initialConfig) {
       heroComponent = <HeroComponent config={localConfig} {...this.props}>{hero}</HeroComponent>;
     }
