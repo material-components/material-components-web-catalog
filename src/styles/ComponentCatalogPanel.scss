@@ -45,13 +45,15 @@ $hero-section-max-width: 820px;
 
   .hero-options {
     flex: 1 1 auto;
-
   }
 
   .hero-component {
     order: 4;
     flex: 1 1 100%;
     height: $hero-section-height;
+    // This calculation is the parent width minus the first column max width element (the description).
+    // This gives the most responsive layout.
+    width: calc(100% - 340px);
     margin-top: 32px;
   }
 }
@@ -70,13 +72,19 @@ $hero-section-max-width: 820px;
 
     &__header {
       flex-flow: column nowrap;
-      max-height: none;
+      height: auto;
     }
 
     .hero-options {
       max-height: none;
     }
+
+
+    .hero-component {
+      width: 100%;
+    }
   }
+
 }
 
 .hero-select {
