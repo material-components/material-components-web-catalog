@@ -59,6 +59,7 @@ class SliderDemos extends Component {
   }
 
   renderSliderVariant(title, variantClass) {
+    const isDiscrete = variantClass.indexOf('mdc-slider--discrete') > -1;
     return (
       <div className='demo-slider'>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
@@ -73,7 +74,7 @@ class SliderDemos extends Component {
             }
           </div>
           <div className='mdc-slider__thumb-container'>
-            {variantClass.includes('mdc-slider--discrete') &&
+            {isDiscrete &&
               <div className='mdc-slider__pin'>
                 <span className='mdc-slider__pin-value-marker'></span>
               </div>
