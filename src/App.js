@@ -8,7 +8,6 @@ import DrawerFramePage from './frame/DrawerFramePage';
 
 import './styles/App.scss';
 import IFrameRoutes from './IFrameRoutes';
-import './polyfills';
 
 class App extends Component {
   componentWillReceiveProps(nextProps) {
