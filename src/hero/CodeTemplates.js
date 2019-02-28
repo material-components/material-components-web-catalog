@@ -4,10 +4,10 @@ import {TextFieldReactTemplate} from '../TextFieldCatalog';
 import {TopAppBarReactTemplate} from '../TopAppBarCatalog';
 
 const ReactTemplates = {
-  'ButtonHero': (config) => ButtonReactTemplate(config),
-  'CardHero': (config) => CardReactTemplate(config),
-  'TextFieldHero': (config) => TextFieldReactTemplate(config),
-  'TopAppBarHero': (config) => TopAppBarReactTemplate(config),
+  'button': (config) => ButtonReactTemplate(config),
+  'card': (config) => CardReactTemplate(config),
+  'text-field': (config) => TextFieldReactTemplate(config),
+  'top-app-bar': (config) => TopAppBarReactTemplate(config),
 };
 
 export default ReactTemplates;

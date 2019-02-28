@@ -24,8 +24,9 @@ export default class ReactTab extends Component {
   };
 
   initCodeString = () => {
-    const {children} = this.props;
-    const val = ReactTemplates[children.type.name](children.props.config);
+    const {children, location} = this.props;
+    const reactTemplateName = location.pathname.split('/component/')[1];
+    const val = ReactTemplates[reactTemplateName](children.props.config);
     const codeString = val ? val.replace(/\n\s*\n/g, '\n') : '';
     this.setState({codeString});
   };
