@@ -8,7 +8,8 @@
 //
 
 .demo-card {
-  width: 350px;
+  max-width: 350px;
+  width: 70%;
   margin: 48px 0;
 }
 
@@ -32,6 +33,10 @@
   @include mdc-theme-prop(color, text-secondary-on-background);
 
   margin: 0;
+}
+
+.demo-card__actions {
+  overflow: hidden;
 }
 
 .demo-card__secondary {
