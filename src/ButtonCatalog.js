@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import ComponentCatalogPanel from './ComponentCatalogPanel.js';
 import {MDCRipple} from '@material/ripple/index';
+import * as classnames from 'classnames';
 import ReactGA from 'react-ga';
 
 import './styles/ButtonCatalog.scss';
 import {gtagButtonAction, gtagCategory} from './constants';
 
-const ButtonCatalog = () => {
+const ButtonCatalog = (props) => {
   return (
     <ComponentCatalogPanel
       hero={<ButtonHero />}
@@ -16,11 +17,16 @@ const ButtonCatalog = () => {
       docsLink='https://material.io/components/web/catalog/buttons/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-button'
       demos={<ButtonDemos />}
+      initialConfig={ButtonConfig}
+      {...props}
     />
   );
-}
+};
 
-export class ButtonHero extends Component {
+
+// This is retained for the material experiment and will be dead code that we can remove when
+// experiment is completed.
+export class ButtonHeroLegacy extends Component {
   constructor(props) {
     super(props);
     this.ripples = [];
@@ -48,6 +54,36 @@ export class ButtonHero extends Component {
           <span className='mdc-button__label'>Outlined</span>
         </button>
       </div>
+    );
+  }
+
+}
+
+class ButtonHero extends Component {
+  label = 'Button Text';
+  ripple = null;
+  initRipple = (el) => {
+    if (el) this.ripple = new MDCRipple(el);
+  };
+
+  componentWillUnmount() {
+    if (this.ripple) this.ripple.destroy();
+  }
+
+  render() {
+    if (this.props.config) {
+      this.selectedType = this.props.config.options.type.value;
+    }
+
+    const className = classnames('hero-button mdc-button', {
+      [ButtonTypes[this.selectedType]]: this.selectedType,
+      'mdc-ripple-upgraded': this.ripple,
+    });
+
+    return (
+      <button className={className} ref={this.initRipple}>
+        {this.props.config.options.label.value}
+      </button>
     );
   }
 }
@@ -93,5 +129,80 @@ class ButtonDemos extends Component {
     );
   }
 }
+
+/**
+ * This is the object that configures how the options panel looks and
+ * and what types of options the user can change. This object also contains
+ * information about what urlParam the option will use to ensure the user
+ * can share links of their configured component. A copy of this object will be
+ * made and used to manage the current state of the hero component and used to
+ * generate the code snippet.
+ */
+const ButtonConfig = {
+  options: {
+    header: {
+      type: 'label',
+      name: 'Options',
+    },
+    type: {
+      type: 'select',
+      name: 'Variant',
+      urlParam: 'type',
+      value: 'text', // default select first option
+      options: [
+        {
+          label: 'Text',
+          value: 'text',
+        },
+        {
+          label: 'Outlined',
+          value: 'outlined',
+        },
+        {
+          label: 'Raised',
+          value: 'raised',
+        },
+        {
+          label: 'Unelevated',
+          value: 'unelevated',
+        },
+      ],
+    },
+    label: {
+      type: 'textfield',
+      name: 'Properties',
+      label: 'Button Text',
+      urlParam: 'label',
+      value: 'Learn More'
+    }
+  },
+  order: [
+    'header', 'type', 'label',
+  ],
+};
+
+const ButtonTypes = {
+  text: '',
+  raised: 'mdc-button--raised',
+  unelevated: 'mdc-button--unelevated',
+  outlined: 'mdc-button--outlined',
+};
+
+export const ButtonReactTemplate = (config) => {
+  const label = config.options.label.value;
+  const type = config.options.type.value;
+
+  const dense = '';
+  const icon = '';
+  const state = '';
+
+  return `<Button
+  ${type && type !== 'text' ? type + '\n' : ''}
+  ${dense ? 'dense\n' : ''}
+  ${state ? state + '\n' : ''}
+  ${icon !== '' ? 'icon={<i className=\'material-icons\'>' + icon + '</i>}\n' : ''}>
+  ${label}
+</Button>`;
+};
 
 export default ButtonCatalog;

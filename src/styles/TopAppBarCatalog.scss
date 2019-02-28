@@ -19,11 +19,13 @@
 }
 
 .hero-top-app-bar {
-  height: 64px;
-  width: 80%;
-  min-width: 300px;
-
-  .mdc-top-app-bar {
+  &.mdc-top-app-bar {
     position: relative;
+    z-index: 0;
+  }
+
+  &:not(.mdc-top-app-bar--short-collapsed) {
+    width: 80%;
+    min-width: 300px;
   }
 }

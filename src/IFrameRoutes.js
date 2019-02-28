@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, withRouter} from 'react-router-dom';
-import {ButtonHero} from './ButtonCatalog';
+import {ButtonHeroLegacy} from './ButtonCatalog';
 import {CardHero} from './CardCatalog';
 import {CheckboxHero} from './CheckboxCatalog';
 import {ChipsHero} from './ChipsCatalog';
@@ -21,12 +21,12 @@ import {SliderHero} from './SliderCatalog';
 import {SnackbarHero} from './SnackbarCatalog';
 import {SwitchHero} from './SwitchCatalog';
 import {TabsHero} from './TabsCatalog';
-import {TextFieldHero} from './TextFieldCatalog';
+import {TextFieldHeroLegacy} from './TextFieldCatalog';
 import {TopAppBarHero} from './TopAppBarCatalog';
 
 const routesList = [{
   urlPath: 'button',
-  Component: ButtonHero,
+  Component: ButtonHeroLegacy,
 }, {
   urlPath: 'card',
   Component: CardHero,
@@ -89,7 +89,7 @@ const routesList = [{
   Component: TabsHero,
 }, {
   urlPath: 'text-field',
-  Component: TextFieldHero,
+  Component: TextFieldHeroLegacy,
 }, {
   urlPath: 'top-app-bar',
   Component: TopAppBarHero,

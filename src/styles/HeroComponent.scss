@@ -1,0 +1,113 @@
+@import '@material/tab/mixins';
+@import '@material/tab-indicator/mixins';
+@import '@material/ripple/mixins';
+@import '@material/chips/mixins';
+@import './ComponentPage';
+
+$heroBackgroundColor: #f7f7f7;
+
+.catalog-hero-tab-bar {
+  width: 100%;
+  background-color: white;
+}
+
+.hero-component {
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-content,
+.tab-container {
+  display: flex;
+  // This is an IE11 workaround where flex doesn't center elements properly unless height is explicitly
+  // set to a value (100% doesn't work). By setting the height to a value lower than min-height, min-height
+  // will be used but the flex system will work properly.
+  // See https://github.com/philipwalton/flexbugs/issues/231
+  height: 0;
+  min-height: 100%;
+  width: 100%;
+  max-width: 100%;
+  padding: 24px 0;
+  flex: 1 1 auto;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: $heroBackgroundColor;
+}
+
+.tab-container {
+  min-height: 360px;
+  position: relative;
+};
+
+.highlight-html {
+  width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+.hero-tab {
+  .mdc-tab-indicator {
+    @include mdc-tab-indicator-underline-color(black);
+  }
+  &.mdc-tab--active {
+    @include mdc-tab-text-label-color(black);
+  }
+  .mdc-tab__ripple {
+    @include mdc-states(black);
+  }
+}
+
+.hero-options {
+  border-radius: 4px;
+  max-height: 312px;
+  width: 100%;
+
+  .mdc-list-item {
+    height: auto;
+    padding: 0;
+  }
+
+  .catalog-tf-list-item {
+    min-height: 65px;
+    overflow: visible;
+    padding-bottom: 24px;
+  }
+
+  .mdc-chip-set {
+    padding:16px 0;
+
+    .mdc-chip {
+      margin: 0 4px 0 0;
+    }
+  }
+}
+
+.copy-all-button.copy-all-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+}
+
+.hero-component__filter-chip-set-option .mdc-chip {
+  @include mdc-chip-shape-radius(4px);
+  @include mdc-chip-fill-color(white);
+  @include mdc-chip-outline(1px, solid, rgba(25, 25, 25, 0.32));
+
+  &.mdc-chip--selected {
+    @include mdc-chip-fill-color($heroBackgroundColor);
+  }
+}
+
+.mdc-typography--overline {
+  padding: 0 0 16px;
+}
+
+.react-syntax-highlighter-line-number {
+  user-select: none;
+}
