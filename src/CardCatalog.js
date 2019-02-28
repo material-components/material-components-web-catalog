@@ -155,7 +155,7 @@ class CardActionRow extends Component {
   render() {
     const {showIcons = true, showButtons = true} = this.props;
     return (
-      <div className='mdc-card__actions demo-card__actions'>
+      <div className='mdc-card__actions'>
         {
           showButtons ?
           <div className='mdc-card__action-buttons'>
