@@ -24,7 +24,12 @@ $heroBackgroundColor: #f7f7f7;
 .tab-content,
 .tab-container {
   display: flex;
-  height: 100%;
+  // This is an IE11 workaround where flex doesn't center elements properly unless height is explicitly
+  // set to a value (100% doesn't work). By setting the height to a value lower than min-height, min-height
+  // will be used but the flex system will work properly.
+  // See https://github.com/philipwalton/flexbugs/issues/231
+  height: 0;
+  min-height: 100%;
   width: 100%;
   max-width: 100%;
   flex: 1 1 auto;

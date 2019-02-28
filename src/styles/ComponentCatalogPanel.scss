@@ -19,7 +19,7 @@ $hero-left-section-right-padding: 40px;
     display: flex;
     flex-flow: column wrap;
     height: $hero-section-height;
-    align-items: start;
+    align-items: flex-start;
 
     &.component-catalog-panel--v2-hero {
       flex: 1 1 auto;
