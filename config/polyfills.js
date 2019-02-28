@@ -21,10 +21,8 @@ if (process.env.NODE_ENV === 'test') {
   require('raf').polyfill(global);
 }
 
-// TODO(mattgoo): remove this once react chips is updated.
-// Array.from is not supported by IE11 and is in react-chips/react-ripple.
+// TODO(mattgoo): remove this polyfill and @babel/polyfill (in webpack.config.dev/.prod)
+// once react chips is updated.
+// classlist.contains, Array.from, includes, new Set() are not supported by IE11.
 // https://github.com/material-components/material-components-web-react/issues/700
-
-// TODO remove once react chips is updated since classlist.contains is not supported in 
-// IE11.
 require('classlist-polyfill');
