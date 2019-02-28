@@ -17,7 +17,6 @@ const classesToRemove = [
   ' mdc-notched-outline--upgraded',
   ' mdc-top-app-bar--short-has-action-item',
   'hero-button ',
-  ' demo-card--hero',
   'hero-top-app-bar',
   ' style="transition-duration: 0s;"',
   ' class=""',

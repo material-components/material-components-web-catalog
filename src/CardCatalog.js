@@ -37,7 +37,6 @@ export const CardHero = (props) => {
   return (<Card
     image
     actions
-    className='demo-card--hero'
     type={type}
   />);
 };
@@ -264,7 +263,7 @@ const CardMediaTemplate = (showText = false, square) => {
 export const CardReactTemplate = (props) => {
   const {basicHeader, basicMediaText, basicButtons, basicIcons, uiControl} = CardTypes;
   const type = props.options.type.value;
-  const className = classes({className:'demo-card--hero', type});
+  const className = classes({type});
 
   return `<Card className='${className}'>
   ${type === basicHeader ? CardHeaderTemplate() : ''}
