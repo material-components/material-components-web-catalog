@@ -247,8 +247,8 @@ class TextFieldHero extends Component {
       type = config.options.type.value;
       label = config.options.label.value;
       const icons = config.options.icons.value;
-      const hasLeadingIcon = icons && icons.includes('leadingIcon');
-      const hasTrailingIcon = icons && icons.includes('trailingIcon');
+      const hasLeadingIcon = icons && icons.indexOf('leadingIcon') > -1;
+      const hasTrailingIcon = icons && icons.indexOf('trailingIcon') > -1;
       if (hasLeadingIcon) {
         leadingIcon = leadingIconCode;
       }
@@ -371,8 +371,8 @@ export const TextFieldReactTemplate = ({options}) => {
   const type = options.type.value;
   const label = options.label.value;
   const icons = options.icons.value;
-  const hasLeadingIcon = icons && icons.includes('leadingIcon');
-  const hasTrailingIcon = icons && icons.includes('trailingIcon');
+  const hasLeadingIcon = icons && icons.indexOf('leadingIcon') > -1;
+  const hasTrailingIcon = icons && icons.indexOf('trailingIcon') > -1;
 
   const dense = '';
   const state = '';
