@@ -106,7 +106,7 @@ class Tab extends Component {
     ReactGA.event({
       category: gtagTabCategory,
       action: 'tab_clicked',
-      label: `tab_clicked_${tabNames[this.props.tabPosition]}`
+      label: `tab_clicked_${this.props.children}`
     });
   };
 
