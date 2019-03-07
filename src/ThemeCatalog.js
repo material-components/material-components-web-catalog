@@ -6,6 +6,7 @@ import {MDCLinearProgress} from '@material/linear-progress/index';
 import {MDCRipple} from '@material/ripple/index';
 import {MDCSelect} from '@material/select/index';
 import {MDCSlider} from '@material/slider/index';
+import {MDCSwitch} from '@material/switch/index';
 import {MDCTextField} from '@material/textfield/index';
 import {imagePath} from './constants';
 
@@ -109,6 +110,7 @@ class ThemeDemos extends Component {
       new MDCRipple(buttonEl));
   initSelect = ele => ele && this.componentInstances.push(new MDCSelect(ele));
   initSlider = ele => ele && this.componentInstances.push(new MDCSlider(ele));
+  initSwitch = ele => ele && this.componentInstances.push(new MDCSwitch(ele));
   initTextField = ele => ele && this.componentInstances.push(
       new MDCTextField(ele));
 
@@ -605,24 +607,29 @@ class ThemeDemos extends Component {
         <ThemeDemoSection title='Switch'>
 
           <fieldset className='demo-switch-wrapper'>
-            <div className='mdc-switch'>
-              <input type='checkbox' id='basic-switch'
-                     className='mdc-switch__native-control' role='switch'
-                     defaultChecked aria-checked='true'/>
-              <div className='mdc-switch__background'>
-                <div className='mdc-switch__knob'/>
+            <div className='mdc-switch' ref={this.initSwitch}>
+              <div className='mdc-switch__track'></div>
+              <div className='mdc-switch__thumb-underlay'>
+                <div className='mdc-switch__thumb'>
+                    <input type='checkbox' id='basic-switch' className='mdc-switch__native-control' role='switch'
+                           defaultChecked
+                           aria-checked='true' />
+                </div>
               </div>
             </div>
             <label htmlFor='basic-switch'
                    className='mdc-switch-label'>off/on</label>
           </fieldset>
           <fieldset className='demo-switch-wrapper' disabled>
-            <div className='mdc-switch'>
-              <input type='checkbox' id='disabled-switch'
-                     className='mdc-switch__native-control' role='switch'
-                     defaultChecked aria-checked='true'/>
-              <div className='mdc-switch__background'>
-                <div className='mdc-switch__knob'/>
+            <div className='mdc-switch mdc-switch--disabled' ref={this.initSwitch}>
+              <div className='mdc-switch__track'></div>
+              <div className='mdc-switch__thumb-underlay'>
+                <div className='mdc-switch__thumb'>
+                    <input type='checkbox' id='disabled-switch' className='mdc-switch__native-control' role='switch'
+                           defaultChecked
+                           aria-checked='true'
+                           disabled />
+                </div>
               </div>
             </div>
             <label htmlFor='disabled-switch'
