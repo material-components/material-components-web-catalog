@@ -264,17 +264,21 @@ class TextFieldHero extends Component {
     });
     const iconClasses = 'material-icons mdc-text-field__icon';
 
+    const outlineClasses = classnames('mdc-notched-outline', {
+      'mdc-notched-outline--no-label': label === '',
+    });
+
     return (
       <div className={classes} ref={this.initRef}>
         {leadingIcon !== '' ? (<i className={iconClasses}>{leadingIcon}</i>) : ''}
         {trailingIcon !== '' ? (<i className={iconClasses}>{trailingIcon}</i>) : ''}
         <input className='mdc-text-field__input' />
         {type === 'outlined' ? (
-        <div className='mdc-notched-outline'>
+        <div className={outlineClasses}>
             <div className='mdc-notched-outline__leading'></div>
             <div className='mdc-notched-outline__notch'>
               <label className='mdc-floating-label'>{label}</label>
-              </div>
+            </div>
             <div className='mdc-notched-outline__trailing'></div>
         </div>) : (
         <React.Fragment>
