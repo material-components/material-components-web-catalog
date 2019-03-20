@@ -105,7 +105,7 @@ const IFrameRoutes = (props) => {
                 key={urlPath}
                 path={`/component/iframe/${urlPath}`}
                 render={(props) => (
-                    <div className='hero'>
+                    <div className='hero-iframe'>
                       <Component {...props}/>
                     </div>)
                 } />
