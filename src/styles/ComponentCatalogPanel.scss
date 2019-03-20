@@ -96,3 +96,16 @@ $hero-left-section-right-padding: 40px;
 .hero-select {
   width: 250px;
 }
+
+// Hero styles for the component/iframe/ routes for m.io experiment.
+.hero-iframe {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, .05);
+  flex: 1 1 100%;
+  height: 410px;
+  padding: 24px;
+  box-sizing: border-box;
+}
