@@ -36,7 +36,7 @@ class HeaderBar extends Component {
 
 function HeaderIcon(props) {
   return (
-    <button className='material-icons mdc-top-app-bar__navigation-icon' title='Home' onClick={props.toggleDrawer}>
+    <button className='mdc-icon-button material-icons mdc-top-app-bar__navigation-icon' title='Home' onClick={props.toggleDrawer}>
       {
         props.isTopPage ?
           <img src={`${imagePath}/ic_component_24px_white.svg`} alt='Material logo' /> :

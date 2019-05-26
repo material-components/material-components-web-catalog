@@ -82,7 +82,7 @@ export class TopAppBarHero extends Component {
     const variant = this.props.config.options.type.value;
     const title = this.props.config.options.title.value;
 
-    const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
+    const topAppBarIconsClasses = 'mdc-icon-button material-icons mdc-top-app-bar__action-item';
 
     const actionItems = variant === shortCollapsed || variant === short ?
         this.renderSingleActionItem(topAppBarIconsClasses) : this.renderActionItems(topAppBarIconsClasses);
@@ -91,7 +91,7 @@ export class TopAppBarHero extends Component {
       <header className={classes(variant)} ref={this.topAppBarRef}>
         <div className='mdc-top-app-bar__row'>
           <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-            <button className='material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
+            <button className='mdc-icon-button material-icons mdc-top-app-bar__navigation-icon' ref={this.initRipple}>menu</button>
             <span className='mdc-top-app-bar__title'>{title}</span>
           </section>
           {actionItems}

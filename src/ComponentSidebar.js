@@ -131,6 +131,9 @@ class ComponentSidebar extends Component {
       content: 'Chips',
       url: '/chips',
     }, {
+      content: 'Data Table',
+      url: '/data-table',
+    }, {
       content: 'Dialog',
       url: '/dialog',
     }, {

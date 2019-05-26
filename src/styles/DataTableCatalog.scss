@@ -1,0 +1,9 @@
+@import '@material/checkbox/mdc-checkbox';
+@import '@material/data-table/mdc-data-table';
+@import '@material/typography/mixins';
+
+.demo-data-table-header {
+  @include mdc-typography(subtitle1);
+
+  margin-top: 32px;
+}

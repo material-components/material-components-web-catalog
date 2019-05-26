@@ -12,12 +12,12 @@ const propToVariant = {
   'standard': {title: 'Standard', variant: ''},
 };
 
-const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
-    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint 
-    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+const loremIpsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
     anim id est laborum.`;
 
 class TopAppBarFramePage extends Component {
@@ -46,7 +46,7 @@ class TopAppBarFramePage extends Component {
         <header className={`mdc-top-app-bar ${type.variant}`} style={{top: 0}} ref={this.initTopAppBar}>
           <div className='mdc-top-app-bar__row'>
             <section className='mdc-top-app-bar__section mdc-top-app-bar__section--align-start'>
-              <button className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
+              <button className='mdc-icon-button material-icons mdc-top-app-bar__navigation-icon'>menu</button>
               <span className='mdc-top-app-bar__title'>{type.title}</span>
             </section>
             {this.getIcons(type.variant)}
@@ -86,7 +86,7 @@ class TopAppBarFramePage extends Component {
 
   getIcons(variant) {
     const isShort = variant.indexOf('mdc-top-app-bar--short') !== -1;
-    const topAppBarIconsClasses = 'material-icons mdc-top-app-bar__action-item';
+    const topAppBarIconsClasses = 'mdc-icon-button material-icons mdc-top-app-bar__action-item';
     const topAppBarIconSectionClasses = 'mdc-top-app-bar__section mdc-top-app-bar__section--align-end';
 
     if (isShort) {
