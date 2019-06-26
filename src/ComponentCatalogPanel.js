@@ -65,12 +65,14 @@ class ComponentCatalogPanel extends Component {
   renderResource(title, imageSource, url) {
     if (!url) return;
     return (
-      <a href={url} role='listitem' className='mdc-list-item' target='_blank' ref={this.initRipple}>
-        <span className='mdc-list-item__graphic resources-graphic'>
-          <img src={imageSource} className='resources-graphic' alt={`${title} icon`}/>
-        </span>
-        {title}
-      </a>
+      <li>
+        <a href={url} className='mdc-list-item' target='_blank' ref={this.initRipple}>
+          <span className='mdc-list-item__graphic resources-graphic'>
+            <img src={imageSource} className='resources-graphic' alt={`${title} icon`}/>
+          </span>
+          {title}
+        </a>
+      </li>
     );
   }
 
@@ -100,9 +102,11 @@ class ComponentCatalogPanel extends Component {
         </div>
 
         <h2 className='demo-title mdc-typography--headline6'>Resources</h2>
-        {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, designLink)}
-        {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, docsLink)}
-        {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, sourceLink)}
+        <ul className='component-catalog-resources'>
+          {this.renderResource('Material Design Guidelines', `${imagePath}/ic_material_design_24px.svg`, designLink)}
+          {this.renderResource('Documentation', `${imagePath}/ic_drive_document_24px.svg`, docsLink)}
+          {this.renderResource('Source Code', `${imagePath}/ic_code_24px.svg`, sourceLink)}
+        </ul>
 
         <h2 className='demo-title mdc-typography--headline6'>Demos</h2>
         {demos}

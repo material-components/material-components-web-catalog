@@ -29,6 +29,7 @@ export const TextField = (props) => {
   });
   const hasHelperLine = helperText || characterCounter;
   const maxLengthValue = characterCounter ? TEXT_FIELD_MAX_LENGTH : null;
+  const helperTextId = `${textFieldId}-helper-text`;
 
   return (
     <div className='text-field-container'>
@@ -37,14 +38,14 @@ export const TextField = (props) => {
         {leading && <i className='material-icons mdc-text-field__icon'>event</i>}
         {textarea ?
           <TextArea textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} noLabel={noLabel} /> :
-          <Input textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} noLabel={noLabel} />}
+          <Input textFieldId={textFieldId} onClick={onClick} maxLength={maxLengthValue} placeholder={placeholder} noLabel={noLabel} ariaDescribedBy={helperTextId} />}
         {outlined || textarea || noLabel ? null : <Label textFieldId={textFieldId} dense={dense}/>}
         {trailing && <i className='material-icons mdc-text-field__icon'>delete</i>}
         {outlined || textarea ? <Outline noLabel={noLabel} textFieldId={textFieldId}/> : <div className='mdc-line-ripple'></div>}
       </div>
       { hasHelperLine ?
         <div className='mdc-text-field-helper-line'>
-          {helperText ? <HelperText /> : null}
+          {helperText ? <HelperText id={helperTextId} /> : null}
           {characterCounter && !textarea ? <CharacterCounter /> : null}
         </div>
         : null
@@ -59,6 +60,7 @@ const FullWidthTextField = ({textarea, textFieldId, helperText, characterCounter
     'mdc-text-field--textarea': textarea,
   });
   const hasHelperLine = helperText || characterCounter;
+  const helperTextId = `${textFieldId}-helper-text`;
 
   return (
     <div className='text-field-container'>
@@ -66,12 +68,12 @@ const FullWidthTextField = ({textarea, textFieldId, helperText, characterCounter
         {characterCounter && textarea ? <CharacterCounter /> : null}
         {textarea ?
           <TextArea textFieldId={textFieldId}/> :
-          <Input placeholder='Standard' textFieldId={textFieldId}/>}
+          <Input placeholder='Standard' noLabel textFieldId={textFieldId} aria-describedby={helperTextId} />}
         {textarea ? <Outline textFieldId={textFieldId}/> : null}
       </div>
       { hasHelperLine ?
         <div className='mdc-text-field-helper-line'>
-          {helperText ? <HelperText /> : null}
+          {helperText ? <HelperText id={helperTextId} /> : null}
           {characterCounter && !textarea ? <CharacterCounter /> : null}
         </div>
         : null
@@ -99,14 +101,15 @@ const Label = ({textFieldId}) => (
   </label>
 );
 
-const Input = ({placeholder, textFieldId, onClick, noLabel, maxLength}) => (
+const Input = ({placeholder, textFieldId, onClick, noLabel, maxLength, ariaDescribedBy}) => (
   <input type='text'
     id={textFieldId}
     placeholder={placeholder}
     className='mdc-text-field__input'
     onClick={onClick}
     maxLength={maxLength}
-    aria-label={noLabel ? 'Text field aria label' : null} />
+    aria-label={noLabel ? 'Text field aria label' : null}
+    aria-describedby={ariaDescribedBy || null} />
 );
 
 const TextArea = ({placeholder, textFieldId, onClick, noLabel, maxLength}) => (
@@ -119,9 +122,9 @@ const TextArea = ({placeholder, textFieldId, onClick, noLabel, maxLength}) => (
     aria-label={noLabel ? 'Text field aria label' : null} />
 );
 
-const HelperText = () => (
+const HelperText = ({id}) => (
   <p className='mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg'
-   id='pw-validation-msg'>
+   id={id}>
     Helper Text
   </p>
 );
@@ -267,23 +270,24 @@ class TextFieldHero extends Component {
     const outlineClasses = classnames('mdc-notched-outline', {
       'mdc-notched-outline--no-label': label === '',
     });
+    const textFieldId = 'text-field-hero-input';
 
     return (
       <div className={classes} ref={this.initRef}>
         {leadingIcon !== '' ? (<i className={iconClasses}>{leadingIcon}</i>) : ''}
         {trailingIcon !== '' ? (<i className={iconClasses}>{trailingIcon}</i>) : ''}
-        <input className='mdc-text-field__input' />
+        <input className='mdc-text-field__input' id={textFieldId} />
         {type === 'outlined' ? (
         <div className={outlineClasses}>
             <div className='mdc-notched-outline__leading'></div>
             <div className='mdc-notched-outline__notch'>
-              <label className='mdc-floating-label'>{label}</label>
+              <label htmlFor={textFieldId} className='mdc-floating-label'>{label}</label>
             </div>
             <div className='mdc-notched-outline__trailing'></div>
         </div>) : (
         <React.Fragment>
           <div className='mdc-line-ripple'></div>
-          <label className='mdc-floating-label'>{label}</label>
+          <label htmlFor={textFieldId} className='mdc-floating-label'>{label}</label>
         </React.Fragment>)}
       </div>
     );
@@ -335,34 +339,34 @@ class TextFieldDemos extends Component {
         <div>
           <h3 className='mdc-typography--subtitle1'>Shaped Outlined</h3>
           <div className='text-field-row'>
-            <TextField outlined helperText textFieldId='text-field-shape-one' className='demo-text-field-outlined-shaped' />
-            <TextField outlined leading helperText textFieldId='text-field-shape-two' className='demo-text-field-outlined-shaped' />
-            <TextField outlined trailing helperText textFieldId='text-field-shape-three' className='demo-text-field-outlined-shaped' />
+            <TextField outlined helperText textFieldId='text-field-outlined-shape-one' className='demo-text-field-outlined-shaped' />
+            <TextField outlined leading helperText textFieldId='text-field-outlined-shape-two' className='demo-text-field-outlined-shaped' />
+            <TextField outlined trailing helperText textFieldId='text-field-outlined-shape-three' className='demo-text-field-outlined-shaped' />
           </div>
         </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Text Field without label</h3>
           <div className='text-field-row'>
-            <TextField helperText textFieldId='text-field-filled' noLabel />
-            <TextField outlined helperText textFieldId='text-field-outlined' noLabel />
-            <TextField outlined helperText textFieldId='text-field-outlined' noLabel className='demo-text-field-outlined-shaped' />
+            <TextField helperText textFieldId='text-field-filled-no-label' noLabel />
+            <TextField outlined helperText textFieldId='text-field-outlined-no-label-1' noLabel />
+            <TextField outlined helperText textFieldId='text-field-outlined-no-label-2' noLabel className='demo-text-field-outlined-shaped' />
           </div>
         </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Text Field with Character Counter</h3>
           <div className='text-field-row'>
-            <TextField helperText textFieldId='text-field-filled' characterCounter />
-            <TextField outlined helperText textFieldId='text-field-outlined' characterCounter />
-            <TextField outlined helperText textFieldId='text-field-outlined' characterCounter className='demo-text-field-outlined-shaped' />
+            <TextField helperText textFieldId='text-field-filled-cc' characterCounter />
+            <TextField outlined helperText textFieldId='text-field-outlined-cc1' characterCounter />
+            <TextField outlined helperText textFieldId='text-field-outlined-cc2' characterCounter className='demo-text-field-outlined-shaped' />
           </div>
         </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Textarea</h3>
-          <TextField textarea textFieldId='textarea' />
+          <TextField textarea textFieldId='textarea-1' />
         </div>
         <div>
           <h3 className='mdc-typography--subtitle1'>Textarea with Character Counter</h3>
-          <TextField textarea textFieldId='textarea' helperText characterCounter />
+          <TextField textarea textFieldId='textarea-2d' helperText characterCounter />
         </div>
         {this.renderFullWidthVariant('Full Width')}
         {this.renderFullWidthVariant('Full Width Textarea', 'textarea')}
