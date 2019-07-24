@@ -5,6 +5,7 @@ import ButtonCatalog from './ButtonCatalog';
 import CardCatalog from './CardCatalog';
 import CheckboxCatalog from './CheckboxCatalog';
 import ChipsCatalog from './ChipsCatalog';
+import DataTableCatalog from './DataTableCatalog';
 import DialogCatalog from './DialogCatalog';
 import DrawerCatalog from './DrawerCatalog';
 import ElevationCatalog from './ElevationCatalog';
@@ -39,6 +40,9 @@ const routesList = [{
 }, {
   urlPath: 'chips',
   Component: ChipsCatalog,
+}, {
+  urlPath: 'data-table',
+  Component: DataTableCatalog,
 }, {
   urlPath: 'dialog',
   Component: DialogCatalog,

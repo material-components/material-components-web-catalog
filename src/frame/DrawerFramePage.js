@@ -152,7 +152,7 @@ class DrawerFramePage extends Component {
     if(type !== propToVariant.permanent) {
       return (
           <button
-              className='material-icons mdc-top-app-bar__navigation-icon'>menu</button>
+              className='mdc-icon-button material-icons mdc-top-app-bar__navigation-icon'>menu</button>
       )
     }
   }

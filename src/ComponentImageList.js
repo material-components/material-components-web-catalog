@@ -6,6 +6,7 @@ import buttonImg from './images/buttons_180px.svg';
 import cardsImg from './images/cards_180px.svg';
 import checkboxImg from './images/checkbox_180px.svg';
 import chipsImg from './images/chips_180px.svg';
+import dataTableImg from './images/data_table_180px.svg';
 import dialogImg from './images/dialog_180px.svg';
 import drawerImg from './images/drawer_180px.svg';
 import elevationImg from './images/elevation_180px.svg';
@@ -45,6 +46,7 @@ class ComponentImageList extends Component {
           {this.renderListItem('Card', cardsImg, 'card')}
           {this.renderListItem('Checkbox', checkboxImg, 'checkbox')}
           {this.renderListItem('Chips', chipsImg, 'chips')}
+          {this.renderListItem('Data Table', dataTableImg, 'data-table')}
           {this.renderListItem('Dialog', dialogImg, 'dialog')}
           {this.renderListItem('Drawer', drawerImg, 'drawer')}
           {this.renderListItem('Elevation', elevationImg, 'elevation')}
