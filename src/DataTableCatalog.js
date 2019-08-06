@@ -19,7 +19,7 @@ const DataTableCatalog = (props) => {
       title='Data Table'
       description='Data tables display information in a way that’s easy to scan, so that users can look for patterns and insights.'
       designLink='https://material.io/go/design-data-tables'
-      docsLink='https://material.io/components/web/catalog/data-table/'
+      docsLink='https://material.io/components/web/catalog/data-tables/'
       sourceLink='https://github.com/material-components/material-components-web/tree/master/packages/mdc-data-table'
       demos={<DataTableDemos />}
       {...props}
