@@ -41,7 +41,7 @@
     "html-webpack-exclude-assets-plugin": "0.0.7",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
-    "material-components-web": "^3.2.0",
+    "material-components-web": "^4.0.0",
     "object-assign": "4.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",

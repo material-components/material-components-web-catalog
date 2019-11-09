@@ -30,8 +30,12 @@ export class ChipsHero extends Component {
 
   renderChip(text) {
     return (
-      <div className='mdc-chip' tabIndex='0'>
+      <div className='mdc-chip' role='row'>
+        <div class='mdc-chip__ripple'></div>
         <div className='mdc-chip__text'>{text}</div>
+        <span role='gridcell'>
+          <span role='button' tabIndex='0' class='mdc-chip__text'>Chip Two</span>
+        </span>
       </div>
     );
   }
@@ -43,7 +47,7 @@ export class ChipsHero extends Component {
       }
     }
     return (
-      <div className='mdc-chip-set' ref={initChipSet}>
+      <div className='mdc-chip-set' role='grid' ref={initChipSet}>
         {this.renderChip('Chip One')}
         {this.renderChip('Chip Two')}
         {this.renderChip('Chip Three')}
@@ -65,7 +69,7 @@ class ChipsDemos extends Component {
 
   renderIcon(name, classes) {
     return (
-      <i className={`material-icons mdc-chip__icon ${classes}`}>
+      <i className={`material-icons mdc-chip__icon mdc-chip__icon--leading ${classes}`}>
         {name}
       </i>
     );
@@ -84,9 +88,9 @@ class ChipsDemos extends Component {
   // For choice and action chips
   renderChip(text, classes, leadingIcon) {
     return (
-      <div className={`mdc-chip ${classes}`} tabIndex='0'>
+      <div className={`mdc-chip ${classes}`} role='row'>
         {leadingIcon ? leadingIcon : ''}
-        <div className='mdc-chip__text'>{text}</div>
+        <span role='button' tabIndex='0' class='mdc-chip__text'>{text}</span>
       </div>
     );
   }
@@ -94,10 +98,10 @@ class ChipsDemos extends Component {
   // For filter chips
   renderFilterChip(text, classes, leadingIcon) {
     return (
-      <div className={`mdc-chip ${classes}`} tabIndex='0'>
+      <div className={`mdc-chip ${classes}`} role='row'>
         {leadingIcon}
         {this.renderFilterCheckmark()}
-        <div className='mdc-chip__text'>{text}</div>
+        <span role='button' tabIndex='0' class='mdc-chip__text'>{text}</span>
       </div>
     );
   }

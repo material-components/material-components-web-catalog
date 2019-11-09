@@ -94,6 +94,7 @@ class ListItem extends Component {
               </svg>
               <div className='mdc-checkbox__mixedmark'></div>
             </div>
+            <div className='mdc-checkbox__ripple'></div>
           </div>
       )
     }
@@ -114,6 +115,7 @@ class ListItem extends Component {
               <div className='mdc-radio__outer-circle'/>
               <div className='mdc-radio__inner-circle'/>
             </div>
+            <div className='mdc-radio__ripple  '></div>
           </div>
       )
     }

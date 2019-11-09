@@ -28,7 +28,7 @@ export const SnackbarHero = () => {
                  role='status'
                  aria-live='polite'>Can't send photo. Retry in 5 seconds.</div>
             <div className='mdc-snackbar__actions'>
-              <button type='button' className='mdc-button mdc-snackbar__action'>Retry</button>
+              <button type='button' className='mdc-button mdc-snackbar__action'><div className='mdc-button__ripple'></div>Retry</button>
               <button className='mdc-icon-button mdc-snackbar__dismiss material-icons' title='Dismiss'>close</button>
             </div>
           </div>
@@ -85,14 +85,17 @@ class SnackbarDemo extends Component {
     return (
       <div>
         <button className='mdc-button mdc-button--raised snackbar-demo-button' onClick={this.handleBaselineClick}>
-          Baseline
+        <div className='mdc-button__ripple'></div>
+        Baseline
         </button>
         <button className='mdc-button mdc-button--raised snackbar-demo-button'
                 onClick={this.handleLeadingClick}>
+          <div className='mdc-button__ripple'></div>
           Leading
         </button>
         <button className='mdc-button mdc-button--raised snackbar-demo-button'
                 onClick={this.handleStackedClick}>
+          <div className='mdc-button__ripple'></div>
           Stacked
         </button>
         <Snackbar isOpen={this.state.isBaselineOpen}
@@ -147,7 +150,10 @@ class Snackbar extends Component {
                role='status'
                aria-live='polite'>{this.props.labelText}</div>
           <div className='mdc-snackbar__actions'>
-            <button type='button' className='mdc-button mdc-snackbar__action'>{this.props.actionText}</button>
+            <button type='button' className='mdc-button mdc-snackbar__action'>
+              <div className='mdc-button__ripple'></div>
+              <div className='mdc-button__label'>{this.props.actionText}</div>
+            </button>
             <button className='mdc-icon-button mdc-snackbar__dismiss material-icons' title='Dismiss'>close</button>
           </div>
         </div>

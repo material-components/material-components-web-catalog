@@ -32,6 +32,7 @@ class Fab extends Component {
           if(fabEl) { this.ripple = new MDCRipple(fabEl); }
         }}
       >
+        <div className='mdc-fab__ripple'></div>
         {children}
       </button>
     );
