@@ -32,7 +32,7 @@ export class CheckboxHero extends Component {
   render() {
     return (
       <div>
-        <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
+        <div className='mdc-checkbox mdc-checkbox--selected demo-checkbox' ref={this.initCheckbox}>
           <input type='checkbox'
                  defaultChecked={true}
                  className='mdc-checkbox__native-control'/>
@@ -46,6 +46,7 @@ export class CheckboxHero extends Component {
             </svg>
             <div className='mdc-checkbox__mixedmark'></div>
           </div>
+          <div className='mdc-checkbox__ripple'></div>
         </div>
 
         <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
@@ -61,6 +62,7 @@ export class CheckboxHero extends Component {
             </svg>
             <div className='mdc-checkbox__mixedmark'></div>
           </div>
+          <div className='mdc-checkbox__ripple'></div>
         </div>
       </div>
     );
@@ -79,10 +81,15 @@ class CheckboxDemos extends Component {
   }
 
   renderCheckboxVariant(title, inputRefCallback) {
+    let classes = '';
+    if (title !== 'Unchecked') {
+      classes = 'mdc-checkbox--selected';
+    }
+
     return (
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
-        <div className='mdc-checkbox demo-checkbox' ref={this.initCheckbox}>
+        <div className={`mdc-checkbox ${classes} demo-checkbox`} ref={this.initCheckbox}>
           <input type='checkbox'
                  className='mdc-checkbox__native-control'
                  ref={inputRefCallback}/>
@@ -96,6 +103,7 @@ class CheckboxDemos extends Component {
             </svg>
             <div className='mdc-checkbox__mixedmark'></div>
           </div>
+          <div className='mdc-checkbox__ripple'></div>
         </div>
       </div>
     );

@@ -68,6 +68,7 @@ export class Radio extends Component {
           <div className='mdc-radio__outer-circle'/>
           <div className='mdc-radio__inner-circle'/>
         </div>
+        <div className='mdc-radio__ripple'></div>
       </div>
     )
   }

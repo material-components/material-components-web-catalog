@@ -89,16 +89,8 @@ const webpackLoaders = [
   // except for the assets used for the theme.
   {
     test: /\.scss$/,
-    exclude: /ThemeCatalog\.scss$/i,
     loader: mainExtractTextPlugin.extract(scssLoaders),
   },
-  // This loader is used to compile just the theme scss assets into a
-  // separate css file. This ensures that the theme styles don't conflict
-  // with the main app styles.
-  {
-    test: /ThemeCatalog\.scss$/i,
-    use: themeExtractTextPlugin.extract(scssLoaders),
-  }
 ];
 
 const webpackPlugins =  [

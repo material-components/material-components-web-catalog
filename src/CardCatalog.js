@@ -140,6 +140,7 @@ class CardActionButton extends Component {
       <button
         ref={(surfaceEl) => this.ripple = surfaceEl && new MDCRipple(surfaceEl)}
         className='mdc-button mdc-card__action mdc-card__action--button'>
+        <span className='mdc-button__ripple'></span>
         {this.props.text}
       </button>
     );

@@ -42,15 +42,19 @@ export class ButtonHeroLegacy extends Component {
     return (
       <div className='hero-button-container'>
         <button className='hero-button mdc-button' ref={this.initRipple} onClick={this.clickEvent}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Text</span>
         </button>
         <button className='hero-button mdc-button mdc-button--raised' ref={this.initRipple} onClick={this.clickEvent}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Raised</span>
         </button>
         <button className='hero-button mdc-button mdc-button--unelevated' ref={this.initRipple} onClick={this.clickEvent}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Unelevated</span>
         </button>
         <button className='hero-button mdc-button mdc-button--outlined' ref={this.initRipple} onClick={this.clickEvent}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Outlined</span>
         </button>
       </div>
@@ -82,6 +86,7 @@ class ButtonHero extends Component {
 
     return (
       <button className={className} ref={this.initRipple}>
+        <span className='mdc-button__ripple'></span>
         {this.props.config.options.label.value}
       </button>
     );
@@ -104,12 +109,15 @@ class ButtonDemos extends Component {
       <div>
         <h3 className='mdc-typography--subtitle1'>{title}</h3>
         <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Default</span>
         </button>
         <button className={`demo-button mdc-button mdc-button--dense ${variantClass}`} ref={this.initRipple}>
+          <span className='mdc-button__ripple'></span>
           <span className='mdc-button__label'>Dense</span>
         </button>
         <button className={`demo-button mdc-button ${variantClass}`} ref={this.initRipple}>
+          <span className='mdc-button__ripple'></span>
           <i className='material-icons mdc-button__icon'>favorite</i>
           <span className='mdc-button__label'>Icon</span>
         </button>

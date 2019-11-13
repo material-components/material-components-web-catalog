@@ -41,6 +41,7 @@ const Checkbox = (props) => {
         </svg>
         <div className='mdc-checkbox__mixedmark'></div>
       </div>
+      <div className='mdc-checkbox__ripple'></div>
     </div>
   );
 };

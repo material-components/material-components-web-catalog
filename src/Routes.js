@@ -24,7 +24,6 @@ import SnackbarCatalog from './SnackbarCatalog';
 import SwitchCatalog from './SwitchCatalog';
 import TabsCatalog from './TabsCatalog';
 import TextFieldCatalog from './TextFieldCatalog';
-import ThemeCatalog from './ThemeCatalog';
 import TopAppBarCatalog from './TopAppBarCatalog';
 import TypographyCatalog from './TypographyCatalog';
 
@@ -97,9 +96,6 @@ const routesList = [{
 }, {
   urlPath: 'text-field',
   Component: TextFieldCatalog,
-}, {
-  urlPath: 'theme',
-  Component: ThemeCatalog,
 }, {
   urlPath: 'top-app-bar',
   Component: TopAppBarCatalog,

@@ -26,7 +26,7 @@ export default class SelectOption extends Component {
         </li> : null}
         <li className='mdc-list-item catalog-tf-list-item'>
           <Select
-            variantClass='mdc-select--outlined'
+            outlined
             widthClass='hero-select'
             hasHeader={false}
             options={options}
