@@ -6,7 +6,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/runtime": "^7.2.0",
     "@material/react-chips": "^0.9.3",
-    "ajv": "^6.4.0",
+    "ajv": "^6.12.3",
     "autoprefixer": "7.1.6",
     "babel-core": "^6.26.3",
     "babel-eslint": "7.2.3",
